@@ -1,0 +1,75 @@
+[0KRunning with gitlab-runner 19.3.1 (5a2c8f3e)[0;m
+[0K  on fake-runner-03 Zx81kQe2W, system ID: s_7c1e0d9a2b44[0;m
+section_start:1759242180:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image python:3.12-slim ...[0;m
+[0KPulling docker image python:3.12-slim ...[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for python:3.12-slim with digest python@sha256:8e2a91 ...[0;m
+section_end:1759242184:prepare_executor[0K
+section_start:1759242184:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-zx81kqe2w-project-512-concurrent-0 via fake-runner-03...
+section_end:1759242185:prepare_script[0K
+section_start:1759242185:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Initialized empty Git repository in /builds/platform/invoice-api/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out ae38bb20 as detached HEAD (ref is refs/merge-requests/42/head)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1759242187:get_sources[0K
+section_start:1759242187:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for python:3.12-slim with digest python@sha256:8e2a91 ...[0;m
+[32;1m$ pip install pytest==8.3.3[0;m
+Collecting pytest==8.3.3
+  Downloading pytest-8.3.3-py3-none-any.whl.metadata (3.0 kB)
+Collecting iniconfig>=2.0.0
+  Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting packaging>=24.1
+  Downloading packaging-24.1-py3-none-any.whl.metadata (5.2 kB)
+Collecting pluggy>=1.5.0
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (3.8 kB)
+Downloading pytest-8.3.3-py3-none-any.whl (64 kB)
+   ---------------------------------------- 322.6/36.0 kB 10.3 MB/s eta 0:00:00
+Downloading iniconfig-2.0.0-py3-none-any.whl (139 kB)
+   ---------------------------------------- 278.9/33.8 kB 17.8 MB/s eta 0:00:00
+Downloading packaging-24.1-py3-none-any.whl (234 kB)
+   ---------------------------------------- 132.7/321.4 kB 5.2 MB/s eta 0:00:00
+Downloading pluggy-1.5.0-py3-none-any.whl (377 kB)
+   ---------------------------------------- 236.5/162.2 kB 18.5 MB/s eta 0:00:00
+Installing collected packages: pluggy, packaging, iniconfig, pytest
+Successfully installed pluggy-1.5.0 packaging-24.1 iniconfig-2.0.0 pytest-8.3.3
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 24.2 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+[32;1m$ python -m pytest -q[0;m
+.FF.                                                                     [100%]
+=================================== FAILURES ===================================
+_____________________ LateFeeTests.test_fee_accrues_daily ______________________
+
+self = <tests.test_late_fees.LateFeeTests testMethod=test_fee_accrues_daily>
+
+    def test_fee_accrues_daily(self):
+        # 15 days late = 10 billable days * 0.05% * 1000.00
+>       self.assertEqual(late_fee(Decimal("1000.00"), 15), Decimal("5.00"))
+E       AssertionError: Decimal('100.00') != Decimal('5.00')
+
+tests/test_late_fees.py:13: AssertionError
+_______________________ LateFeeTests.test_fee_is_capped ________________________
+
+self = <tests.test_late_fees.LateFeeTests testMethod=test_fee_is_capped>
+
+    def test_fee_is_capped(self):
+        # 400 days late would be 197.50, but the cap is 10% = 100.00
+>       self.assertEqual(late_fee(Decimal("1000.00"), 400), Decimal("100.00"))
+E       AssertionError: Decimal('197.50') != Decimal('100.00')
+
+tests/test_late_fees.py:17: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_late_fees.py::LateFeeTests::test_fee_accrues_daily - AssertionError: Decimal('100.00') != Decimal('5.00')
+FAILED tests/test_late_fees.py::LateFeeTests::test_fee_is_capped - AssertionError: Decimal('197.50') != Decimal('100.00')
+2 failed, 2 passed in 0.04s
+section_end:1759242211:step_script[0K
+section_start:1759242211:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1759242212:cleanup_file_variables[0K
+[31;1mERROR: Job failed: exit code 1
+[0;m

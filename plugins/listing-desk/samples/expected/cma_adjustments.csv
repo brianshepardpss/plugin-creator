@@ -1,0 +1,31 @@
+Comp,ListingId,Address,Item,Subject,Comp value,Difference,Rate,Amount
+1,CH26-1010,88 Thistle Ct,Net price,,,,,386250.0
+1,CH26-1010,88 Thistle Ct,Living area,2150.0,2120.0,30.0,$60 per sqft,1800
+1,CH26-1010,88 Thistle Ct,Lot size,0.22,0.23,-0.01,"$20,000 per acre",-200
+1,CH26-1010,88 Thistle Ct,Adjusted price,,,,,387850.0
+2,CH26-1005,150 Larkspur Dr,Net price,,,,,388000.0
+2,CH26-1005,150 Larkspur Dr,Living area,2150.0,2190.0,-40.0,$60 per sqft,-2400
+2,CH26-1005,150 Larkspur Dr,Adjusted price,,,,,385600.0
+3,CH26-1001,118 Bramble Way,Net price,,,,,380000.0
+3,CH26-1001,118 Bramble Way,Living area,2150.0,2080.0,70.0,$60 per sqft,4200
+3,CH26-1001,118 Bramble Way,Year built,2008.0,2007.0,1.0,"$1,000 per year",1000
+3,CH26-1001,118 Bramble Way,Lot size,0.22,0.2,0.02,"$20,000 per acre",400
+3,CH26-1001,118 Bramble Way,Adjusted price,,,,,385600.0
+4,CH26-1002,204 Bramble Way,Net price,,,,,402500.0
+4,CH26-1002,204 Bramble Way,Living area,2150.0,2240.0,-90.0,$60 per sqft,-5400
+4,CH26-1002,204 Bramble Way,Year built,2008.0,2009.0,-1.0,"$1,000 per year",-1000
+4,CH26-1002,204 Bramble Way,Lot size,0.22,0.24,-0.02,"$20,000 per acre",-400
+4,CH26-1002,204 Bramble Way,Adjusted price,,,,,395700.0
+5,CH26-1006,9 Fennel Pl,Net price,,,,,379500.0
+5,CH26-1006,9 Fennel Pl,Living area,2150.0,2050.0,100.0,$60 per sqft,6000
+5,CH26-1006,9 Fennel Pl,Half baths,1.0,0.0,1.0,"$3,000 per half bath",3000
+5,CH26-1006,9 Fennel Pl,Year built,2008.0,2007.0,1.0,"$1,000 per year",1000
+5,CH26-1006,9 Fennel Pl,Lot size,0.22,0.21,0.01,"$20,000 per acre",200
+5,CH26-1006,9 Fennel Pl,Adjusted price,,,,,389700.0
+6,CH26-1003,31 Thistle Ct,Net price,,,,,367500.0
+6,CH26-1003,31 Thistle Ct,Living area,2150.0,1960.0,190.0,$60 per sqft,11400
+6,CH26-1003,31 Thistle Ct,Bedrooms,4.0,3.0,1.0,"$7,500 per bedroom",7500
+6,CH26-1003,31 Thistle Ct,Half baths,1.0,0.0,1.0,"$3,000 per half bath",3000
+6,CH26-1003,31 Thistle Ct,Year built,2008.0,2006.0,2.0,"$1,000 per year",2000
+6,CH26-1003,31 Thistle Ct,Lot size,0.22,0.19,0.03,"$20,000 per acre",600
+6,CH26-1003,31 Thistle Ct,Adjusted price,,,,,392000.0

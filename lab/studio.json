@@ -1,0 +1,135 @@
+{
+  "owner": "brianshepardpss",
+  "plugins": [
+    {
+      "name": "plugin-creator",
+      "repo": "plugin-creator-plugin",
+      "launched": null,
+      "thresholds": {
+        "cloners": 300,
+        "stars": 50,
+        "requests": 3
+      }
+    },
+    {
+      "name": "plugin-studio",
+      "repo": "plugin-studio",
+      "launched": null,
+      "thresholds": {
+        "cloners": 100,
+        "stars": 25,
+        "requests": 5
+      }
+    },
+    {
+      "name": "make-my-plugin",
+      "repo": "make-my-plugin",
+      "launched": null,
+      "thresholds": {
+        "cloners": 75,
+        "stars": 15,
+        "requests": 10
+      }
+    },
+    {
+      "name": "grounded-scala",
+      "repo": "grounded-scala",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      }
+    },
+    {
+      "name": "analyzer-loop",
+      "repo": "analyzer-loop",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      }
+    },
+    {
+      "name": "merge-medic",
+      "repo": "merge-medic",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 5
+      }
+    },
+    {
+      "name": "helpdesk",
+      "repo": "helpdesk",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 100,
+        "requests": 15
+      }
+    },
+    {
+      "name": "structured-hiring",
+      "repo": "structured-hiring",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      }
+    },
+    {
+      "name": "deal-tender",
+      "repo": "deal-tender",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      }
+    },
+    {
+      "name": "listing-desk",
+      "repo": "listing-desk",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      }
+    },
+    {
+      "name": "construction-pm",
+      "repo": "construction-pm",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 5
+      }
+    },
+    {
+      "name": "restaurant-ops",
+      "repo": "restaurant-ops",
+      "launched": null,
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      }
+    },
+    {
+      "name": "grant-desk",
+      "repo": "grant-desk",
+      "launched": null,
+      "thresholds": {
+        "cloners": 50,
+        "stars": 15,
+        "requests": 3
+      }
+    }
+  ]
+}

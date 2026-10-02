@@ -1,0 +1,101 @@
+files changed: 4 (reviewing 4, skipped 0)
+  invoice_api/export.py  +7 -2  (modified)
+  invoice_api/late_fees.py  +21 -0  (new file)
+  tests/test_export.py  +3 -3  (modified)
+  tests/test_late_fees.py  +21 -0  (new file)
+changed lines to review: 57 (budget 1500)
+
+=== invoice_api/export.py (modified) ===
+  NEW   OLD  text
+@@ -5,7 +5,9 @@ from datetime import date
+    5     5  from decimal import Decimal
+    6     6  from typing import Iterable, TextIO
+    7     7  
+          8 -COLUMNS = ["invoice_id", "customer", "due_date", "amount_due"]
+    8       +from invoice_api.late_fees import late_fee
+    9       +
+   10       +COLUMNS = ["invoice_id", "customer", "due_date", "amount_due", "late_fee"]
+   11     9  
+   12    10  
+   13    11  @dataclass
+@@ -22,7 +24,10 @@ def write_csv(invoices: Iterable[Invoice], out: TextIO) -> int:
+   24    22      writer.writerow(COLUMNS)
+   25    23      rows = 0
+   26    24      for inv in invoices:
+   27       +        days_late = (date.today() - inv.due_date).days
+   28       +        fee = late_fee(inv.amount_due, days_late)
+   29    25          writer.writerow([inv.invoice_id, inv.customer,
+         26 -                         inv.due_date.isoformat(), f"{inv.amount_due:.2f}"])
+   30       +                         inv.due_date.isoformat(), f"{inv.amount_due:.2f}",
+   31       +                         "%.2f" % float(fee)])
+   32    27          rows += 1
+   33    28      return rows
+
+=== invoice_api/late_fees.py (new file) ===
+  NEW   OLD  text
+@@ -0,0 +1,21 @@
+    1       +"""Late-fee calculation for overdue invoices."""
+    2       +from decimal import ROUND_HALF_UP, Decimal
+    3       +
+    4       +GRACE_DAYS = 5
+    5       +DAILY_RATE = Decimal("0.0005")  # 0.05% of the amount due per day late
+    6       +FEE_CAP = Decimal("0.10")  # never charge more than 10% of the amount due
+    7       +CENT = Decimal("0.01")
+    8       +
+    9       +
+   10       +def late_fee(amount_due: Decimal, days_late: int) -> Decimal:
+   11       +    """Return the late fee for an invoice that is `days_late` days overdue.
+   12       +
+   13       +    No fee inside the grace period. After it, the fee accrues daily and is
+   14       +    capped at FEE_CAP of the amount due.
+   15       +    """
+   16       +    if days_late <= GRACE_DAYS:
+   17       +        return Decimal("0.00")
+   18       +    billable_days = days_late - GRACE_DAYS
+   19       +    fee = amount_due * DAILY_RATE * billable_days
+   20       +    capped = max(fee, amount_due * FEE_CAP)
+   21       +    return capped.quantize(CENT, rounding=ROUND_HALF_UP)
+
+=== tests/test_export.py (modified) ===
+  NEW   OLD  text
+@@ -9,12 +9,12 @@ from invoice_api.export import Invoice, write_csv
+    9     9  class ExportTests(unittest.TestCase):
+   10    10      def test_header_and_row(self):
+   11    11          buf = io.StringIO()
+         12 -        n = write_csv([Invoice("INV-1001", "Acme Fake Foods", date(2026, 9, 1),
+   12       +        n = write_csv([Invoice("INV-1001", "Acme Fake Foods", date.today(),
+   13    13                                 Decimal("250.00"))], buf)
+   14    14          self.assertEqual(n, 1)
+   15    15          lines = buf.getvalue().splitlines()
+         16 -        self.assertEqual(lines[0], "invoice_id,customer,due_date,amount_due")
+         17 -        self.assertEqual(lines[1], "INV-1001,Acme Fake Foods,2026-09-01,250.00")
+   16       +        self.assertEqual(lines[0], "invoice_id,customer,due_date,amount_due,late_fee")
+   17       +        self.assertTrue(lines[1].endswith(",250.00,0.00"))
+   18    18  
+   19    19  
+   20    20  if __name__ == "__main__":
+
+=== tests/test_late_fees.py (new file) ===
+  NEW   OLD  text
+@@ -0,0 +1,21 @@
+    1       +import unittest
+    2       +from decimal import Decimal
+    3       +
+    4       +from invoice_api.late_fees import late_fee
+    5       +
+    6       +
+    7       +class LateFeeTests(unittest.TestCase):
+    8       +    def test_no_fee_inside_grace_period(self):
+    9       +        self.assertEqual(late_fee(Decimal("1000.00"), 5), Decimal("0.00"))
+   10       +
+   11       +    def test_fee_accrues_daily(self):
+   12       +        # 15 days late = 10 billable days * 0.05% * 1000.00
+   13       +        self.assertEqual(late_fee(Decimal("1000.00"), 15), Decimal("5.00"))
+   14       +
+   15       +    def test_fee_is_capped(self):
+   16       +        # 400 days late would be 197.50, but the cap is 10% = 100.00
+   17       +        self.assertEqual(late_fee(Decimal("1000.00"), 400), Decimal("100.00"))
+   18       +
+   19       +
+   20       +if __name__ == "__main__":
+   21       +    unittest.main()

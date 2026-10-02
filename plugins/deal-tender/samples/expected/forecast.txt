@@ -1,0 +1,25 @@
+DealTender forecast 2026 Q4 (2026-10-01 to 2026-12-31) - as of 2026-10-05 (Monday)
+Source: deals_export.csv (bundled sample, fictional)
+Probability = deal probability if set, else stage probability. Commit = probability >= 80%.
+Open deals counted: expected close on or after today and inside the period.
+
+Currency | Open deals | Best case | Weighted | Commit (deals) | Won in period (deals)
+EUR | 4 | 114,000.00 | 52,000.00 | 0.00 (0) | 0.00 (0)
+GBP | 3 | 28,600.00 | 11,440.00 | 0.00 (0) | 12,000.00 (1)
+USD | 18 | 555,500.00 | 370,900.00 | 240,000.00 (4) | 0.00 (0)
+
+In USD (fx from settings: 1 EUR = 1.1 USD, 1 GBP = 1.3 USD): best case 718,080.00 | weighted 442,972.00 | commit 240,000.00 | won 15,600.00
+
+Slipped (still open, expected close already passed): 3
+  109 | Northwind Traders - Inventory Sync | was 2026-09-29 (6 days ago) | 54,000.00 USD
+  110 | Summit Outdoor - Ecommerce Replatform | was 2026-09-23 (12 days ago) | 41,000.00 USD
+  111 | Riverside Clinic - Scheduling Suite | was 2026-10-02 (3 days ago) | 18,000.00 GBP
+Open deals closing after 2026-12-31: 4
+
+Movement since deals_export_prev.csv
+  New deals: 132 Tidewater Marine - Parts Catalog (11,000.00 USD)
+  Won: 137 Sparrow Analytics - Pilot (12,000.00 GBP)
+  Lost: 138 Crestline Motors - Service Portal (30,000.00 USD) - Went with competitor
+  Stage moves: 122 Granite Peak Insurance - Claims Intake: Proposal Made -> Negotiation
+  Value changes: 129 Stonegate Builders - Bid Tracker: 42,000.00 -> 47,000.00 USD (+5,000.00)
+  Close date changes: 103 Initech - Payroll Integration: 2026-10-09 -> 2026-10-25; 131 Brightwater Utilities - Outage Map: 2026-11-20 -> 2026-12-15

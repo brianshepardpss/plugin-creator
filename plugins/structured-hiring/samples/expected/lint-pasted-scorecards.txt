@@ -1,0 +1,6 @@
+Fairness lint (feedback): 2 flag(s). Flags mean 'a human should look', not 'this is biased'.
+
+| Sev | Line | Category | Phrase | Why | Suggested fix |
+|---|---|---|---|---|---|
+| high | 13 | national-origin | "accent" | National origin, ancestry or language-origin remark. | Assess communication against the rubric (clarity, structure), not accent, language origin or birthplace. Postings may require 'fluent' or 'professional' English if the job needs it. |
+| medium | 13 | culture-fit | "culture fit" | 'Culture fit' and gut-feel remarks are not job-related and are a common proxy for similarity bias. | Replace with evidence against a named competency, or with 'values alignment' tied to a written value. |

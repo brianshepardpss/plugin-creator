@@ -1,0 +1,23 @@
+== job 90304 deploy-review (failure_reason: script_failure) ==
+log: 33 lines -> 12 shown; failed in section: step_script
+failing command: helm upgrade --install invoice-api charts/invoice-api -f charts/invoice-api/values-review.yaml --namespace review-frontend-deps
+exit code: 1
+class hint: config (CI / YAML / deploy config error; first match at line 27)
+retry may help: no (fix the cause first)
+other signals: none
+secrets masked: 0
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-18 omitted ...]
+    19 | Executing "step_script" stage of the job script
+    20 | Using docker image sha256:4c6d1f0e2a for alpine/helm:3.16.1 with digest alpine/helm@sha256:8e2a91 ...
+    21 | $ helm lint charts/invoice-api
+    22 | ==> Linting charts/invoice-api
+    23 | [INFO] Chart.yaml: icon is recommended
+    24 | 
+    25 | 1 chart(s) linted, 0 chart(s) failed
+    26 | $ helm upgrade --install invoice-api charts/invoice-api -f charts/invoice-api/values-review.yaml --namespace review-frontend-deps
+    27 | Error: UPGRADE FAILED: YAML parse error on invoice-api/templates/deployment.yaml: error converting YAML to JSON: yaml: line 31: mapping values are not allowed in this context
+    28 | helm.go:86: [debug] error converting YAML to JSON: yaml: line 31: mapping values are not allowed in this context
+    29 | YAML parse error on invoice-api/templates/deployment.yaml
+       | [... lines 30-32 omitted ...]
+    33 | ERROR: Job failed: exit code 1

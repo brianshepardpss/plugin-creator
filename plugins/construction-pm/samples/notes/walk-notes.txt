@@ -1,0 +1,17 @@
+Walk notes - Marlowe Creek Clinic TI (FICTIONAL)  - Tue 9/29/26 - D. Okafor (PE)
+
+- corridor 100 layout looks good, framing starts monday
+- frames delivered for 101-107, staged in rm 108. checked against A-601 frame schedule.
+- DOOR 104 (med room): hdwr set HW-3 per spec 08 71 00 calls for electrified mortise
+  lock + EPT (elec power transfer). Frame schedule on A-601 shows door 104 frame type F1
+  = standard HM frame, no EPT prep, no reinforcing called out. Frame that showed up for
+  104 has no EPT prep either. door 106 same set HW-3 and A-601 shows F3 which DOES have
+  EPT prep note. so 104 looks like a drawing conflict not a fab error.
+  -> need RFI. frames go in week of 10/12. if we have to field-prep or swap the frame
+  that's $ and maybe a few days. hardware sub (Tidewater Openings - fake) says EPT lead
+  time is long so dont want to wait on this.
+  proposed fix: revise 104 to frame type F3 (same as 106) and we get the frame shop to
+  prep it before install. or field prep by the HM supplier.
+- rm 112 ceiling ht on A-301 says 9'-0" but RCP A-401 says 8'-6". check w/ arch, maybe
+  separate RFI. not urgent, grid is in Dec.
+- dumpster swap fri.

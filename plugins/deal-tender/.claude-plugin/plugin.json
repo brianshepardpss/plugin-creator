@@ -1,0 +1,26 @@
+{
+  "name": "deal-tender",
+  "displayName": "DealTender",
+  "version": "0.1.0",
+  "description": "Pipeline triage, call logging, forecast briefs and meeting prep for Pipedrive users: ranks stale deals, drafts follow-ups, and proposes CRM updates you approve. Try it on a CSV export, no login.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "pipedrive",
+    "crm",
+    "sales",
+    "pipeline",
+    "forecast",
+    "follow-up",
+    "smb"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/deal-tender",
+  "repository": "https://github.com/brianshepardpss/deal-tender"
+}

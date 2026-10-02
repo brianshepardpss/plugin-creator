@@ -1,0 +1,3654 @@
+[
+  {
+    "terms": [
+      "visual studio",
+      "visual studio 2026"
+    ],
+    "github_issues": {
+      "count": 50,
+      "reactions": 715,
+      "top": [
+        {
+          "title": "Add support for Visual Studio 2026 Integration",
+          "url": "https://github.com/anthropics/claude-code/issues/15942",
+          "state": "open",
+          "reactions": 570
+        },
+        {
+          "title": "[BUG] Terminal Scrollback Buffer Rewind Lag in Claude Code + Tmux + Visual Studio Code After Extended Use",
+          "url": "https://github.com/anthropics/claude-code/issues/4851",
+          "state": "open",
+          "reactions": 97
+        },
+        {
+          "title": "[BUG] Claude Code crashes with Bun panic in Visual Studio Code on Windows 11",
+          "url": "https://github.com/anthropics/claude-code/issues/19666",
+          "state": "open",
+          "reactions": 19
+        },
+        {
+          "title": "[FEATURE] Support for Visual Studio Code \"Next Edit Suggestions\"",
+          "url": "https://github.com/anthropics/claude-code/issues/29978",
+          "state": "closed",
+          "reactions": 10
+        },
+        {
+          "title": "MacOS Copilot Visual Studio Code Agent Mode - sequencialthinking",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/1752",
+          "state": "open",
+          "reactions": 7
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 4,
+      "points": 238,
+      "top": [
+        {
+          "title": "Microsoft Favors Anthropic over OpenAI for Visual Studio Code",
+          "points": 213,
+          "url": "https://news.ycombinator.com/item?id=45263063"
+        },
+        {
+          "title": "Show HN: Claude Code for Visual Studio (native diff with accept/reject)",
+          "points": 20,
+          "url": "https://news.ycombinator.com/item?id=48548381"
+        },
+        {
+          "title": "Claude 3.5 Sonnet Added to Visual Studio Code",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=42529323"
+        },
+        {
+          "title": "Show HN: I gave Claude Code the keys to the Visual Studio debugger",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=48647274"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 4,
+      "top": [
+        "@al3xisdani3l/smart-vs-mcp",
+        "@enarbona/memorymcp-hooks",
+        "@effectorhq/studio",
+        "atlas-architecture-mcp"
+      ]
+    },
+    "score": {
+      "demand": 13.24,
+      "supply": 0.8,
+      "gap": 12.44,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "github actions"
+    ],
+    "github_issues": {
+      "count": 39,
+      "reactions": 246,
+      "top": [
+        {
+          "title": "[BUG] github-actions incorrectly closed a bunch of issues for \"60 days of inactivity\"",
+          "url": "https://github.com/anthropics/claude-code/issues/16497",
+          "state": "closed",
+          "reactions": 238
+        },
+        {
+          "title": "MCP_TIMEOUT ignored in GitHub Actions \u2014 forces slow pre-install workaround",
+          "url": "https://github.com/anthropics/claude-code/issues/42770",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "CI monitoring panel shows all zeros despite GitHub Actions checks passing",
+          "url": "https://github.com/anthropics/claude-code/issues/32084",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "GitHub Actions: Missing Commit for New Files in Claude Workflow",
+          "url": "https://github.com/anthropics/claude-code/issues/1270",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "[BUG] Github Actions: claude-dedupe-issues.yml is failing",
+          "url": "https://github.com/anthropics/claude-code/issues/17915",
+          "state": "closed",
+          "reactions": 1
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 12,
+      "points": 32,
+      "top": [
+        {
+          "title": "I accidentally prompt-injected myself using Claude Code GitHub Actions:-S",
+          "points": 8,
+          "url": "https://news.ycombinator.com/item?id=44527916"
+        },
+        {
+          "title": "Auto-generating pull request documentation with Claude Code and GitHub Actions",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=44081735"
+        },
+        {
+          "title": "Anatomy of a GitHub Actions Supply Chain Attack Targeting MCP Repos",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=47688841"
+        },
+        {
+          "title": "Show HN: Read-it-later app in days \u2013 Claude and GitHub Actions workflow",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=47246842"
+        },
+        {
+          "title": "Show HN: I built a Cargo supply chain auditor using Claude and GitHub Actions",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=47615693"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "mimirs402/bountyverdict",
+          "uses": 10
+        },
+        {
+          "name": "cristianmoroaica/bountyverdict",
+          "uses": 18
+        }
+      ]
+    },
+    "npm": {
+      "count": 30,
+      "top": [
+        "@agimon-ai/workflow-mcp",
+        "github-actions-mcp",
+        "knownfix",
+        "mcp-server-github-actions",
+        "@htekdev/actions-debugger"
+      ]
+    },
+    "score": {
+      "demand": 10.95,
+      "supply": 2.82,
+      "gap": 8.13,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "1password"
+    ],
+    "github_issues": {
+      "count": 15,
+      "reactions": 53,
+      "top": [
+        {
+          "title": "Support 1Password op:// secret references in settings.json env section",
+          "url": "https://github.com/anthropics/claude-code/issues/23642",
+          "state": "open",
+          "reactions": 25
+        },
+        {
+          "title": "SSH: CC_ENV_EXTRACT_LIST missing SSH_AUTH_SOCK breaks 1Password SSH agent",
+          "url": "https://github.com/anthropics/claude-code/issues/29717",
+          "state": "closed",
+          "reactions": 25
+        },
+        {
+          "title": "[FEATURE] Opt-in for credential/payment entry on the user's own accounts, and 1Password-style credential handoff in Claude Code",
+          "url": "https://github.com/anthropics/claude-code/issues/96762",
+          "state": "open",
+          "reactions": 1
+        },
+        {
+          "title": "Support secret manager references (e.g. 1Password op://) in MCP config and preserve user-defined claude() shell functions",
+          "url": "https://github.com/anthropics/claude-code/issues/35154",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "Plugin marketplace add fails to clone repository when 1Password SSH agent is configured",
+          "url": "https://github.com/anthropics/claude-code/issues/23535",
+          "state": "closed",
+          "reactions": 1
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 8,
+      "points": 65,
+      "top": [
+        {
+          "title": "1Password for Claude: Give Claude access without giving up your credentials",
+          "points": 28,
+          "url": "https://news.ycombinator.com/item?id=48936522"
+        },
+        {
+          "title": "Why 1Password hasn't released an MCP server",
+          "points": 15,
+          "url": "https://news.ycombinator.com/item?id=44588660"
+        },
+        {
+          "title": "1Password MCP Server for OpenAI Codex",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=48223443"
+        },
+        {
+          "title": "Claude can now use your 1Password credentials for you",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=48935507"
+        },
+        {
+          "title": "Ask HN: Would you pay for a 1Password-like service for email?",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=1139697"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 18,
+      "top": [
+        "@takescake/1password-mcp",
+        "onepassword-mcp-server",
+        "opencode-1password-auth",
+        "onepassword-agent-mcp",
+        "@mcp-consultant-tools/1password"
+      ]
+    },
+    "score": {
+      "demand": 8.86,
+      "supply": 1.47,
+      "gap": 7.38,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "gmail"
+    ],
+    "github_issues": {
+      "count": 179,
+      "reactions": 305,
+      "top": [
+        {
+          "title": "Support multiple Gmail accounts in MCP integration",
+          "url": "https://github.com/anthropics/claude-code/issues/36024",
+          "state": "open",
+          "reactions": 83
+        },
+        {
+          "title": "Allow hiding/removing unused cloud connectors (Gmail, Google Calendar, etc.)",
+          "url": "https://github.com/anthropics/claude-code/issues/29368",
+          "state": "closed",
+          "reactions": 66
+        },
+        {
+          "title": "[FEATURE] Gmail MCP Connector: Add gmail_modify_labels tool for archiving, labeling, and inbox management",
+          "url": "https://github.com/anthropics/claude-code/issues/36547",
+          "state": "open",
+          "reactions": 41
+        },
+        {
+          "title": "[FEATURE] Gmail MCP Connector: Add file attachment support to gmail_create_draft and add gmail_send_draft tool",
+          "url": "https://github.com/anthropics/claude-code/issues/28575",
+          "state": "open",
+          "reactions": 33
+        },
+        {
+          "title": "claude.ai Gmail MCP regression: create_draft missing threadId parameter",
+          "url": "https://github.com/anthropics/claude-code/issues/45775",
+          "state": "open",
+          "reactions": 25
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 17,
+      "points": 57,
+      "top": [
+        {
+          "title": "Show HN: Housecat.com \u2013 Gmail + durable workflows + sandbox VM",
+          "points": 15,
+          "url": "https://news.ycombinator.com/item?id=49006149"
+        },
+        {
+          "title": "Show HN: Manage Gmail with Voice While Driving",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=44437472"
+        },
+        {
+          "title": "Show HN: MCP Agent Mail, Like Gmail for Coding Agents",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=45720416"
+        },
+        {
+          "title": "Gmail label bridge on Claude Cowork just broke",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=47811466"
+        },
+        {
+          "title": "Show HN: A CLI for ADHD Productivity, Aggregates Gmail, Calendar, GitHub",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=46365947"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 19,
+      "top": [
+        {
+          "name": "gmail",
+          "uses": 57738
+        },
+        {
+          "name": "bjellanda/mcpemails",
+          "uses": 2
+        },
+        {
+          "name": "node2flow/gmail-mcp",
+          "uses": 36
+        },
+        {
+          "name": "signatoro/signatoro",
+          "uses": 0
+        },
+        {
+          "name": "powerline/inbox-preview",
+          "uses": 11
+        }
+      ]
+    },
+    "npm": {
+      "count": 219,
+      "top": [
+        "@gongrzhe/server-gmail-autoauth-mcp",
+        "@shinzolabs/gmail-mcp",
+        "gmail-mcp-multiauth",
+        "gogcli-mcp-gmail",
+        "@artymclabin/gmail-mcp"
+      ]
+    },
+    "score": {
+      "demand": 12.95,
+      "supply": 5.69,
+      "gap": 7.25,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "zig"
+    ],
+    "github_issues": {
+      "count": 4,
+      "reactions": 24,
+      "top": [
+        {
+          "title": "New 'native' installer: Bun/Zig hype train delivers 2010 anti-patterns: no version control, rollbacks, or professional package management",
+          "url": "https://github.com/anthropics/claude-code/issues/20044",
+          "state": "closed",
+          "reactions": 22
+        },
+        {
+          "title": "[Feature Request] Add Zig language syntax highlighting support",
+          "url": "https://github.com/anthropics/claude-code/issues/15175",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "[BUG] Native Claude binary (built with Bun/Zig) completely breaks patchelf and dynamic loader behavior\u3002FUCK",
+          "url": "https://github.com/anthropics/claude-code/issues/11179",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "[FEATURE] Add Zig syntax highlighting for code blocks (ready-made grammar: highlightjs-zig)",
+          "url": "https://github.com/anthropics/claude-code/issues/79605",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 23,
+      "points": 237,
+      "top": [
+        {
+          "title": "Memory-mapped IO registers in zig (2021)",
+          "points": 69,
+          "url": "https://news.ycombinator.com/item?id=40130371"
+        },
+        {
+          "title": "Show HN: MCP server for up-to-date Zig standard library documentation",
+          "points": 27,
+          "url": "https://news.ycombinator.com/item?id=44634688"
+        },
+        {
+          "title": "Show HN: Ordered \u2013 A sorted collection library for Zig",
+          "points": 21,
+          "url": "https://news.ycombinator.com/item?id=45729457"
+        },
+        {
+          "title": "Show HN: 2.7KB Zig WASM \u2013 live globe showing executions at 300 CF edges",
+          "points": 20,
+          "url": "https://news.ycombinator.com/item?id=47563325"
+        },
+        {
+          "title": "Show HN: I rawdog a MCP server from scratch in Zig. No SDK",
+          "points": 15,
+          "url": "https://news.ycombinator.com/item?id=44380269"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "recursive/dezignworks",
+          "uses": 201
+        }
+      ]
+    },
+    "npm": {
+      "count": 20,
+      "top": [
+        "csvql-query",
+        "zig-mcp",
+        "@ray0404/zig-audio-mcp",
+        "@mindflight/ghostcrab-personal-mcp",
+        "codedeebee"
+      ]
+    },
+    "score": {
+      "demand": 7.56,
+      "supply": 2.22,
+      "gap": 5.35,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "elixir",
+      "phoenix"
+    ],
+    "github_issues": {
+      "count": 3,
+      "reactions": 5,
+      "top": [
+        {
+          "title": "[FEATURE] Add hex.pm to allowed network domains for Elixir/Phoenix development",
+          "url": "https://github.com/anthropics/claude-code/issues/16319",
+          "state": "closed",
+          "reactions": 3
+        },
+        {
+          "title": "Improve sandbox support for erlang / elixir",
+          "url": "https://github.com/anthropics/claude-code/issues/55000",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "[BUG] No syntax highlighting for Elixir (.ex/.exs) files",
+          "url": "https://github.com/anthropics/claude-code/issues/62001",
+          "state": "closed",
+          "reactions": 1
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 21,
+      "points": 567,
+      "top": [
+        {
+          "title": "Show HN: Jido 2.0, Elixir Agent Framework",
+          "points": 323,
+          "url": "https://news.ycombinator.com/item?id=47263036"
+        },
+        {
+          "title": "Parallel Map in Elixir",
+          "points": 107,
+          "url": "https://news.ycombinator.com/item?id=9373262"
+        },
+        {
+          "title": "Show HN: es6_maps, new Elixir syntax feature via runtime compiler hacking",
+          "points": 71,
+          "url": "https://news.ycombinator.com/item?id=40333500"
+        },
+        {
+          "title": "Show HN: Elixir Coherence \u2013 Authentication Similar to Ruby\u2019s Devise",
+          "points": 9,
+          "url": "https://news.ycombinator.com/item?id=12162635"
+        },
+        {
+          "title": "Building an MCP Server in Elixir",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=45606717"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "withdoorman/doorman",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 8,
+      "top": [
+        "@mind-elixir/mcp",
+        "@pipeworx/mcp-hex-pm",
+        "hex-mcp",
+        "create-better-fullstack",
+        "webbersites-x402-mcp"
+      ]
+    },
+    "score": {
+      "demand": 6.35,
+      "supply": 1.79,
+      "gap": 4.56,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "outlook",
+      "microsoft 365"
+    ],
+    "github_issues": {
+      "count": 12,
+      "reactions": 29,
+      "top": [
+        {
+          "title": "MCP claude.ai Microsoft 365 connector rejects personal Microsoft accounts (Hotmail/Outlook.com/Live)",
+          "url": "https://github.com/anthropics/claude-code/issues/53408",
+          "state": "open",
+          "reactions": 29
+        },
+        {
+          "title": "claude-in-chrome: `type` silently drops leading characters and `form_input` silently no-ops on Outlook Web recipient field",
+          "url": "https://github.com/anthropics/claude-code/issues/90192",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Windows desktop: Microsoft 365 connector reports connected but its Outlook draft/write tools vanish across sessions for days; only disable/re-enable restores them",
+          "url": "https://github.com/anthropics/claude-code/issues/97376",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Microsoft 365\u30b3\u30cd\u30af\u30bf\u306bOutlook\u30ab\u30ec\u30f3\u30c0\u30fc\u4e88\u5b9a\u306e\u524a\u9664\u6a5f\u80fd(delete_event)\u3092\u8ffd\u52a0\u3057\u3066\u307b\u3057\u3044",
+          "url": "https://github.com/anthropics/claude-code/issues/94233",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Claude crashes, removes itself and my outlook from my tabs? Need to deinstall and reinstall for it to work again. But my Claude Code convo is gone.",
+          "url": "https://github.com/anthropics/claude-code/issues/91089",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 13,
+      "points": 362,
+      "top": [
+        {
+          "title": "Why does Outlook map Ctrl+F to Forward instead of Find?",
+          "points": 296,
+          "url": "https://news.ycombinator.com/item?id=8036519"
+        },
+        {
+          "title": "Why does Outlook map Ctrl+F to Forward instead of Find",
+          "points": 30,
+          "url": "https://news.ycombinator.com/item?id=32588431"
+        },
+        {
+          "title": "Show HN: The MCP Client for Outlook",
+          "points": 8,
+          "url": "https://news.ycombinator.com/item?id=44442718"
+        },
+        {
+          "title": "US tech jobs outlook clouded by DOGE cuts, Trump tariffs",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=43402984"
+        },
+        {
+          "title": "Ask HN: Can't a developer publish add-on for Outlook in Microsoft Marketplace?",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=48427735"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 12,
+      "top": [
+        {
+          "name": "outlook",
+          "uses": 3559
+        },
+        {
+          "name": "powerline/inbox-preview",
+          "uses": 11
+        },
+        {
+          "name": "signatoro/signatoro",
+          "uses": 0
+        },
+        {
+          "name": "coderai/whenmeet",
+          "uses": 303
+        },
+        {
+          "name": "temporal-cortex/cortex-mcp",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 87,
+      "top": [
+        "@mcp-z/mcp-outlook",
+        "@littlebearapps/outlook-assistant",
+        "@pipeworx/mcp-outlook-calendar",
+        "@chrischall/office-outlook-mcp",
+        "sap-outlook-mcp"
+      ]
+    },
+    "score": {
+      "demand": 8.91,
+      "supply": 4.8,
+      "gap": 4.11,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "telegram"
+    ],
+    "github_issues": {
+      "count": 568,
+      "reactions": 162,
+      "top": [
+        {
+          "title": "Telegram plugin: inbound MCP channel notifications not delivered to conversation",
+          "url": "https://github.com/anthropics/claude-code/issues/36431",
+          "state": "open",
+          "reactions": 34
+        },
+        {
+          "title": "[FEATURE] Support slash commands (/clear, /compact) from Channels (Telegram/Discord)",
+          "url": "https://github.com/anthropics/claude-code/issues/37342",
+          "state": "open",
+          "reactions": 30
+        },
+        {
+          "title": "[BUG]  Telegram MCP plugin: inbound notifications/claude/channel never delivered to session (outbound works)",
+          "url": "https://github.com/anthropics/claude-code/issues/36411",
+          "state": "closed",
+          "reactions": 20
+        },
+        {
+          "title": "Telegram plugin: inbound messages not delivered to session",
+          "url": "https://github.com/anthropics/claude-code/issues/36429",
+          "state": "closed",
+          "reactions": 18
+        },
+        {
+          "title": "Telegram channel: support multiple bots (per-project configuration)",
+          "url": "https://github.com/anthropics/claude-code/issues/37173",
+          "state": "open",
+          "reactions": 16
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 23,
+      "points": 36,
+      "top": [
+        {
+          "title": "Running OpenClaw on Amazon EC2 with Claude and Telegram",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=47998047"
+        },
+        {
+          "title": "Show HN: 5dive \u2013 Run a Team of Claude Code Agents from Telegram",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=48490081"
+        },
+        {
+          "title": "Show HN: Control Your Telegram with AI",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=46411314"
+        },
+        {
+          "title": "Show HN: Kai \u2013 A Telegram bot that turns Claude Code into a personal dev asst",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47034875"
+        },
+        {
+          "title": "Control Claude Code via Telegram \u2013 ClaudeOnTheBeach",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=45098060"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "telegram",
+        "marketplace": "claude-plugins-official",
+        "description": "Telegram messaging bridge with built-in access control. Manage pairing, allowlists, and policy via /telegram:access."
+      }
+    ],
+    "smithery": {
+      "count": 35,
+      "top": [
+        {
+          "name": "leshchenko/fast-mcp-telegram",
+          "uses": 56
+        },
+        {
+          "name": "node2flow/telegram-bot",
+          "uses": 74
+        },
+        {
+          "name": "limzo/telegram-group-stats",
+          "uses": 25
+        },
+        {
+          "name": "dialogbrain/dialogbrain",
+          "uses": 2553
+        },
+        {
+          "name": "ama/statiko",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 227,
+      "top": [
+        "@overpod/mcp-telegram",
+        "@fentaris/approval-telegram",
+        "conductor-telegram",
+        "telegram-slack-mcp",
+        "dynamic-telegram-bot-api-mcp"
+      ]
+    },
+    "score": {
+      "demand": 13.24,
+      "supply": 9.3,
+      "gap": 3.94,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "obsidian"
+    ],
+    "github_issues": {
+      "count": 13,
+      "reactions": 6,
+      "top": [
+        {
+          "title": "[FEATURE] Desktop Code tab: user-defined nested folder hierarchy in the session sidebar (Obsidian-style)",
+          "url": "https://github.com/anthropics/claude-code/issues/74129",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "Some folders in the Obsidian vault cannot be read.",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/135",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "[FEATURE] Configurable 'Open in' context menu for files (e.g. Typora, Obsidian, VS Code)",
+          "url": "https://github.com/anthropics/claude-code/issues/61612",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "Markdown links with custom URL schemes (e.g. obsidian://) not rendered as OSC 8 hyperlinks",
+          "url": "https://github.com/anthropics/claude-code/issues/42519",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "Partner skill proposal: claude-screenwriting (Obsidian + screenwriting workflows)",
+          "url": "https://github.com/anthropics/skills/issues/1314",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 30,
+      "points": 472,
+      "top": [
+        {
+          "title": "Show HN: OpenKnowledge \u2013 open source AI-first alternative to Obsidian/Notion",
+          "points": 381,
+          "url": "https://news.ycombinator.com/item?id=48675435"
+        },
+        {
+          "title": "Improving personal tax filing with Claude CLI and Obsidian",
+          "points": 17,
+          "url": "https://news.ycombinator.com/item?id=47557058"
+        },
+        {
+          "title": "Show HN: Rowboat \u2013 Open-Source Claude Cowork with an Obsidian Vault",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=46708613"
+        },
+        {
+          "title": "Obsidian-brain MCP server: Give Claude access to your obsidian brain",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=42268067"
+        },
+        {
+          "title": "Remote sync, MCP, and an API for your Obsidian vault",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=48837972"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 3,
+      "top": [
+        {
+          "name": "ajtruex/mcp-obsidian-streamable-http",
+          "uses": 0
+        },
+        {
+          "name": "braintube/mcp",
+          "uses": 0
+        },
+        {
+          "name": "Hint-Services/obsidian-github-mcp",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 247,
+      "top": [
+        "obsidian-mcp",
+        "obsidian-mcp-server",
+        "obsidian-hybrid-search",
+        "obsidian-tc",
+        "obsidian-vaultgate-mcp"
+      ]
+    },
+    "score": {
+      "demand": 7.66,
+      "supply": 4.14,
+      "gap": 3.52,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "haskell",
+      "ghc"
+    ],
+    "github_issues": {
+      "count": 1,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "Compaction corruption patterns \u2014 structural invariants that Liquid Haskell could catch",
+          "url": "https://github.com/anthropics/claude-code/issues/30149",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 21,
+      "points": 135,
+      "top": [
+        {
+          "title": "Very fast, scalable mutable maps and hashes for Haskell",
+          "points": 31,
+          "url": "https://news.ycombinator.com/item?id=846330"
+        },
+        {
+          "title": "Persistent Vectors and Hash Maps for Haskell",
+          "points": 17,
+          "url": "https://news.ycombinator.com/item?id=2066800"
+        },
+        {
+          "title": "Interview with Brian McKenna: Roy, Purescript, Haskell, Idris, Dependent Types",
+          "points": 17,
+          "url": "https://news.ycombinator.com/item?id=10122831"
+        },
+        {
+          "title": "Hash Array Mapped Trie Performance in Clojure and Haskell",
+          "points": 14,
+          "url": "https://news.ycombinator.com/item?id=1407522"
+        },
+        {
+          "title": "Map of numeric types in Haskell",
+          "points": 11,
+          "url": "https://news.ycombinator.com/item?id=9790808"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 1,
+      "top": [
+        "@nexus2520/dep-tracer-mcp-server"
+      ]
+    },
+    "score": {
+      "demand": 3.15,
+      "supply": 0.35,
+      "gap": 2.8,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "eclipse",
+      "eclipse ide"
+    ],
+    "github_issues": {
+      "count": 5,
+      "reactions": 76,
+      "top": [
+        {
+          "title": "[FEATURE] Feature Request: Eclipse IDE Integration for Claude Code",
+          "url": "https://github.com/anthropics/claude-code/issues/30914",
+          "state": "open",
+          "reactions": 52
+        },
+        {
+          "title": "[BUG?] jdtls-lsp generates Eclipse metadata files in project root",
+          "url": "https://github.com/anthropics/claude-plugins-official/issues/461",
+          "state": "open",
+          "reactions": 23
+        },
+        {
+          "title": "[FEATURE] Eclipse IDE Plugin",
+          "url": "https://github.com/anthropics/claude-code/issues/51000",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "Claude Code Eclipse \ud50c\ub7ec\uadf8\uc778(v1.2.1)\uc758 \ud328\ud0a4\uc9d5 \ubc84\uadf8",
+          "url": "https://github.com/anthropics/claude-code/issues/41764",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Claude CLI view in Eclipse plugin loses input focus after response; clicking inside view does not restore it",
+          "url": "https://github.com/anthropics/claude-code/issues/51046",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 22,
+      "points": 49,
+      "top": [
+        {
+          "title": "Solar Eclipse Map",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=47963542"
+        },
+        {
+          "title": "Show HN: Open-Source Interactive Eclipse Map",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=39630522"
+        },
+        {
+          "title": "Total Eclipse Interactive Map",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=14843172"
+        },
+        {
+          "title": "Copilot agent mode with MCP for JetBrains, Eclipse and Xcode now in preview",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=44124869"
+        },
+        {
+          "title": "How-to: Use Eclipse with MapReduce in Cloudera\u2019s QuickStart VM",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=6147530"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "jdtls-lsp",
+        "marketplace": "claude-plugins-official",
+        "description": "Java language server (Eclipse JDT.LS) for code intelligence"
+      }
+    ],
+    "smithery": {
+      "count": 3,
+      "top": [
+        {
+          "name": "cyclecalcs/astronomy",
+          "uses": 0
+        },
+        {
+          "name": "open-ephemeris/openephemeris",
+          "uses": 10
+        },
+        {
+          "name": "cyanheads/astronomy-mcp-server",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 7,
+      "top": [
+        "@pipeworx/mcp-usno-astronomy",
+        "mcp-mat",
+        "javalens-mcp",
+        "@eclipse-glsp/server-mcp",
+        "@morris131/jdtls-mcp-server"
+      ]
+    },
+    "score": {
+      "demand": 8.09,
+      "supply": 5.43,
+      "gap": 2.67,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "school teacher",
+      "lesson plan"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 1,
+      "points": 54,
+      "top": [
+        {
+          "title": "All 1,926 public school teachers in Providence fired",
+          "points": 54,
+          "url": "https://news.ycombinator.com/item?id=2292076"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 0,
+      "top": []
+    },
+    "score": {
+      "demand": 2.0,
+      "supply": 0.0,
+      "gap": 2.0,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "google docs"
+    ],
+    "github_issues": {
+      "count": 21,
+      "reactions": 3,
+      "top": [
+        {
+          "title": "Feature request: Google Docs MCP needs write/edit for existing docs (capability gap vs. competing agents)",
+          "url": "https://github.com/anthropics/claude-code/issues/83942",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "Voice dictation requires unnaturally slow speech; degrades with duration; same mic works fine in Google Docs",
+          "url": "https://github.com/anthropics/claude-code/issues/40379",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "HTTP MCP: \"Error POSTing to endpoint\" despite server returning a valid tools/list result (Google Docs MCP docsmcp.googleapis.com)",
+          "url": "https://github.com/anthropics/claude-code/issues/91812",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Google Drive connector `create_file` always produces Letter-sized Google Docs, ignoring account default and content-level page-size hints",
+          "url": "https://github.com/anthropics/claude-code/issues/91463",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[Bug] docx skill: TableOfContents renders empty in Google Docs without cachedEntries",
+          "url": "https://github.com/anthropics/skills/issues/1002",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 8,
+      "points": 14,
+      "top": [
+        {
+          "title": "Claude.ai: Introducing Google Docs in Chats and Projects",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=42214285"
+        },
+        {
+          "title": "Show HN: Google Docs MCP that works",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47865132"
+        },
+        {
+          "title": "Just made an app and MCP Server to convert Markdown to Google Docs",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=48601134"
+        },
+        {
+          "title": "Anyhropic Launches Google Docs Alternative: Claude Docs",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=49731136"
+        },
+        {
+          "title": "Show HN: Open Finder files in Google Docs with one click",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47219627"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 6,
+      "top": [
+        {
+          "name": "googledocs",
+          "uses": 1024
+        },
+        {
+          "name": "strunk/google-docs-comments",
+          "uses": 0
+        },
+        {
+          "name": "unmarkdown/unmarkdown-mcp",
+          "uses": 0
+        },
+        {
+          "name": "synapsiumlabs/sharewatch",
+          "uses": 0
+        },
+        {
+          "name": "node2flow/google-docs",
+          "uses": 6
+        }
+      ]
+    },
+    "npm": {
+      "count": 51,
+      "top": [
+        "@a-bonus/google-docs-mcp",
+        "@suncreation/mcp-google-docs",
+        "@usejunior/google-docs-core",
+        "@simon-bouchard/google-docs-mcp",
+        "@botrun/mcp-google-drive"
+      ]
+    },
+    "score": {
+      "demand": 5.83,
+      "supply": 3.92,
+      "gap": 1.91,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "tableau"
+    ],
+    "github_issues": {
+      "count": 1,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "[BUG] Cowork Tableau MCP Connector returns 401 Unauthorized on all endpoints despite valid PAT credentials",
+          "url": "https://github.com/anthropics/claude-code/issues/39143",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 2,
+      "points": 51,
+      "top": [
+        {
+          "title": "Re-Creating WarGames with Tableau and Mapbox",
+          "points": 50,
+          "url": "https://news.ycombinator.com/item?id=11049159"
+        },
+        {
+          "title": "To curb malaria: Tableau, Mapbox, Exasol, Alteryx donate $4.3M in tech",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=19746023"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "suddh123/twilize",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 9,
+      "top": [
+        "@tableau/mcp-server",
+        "@wjsutton/tableau-public-mcp-server",
+        "tableau-lineage-mcp",
+        "tableaugen-mcp",
+        "@wjsutton/tableau-powerpoint-tools"
+      ]
+    },
+    "score": {
+      "demand": 2.67,
+      "supply": 1.84,
+      "gap": 0.82,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "auto repair",
+      "mechanic"
+    ],
+    "github_issues": {
+      "count": 7,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "docx whitespace check scans only parts named document.xml, while its own --auto-repair fixes every part",
+          "url": "https://github.com/anthropics/skills/issues/1872",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Cowork auto-repair deletes user session data then blocks its own retry - sessiondata.img preserved but sessiondata.vhdx required (Windows/MSIX); profile recreation silently deleted 22 local Cowork conversations",
+          "url": "https://github.com/anthropics/claude-code/issues/93385",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Auto-mode classifier attribution repair misses custom gateway base URLs (follow-up to #64585)",
+          "url": "https://github.com/anthropics/claude-code/issues/93558",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Claude Desktop (Windows/MSIX): GPU process crash \u2192 CoworkVMService holds package \u2192 auto-repair fails 0x80073D02 \u2192 package stuck Modified/NeedsRemediation (\"This app can't open\")",
+          "url": "https://github.com/anthropics/claude-code/issues/84992",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Windows MSIX auto-update corrupts package (Modified, NeedsRemediation) - app unlaunchable, Repair fails",
+          "url": "https://github.com/anthropics/claude-code/issues/84851",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 3,
+      "top": [
+        {
+          "name": "fodda/servicebuddy",
+          "uses": 0
+        },
+        {
+          "name": "ivan-movw/inboundpilot",
+          "uses": 643
+        },
+        {
+          "name": "glane0303/woogoro-auto-repair",
+          "uses": 1008
+        }
+      ]
+    },
+    "npm": {
+      "count": 0,
+      "top": []
+    },
+    "score": {
+      "demand": 2.08,
+      "supply": 1.39,
+      "gap": 0.69,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "google sheets"
+    ],
+    "github_issues": {
+      "count": 6,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "[FEATURE] Google Sheets Edit",
+          "url": "https://github.com/anthropics/claude-code/issues/92848",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] False-positive AUP block ([bio] classifier) on benign Google Sheets/Drive API discussion",
+          "url": "https://github.com/anthropics/claude-code/issues/93090",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Google Sheets connector OAuth fails from CLI (product_surface=cli) but works on Desktop app",
+          "url": "https://github.com/anthropics/claude-code/issues/89744",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Google Drive MCP create_file no longer creates Google Sheets \u2014 defaults to Google Doc regardless of MIME type",
+          "url": "https://github.com/anthropics/claude-code/issues/81525",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "Google Drive connector: no granular editing for Docs and Sheets",
+          "url": "https://github.com/anthropics/claude-code/issues/95178",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 11,
+      "points": 263,
+      "top": [
+        {
+          "title": "Show HN: Create your own finetuned AI model using Google Sheets",
+          "points": 137,
+          "url": "https://news.ycombinator.com/item?id=43846964"
+        },
+        {
+          "title": "Claude for Google Sheets",
+          "points": 90,
+          "url": "https://news.ycombinator.com/item?id=38618273"
+        },
+        {
+          "title": "Small, self-hosted MCP that gives Claude read/write access to your Google Sheets",
+          "points": 11,
+          "url": "https://news.ycombinator.com/item?id=49262624"
+        },
+        {
+          "title": "Show HN: Convert Google Sheets to Code",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=45163985"
+        },
+        {
+          "title": "Show HN: Sheety \u2013 An open-source CRM that with Google Sheets as DB",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=46969720"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 6,
+      "top": [
+        {
+          "name": "googlesheets",
+          "uses": 56138
+        },
+        {
+          "name": "node2flow/google-sheets",
+          "uses": 15
+        },
+        {
+          "name": "suvadadepolo/removeduplicates",
+          "uses": 0
+        },
+        {
+          "name": "banksync/banksync-mcp",
+          "uses": 0
+        },
+        {
+          "name": "artemgolub/settra",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 67,
+      "top": [
+        "mcp-google-sheets",
+        "mcp-gsheets",
+        "gogcli-mcp-sheets",
+        "@mcp-z/mcp-sheets",
+        "@sheetsmcp/server"
+      ]
+    },
+    "score": {
+      "demand": 4.73,
+      "supply": 4.06,
+      "gap": 0.68,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "mailchimp"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 4,
+      "points": 29,
+      "top": [
+        {
+          "title": "Intuit to Acquire Mailchimp",
+          "points": 14,
+          "url": "https://news.ycombinator.com/item?id=28518212"
+        },
+        {
+          "title": "Mailchimp Employees \u201cdevastated\u201d by paltry bonuses after sale to Intuit",
+          "points": 12,
+          "url": "https://news.ycombinator.com/item?id=29034923"
+        },
+        {
+          "title": "A MailChimp mailserver, viewed from a web browser",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=1322710"
+        },
+        {
+          "title": "About MailChimp",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=37829083"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 10,
+      "top": [
+        "@agentx-ai/mailchimp-mcp-server",
+        "@pipeworx/mcp-mailchimp",
+        "@mrfentmen/mailchimp-mcp",
+        "@cyanheads/mailchimp-mcp-server",
+        "mailchimp-mcp"
+      ]
+    },
+    "score": {
+      "demand": 1.7,
+      "supply": 1.2,
+      "gap": 0.5,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "pulumi"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 1,
+      "points": 5,
+      "top": [
+        {
+          "title": "Show HN: Compose-to-Cloud Pulumi Providers for AWS, GCP, and Azure",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=48239954"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 2,
+      "top": [
+        "@jadenrazo/cloudcost-mcp",
+        "pulumi-prompts-mcp-server"
+      ]
+    },
+    "score": {
+      "demand": 0.9,
+      "supply": 0.55,
+      "gap": 0.35,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "property management",
+      "landlord"
+    ],
+    "github_issues": {
+      "count": 1,
+      "reactions": 2,
+      "top": [
+        {
+          "title": "Add Guesty MCP Server - Property Management",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/3728",
+          "state": "closed",
+          "reactions": 2
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 2,
+      "points": 3,
+      "top": [
+        {
+          "title": "Guesty Copilot: Open-source MCP server for Guesty property management",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47656004"
+        },
+        {
+          "title": "First MCP server for Guesty property management \u2013 39 tools, open source",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47626088"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "hey-mn8z/ZenRent",
+          "uses": 0
+        },
+        {
+          "name": "r-space-technology-ltd/rspace",
+          "uses": 49
+        }
+      ]
+    },
+    "npm": {
+      "count": 8,
+      "top": [
+        "guesty-mcp-server",
+        "@rashidazarang/pmip-core",
+        "beds24-mcp",
+        "@rashidazarang/aptly-property-management-mcp",
+        "pmdash-mcp"
+      ]
+    },
+    "score": {
+      "demand": 2.48,
+      "supply": 2.2,
+      "gap": 0.29,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "trello"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 7,
+      "points": 320,
+      "top": [
+        {
+          "title": "Wekan: An open-source Trello-like kanban",
+          "points": 306,
+          "url": "https://news.ycombinator.com/item?id=15039587"
+        },
+        {
+          "title": "Scrum (Kanban) on Trello V.s. GitHub Issues",
+          "points": 6,
+          "url": "https://news.ycombinator.com/item?id=8516635"
+        },
+        {
+          "title": "Show HN: Orchestro \u2013 Trello for Claude Code (open-source MCP server)",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=45485149"
+        },
+        {
+          "title": "Show HN: SergioAI \u2013 Trello bot with Claude that reviews PRDs and opens draft PRs",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47111063"
+        },
+        {
+          "title": "Show HN: ThesisBoard \u2013 Trello for Investment Research",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=46139574"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "praveencs87/trello-mcp",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 48,
+      "top": [
+        "@delorenj/mcp-server-trello",
+        "mcp-server-trello",
+        "@asapo/trello-mcp-server",
+        "atlassian-trello-mcp",
+        "trello-mcp"
+      ]
+    },
+    "score": {
+      "demand": 2.89,
+      "supply": 2.64,
+      "gap": 0.25,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "docusign"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 3,
+      "points": 8,
+      "top": [
+        {
+          "title": "Show HN: I built the missing layer between email and DocuSign",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=47967458"
+        },
+        {
+          "title": "Show HN: I Built Cursor for Docusign",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=43295871"
+        },
+        {
+          "title": "DocuSign Can Now Trigger Clause Smart Contracts, Co. Preps for Paid Clients",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=19387666"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 5,
+      "top": [
+        "@coretext-ai/qa-docusign-4e353090-2bb8-43aa-ac0f-bc665867b550",
+        "@coretext-ai/public-docusign-mcp-4e353090-2bb8-43aa-ac0f-bc665867b550",
+        "bach-docusign-mcp",
+        "@drbaher/sign-cli",
+        "@bachstudio/smb-mock-mcp"
+      ]
+    },
+    "score": {
+      "demand": 1.1,
+      "supply": 0.9,
+      "gap": 0.2,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "julia"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 14,
+      "points": 43,
+      "top": [
+        {
+          "title": "Julia and lambdas and maps",
+          "points": 11,
+          "url": "https://news.ycombinator.com/item?id=8709861"
+        },
+        {
+          "title": "Functional Vectors, Maps, and Sets in Julia Programming Language",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=7161575"
+        },
+        {
+          "title": "Explore Fractals in HTML5 with Google\u2019s New \u201cJulia Map\u201d",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=2163382"
+        },
+        {
+          "title": "JuliaGrid: Julia Power System Simulation",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=46196920"
+        },
+        {
+          "title": "Julia Map",
+          "points": 3,
+          "url": "https://news.ycombinator.com/item?id=2162511"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "giachi85it/motherwise",
+          "uses": 91
+        }
+      ]
+    },
+    "npm": {
+      "count": 7,
+      "top": [
+        "agent-julia",
+        "agent-repl",
+        "@jonathanfischer97/server-juliadoc",
+        "depscope-mcp",
+        "@iflow-mcp/jonathanfischer97-server-juliadoc"
+      ]
+    },
+    "score": {
+      "demand": 1.89,
+      "supply": 1.73,
+      "gap": 0.16,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "church",
+      "ministry"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 16,
+      "points": 547,
+      "top": [
+        {
+          "title": "Mormon whistleblower says his church is a \u201cclandestine hedge fund\u201d",
+          "points": 303,
+          "url": "https://news.ycombinator.com/item?id=35944994"
+        },
+        {
+          "title": "Brutalist Churches",
+          "points": 161,
+          "url": "https://news.ycombinator.com/item?id=40167933"
+        },
+        {
+          "title": "A map of the 68 churches that were vandalized or burned in Canada in 2021",
+          "points": 30,
+          "url": "https://news.ycombinator.com/item?id=29421342"
+        },
+        {
+          "title": "Reminder: Pittsburgh Hacker News meetup tonight at 9PM at Church Brew Works",
+          "points": 16,
+          "url": "https://news.ycombinator.com/item?id=536560"
+        },
+        {
+          "title": "Gian-Carlo Rota on Alonzo Church (2008)",
+          "points": 14,
+          "url": "https://news.ycombinator.com/item?id=9073466"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 6,
+      "top": [
+        {
+          "name": "church",
+          "uses": 0
+        },
+        {
+          "name": "kubpicapf/polish-catholic-sermons",
+          "uses": 0
+        },
+        {
+          "name": "hi-q8ij/gospelchannel-church-finder",
+          "uses": 0
+        },
+        {
+          "name": "sunny/berean-ai",
+          "uses": 351
+        },
+        {
+          "name": "noxford96/bible-glide",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 8,
+      "top": [
+        "@agentchurch/mcp",
+        "@pipeworx/mcp-arcgis-fallschurch",
+        "@nlarj/mcp-server",
+        "@ourholylife/mcp-server",
+        "@jasonbellz/gospel-library-mcp"
+      ]
+    },
+    "score": {
+      "demand": 3.15,
+      "supply": 3.04,
+      "gap": 0.11,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "calendly"
+    ],
+    "github_issues": {
+      "count": 3,
+      "reactions": 1,
+      "top": [
+        {
+          "title": "MCP OAuth DCR fails for Calendly: client_name \"Claude Code (<server>)\" rejected as invalid_client_metadata",
+          "url": "https://github.com/anthropics/claude-code/issues/59445",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "[BUG] MCP OAuth: DCR client_name \"Claude Code (<server>)\" is rejected by servers that validate RFC 7591 metadata strictly (Calendly MCP \u2192 400 invalid_client_metadata); recurrence of #59445 / #73293, still present in 2.1.271",
+          "url": "https://github.com/anthropics/claude-code/issues/94630",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "MCP OAuth DCR fails for Calendly: client_name \"Claude Code (<server>)\" rejected as invalid_client_metadata (recurrence of #59445)",
+          "url": "https://github.com/anthropics/claude-code/issues/73293",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "calendly",
+          "uses": 23
+        },
+        {
+          "name": "bparrish46/hiresquire-ai",
+          "uses": 62
+        }
+      ]
+    },
+    "npm": {
+      "count": 6,
+      "top": [
+        "calendly-mcp-server",
+        "@pipeworx/mcp-calendly",
+        "@opentabs-dev/opentabs-plugin-calendly",
+        "@wrtnlabs/connector-calendly",
+        "calendly-cli"
+      ]
+    },
+    "score": {
+      "demand": 2.08,
+      "supply": 2.07,
+      "gap": 0.01,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "insurance agent",
+      "insurance claims"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 0,
+      "top": []
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 0.0,
+      "gap": 0.0,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "fitness studio",
+      "gym"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 0,
+      "top": []
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 0.0,
+      "gap": 0.0,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "power bi"
+    ],
+    "github_issues": {
+      "count": 3,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "MCP Elicitation support for write confirmations (Power BI Modeling MCP Server)",
+          "url": "https://github.com/anthropics/claude-code/issues/55091",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Claude Desktop est\u00e1 sobreescribiendo silenciosamente el archivo claude_desktop_config.json completo, reemplazando toda la configuraci\u00f3n (incluyendo los mcpServers) con solo el bloque de preferences. Imposibilitando la conexi\u00f3n directa con Power BI.",
+          "url": "https://github.com/anthropics/claude-code/issues/55749",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] VSCode Extension: Power BI MCP server write confirmation prompts are silently declined instead of surfaced to user",
+          "url": "https://github.com/anthropics/claude-code/issues/37092",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 3,
+      "points": 4,
+      "top": [
+        {
+          "title": "pbix-mcp \u2014 create and modify Power BI PBIX files in pure Python",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=47559452"
+        },
+        {
+          "title": "Power BI for Office 365 with New Natural Language Search, Mapping Capabilities",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=6445894"
+        },
+        {
+          "title": "Microsoft Power BI Enables Connectivity to Apache Impala (Incubating)",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=12439025"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "wkruithof/metricsign",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 24,
+      "top": [
+        "@microsoft/powerbi-modeling-mcp",
+        "@microsoft/powerbi-modeling-mcp-win32-x64",
+        "@microsoft/powerbi-modeling-mcp-linux-x64",
+        "@microsoft/powerbi-modeling-mcp-darwin-arm64",
+        "@microsoft/powerbi-modeling-mcp-win32-arm64"
+      ]
+    },
+    "score": {
+      "demand": 2.19,
+      "supply": 2.3,
+      "gap": -0.11,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "jenkins"
+    ],
+    "github_issues": {
+      "count": 1,
+      "reactions": 1,
+      "top": [
+        {
+          "title": "[BUG] HTTP/SSE MCP transport fails for non-OAuth servers (e.g., Jenkins) \u2014 OAuth discovery is mandatory and breaks Basic auth",
+          "url": "https://github.com/anthropics/claude-code/issues/35878",
+          "state": "closed",
+          "reactions": 1
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 0,
+      "top": []
+    },
+    "npm": {
+      "count": 34,
+      "top": [
+        "jenkins-mcp",
+        "@kud/mcp-jenkins",
+        "@mister-good-deal/host-mcp-jenkins",
+        "@alexsarrell/jenkins-mcp-server",
+        "@cuonghuunguyen/jenkins-mcp"
+      ]
+    },
+    "score": {
+      "demand": 1.39,
+      "supply": 1.78,
+      "gap": -0.39,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "todoist"
+    ],
+    "github_issues": {
+      "count": 6,
+      "reactions": 3,
+      "top": [
+        {
+          "title": "[BUG] Todoist MCP loses session with \"No transport found for sessionId\" error",
+          "url": "https://github.com/anthropics/claude-code/issues/21032",
+          "state": "closed",
+          "reactions": 3
+        },
+        {
+          "title": "[BUG] Cowork scheduled task hangs when using Todoist MCP tools in a background session",
+          "url": "https://github.com/anthropics/claude-code/issues/91819",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Plugin connector Install button greyed out for OAuth-based MCP server (Todoist)",
+          "url": "https://github.com/anthropics/claude-code/issues/45219",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "bug: todoist plugin: miscategorized personal maintenance as Infrastructure",
+          "url": "https://github.com/anthropics/claude-plugins-official/issues/651",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "bug: todoist plugin: task descriptions not included in CLI output",
+          "url": "https://github.com/anthropics/claude-plugins-official/issues/650",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 6,
+      "top": [
+        {
+          "name": "miottid/todoist-mcp",
+          "uses": 0
+        },
+        {
+          "name": "hakunapotato/todoist-mcp",
+          "uses": 0
+        },
+        {
+          "name": "stanislavlysenko0912/todoist-mcp-server",
+          "uses": 0
+        },
+        {
+          "name": "Chrusic/todoist-mcp-server-extended",
+          "uses": 0
+        },
+        {
+          "name": "Doist/todoist-mcp",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 39,
+      "top": [
+        "@doist/todoist-mcp",
+        "todoist-mcp",
+        "@abhiz123/todoist-mcp-server",
+        "todoist-mcp-server",
+        "@greirson/mcp-todoist"
+      ]
+    },
+    "score": {
+      "demand": 3.33,
+      "supply": 3.79,
+      "gap": -0.46,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "dental",
+      "dentist"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 5,
+      "points": 203,
+      "top": [
+        {
+          "title": "Reports of the death of dental cavities are greatly exaggerated",
+          "points": 196,
+          "url": "https://news.ycombinator.com/item?id=41573550"
+        },
+        {
+          "title": "Reports of the Death of Dental Cavities Are Greatly Exaggerated",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=41404032"
+        },
+        {
+          "title": "Criminals spent 10 days in US dental insurer's systems extracting data of 9M",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=36143941"
+        },
+        {
+          "title": "Visualization of Dental Caries Status",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=34140519"
+        },
+        {
+          "title": "Zirco.ai \u2013 AI employee for dental front desk operations",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47385090"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 8,
+      "top": [
+        {
+          "name": "martijn-vanhalen/rootdata",
+          "uses": 1662
+        },
+        {
+          "name": "kylecassie/cakesmash-mcp",
+          "uses": 1007
+        },
+        {
+          "name": "providersignal/dental-market-intelligence",
+          "uses": 41
+        },
+        {
+          "name": "jackfeng-jia/xona-dental-gateway",
+          "uses": 0
+        },
+        {
+          "name": "giorgio-zamparelli/dododentist",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 8,
+      "top": [
+        "kovex-dental-marketing-mcp",
+        "realdentalcosts-mcp",
+        "helpdental-mcp",
+        "tend-mcp",
+        "finn-tannlege-mcp"
+      ]
+    },
+    "score": {
+      "demand": 2.66,
+      "supply": 3.3,
+      "gap": -0.64,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "law firm",
+      "clio"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 4,
+      "points": 4,
+      "top": [
+        {
+          "title": "Lexidesk launches MCP integration for law firm intake analytics",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=49890412"
+        },
+        {
+          "title": "Clio MCP Open-source Claude connector for law firms",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47926395"
+        },
+        {
+          "title": "America\u2019s biggest law firm drives global wealth into tax havens",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=28771481"
+        },
+        {
+          "title": "The Claude-Native Law Firm",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47181339"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "gbrussich52/legalaimcp",
+          "uses": 92
+        },
+        {
+          "name": "primacoda/transaction-coordinator",
+          "uses": 28
+        }
+      ]
+    },
+    "npm": {
+      "count": 1,
+      "top": [
+        "@oktopeak/mycase-mcp"
+      ]
+    },
+    "score": {
+      "demand": 0.8,
+      "supply": 1.45,
+      "gap": -0.64,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "accounting firm",
+      "tax preparer"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "aiwyn",
+          "uses": 6141
+        }
+      ]
+    },
+    "npm": {
+      "count": 0,
+      "top": []
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 0.69,
+      "gap": -0.69,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "salon",
+      "barber"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 2,
+      "points": 17,
+      "top": [
+        {
+          "title": "Are you reading Onion or Salon.com? Then you might be a threat to the U.S.",
+          "points": 16,
+          "url": "https://news.ycombinator.com/item?id=5923797"
+        },
+        {
+          "title": "Salon struggling to pay its rent",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=14949228"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 7,
+      "top": [
+        {
+          "name": "easyweek/easyweek",
+          "uses": 0
+        },
+        {
+          "name": "qflagg212-i66d/teres-io",
+          "uses": 385
+        },
+        {
+          "name": "giorgio-zamparelli/hairdora",
+          "uses": 0
+        },
+        {
+          "name": "hej-rh37/openAjan",
+          "uses": 0
+        },
+        {
+          "name": "qasper/business-agents",
+          "uses": 20
+        }
+      ]
+    },
+    "npm": {
+      "count": 1,
+      "top": [
+        "@ultiplace/claude-skill"
+      ]
+    },
+    "score": {
+      "demand": 1.45,
+      "supply": 2.43,
+      "gap": -0.98,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "circleci"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 3,
+      "points": 3,
+      "top": [
+        {
+          "title": "Mapbox, Monday.com and CircleCI Use In-App Product AI Assistants",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=41433802"
+        },
+        {
+          "title": "Six things you didn't know you could do with CircleCI Insights",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=34711756"
+        },
+        {
+          "title": "Continuous Release with CircleCI and Houston",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=15253298"
+        }
+      ]
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "circleci/circleci",
+          "uses": 0
+        },
+        {
+          "name": "CircleCI-Public/mcp-server-circleci",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 5,
+      "top": [
+        "@opentabs-dev/opentabs-plugin-circleci",
+        "@iscqaautomation/circleci-mcp-server",
+        "@sandboxapis/mcp",
+        "circleci-tui",
+        "mcp-cicd-orchestrator"
+      ]
+    },
+    "score": {
+      "demand": 0.69,
+      "supply": 1.99,
+      "gap": -1.3,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "veterinary",
+      "vet clinic"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 2,
+      "top": [
+        {
+          "name": "pwnz13/biovet",
+          "uses": 0
+        },
+        {
+          "name": "petcareatlas/atlas",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 1,
+      "top": [
+        "@pipeworx/mcp-veterinary-fda"
+      ]
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 1.45,
+      "gap": -1.45,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "trucking",
+      "freight"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "vinaybhosle/shippingrates",
+          "uses": 2373
+        }
+      ]
+    },
+    "npm": {
+      "count": 4,
+      "top": [
+        "@pipeworx/mcp-fmcsa",
+        "@aisar-labs/transportify-mcp",
+        "cargoffer-mcp-skybridge",
+        "truckdocsai-mcp"
+      ]
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 1.5,
+      "gap": -1.5,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "terraform"
+    ],
+    "github_issues": {
+      "count": 14,
+      "reactions": 126,
+      "top": [
+        {
+          "title": "[BUG] macOS sandbox blocks Security.framework TLS verification, breaking Go binaries (gh, terraform, etc.)",
+          "url": "https://github.com/anthropics/claude-code/issues/23416",
+          "state": "open",
+          "reactions": 67
+        },
+        {
+          "title": "Go-based CLI tools (gh, terraform, etc.) fail with TLS error due to built-in HTTPS proxy",
+          "url": "https://github.com/anthropics/claude-code/issues/26466",
+          "state": "open",
+          "reactions": 52
+        },
+        {
+          "title": "Sandbox blocks macOS Security.framework trustd IPC, breaking all Go binaries (gh, terraform, tofu)",
+          "url": "https://github.com/anthropics/claude-code/issues/34876",
+          "state": "closed",
+          "reactions": 5
+        },
+        {
+          "title": "Terraform external pulgin not found",
+          "url": "https://github.com/anthropics/claude-plugins-official/issues/682",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "[BUG] Syntax highlighting for Terraform/HCL (.tf, .tfvars) in desktop file viewer",
+          "url": "https://github.com/anthropics/claude-code/issues/98714",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 18,
+      "points": 307,
+      "top": [
+        {
+          "title": "Claude Code wiped our production database with a Terraform command",
+          "points": 145,
+          "url": "https://news.ycombinator.com/item?id=47278720"
+        },
+        {
+          "title": "Terraform MCP Server",
+          "points": 105,
+          "url": "https://news.ycombinator.com/item?id=44035770"
+        },
+        {
+          "title": "Show HN: A playable version of the Claude Code Terraform destroy incident",
+          "points": 27,
+          "url": "https://news.ycombinator.com/item?id=47323915"
+        },
+        {
+          "title": "Show HN: Terraform RAG - index modules, distill conventions, compose via MCP",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=48381804"
+        },
+        {
+          "title": "Show HN: Codify \u2013 Terraform for Developer Environments",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=49009414"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "aws-startup-advisor",
+        "marketplace": "claude-plugins-official",
+        "description": "Personalized AWS guidance built on patterns from 350,000+ startups. Get architecture, cost, and security recommendations"
+      },
+      {
+        "name": "google-cloud-storage",
+        "marketplace": "claude-plugins-official",
+        "description": "Official Google Cloud Storage (GCS) plugin. Manage buckets and objects, transfer data, and configure MCP, FUSE, IAM, sec"
+      },
+      {
+        "name": "terraform",
+        "marketplace": "claude-plugins-official",
+        "description": "The Terraform MCP Server provides seamless integration with Terraform ecosystem, enabling advanced automation and intera"
+      }
+    ],
+    "smithery": {
+      "count": 4,
+      "top": [
+        {
+          "name": "luther-systems/insideout",
+          "uses": 317
+        },
+        {
+          "name": "contactcharly00/synlake",
+          "uses": 0
+        },
+        {
+          "name": "evozim-hv/aws-builder",
+          "uses": 0
+        },
+        {
+          "name": "synlake/synlake",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 30,
+      "top": [
+        "@downatthebottomofthemolehole/terraform-best-practices-mcp-server",
+        "@robinmordasiewicz/f5xc-terraform-mcp",
+        "mcp-server-terraform",
+        "terraform-registry-mcp",
+        "@ursuciprian/reflex"
+      ]
+    },
+    "score": {
+      "demand": 10.42,
+      "supply": 12.33,
+      "gap": -1.91,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "vault",
+      "hashicorp vault"
+    ],
+    "github_issues": {
+      "count": 21,
+      "reactions": 2,
+      "top": [
+        {
+          "title": "Some folders in the Obsidian vault cannot be read.",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/135",
+          "state": "closed",
+          "reactions": 2
+        },
+        {
+          "title": "[Bug][cyber] Local vault recovery and media library synchronization via device bridge (req_011CfVM2sA5TmQzHijXFwgwN)",
+          "url": "https://github.com/anthropics/claude-code/issues/98402",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Model refuses to store an API key in the user's own 1Password vault or .env when explicitly asked",
+          "url": "https://github.com/anthropics/claude-code/issues/95799",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Sub-Issue 1: Add vault_location Field to Config Model",
+          "url": "https://github.com/anthropics/skills/issues/102",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Sub-Issue 4: Update Path Resolution to Use vault_location",
+          "url": "https://github.com/anthropics/skills/issues/110",
+          "state": "open",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 23,
+      "points": 372,
+      "top": [
+        {
+          "title": "Show HN: OneCLI \u2013 Vault for AI Agents in Rust",
+          "points": 161,
+          "url": "https://news.ycombinator.com/item?id=47353558"
+        },
+        {
+          "title": "Show HN: Agent Vault \u2013 Open-source credential proxy and vault for agents",
+          "points": 156,
+          "url": "https://news.ycombinator.com/item?id=47865822"
+        },
+        {
+          "title": "Show HN: MCP Secrets Vault \u2013 Local MCP proxy to keep API keys out of LLM context",
+          "points": 11,
+          "url": "https://news.ycombinator.com/item?id=45105800"
+        },
+        {
+          "title": "Show HN: Rowboat \u2013 Open-Source Claude Cowork with an Obsidian Vault",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=46708613"
+        },
+        {
+          "title": "Remote sync, MCP, and an API for your Obsidian vault",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=48837972"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "workos",
+        "marketplace": "claude-plugins-official",
+        "description": "WorkOS integration skills for AuthKit, SSO, Directory Sync, RBAC, Vault, Audit Logs, migrations, and API references."
+      }
+    ],
+    "smithery": {
+      "count": 35,
+      "top": [
+        {
+          "name": "philidor/defi",
+          "uses": 890
+        },
+        {
+          "name": "aarna-ai/atv",
+          "uses": 50
+        },
+        {
+          "name": "pigi-fi/pigi-mcp",
+          "uses": 0
+        },
+        {
+          "name": "axel-belfort/hl-vaults",
+          "uses": 2481
+        },
+        {
+          "name": "bitatlas/bitatlas",
+          "uses": 137
+        }
+      ]
+    },
+    "npm": {
+      "count": 248,
+      "top": [
+        "vault-cortex",
+        "vault-go",
+        "story-vault-mcp",
+        "@frontmcp/auth",
+        "@1claw/sdk"
+      ]
+    },
+    "score": {
+      "demand": 7.15,
+      "supply": 9.34,
+      "gap": -2.19,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "clickup"
+    ],
+    "github_issues": {
+      "count": 3,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "ClickUp MCP tool availability",
+          "url": "https://github.com/anthropics/claude-code/issues/65110",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "Conector MCP do ClickUp permanece \"n\u00e3o conectado\" no Claude Code (extens\u00e3o VS Code), mesmo autorizado na conta claude.ai e nas configura\u00e7\u00f5es da organiza\u00e7\u00e3o",
+          "url": "https://github.com/anthropics/claude-code/issues/77557",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[BUG] Cowork MCP registry connector fails to reach ClickUp MCP server \u2014 \"Couldn't reach the MCP server\"",
+          "url": "https://github.com/anthropics/claude-code/issues/48539",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 5,
+      "top": [
+        {
+          "name": "clickup",
+          "uses": 0
+        },
+        {
+          "name": "dutify/dutify-hub-mcp",
+          "uses": 0
+        },
+        {
+          "name": "Polaralias/clickup-mcp",
+          "uses": 0
+        },
+        {
+          "name": "taazkareem/clickup-mcp-premium",
+          "uses": 0
+        },
+        {
+          "name": "windalfin/clickup-mcp-server",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 62,
+      "top": [
+        "@taazkareem/clickup-mcp-server",
+        "clickup-cli-js",
+        "@d4works/mcp-clickup",
+        "@nazruden/clickup-server",
+        "clickup-mcp-server"
+      ]
+    },
+    "score": {
+      "demand": 1.39,
+      "supply": 3.86,
+      "gap": -2.48,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "klaviyo"
+    ],
+    "github_issues": {
+      "count": 0,
+      "reactions": 0,
+      "top": []
+    },
+    "hacker_news": {
+      "count": 0,
+      "points": 0,
+      "top": []
+    },
+    "official_plugins": [],
+    "smithery": {
+      "count": 4,
+      "top": [
+        {
+          "name": "klaviyo",
+          "uses": 2
+        },
+        {
+          "name": "shadow/shadow",
+          "uses": 0
+        },
+        {
+          "name": "ask-ai/data-connector",
+          "uses": 0
+        },
+        {
+          "name": "janmacher02-xl8y/klaviyo-mcp",
+          "uses": 18
+        }
+      ]
+    },
+    "npm": {
+      "count": 11,
+      "top": [
+        "@mrfentmen/klaviyo-mcp",
+        "@pipeworx/mcp-klaviyo",
+        "@scalably-io/klaviyo-mcp",
+        "klaviyo-mcp",
+        "dtc-mcp"
+      ]
+    },
+    "score": {
+      "demand": 0.0,
+      "supply": 2.85,
+      "gap": -2.85,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "whatsapp"
+    ],
+    "github_issues": {
+      "count": 14,
+      "reactions": 12,
+      "top": [
+        {
+          "title": "[FEATURE] WhatsApp channel support (alongside Telegram/Discord)",
+          "url": "https://github.com/anthropics/claude-code/issues/36814",
+          "state": "open",
+          "reactions": 10
+        },
+        {
+          "title": "Published plugin 'whatsapp' not appearing in external_plugins directory",
+          "url": "https://github.com/anthropics/claude-plugins-official/issues/1292",
+          "state": "open",
+          "reactions": 1
+        },
+        {
+          "title": "Feature request : user messages on right side, like whatsapp",
+          "url": "https://github.com/anthropics/claude-code/issues/1846",
+          "state": "closed",
+          "reactions": 1
+        },
+        {
+          "title": "[FEATURE] Official WhatsApp MCP server/plugin that works with personal accounts",
+          "url": "https://github.com/anthropics/claude-code/issues/91445",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "Claude recommended CallMeBot causing WhatsApp Business account ban",
+          "url": "https://github.com/anthropics/claude-code/issues/70233",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 18,
+      "points": 303,
+      "top": [
+        {
+          "title": "Show HN: WhatsApp MCP Server",
+          "points": 229,
+          "url": "https://news.ycombinator.com/item?id=43532967"
+        },
+        {
+          "title": "WhatsApp MCP Exploited",
+          "points": 25,
+          "url": "https://news.ycombinator.com/item?id=43617688"
+        },
+        {
+          "title": "Show HN: Give your AI agents access to WhatsApp",
+          "points": 14,
+          "url": "https://news.ycombinator.com/item?id=49728159"
+        },
+        {
+          "title": "Show HN: I created a 2025 Wrapped for WhatsApp Conversations",
+          "points": 7,
+          "url": "https://news.ycombinator.com/item?id=46428595"
+        },
+        {
+          "title": "Show HN: AI health agent that nags you on WhatsApp instead of a dashboard",
+          "points": 5,
+          "url": "https://news.ycombinator.com/item?id=46652329"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "twilio-developer-kit",
+        "marketplace": "claude-plugins-official",
+        "description": "Twilio Skills provide procedural knowledge for AI coding agents \u2014 which APIs to use, in what order, and what to avoid. C"
+      },
+      {
+        "name": "twilio-developer-kit",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Twilio Skills provide procedural knowledge for AI coding agents \u2014 which APIs to use, in what order, and what to avoid. C"
+      }
+    ],
+    "smithery": {
+      "count": 32,
+      "top": [
+        {
+          "name": "samihalawa/whatsapp-go-mcp",
+          "uses": 0
+        },
+        {
+          "name": "ninebot/whatsapp",
+          "uses": 0
+        },
+        {
+          "name": "giorgio-zamparelli/wapiworld",
+          "uses": 0
+        },
+        {
+          "name": "favcrm/favcrm",
+          "uses": 8514
+        },
+        {
+          "name": "rsh/neuron",
+          "uses": 152
+        }
+      ]
+    },
+    "npm": {
+      "count": 222,
+      "top": [
+        "mcp-whatsapp-web",
+        "@arvoretech/whatsapp-mcp",
+        "whatsapp-messaging-api-mcp",
+        "@diegoalgg88/whatsapp-mcp-ts",
+        "replywizard-whatsapp-mcp"
+      ]
+    },
+    "score": {
+      "demand": 8.13,
+      "supply": 12.2,
+      "gap": -4.07,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "bitbucket",
+      "atlassian bitbucket"
+    ],
+    "github_issues": {
+      "count": 8,
+      "reactions": 101,
+      "top": [
+        {
+          "title": "[FEATURE] Native Bitbucket Integration for Claude Code",
+          "url": "https://github.com/anthropics/claude-code/issues/38179",
+          "state": "open",
+          "reactions": 67
+        },
+        {
+          "title": "[FEATURE REQUEST] Bitbucket support for code review actions",
+          "url": "https://github.com/anthropics/claude-code/issues/2210",
+          "state": "closed",
+          "reactions": 31
+        },
+        {
+          "title": "[FEATURE] Claude Tag: support Bitbucket access",
+          "url": "https://github.com/anthropics/claude-code/issues/97604",
+          "state": "open",
+          "reactions": 2
+        },
+        {
+          "title": "[BUG] Claude remote control complains about missing github access, despite us being a bitbucket org",
+          "url": "https://github.com/anthropics/claude-code/issues/94286",
+          "state": "open",
+          "reactions": 1
+        },
+        {
+          "title": "[BUG/UX] 'Pull request status couldn't be checked' warning fires on every non-GitHub remote (GitLab/Bitbucket/Gitea/self-hosted)",
+          "url": "https://github.com/anthropics/claude-code/issues/65522",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 3,
+      "points": 3,
+      "top": [
+        {
+          "title": "I built a unified Git activity engine to clean the mess between GitHub,Bitbucket",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=46218509"
+        },
+        {
+          "title": "Show HN: Bitbucket DLP by Polymer",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=43462732"
+        },
+        {
+          "title": "Show HN: Open-source AI code review for Bitbucket using Claude CLI",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=46885849"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "atlassian-twg-cli",
+        "marketplace": "claude-plugins-official",
+        "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitb"
+      },
+      {
+        "name": "gitkraken",
+        "marketplace": "claude-plugins-official",
+        "description": "Gives Claude access to your real Git and project context: commits, branches, pull requests, and issues across every repo"
+      },
+      {
+        "name": "gitkraken",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Gives Claude access to your real Git and project context: commits, branches, pull requests, and issues across every repo"
+      }
+    ],
+    "smithery": {
+      "count": 1,
+      "top": [
+        {
+          "name": "evanoaltar/quantumscan",
+          "uses": 768
+        }
+      ]
+    },
+    "npm": {
+      "count": 78,
+      "top": [
+        "@nexus2520/bitbucket-mcp-server",
+        "bitbucket-mcp",
+        "@atlassian-dc-mcp/bitbucket",
+        "@shibainu16/bitbucket-dc-mcp",
+        "@icy-r/bitbucket-mcp"
+      ]
+    },
+    "score": {
+      "demand": 7.52,
+      "supply": 11.88,
+      "gap": -4.36,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "quickbooks"
+    ],
+    "github_issues": {
+      "count": 8,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "[BUG] Small Business plugin: Intuit ai-inc MCP endpoints return Akamai 403 on OAuth discovery, so QuickBooks sign-in can never start",
+          "url": "https://github.com/anthropics/claude-code/issues/93771",
+          "state": "open",
+          "reactions": 0
+        },
+        {
+          "title": "QuickBooks Online connector missing time-activity/timesheet creation tool",
+          "url": "https://github.com/anthropics/claude-code/issues/83527",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "QuickBooks Online connector has no support for Classes anywhere in its toolset",
+          "url": "https://github.com/anthropics/claude-code/issues/83529",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "Intuit QuickBooks connector fails for accounts without QuickBooks Payroll",
+          "url": "https://github.com/anthropics/claude-code/issues/63632",
+          "state": "closed",
+          "reactions": 0
+        },
+        {
+          "title": "[Bug][harness] Audit-only QuickBooks version inventory escalated to uninstalling QB on a production workstatio",
+          "url": "https://github.com/anthropics/claude-code/issues/71138",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 3,
+      "points": 5,
+      "top": [
+        {
+          "title": "Show HN: I replaced QuickBooks with an MCP server running inside Claude",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=46901206"
+        },
+        {
+          "title": "Show HN: Usage-aware QuickBooks sync for billing systems",
+          "points": 2,
+          "url": "https://news.ycombinator.com/item?id=46618204"
+        },
+        {
+          "title": "QuickBooks Online MCP Server",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47415658"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "intuit-quickbooks",
+        "marketplace": "claude-plugins-official",
+        "description": "QuickBooks business insights and actions: financial health briefings across P&L, cash flow, balance sheet and A/R, indus"
+      },
+      {
+        "name": "intuit-quickbooks",
+        "marketplace": "knowledge-work-plugins",
+        "description": "QuickBooks business insights and actions: financial health briefings across P&L, cash flow, balance sheet and A/R, indus"
+      }
+    ],
+    "smithery": {
+      "count": 3,
+      "top": [
+        {
+          "name": "nag79938/deepledger",
+          "uses": 0
+        },
+        {
+          "name": "datagrout/datagrout",
+          "uses": 0
+        },
+        {
+          "name": "benoit-p/Cprusiq",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 18,
+      "top": [
+        "quickbooks-mcp",
+        "@pipeworx/mcp-quickbooks",
+        "@tenkeybridge/mcp",
+        "@codespar/mcp-quickbooks",
+        "@bachstudio/smb-mock-mcp"
+      ]
+    },
+    "score": {
+      "demand": 3.09,
+      "supply": 8.86,
+      "gap": -5.77,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "helm",
+      "kubernetes"
+    ],
+    "github_issues": {
+      "count": 1,
+      "reactions": 0,
+      "top": [
+        {
+          "title": "Add Helm Chart MCP server",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/1606",
+          "state": "closed",
+          "reactions": 0
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 2,
+      "points": 2,
+      "top": [
+        {
+          "title": "First mature Helm MCP (native Helm SDK v3 and v4)",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=47113346"
+        },
+        {
+          "title": "Streamlining ClaudeSync in our helm-charts repo",
+          "points": 1,
+          "url": "https://news.ycombinator.com/item?id=43441099"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "crowdsec",
+        "marketplace": "claude-plugins-official",
+        "description": "Operational skill for installing, configuring, operating, and debugging CrowdSec (cscli, LAPI/CAPI, hub, bouncers, WAF/A"
+      },
+      {
+        "name": "newrelic",
+        "marketplace": "claude-plugins-official",
+        "description": "New Relic observability intelligence for Claude Code. Investigate APM performance, analyze cloud costs, debug Kubernetes"
+      }
+    ],
+    "smithery": {
+      "count": 4,
+      "top": [
+        {
+          "name": "maxbeech/openhelm",
+          "uses": 0
+        },
+        {
+          "name": "maxbeech/deep-research-by-openhelm",
+          "uses": 1
+        },
+        {
+          "name": "maxbeech/email-outreach-by-openhelm",
+          "uses": 0
+        },
+        {
+          "name": "maxbeech/seo-geo-by-openhelm",
+          "uses": 0
+        }
+      ]
+    },
+    "npm": {
+      "count": 21,
+      "top": [
+        "@helm-ai/mcp-server",
+        "@beforewave/agent-chatgpt-helm",
+        "agent-helm",
+        "k8s-helm-mcp",
+        "agent-chatgpt-helm"
+      ]
+    },
+    "score": {
+      "demand": 1.24,
+      "supply": 9.15,
+      "gap": -7.91,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  },
+  {
+    "terms": [
+      "zed",
+      "zed editor"
+    ],
+    "github_issues": {
+      "count": 20,
+      "reactions": 121,
+      "top": [
+        {
+          "title": "[Feature Request] Zed IDE integration support",
+          "url": "https://github.com/anthropics/claude-code/issues/32362",
+          "state": "open",
+          "reactions": 62
+        },
+        {
+          "title": "Feature Request: IDE Integration with ZED Editor",
+          "url": "https://github.com/anthropics/claude-code/issues/1471",
+          "state": "closed",
+          "reactions": 45
+        },
+        {
+          "title": "[BUG] /terminal-setup command on Zed deletes user config without any warnings",
+          "url": "https://github.com/anthropics/claude-code/issues/14909",
+          "state": "closed",
+          "reactions": 5
+        },
+        {
+          "title": "Make the desktop \"Open in\" submenu configurable (currently hardcoded to VS Code / Cursor / Zed)",
+          "url": "https://github.com/anthropics/claude-code/issues/53427",
+          "state": "closed",
+          "reactions": 4
+        },
+        {
+          "title": "How to use mcp-server-git in Zed editor?",
+          "url": "https://github.com/modelcontextprotocol/servers/issues/908",
+          "state": "closed",
+          "reactions": 2
+        }
+      ]
+    },
+    "hacker_news": {
+      "count": 9,
+      "points": 1088,
+      "top": [
+        {
+          "title": "Claude Code: Now in Beta in Zed",
+          "points": 683,
+          "url": "https://news.ycombinator.com/item?id=45116688"
+        },
+        {
+          "title": "Reallocating $100/Month Claude Code Spend to Zed and OpenRouter",
+          "points": 349,
+          "url": "https://news.ycombinator.com/item?id=47700972"
+        },
+        {
+          "title": "Show HN: Linggen \u2013 A local-first memory layer for your AI (Cursor, Zed, Claude)",
+          "points": 36,
+          "url": "https://news.ycombinator.com/item?id=46328769"
+        },
+        {
+          "title": "What Anthropic's New Claude Billing Means for Zed Users",
+          "points": 10,
+          "url": "https://news.ycombinator.com/item?id=48140344"
+        },
+        {
+          "title": "Explore large JSON values with zui and zed",
+          "points": 4,
+          "url": "https://news.ycombinator.com/item?id=33707914"
+        }
+      ]
+    },
+    "official_plugins": [
+      {
+        "name": "altimate-code",
+        "marketplace": "claude-plugins-official",
+        "description": "Delegates dbt and warehouse work to altimate-code, a specialized CLI agent with 100+ purpose-built data tools (SQL analy"
+      },
+      {
+        "name": "atomic-agents",
+        "marketplace": "claude-plugins-official",
+        "description": "Comprehensive development workflow for building AI agents with the Atomic Agents framework. Includes specialized agents "
+      },
+      {
+        "name": "aws-startup-advisor",
+        "marketplace": "claude-plugins-official",
+        "description": "Personalized AWS guidance built on patterns from 350,000+ startups. Get architecture, cost, and security recommendations"
+      },
+      {
+        "name": "azure",
+        "marketplace": "claude-plugins-official",
+        "description": "Transform Claude into an Azure expert. This plugin integrates the Azure MCP server and specialized Azure skills to move "
+      },
+      {
+        "name": "clickhouse-best-practices",
+        "marketplace": "claude-plugins-official",
+        "description": "28 best practice rules for ClickHouse schema design, query optimization, and data ingestion \u2014 prioritized by impact"
+      },
+      {
+        "name": "cockroachdb",
+        "marketplace": "claude-plugins-official",
+        "description": "Connect Claude Code directly to your CockroachDB clusters for hands-on database work \u2014 explore schemas, write optimized "
+      },
+      {
+        "name": "code-review",
+        "marketplace": "claude-plugins-official",
+        "description": "Automated code review for pull requests using multiple specialized agents with confidence-based scoring to filter false "
+      },
+      {
+        "name": "coderabbit",
+        "marketplace": "claude-plugins-official",
+        "description": "Your code review partner. CodeRabbit provides external validation using a specialized AI architecture and 40+ integrated"
+      },
+      {
+        "name": "data-agent-kit-starter-pack",
+        "marketplace": "claude-plugins-official",
+        "description": "This plugin provides a specialized suite of skills for data engineers and database practitioners working on Google Cloud"
+      },
+      {
+        "name": "feature-dev",
+        "marketplace": "claude-plugins-official",
+        "description": "Comprehensive feature development workflow with specialized agents for codebase exploration, architecture design, and qu"
+      },
+      {
+        "name": "learn-with-coursera",
+        "marketplace": "claude-plugins-official",
+        "description": "Turn any learning intent into a personalized Coursera experience. Asks three quick questions (topic, familiarity, prefer"
+      },
+      {
+        "name": "stackhawk-hawkscan",
+        "marketplace": "claude-plugins-official",
+        "description": "Configure, run, and interpret HawkScan DAST results inside Claude Code. Generates stackhawk.yml configs, runs scans via "
+      },
+      {
+        "name": "ui5-modernization",
+        "marketplace": "claude-plugins-official",
+        "description": "Complete UI5 modernization toolkit with workflow and specialized fix patterns for modernizing SAPUI5/OpenUI5 application"
+      },
+      {
+        "name": "productivity",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, "
+      },
+      {
+        "name": "common-room",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Turn Common Room into your GTM copilot. Research accounts and contacts, prep for calls with attendee profiles and talkin"
+      },
+      {
+        "name": "cockroachdb",
+        "marketplace": "knowledge-work-plugins",
+        "description": "CockroachDB plugin for Claude Code \u2014 explore schemas, write optimized SQL, debug queries, and manage distributed databas"
+      },
+      {
+        "name": "learn-with-coursera",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Turn any learning intent into a personalized Coursera experience. Asks three quick questions (topic, familiarity, prefer"
+      },
+      {
+        "name": "stackhawk-hawkscan",
+        "marketplace": "knowledge-work-plugins",
+        "description": "Configure, run, and interpret HawkScan DAST results. Generates stackhawk.yml configs, runs scans via CLI or Docker, and "
+      }
+    ],
+    "smithery": {
+      "count": 5,
+      "top": [
+        {
+          "name": "aivolvix/crayonz",
+          "uses": 0
+        },
+        {
+          "name": "groundroute-ai/web-search",
+          "uses": 0
+        },
+        {
+          "name": "Subfeed/Subfeed",
+          "uses": 1355
+        },
+        {
+          "name": "daniel-albinsson/agentic-ux",
+          "uses": 24
+        },
+        {
+          "name": "CaullenOmdahl/tailwind-svelte-assistant",
+          "uses": 685
+        }
+      ]
+    },
+    "npm": {
+      "count": 153,
+      "top": [
+        "zed-project-manager",
+        "@agentpmt/mcp-router",
+        "@ganglia/cli",
+        "@spocapp/mcp-bridge",
+        "@audividi/mcp"
+      ]
+    },
+    "score": {
+      "demand": 11.35,
+      "supply": 58.31,
+      "gap": -46.97,
+      "formula": "demand = ln(1+issue_reactions) + ln(1+issue_count) + ln(1+hn_points)/2; supply = 3*official_matches + ln(1+smithery_servers) + ln(1+npm_packages)/2; gap = demand - supply"
+    }
+  }
+]

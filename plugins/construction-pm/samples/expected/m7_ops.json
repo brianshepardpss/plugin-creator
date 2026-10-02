@@ -1,0 +1,8 @@
+[{"op":"update","item":"5.02","note":"Vendor proposes week of Feb 16; Owner to confirm"},
+ {"op":"update","item":"5.03","due":"2026-10-09","note":"Waiting on AHC sign-off; electrified locks are long lead"},
+ {"op":"update","item":"6.01","due":"2026-10-02","note":"Architect to issue Friday"},
+ {"op":"close","item":"6.02","note":"Keying conference set for Oct 14"},
+ {"op":"add","desc":"Respond to RFI on door 104 frame type / EPT prep","owner":"Architect","due":"","note":"GC sending RFI 9/30"},
+ {"op":"add","desc":"Submit TAB qualification data (spec 23 05 93 1.4.A)","owner":"GC","due":"2026-10-08"},
+ {"op":"add","desc":"Issue sketch for added hand sink in med room 104","owner":"MEP Engineer","due":"2026-10-09"},
+ {"op":"add","desc":"Price added hand sink after sketch received","owner":"GC","due":"","note":"Within one week of sketch per meeting"}]

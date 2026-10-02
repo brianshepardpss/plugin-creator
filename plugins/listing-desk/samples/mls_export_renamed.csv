@@ -1,0 +1,12 @@
+ML Number,St,Sold Price,Sold Date,Address,Zip Code,Subdiv,BR,FB,HB,Sq Ft,Acres,Yr Blt,Gar,Pool,Concess,Agent Remarks
+CH26-1001,Sold,"$385,000",2026-08-14,118 Bramble Way,75999,Cedar Hollow Estates,4,2,1,"2,080",0.2,2007,2,No,"$5,000",
+CH26-1002,Sold,"$402,500",2026-07-02,204 Bramble Way,75999,Cedar Hollow Estates,4,2,1,"2,240",0.24,2009,2,No,0,
+CH26-1003,Sold,"$371,000",2026-05-22,31 Thistle Ct,75999,Cedar Hollow Estates,3,2,0,"1,960",0.19,2006,2,No,"$3,500",
+CH26-1004,Sold,"$429,000",2026-09-05,77 Larkspur Dr,75999,Cedar Hollow Estates,4,3,0,"2,380",0.26,2010,3,Yes,0,
+CH26-1005,Sold,"$394,000",2026-06-18,150 Larkspur Dr,75999,Cedar Hollow Estates,4,2,1,"2,190",0.22,2008,2,No,"$6,000",
+CH26-1006,Sold,"$379,500",2026-04-30,9 Fennel Pl,75999,Cedar Hollow Estates,4,2,0,"2,050",0.21,2007,2,No,,
+CH26-1007,Sold,"$398,000",2026-09-19,63 Bramble Way,75999,Cedar Hollow Estates,4,2,1,,0.22,2008,2,No,0,
+CH26-1010,Sold,TBD,2026-08-29,88 Thistle Ct,75999,Cedar Hollow Estates,4,2,1,"2,120",0.23,2008,2,No,"$2,000",
+,,,,,,,,,,,,,,,,
+CH26-1404,Pending,,,55 Bramble Way,75999,Cedar Hollow Estates,4,2,1,"2,140",0.22,2008,2,No,,
+CH26-1401,Active,,,17 Fennel Pl,75999,Cedar Hollow Estates,4,2,1,"2,170",0.22,2008,2,No,,

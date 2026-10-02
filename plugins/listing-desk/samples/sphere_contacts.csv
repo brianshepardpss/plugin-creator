@@ -1,0 +1,13 @@
+Name,Email,Phone,Tier,Relationship,Home Purchase Date,Birthday Month,Last Contact,Email OK,Text OK
+Morgan Placeholder,morgan.placeholder@example.com,555-0201,A,Past client,2023-05-12,3,2026-08-02,Y,Y
+Riley Sampleton,riley.sampleton@example.com,555-0202,A,Past client,2021-11-03,7,2026-06-15,Y,N
+Quinn Fakerson,quinn.fakerson@example.com,555-0203,A,Referral partner,,10,2026-09-10,Y,Y
+Sawyer Testcase,sawyer.testcase@example.com,555-0204,B,Past client,2019-02-20,,2026-01-05,Y,N
+Taylor Mockwell,taylor.mockwell@example.com,,B,Friend,,12,2025-12-20,Y,N
+Jamie Notreal,,555-0206,B,Neighbor,,,2025-10-01,N,Y
+Robin Demofield,robin.demofield@example.com,555-0207,B,Past client,2024-09-30,5,2026-04-11,Y,Y
+Skyler Examplar,skyler.examplar@example.com,555-0208,C,Open house lead,,,2026-02-14,Y,N
+Kendall Stubbs,kendall.stubbs@example.com,555-0209,C,Online lead,,,2025-08-30,Y,N
+Reese Dummyton,reese.dummyton@example.com,555-0210,C,Vendor,,,2026-03-03,N,N
+Alexis Fauxley,alexis.fauxley@example.com,555-0211,A,Past client,2025-01-17,1,2026-07-22,Y,Y
+Peyton Samplerow,peyton.samplerow@example.com,555-0212,C,Met at event,,,,Y,N

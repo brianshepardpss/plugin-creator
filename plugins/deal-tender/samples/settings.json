@@ -1,0 +1,11 @@
+{
+  "_comment": "DealTender settings for the bundled sample. Your own copy is written by /deal-tender:setup. fx rates here are EXAMPLE values for the demo only; enter your own.",
+  "as_of": "2026-10-05",
+  "stale_days": 14,
+  "commit_probability": 80,
+  "base_currency": "USD",
+  "fx_to_base": {"USD": 1.0, "EUR": 1.10, "GBP": 1.30},
+  "tone": "friendly, brief, no exclamation marks",
+  "sender_name": "Sam Okafor",
+  "field_map": {"9f2c4a7e1b3d5f60a8c2e4b6d8f0a1c3e5b7d9f1": "Lead source"}
+}

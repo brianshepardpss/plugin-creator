@@ -1,0 +1,185 @@
+{
+  "owner": "brianshepardpss",
+  "marketplace": "plugin-creator",
+  "plugins": [
+    {
+      "slug": "plugin-creator",
+      "repo": "plugin-creator-plugin",
+      "level": 2,
+      "audience": "plugin developers",
+      "surface": "code",
+      "thresholds": {
+        "cloners": 300,
+        "stars": 50,
+        "requests": 3
+      },
+      "launched": null
+    },
+    {
+      "slug": "plugin-studio",
+      "repo": "plugin-studio",
+      "level": 3,
+      "audience": "plugin portfolio builders",
+      "surface": "code",
+      "thresholds": {
+        "cloners": 100,
+        "stars": 25,
+        "requests": 5
+      },
+      "launched": null
+    },
+    {
+      "slug": "make-my-plugin",
+      "repo": "make-my-plugin",
+      "level": 4,
+      "audience": "non-developer domain experts",
+      "surface": "cowork",
+      "thresholds": {
+        "cloners": 75,
+        "stars": 15,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "grounded-scala",
+      "repo": "grounded-scala",
+      "level": 1,
+      "audience": "Scala developers",
+      "surface": "code",
+      "research": "scala-metals.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "analyzer-loop",
+      "repo": "analyzer-loop",
+      "level": 1,
+      "audience": "Flutter developers",
+      "surface": "code",
+      "research": "flutter-dart.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "merge-medic",
+      "repo": "merge-medic",
+      "level": 1,
+      "audience": "GitLab users (incl. self-managed)",
+      "surface": "code",
+      "research": "gitlab.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 5
+      },
+      "launched": null
+    },
+    {
+      "slug": "helpdesk",
+      "repo": "helpdesk",
+      "level": 1,
+      "audience": "support teams",
+      "surface": "cowork",
+      "research": "helpdesk.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 100,
+        "requests": 15
+      },
+      "launched": null
+    },
+    {
+      "slug": "structured-hiring",
+      "repo": "structured-hiring",
+      "level": 1,
+      "audience": "recruiters and hiring managers",
+      "surface": "cowork",
+      "research": "recruiting.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "deal-tender",
+      "repo": "deal-tender",
+      "level": 1,
+      "audience": "SMB sales",
+      "surface": "cowork",
+      "research": "pipedrive.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "listing-desk",
+      "repo": "listing-desk",
+      "level": 1,
+      "audience": "residential real estate agents",
+      "surface": "cowork",
+      "research": "real-estate-agent.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "construction-pm",
+      "repo": "construction-pm",
+      "level": 1,
+      "audience": "construction project managers",
+      "surface": "cowork",
+      "research": "construction-pm.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 40,
+        "requests": 5
+      },
+      "launched": null
+    },
+    {
+      "slug": "restaurant-ops",
+      "repo": "restaurant-ops",
+      "level": 1,
+      "audience": "independent restaurants",
+      "surface": "cowork",
+      "research": "restaurant-ops.md",
+      "thresholds": {
+        "cloners": 150,
+        "stars": 30,
+        "requests": 10
+      },
+      "launched": null
+    },
+    {
+      "slug": "grant-desk",
+      "repo": "grant-desk",
+      "level": 1,
+      "audience": "nonprofits and grant writers",
+      "surface": "cowork",
+      "research": "nonprofit-grants.md",
+      "thresholds": {
+        "cloners": 50,
+        "stars": 15,
+        "requests": 3
+      },
+      "launched": null
+    }
+  ]
+}

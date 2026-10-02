@@ -1,0 +1,20 @@
+PASS R1 6 competencies (want 4-6)
+PASS R2 System Design: definition and 1-4 anchors
+WARN R3 System Design: 0 behavioral, 0 situational
+PASS R2 Code Quality & Testing: definition and 1-4 anchors
+WARN R3 Code Quality & Testing: 0 behavioral, 0 situational
+PASS R2 Debugging & Operations: definition and 1-4 anchors
+WARN R3 Debugging & Operations: 0 behavioral, 0 situational
+PASS R2 Communication: definition and 1-4 anchors
+WARN R3 Communication: 0 behavioral, 0 situational
+PASS R2 Ownership: definition and 1-4 anchors
+WARN R3 Ownership: 0 behavioral, 0 situational
+PASS R2 Collaboration: definition and 1-4 anchors
+WARN R3 Collaboration: 0 behavioral, 0 situational
+WARN R5 System Design: owned by 2 sessions (System design, Architecture deep dive); keep one owner and list the rest under 'secondary'
+WARN R5 Ownership: owned by 2 sessions (Hiring manager screen, Architecture deep dive); keep one owner and list the rest under 'secondary'
+PASS R6 every competency has an owner session
+PASS R7 no fairness flags
+PASS R8 no personality or culture-fit competencies
+
+0 fail, 8 warn

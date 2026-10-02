@@ -1,0 +1,227 @@
+[0KRunning with gitlab-runner 19.3.1 (5a2c8f3e)[0;m
+[0K  on fake-runner-07 Zx81kQe2W, system ID: s_7c1e0d9a2b44[0;m
+section_start:1759150100:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image node:22-alpine ...[0;m
+[0KPulling docker image node:22-alpine ...[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for node:22-alpine with digest node@sha256:8e2a91 ...[0;m
+section_end:1759150104:prepare_executor[0K
+section_start:1759150104:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-zx81kqe2w-project-512-concurrent-0 via fake-runner-03...
+section_end:1759150105:prepare_script[0K
+section_start:1759150105:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Initialized empty Git repository in /builds/platform/invoice-api/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out c0ffee12 as detached HEAD (ref is chore/frontend-deps)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1759150107:get_sources[0K
+section_start:1759150107:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for node:22-alpine with digest node@sha256:8e2a91 ...[0;m
+[32;1m$ npm ci --no-audit --loglevel=http[0;m
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0000 32ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0001 43ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0002 145ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0003 263ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0004 57ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0005 253ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0006 232ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0007 119ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0008 216ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0009 273ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0010 224ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0011 144ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0012 95ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0013 22ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0014 74ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0015 237ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0016 132ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0017 110ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0018 285ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0019 257ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0020 45ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0021 147ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0022 82ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0023 253ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0024 88ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0025 257ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0026 291ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0027 182ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0028 246ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0029 278ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0030 238ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0031 300ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0032 248ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0033 101ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0034 263ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0035 250ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0036 152ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0037 146ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0038 161ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0039 286ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0040 268ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0041 142ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0042 160ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0043 245ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0044 59ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0045 166ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0046 140ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0047 159ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0048 191ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0049 183ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0050 296ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0051 61ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0052 90ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0053 97ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0054 138ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0055 216ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0056 98ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0057 129ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0058 52ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0059 232ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0060 228ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0061 189ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0062 297ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0063 258ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0064 232ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0065 51ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0066 125ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0067 235ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0068 219ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0069 30ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0070 214ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0071 264ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0072 23ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0073 200ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0074 172ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0075 219ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0076 234ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0077 295ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0078 299ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0079 132ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0080 269ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0081 132ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0082 159ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0083 243ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0084 268ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0085 34ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0086 219ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0087 192ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0088 227ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0089 104ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0090 259ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0091 85ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0092 293ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0093 33ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0094 221ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0095 33ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0096 62ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0097 239ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0098 89ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0099 256ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0100 113ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0101 45ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0102 153ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0103 214ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0104 187ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0105 128ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0106 252ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0107 187ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0108 192ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0109 214ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0110 162ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0111 235ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0112 149ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0113 61ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0114 260ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0115 29ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0116 296ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0117 46ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0118 199ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0119 134ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0120 55ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0121 40ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0122 35ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0123 146ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0124 122ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0125 30ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0126 98ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0127 142ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0128 84ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0129 262ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0130 78ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0131 131ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0132 258ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0133 151ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0134 208ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0135 105ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0136 78ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0137 103ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0138 179ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0139 75ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0140 33ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0141 179ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0142 212ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0143 223ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0144 121ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0145 58ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0146 144ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0147 72ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0148 174ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0149 81ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0150 41ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0151 197ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0152 292ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0153 239ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0154 209ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0155 55ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0156 279ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0157 194ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0158 26ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0159 235ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0160 270ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0161 74ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0162 241ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0163 205ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0164 255ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0165 98ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0166 242ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0167 110ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0168 287ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0169 158ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0170 295ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0171 267ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0172 258ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0173 243ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0174 157ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0175 185ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0176 145ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0177 64ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0178 162ms (cache miss)
+npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0179 250ms (cache miss)
+npm error code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: react-chartkit@3.1.0
+npm error Found: react@19.1.0
+npm error node_modules/react
+npm error   react@"^19.1.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^18.2.0" from react-chartkit@3.1.0
+npm error node_modules/react-chartkit
+npm error   react-chartkit@"^3.1.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error /root/.npm/_logs/2026-09-29T12_48_31_442Z-eresolve-report.txt
+npm error A complete log of this run can be found in: /root/.npm/_logs/2026-09-29T12_48_31_442Z-debug-0.log
+section_end:1759150133:step_script[0K
+section_start:1759150133:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1759150134:cleanup_file_variables[0K
+[31;1mERROR: Job failed: exit code 1
+[0;m

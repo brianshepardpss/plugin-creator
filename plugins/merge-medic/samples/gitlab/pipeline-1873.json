@@ -1,0 +1,374 @@
+{
+  "id": 1873,
+  "iid": 311,
+  "project_id": 512,
+  "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+  "ref": "refs/merge-requests/42/head",
+  "status": "failed",
+  "source": "merge_request_event",
+  "created_at": "2026-09-30T14:22:50.000Z",
+  "updated_at": "2026-09-30T14:33:02.000Z",
+  "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/pipelines/1873",
+  "before_sha": "0000000000000000000000000000000000000000",
+  "tag": false,
+  "yaml_errors": null,
+  "user": {
+    "id": 3101,
+    "username": "demo.dev",
+    "name": "Demo Dev",
+    "state": "active",
+    "web_url": "https://gitlab.example-corp.test/demo.dev"
+  },
+  "started_at": "2026-09-30T14:22:50.000Z",
+  "finished_at": "2026-09-30T14:33:02.000Z",
+  "committed_at": null,
+  "duration": 612,
+  "queued_duration": 3,
+  "coverage": null,
+  "detailed_status": {
+    "icon": "status_failed",
+    "text": "Failed",
+    "label": "failed",
+    "group": "failed",
+    "tooltip": "failed",
+    "has_details": true,
+    "details_path": "/platform/invoice-api/-/pipelines/1873"
+  },
+  "name": null,
+  "jobs": [
+    {
+      "id": 90411,
+      "name": "lint",
+      "stage": "test",
+      "status": "success",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 21.4,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90411",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ]
+    },
+    {
+      "id": 90412,
+      "name": "typecheck",
+      "stage": "test",
+      "status": "success",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 33.0,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90412",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ]
+    },
+    {
+      "id": 90413,
+      "name": "unit-tests",
+      "stage": "test",
+      "status": "failed",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 31.2,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90413",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ],
+      "failure_reason": "script_failure"
+    },
+    {
+      "id": 90415,
+      "name": "e2e-smoke",
+      "stage": "test",
+      "status": "failed",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": true,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 600.9,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90415",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ],
+      "failure_reason": "job_execution_timeout"
+    },
+    {
+      "id": 90416,
+      "name": "sast",
+      "stage": "test",
+      "status": "success",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 12.8,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90416",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ]
+    },
+    {
+      "id": 90414,
+      "name": "build-image",
+      "stage": "build",
+      "status": "failed",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": "2026-09-30T14:22:51.000Z",
+      "finished_at": "2026-09-30T14:22:51.000Z",
+      "erased_at": null,
+      "duration": 58.6,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90414",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ],
+      "failure_reason": "script_failure"
+    },
+    {
+      "id": 90417,
+      "name": "deploy-review",
+      "stage": "deploy",
+      "status": "manual",
+      "ref": "refs/merge-requests/42/head",
+      "tag": false,
+      "coverage": null,
+      "allow_failure": false,
+      "created_at": "2026-09-30T14:22:51.000Z",
+      "started_at": null,
+      "finished_at": null,
+      "erased_at": null,
+      "duration": null,
+      "queued_duration": 1.2,
+      "user": {
+        "id": 3101,
+        "username": "demo.dev",
+        "name": "Demo Dev",
+        "state": "active",
+        "web_url": "https://gitlab.example-corp.test/demo.dev"
+      },
+      "commit": {
+        "id": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "short_id": "ae38bb20",
+        "title": "Add late fees to invoice export"
+      },
+      "pipeline": {
+        "id": 1873,
+        "project_id": 512,
+        "ref": "refs/merge-requests/42/head",
+        "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+        "status": "failed"
+      },
+      "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/jobs/90417",
+      "artifacts": [],
+      "runner": {
+        "id": 7,
+        "description": "fake-runner-03",
+        "active": true,
+        "is_shared": true,
+        "name": "gitlab-runner"
+      },
+      "tag_list": [
+        "docker"
+      ],
+      "when": "manual"
+    }
+  ],
+  "variables": []
+}

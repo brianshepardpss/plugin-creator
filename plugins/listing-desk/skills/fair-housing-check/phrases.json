@@ -1,0 +1,334 @@
+{
+  "_note": "Deterministic phrase list for fair_housing.py. Categories follow the Fair Housing Act protected classes plus common state/local additions, steering proxies and MLS remark rules. This list catches known problem phrases; it is not legal advice and cannot catch every problem, so the skill also does a context review. Add your state's protected classes and your MLS's rules as new entries.",
+  "levels": {
+    "FLAG": "Must fix before use",
+    "REVIEW": "Check context; usually rewrite",
+    "NOTE": "Style or terminology; does not affect PASS"
+  },
+  "entries": [
+    {
+      "id": "fam-perfect-for",
+      "level": "FLAG",
+      "category": "familial status",
+      "pattern": "\\b(?:perfect|ideal|great|good|made|wonderful)\\s+for\\s+(?:a\\s+|the\\s+|your\\s+)?(?:young\\s+|growing\\s+|small\\s+|large\\s+|big\\s+)?(?:famil(?:y|ies)|kids|children|newlyweds?|young\\s+couples?)\\b",
+      "why": "Describes who should live here (families/children). Advertising a preference based on familial status violates 42 USC 3604(c).",
+      "rewrite": "Describe the space instead: \"four bedrooms and a flexible bonus room\"."
+    },
+    {
+      "id": "fam-friendly",
+      "level": "FLAG",
+      "category": "familial status",
+      "pattern": "\\b(?:family|kid|child)[- ]?(?:friendly|oriented)\\b",
+      "why": "Signals a preference for households with children.",
+      "rewrite": "Name the feature: \"fenced backyard\", \"cul-de-sac lot\"."
+    },
+    {
+      "id": "fam-kids",
+      "level": "FLAG",
+      "category": "familial status",
+      "pattern": "\\b(?:raise|raising)\\s+(?:a\\s+|your\\s+)?(?:family|kids|children)\\b|\\bkids\\s+will\\s+love\\b|\\blittle\\s+ones\\b|\\b(?:great|perfect|ideal|wonderful)\\s+(?:place\\s+)?for\\s+(?:the\\s+)?(?:kids|children|toddlers|teens)\\b",
+      "why": "Signals a preference for households with children.",
+      "rewrite": "Name the feature: \"large fenced yard\", \"bonus room upstairs\"."
+    },
+    {
+      "id": "who-perfect-for",
+      "level": "REVIEW",
+      "category": "describes the buyer (familial / age / state classes)",
+      "pattern": "\\b(?:perfect|ideal|great)\\s+for\\s+(?:a\\s+|the\\s+)?(?:young\\s+)?(?:professionals?|students?|retirees?|seniors?|millennials|commuters?|first[- ]time\\s+buyers?)\\b|\\bno\\s+students\\b",
+      "why": "Describes who should live here instead of the property. Some groups are protected in some states (age, student status in a few cities).",
+      "rewrite": "Describe the feature that appeals: \"home office with built-ins\", \"low-maintenance yard\"."
+    },
+    {
+      "id": "fam-neighborhood",
+      "level": "FLAG",
+      "category": "familial status",
+      "pattern": "\\bfamily\\s+(?:neighbou?rhood|community|area|street|block)\\b",
+      "why": "Characterises residents by familial status.",
+      "rewrite": "Describe the property or amenities, not the residents."
+    },
+    {
+      "id": "fam-no-kids",
+      "level": "FLAG",
+      "category": "familial status",
+      "pattern": "\\b(?:no\\s+(?:kids|children|minors)|adults?\\s+only|childless|not\\s+suitable\\s+for\\s+(?:kids|children))\\b",
+      "why": "Excludes households with children (only HOPA-qualified 55+/62+ housing may restrict).",
+      "rewrite": "Remove. If the community is HOPA-qualified senior housing, say so factually and confirm with the broker."
+    },
+    {
+      "id": "fam-couples",
+      "level": "FLAG",
+      "category": "familial / marital status (state)",
+      "pattern": "\\b(?:young\\s+couples?|newlyweds?|singles?\\s+only|perfect\\s+for\\s+(?:a\\s+)?(?:couple|single|singles))\\b",
+      "why": "Describes the ideal occupant by marital or family status.",
+      "rewrite": "Describe size and layout: \"easy-care two-bedroom plan\"."
+    },
+    {
+      "id": "fam-empty-nest",
+      "level": "FLAG",
+      "category": "familial status / age",
+      "pattern": "\\bempty[- ]?nesters?\\b",
+      "why": "Describes the ideal occupant by family stage and age.",
+      "rewrite": "\"Primary suite on the main level\", \"low-maintenance yard\"."
+    },
+    {
+      "id": "fam-nursery",
+      "level": "REVIEW",
+      "category": "familial status",
+      "pattern": "\\bnursery\\b",
+      "why": "Implies a household with a baby. Usually low risk, but describes people rather than space.",
+      "rewrite": "\"Bedroom\" or \"flex room\"."
+    },
+    {
+      "id": "fam-inlaw",
+      "level": "REVIEW",
+      "category": "familial status",
+      "pattern": "\\b(?:mother|in)[- ]in[- ]law\\s+(?:suite|apartment|apt|quarters|plan|unit|wing)\\b|\\bmother[- ]in[- ]law\\b",
+      "why": "Implies who will live there; widely used but many brokerages now avoid it.",
+      "rewrite": "\"Guest suite\", \"secondary suite\", \"multi-generational floor plan\" (describes the plan, not the people)."
+    },
+    {
+      "id": "rel-adjective",
+      "level": "REVIEW",
+      "category": "religion",
+      "pattern": "\\b(?:christian|catholic|jewish|muslim|islamic|hindu|buddhist|mormon|protestant|evangelical|amish|sikh)\\b",
+      "why": "Religious word. Fine inside a proper name used only as a location (\"Christian Brothers Automotive\"); not fine describing the property, area or buyer.",
+      "rewrite": "Remove unless it is part of a business or place name used only for directions."
+    },
+    {
+      "id": "rel-landmark",
+      "level": "REVIEW",
+      "category": "religion",
+      "pattern": "\\b(?:church(?:es)?|synagogues?|mosques?|temples?|parish|cathedral|chapel|congregation)\\b",
+      "why": "A house of worship as a selling point can signal religious preference. A widely known landmark used only for directions is lower risk.",
+      "rewrite": "Remove, or use a neutral landmark: \"near the town square\"."
+    },
+    {
+      "id": "rel-people",
+      "level": "FLAG",
+      "category": "religion",
+      "pattern": "\\b(?:christian|catholic|jewish|muslim|islamic|hindu|buddhist|mormon|protestant|evangelical|amish|sikh)\\s+(?:neighbou?rhoods?|community|communities|area|families|family|buyers?|residents?|home|street|enclave|people|neighbou?rs)\\b(?!\\s+(?:center|centre|hospital|school|college|university|church|club))",
+      "why": "Describes the area, home or residents by religion.",
+      "rewrite": "Remove. Describe the property only."
+    },
+    {
+      "id": "rel-saint",
+      "level": "REVIEW",
+      "category": "religion",
+      "pattern": "\\bSt\\.?\\s+[A-Z][a-z]+'s\\b|\\bSaint\\s+[A-Z][a-z]+\\b",
+      "why": "Saint names usually point to a church or parochial school.",
+      "rewrite": "Remove, or replace with a neutral landmark or the street name.",
+      "case_sensitive": true
+    },
+    {
+      "id": "rel-kosher",
+      "level": "REVIEW",
+      "category": "religion",
+      "pattern": "\\bkosher\\b",
+      "why": "Religious-practice reference.",
+      "rewrite": "Describe the feature: \"two dishwashers\", \"double ovens\"."
+    },
+    {
+      "id": "race-people",
+      "level": "FLAG",
+      "category": "race / color / national origin",
+      "pattern": "\\b(?:white|black|asian|hispanic|latino|latina|latinx|mexican|chinese|indian|african[- ]american|caucasian|arab|korean|vietnamese|filipino|european|immigrants?|foreign(?:ers?)?|ethnic)\\s+(?:neighbou?rhood|community|area|famil(?:y|ies)|buyers?|residents?|owners?|tenants?|people|street|enclave|population)\\b",
+      "why": "Describes residents or buyers by race, color or national origin.",
+      "rewrite": "Remove. Describe the property only."
+    },
+    {
+      "id": "race-mix",
+      "level": "FLAG",
+      "category": "race / color / national origin",
+      "pattern": "\\b(?:ethnically|racially)\\s+\\w+|\\b(?:integrated|segregated)\\s+(?:neighbou?rhood|community|area|school)\\b",
+      "why": "Racial composition of an area.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "race-diverse",
+      "level": "REVIEW",
+      "category": "race / color / national origin",
+      "pattern": "\\bdiverse\\s+(?:neighbou?rhood|community|area|population|residents)\\b",
+      "why": "Comments on who lives in the area.",
+      "rewrite": "Remove, or name concrete amenities."
+    },
+    {
+      "id": "race-english",
+      "level": "FLAG",
+      "category": "national origin",
+      "pattern": "\\b(?:english[- ](?:only|speaking)|citizens?\\s+only|no\\s+(?:immigrants|foreigners))\\b",
+      "why": "National-origin preference.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "race-code",
+      "level": "FLAG",
+      "category": "race / color / national origin",
+      "pattern": "\\bghetto\\b|\\bbarrio\\b",
+      "why": "Racially coded description of an area.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "race-exclusive",
+      "level": "REVIEW",
+      "category": "race (historic code)",
+      "pattern": "\\b(?:exclusive|restricted|private)\\s+(?:neighbou?rhood|community|area|enclave|subdivision)\\b",
+      "why": "\"Exclusive\" and \"restricted\" were historic codes for racial exclusion.",
+      "rewrite": "\"Gated community\" (if true), \"limited homesites\"."
+    },
+    {
+      "id": "sex-only",
+      "level": "FLAG",
+      "category": "sex",
+      "pattern": "\\b(?:men|male|female|women|gentlemen|ladies)(?:'s)?\\s+only\\b|\\bperfect\\s+for\\s+(?:a\\s+)?(?:man|woman|bachelor|bachelorette|guy|girl)s?\\b|\\bbachelor(?:'?s)?\\s+pad\\b",
+      "why": "Sex-based preference.",
+      "rewrite": "Remove; describe the space."
+    },
+    {
+      "id": "sex-cave",
+      "level": "REVIEW",
+      "category": "sex",
+      "pattern": "\\bman\\s+cave\\b|\\bshe[- ]shed\\b|\\bgentleman'?s\\s+(?:farm|ranch|estate)\\b",
+      "why": "Gendered description. Common, but describes the occupant.",
+      "rewrite": "\"Bonus room\", \"media room\", \"studio\", \"hobby farm\"."
+    },
+    {
+      "id": "dis-exclude",
+      "level": "FLAG",
+      "category": "disability",
+      "pattern": "\\bno\\s+(?:wheelchairs?|disabled|handicapped|deaf|blind|service\\s+animals|emotional\\s+support\\s+animals)\\b|\\bable[- ]bodied\\b|\\b(?:not\\s+suitable|unsuitable)\\s+for\\s+(?:the\\s+)?(?:disabled|handicapped|elderly|wheelchairs?)\\b|\\b(?:mentally|physically)\\s+(?:ill|handicapped|disabled|fit)\\b|\\bmust\\s+(?:be\\s+able\\s+to\\s+)?climb\\b",
+      "why": "Excludes or discourages people with disabilities.",
+      "rewrite": "Remove. Describe the feature: \"three-story townhome\", \"second-floor unit, no elevator\"."
+    },
+    {
+      "id": "dis-handicap",
+      "level": "REVIEW",
+      "category": "disability",
+      "pattern": "\\bhandicap(?:ped)?\\b",
+      "why": "Dated term for people; describing accessibility features is fine.",
+      "rewrite": "\"Accessible\", \"wheelchair-accessible entry\", \"roll-in shower\"."
+    },
+    {
+      "id": "age-senior",
+      "level": "REVIEW",
+      "category": "age (state/local; HOPA exemption)",
+      "pattern": "\\b(?:seniors?|retirees?|elderly|retirement\\s+(?:community|living|home))\\b|\\b(?:55|62)\\s*(?:\\+|and\\s+(?:over|older)|or\\s+older)",
+      "why": "Age preference is allowed only in HOPA-qualified 55+/62+ housing.",
+      "rewrite": "Keep only if the user confirms the community is HOPA-qualified; otherwise \"single-level living\"."
+    },
+    {
+      "id": "age-young",
+      "level": "FLAG",
+      "category": "age / familial status",
+      "pattern": "\\byoung\\s+(?:professionals?|people|buyers?|crowd|families)\\b|\\b(?:mature|older)\\s+(?:adults?|persons?|couples?|buyers?)\\b",
+      "why": "Describes the desired buyer's age.",
+      "rewrite": "Remove; describe the property."
+    },
+    {
+      "id": "soi-no",
+      "level": "FLAG",
+      "category": "source of income (state/local)",
+      "pattern": "\\bno\\s+(?:section\\s*8|vouchers?|housing\\s+(?:choice\\s+)?vouchers?|hud|subsidi[sz]ed|government\\s+assistance|public\\s+assistance|welfare|rental\\s+assistance)\\b|\\b(?:section\\s*8|vouchers?)\\s+not\\s+(?:accepted|allowed)\\b|\\bmust\\s+(?:be\\s+employed|have\\s+a\\s+job)\\b",
+      "why": "Source-of-income discrimination is illegal in many states and cities, and \"no Section 8\" is also used as a racial proxy.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "soi-mention",
+      "level": "REVIEW",
+      "category": "source of income (state/local)",
+      "pattern": "\\bsection\\s*8\\b",
+      "why": "Mentions housing assistance; check context.",
+      "rewrite": "Remove unless legally required wording."
+    },
+    {
+      "id": "so-people",
+      "level": "FLAG",
+      "category": "sexual orientation / gender identity (state; HUD)",
+      "pattern": "\\b(?:straight|gay|lesbian|lgbtq?\\+?|transgender|queer)[- ]?(?:only|friendly|neighbou?rhood|community|couples?|buyers?)\\b",
+      "why": "Describes residents or buyers by sexual orientation or gender identity.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "mil-no",
+      "level": "FLAG",
+      "category": "military status (state)",
+      "pattern": "\\bno\\s+(?:military|veterans?|service\\s+members?)\\b",
+      "why": "Military status is protected in several states.",
+      "rewrite": "Remove."
+    },
+    {
+      "id": "steer-safe",
+      "level": "FLAG",
+      "category": "steering (schools / crime / neighbourhood quality)",
+      "pattern": "\\b(?:safe|safest|safer|crime[- ]free|low[- ]crime|high[- ]crime|dangerous|sketchy|rough|unsafe)(?!\\s+(?:harbou?r|haven)\\b)(?:,?\\s+(?:and\\s+)?[a-z]+){0,2}?,?\\s+(?:neighbou?rhood|area|community|street|part\\s+of\\s+town|place\\s+to\\s+live|location|block|side\\s+of\\s+town)\\b|\\b(?:low|no|little)\\s+crime\\b",
+      "why": "Safety and crime characterisations are a recognised steering proxy and cannot be verified by the agent.",
+      "rewrite": "Remove. Point buyers to official sources (local police department data) to evaluate themselves."
+    },
+    {
+      "id": "steer-crime",
+      "level": "REVIEW",
+      "category": "steering (schools / crime / neighbourhood quality)",
+      "pattern": "\\bcrime\\b",
+      "why": "Crime statements about an area can steer.",
+      "rewrite": "Remove; let buyers consult official sources."
+    },
+    {
+      "id": "steer-schools",
+      "level": "FLAG",
+      "category": "steering (schools / crime / neighbourhood quality)",
+      "pattern": "\\b(?:great|good|top|top[- ]rated|top[- ]notch|first[- ]rate|premier|acclaimed|best|excellent|award[- ]winning|highly[- ]rated|blue[- ]ribbon|exemplary|outstanding|sought[- ]after|desirable|better|bad|poor|failing)\\s+(?:schools?|school\\s+district|school\\s+system|elementary|middle\\s+school|high\\s+school)\\b(?!\\s+(?:bus|zone|boundary|boundaries))|\\brated\\s+\\d+(?:\\.\\d+)?\\s*(?:/|out\\s+of)\\s*10\\b|\\b\\d+\\s*/\\s*10\\s+(?:schools?|elementary|district|rated)\\b",
+      "why": "School-quality claims are a steering proxy and change over time.",
+      "rewrite": "State the assigned district factually: \"Zoned to Cedar Hollow ISD (buyer to verify)\"."
+    },
+    {
+      "id": "steer-quality",
+      "level": "REVIEW",
+      "category": "steering (schools / crime / neighbourhood quality)",
+      "pattern": "\\b(?:good|great|nice|desirable|prestigious|best|up[- ]and[- ]coming|transitional|declining|changing|improving|stable|safe)\\s+(?:neighbou?rhoods?|areas?|part\\s+of\\s+town)\\b|\\bup[- ]and[- ]coming\\b|\\bgentrif\\w*",
+      "why": "Subjective judgment about a neighbourhood can steer.",
+      "rewrite": "Name concrete, verifiable features: \"sidewalks\", \"0.4 mi to the community pool\"."
+    },
+    {
+      "id": "steer-residents",
+      "level": "FLAG",
+      "category": "steering (describes residents)",
+      "pattern": "\\b(?:desirable|quality|good|nice|better|right\\s+kind\\s+of|better\\s+class\\s+of|upscale)\\s+(?:residents|neighbou?rs|people|clientele|tenants|families|crowd)\\b",
+      "why": "Characterises the people who live in the area, a classic steering signal.",
+      "rewrite": "Remove. Describe the property and verifiable amenities."
+    },
+    {
+      "id": "term-master",
+      "level": "NOTE",
+      "category": "terminology",
+      "pattern": "\\bmaster\\s+(?:bed(?:room)?|suite|bath(?:room)?|closet|retreat)\\b",
+      "why": "Not a Fair Housing violation, but many MLSs and brokerages now prefer \"primary\".",
+      "rewrite": "\"Primary bedroom\", \"primary suite\"."
+    },
+    {
+      "id": "mls-comp",
+      "level": "FLAG",
+      "category": "MLS rule: buyer-agent compensation",
+      "pattern": "\\b(?:buyer'?s?|selling|cooperating|co-?op|coop)\\s*(?:agent|broker|agency|office)?\\s*(?:compensation|commission|comp|bonus|fee)\\b|\\b(?:bac|co-?op)\\s*(?:of|is|:|=)?\\s*\\$?\\d|\\d+(?:\\.\\d+)?\\s*%\\s*(?:to|for)\\s+(?:the\\s+)?(?:buyer|selling|cooperating)|\\bbonus\\s+to\\s+(?:the\\s+)?(?:buyer|selling|cooperating)|\\b(?:buyer|selling)\\s+(?:agent|broker)\\s+(?:receives?|gets|earns|paid)\\b|\\b(?:seller|owner)s?\\s+(?:will|to|is\\s+willing\\s+to)\\s+(?:pay|offer|contribute)\\w*\\s+.{0,30}?\\b(?:buyer'?s?\\s+(?:agent|broker)|commission)",
+      "why": "Under the 2024 industry settlement rules still in force, offers of buyer-broker compensation may not appear in MLS fields or remarks.",
+      "rewrite": "Remove from remarks. Compensation is discussed off-MLS under written agreements.",
+      "level_outside_remarks": "REVIEW"
+    },
+    {
+      "id": "mls-contact",
+      "level": "FLAG",
+      "category": "MLS rule: contact info in public remarks",
+      "pattern": "\\(?\\b\\d{3}\\)?[-. ]\\d{3}[-. ]\\d{4}\\b|\\b\\d{3}[-. ]\\d{4}\\b|[\\w.+-]+@[\\w-]+\\.[\\w.]+|\\bhttps?://\\S+|\\bwww\\.\\S+",
+      "why": "Most MLSs prohibit phone numbers, emails and links in public remarks.",
+      "rewrite": "Move contact details to the agent fields or the flyer.",
+      "scope": "remarks"
+    },
+    {
+      "id": "mls-showing",
+      "level": "FLAG",
+      "category": "MLS rule: showing instructions in public remarks",
+      "scope": "remarks",
+      "pattern": "\\block\\s*box\\b|\\blockbox\\b|\\bshowing\\s*time\\b|\\bshowing\\s+instructions?\\b|\\bcall\\s+(?:listing\\s+)?(?:agent|office)\\b|\\bgo\\s+direct\\b|\\bcombo\\s+(?:box|code)\\b|\\bsupra\\b|\\bappointment\\s+(?:only|required)\\b|\\bgate\\s+code\\b|\\balarm\\s+code\\b",
+      "why": "Showing instructions, access codes and lockbox details belong in the private/agent remarks or showing fields, not public remarks.",
+      "rewrite": "Move to the agent-only remarks or showing-instructions field."
+    }
+  ]
+}

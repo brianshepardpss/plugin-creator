@@ -1,0 +1,15 @@
+{
+  "dart": {
+    "command": "dart",
+    "args": ["language-server", "--protocol=lsp", "--client-id=analyzer-loop", "--client-version=0.1.0"],
+    "extensionToLanguage": {
+      ".dart": "dart"
+    },
+    "initializationOptions": {
+      "onlyAnalyzeProjectsWithOpenFiles": true
+    },
+    "startupTimeout": 60000,
+    "shutdownTimeout": 5000,
+    "maxRestarts": 3
+  }
+}

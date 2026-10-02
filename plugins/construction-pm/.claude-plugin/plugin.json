@@ -1,0 +1,26 @@
+{
+  "name": "construction-pm",
+  "displayName": "Construction PM Toolkit",
+  "version": "0.1.0",
+  "description": "Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "construction",
+    "submittals",
+    "rfi",
+    "daily-report",
+    "project-management",
+    "general-contractor",
+    "csi-masterformat"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/construction-pm",
+  "repository": "https://github.com/brianshepardpss/construction-pm"
+}

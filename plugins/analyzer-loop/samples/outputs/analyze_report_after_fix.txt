@@ -1,0 +1,8 @@
+Analyzer: 0 issues  (errors 0, warnings 0, infos 0)
+  ignore comments: 0   analysis_options.yaml: e7ac31ed88f71506
+
+Before -> after: 27 -> 0 issues (27 fixed)
+  errors     17 ->   0
+  warnings    0 ->   0
+  infos      10 ->   0
+  [OK guardrail] no new ignore comments; analysis_options.yaml unchanged

@@ -1,0 +1,66 @@
+{
+  "id": 70442,
+  "iid": 42,
+  "project_id": 512,
+  "title": "Add late fees to invoice export",
+  "description": "Adds a `late_fee` column to the finance CSV export.\n\n- 5-day grace period\n- 0.05% per day after that, capped at 10% of the amount due\n\nCloses #12",
+  "state": "opened",
+  "created_at": "2026-09-30T14:21:00.000Z",
+  "updated_at": "2026-09-30T15:02:00.000Z",
+  "target_branch": "main",
+  "source_branch": "feature/late-fees",
+  "author": {
+    "id": 3101,
+    "username": "demo.dev",
+    "name": "Demo Dev",
+    "state": "active",
+    "web_url": "https://gitlab.example-corp.test/demo.dev"
+  },
+  "assignees": [
+    {
+      "id": 3101,
+      "username": "demo.dev",
+      "name": "Demo Dev",
+      "state": "active",
+      "web_url": "https://gitlab.example-corp.test/demo.dev"
+    }
+  ],
+  "reviewers": [
+    {
+      "id": 3177,
+      "username": "dana.reviewer",
+      "name": "Dana Reviewer (fictional)",
+      "state": "active",
+      "web_url": "https://gitlab.example-corp.test/dana.reviewer"
+    }
+  ],
+  "draft": false,
+  "work_in_progress": false,
+  "merge_status": "can_be_merged",
+  "detailed_merge_status": "ci_must_pass",
+  "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+  "labels": [
+    "billing",
+    "finance-export"
+  ],
+  "user_notes_count": 5,
+  "has_conflicts": false,
+  "blocking_discussions_resolved": false,
+  "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/merge_requests/42",
+  "head_pipeline": {
+    "id": 1873,
+    "iid": 311,
+    "project_id": 512,
+    "sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+    "ref": "refs/merge-requests/42/head",
+    "status": "failed",
+    "source": "merge_request_event",
+    "web_url": "https://gitlab.example-corp.test/platform/invoice-api/-/pipelines/1873"
+  },
+  "diff_refs": {
+    "base_sha": "1abefb1c2449d6e95a56f2c3c3226d037d0a74c9",
+    "head_sha": "ae38bb2004899003e4e51d88ab152aa4e38af10a",
+    "start_sha": "1abefb1c2449d6e95a56f2c3c3226d037d0a74c9"
+  },
+  "changes_count": "4"
+}

@@ -1,0 +1,33 @@
+OAC Meeting No. 7 - Marlowe Creek Clinic TI (FICTIONAL SAMPLE)
+Wednesday, September 30, 2026, 10:00 AM, jobsite trailer + video call
+Transcript (auto-generated, lightly cleaned)
+
+Attendees: Jordan Vale (Owner's rep, Example Health Partners), Pat Lindqvist (Architect, Fernbrook Design Studio),
+Dana Okafor (PE, Halvorsen & Pike Builders), Sam Reyes (Super, Halvorsen & Pike Builders),
+Lee Tran (MEP engineer, Northgate Engineering) - joined at 10:20. All names and firms fictional.
+
+DANA: Ok let's start with old business. 5.02, furniture vendor delivery window.
+JORDAN: Still working on it. Their install crew wants the week of February 16. I'll confirm by next meeting.
+DANA: OK, keep it open, due October 7.
+DANA: 5.03, the door hardware submittal. We're still waiting on the hardware consultant's sign off on the schedule. Tidewater says end of next week.
+PAT: Fine, but that has the electrified locks, right? Those are long lead.
+DANA: Right, that's why we're pushing. New target October 9.
+DANA: 6.01, RFI-003 corridor ceiling.
+PAT: I'll have it out Friday. Let's say October 2.
+DANA: 6.02, keying conference dates.
+JORDAN: I sent three dates this morning. October 14, 15 or 20.
+DANA: Great, we'll take the 14th. So 6.02 is closed. And 6.03 was the look-ahead, that's done.
+DANA: New business. Schedule. We're on track through framing. Plumbing hit an unknown footing yesterday? No, that was today, sorry, I'll let Sam talk about that.
+SAM: Not today, that's tomorrow's forecast, we're trenching tomorrow on C line. Today we're fine.
+DANA: Ok skip that. The frame at door 104, we found the frame schedule has 104 as F1 with no EPT prep but the hardware set needs the EPT. We're sending an RFI today.
+PAT: Send it, I'll look at it. Probably just change it to F3.
+DANA: We'd want that in writing, and if the frame needs field prep we'll price it.
+PAT: Understood.
+DANA: Submittals. TAB qualifications are due within 30 days of NTP per the spec, so October 8. Lee, are you good with who we have?
+LEE: Send it, I'll review within a week.
+DANA: Paint drawdowns are going in next week.
+JORDAN: One more thing from the owner side, we want to add a hand sink in the med room 104. Can you price that?
+DANA: Yes, we'll need a sketch from Pat or Lee.
+LEE: I'll get a sketch out by October 9.
+DANA: And we'll price it within a week of getting the sketch.
+DANA: Next meeting October 7, same time. That's it.

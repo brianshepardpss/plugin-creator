@@ -1,0 +1,31 @@
+Android build versions: samples/android_mismatch/android
+Rules: flutter_tools 3.47.6 at ~/.local/sdk/flutter (live)
+
+item                found                  where
+Gradle              7.5                    gradle/wrapper/gradle-wrapper.properties:5
+AGP                 7.3.0                  settings.gradle:21
+Kotlin (KGP)        1.7.10                 settings.gradle:22
+JDK                 21                     --java
+minSdk              21                     app/build.gradle:23
+Java target         1.8                    app/build.gradle:13
+Kotlin jvmTarget    1.8                    app/build.gradle:18
+
+Checks:
+  [FAIL] Gradle 7.5 is below Flutter's minimum 8.14.0 (build error)
+  [FAIL] AGP 7.3.0 is below Flutter's minimum 8.11.1 (build error)
+  [FAIL] Kotlin 1.7.10 is below Flutter's minimum 2.2.20 (build error)
+  [OK] JDK 21 meets Flutter's floor 17
+  [FAIL] minSdk 21 is below Flutter's minimum 23
+  [OK] AGP 7.3.0 needs Gradle >= 7.5; found 7.5
+  [FAIL] Kotlin 1.7.10 supports Gradle 6.7.1 to 7.0.2; found 7.5
+  [FAIL] Kotlin 1.7.10 supports AGP 3.4.3 to 7.0.2; found 7.3.0
+  [FAIL] JDK 21 needs Gradle >= 8.4 to run; found 7.5
+  [OK] AGP 7.3.0 needs JDK >= 11; found 21
+
+Build log signatures (samples/android_mismatch/build_failure.log):
+  line 16: The JDK running Gradle (class file 65 = JDK 21) is newer than this Gradle supports.
+
+Recommended set (Flutter template): Gradle 9.3.1, AGP 9.1.0, Kotlin 2.4.0, with JDK 21  -> all pairwise checks pass
+Stopgap set (no AGP 9 migration, still warns): Gradle 8.14.3, AGP 8.11.1, Kotlin 2.2.20, with JDK 21  -> all pairwise checks pass
+
+Summary: 7 FAIL, 0 WARN

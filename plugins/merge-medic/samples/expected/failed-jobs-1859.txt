@@ -1,0 +1,4 @@
+pipeline 1859 (failed) ref chore/ci-review-env sha badc0de1
+url: https://gitlab.example-corp.test/platform/invoice-api/-/pipelines/1859
+YAML ERRORS: jobs:deploy-review config contains unknown keys: enviroment
+No jobs ran. Fix .gitlab-ci.yml and validate with `glab ci lint` before pushing.

@@ -1,0 +1,40 @@
+Donor ID,First Name,Last Name,Email,Gift Date,Gift Amount,Recurring,Fund
+D001,Avery,Testperson,avery.testperson@example.org,2026-07-05,$25.00,Y,General
+D001,Avery,Testperson,avery.testperson@example.org,2026-08-05,$25.00,Y,General
+D001,Avery,Testperson,avery.testperson@example.org,2026-09-05,$25.00,Y,General
+D002,Blake,Sampleton,blake.sampleton@example.org,7/15/2026,50,Monthly,General
+D002,Blake,Sampleton,blake.sampleton@example.org,8/15/2026,50,Monthly,General
+D002,Blake,Sampleton,blake.sampleton@example.org,9/15/2026,50,Monthly,General
+D003,Casey,Demo,casey.demo@example.org,2026-06-01,$40,yes,General
+D003,Casey,Demo,casey.demo@example.org,2026-09-01,$40,yes,General
+D005,Drew,Fakename,drew.fakename@example.org,2026-03-14,"$1,200.00",,Reading Buddies
+D005,Drew,Fakename,drew.fakename@example.org,2025-11-30,"$1,000.00",,Reading Buddies
+D006,Emerson,Notreal,emerson.notreal@example.org,2026-05-20,"$2,500",,General
+D007,Finley,Placeholder,finley.placeholder@example.org,2026-02-10,$600,,General
+D007,Finley,Placeholder,finley.placeholder@example.org,2026-09-12,$500,,Summer Book Bridge
+D008,Gray,Examplar,gray.examplar@example.org,2026-04-02,$100,,General
+D009,Harper,Mockwell,harper.mockwell@example.org,2026-05-11,$50,,General
+D010,Indigo,Sampleford,indigo.sampleford@example.org,6/30/2026,$250,,Summer Book Bridge
+D011,Jules,Testwood,jules.testwood@example.org,2026-08-21,$75,,General
+D012,Kai,Fixture,kai.fixture@example.org,2026-09-03,$20,,General
+D013,Lane,Dummyson,lane.dummyson@example.org,2026-09-19,$500,,General
+D014,Morgan,Fauxley,morgan.fauxley@example.org,2025-12-15,$150,,General
+D014,Morgan,Fauxley,morgan.fauxley@example.org,2025-12-15,$150,,General
+D014,Morgan,Fauxley,morgan.fauxley@example.org,2026-06-15,$150,,General
+D015,Noel,Pretendo,noel.pretendo@example.org,2025-04-01,$300,,General
+D015,Noel,Pretendo,noel.pretendo@example.org,2026-04-01,$350,,General
+D016,Oakley,Specimen,oakley.specimen@example.org,2024-12-20,$100,,General
+D016,Oakley,Specimen,oakley.specimen@example.org,2026-02-14,$100,,General
+D017,Parker,Mockridge,parker.mockridge@example.org,2025-10-10,$75,,General
+D017,Parker,Mockridge,parker.mockridge@example.org,2026-09-25,$90,,General
+D018,Quinn,Exampleton,quinn.exampleton@example.org,2025-12-31,$200,,General
+D019,Reese,Testsworth,reese.testsworth@example.org,2025-06-18,$60,,General
+,,,,,,,
+D020,Sage,Nullman,sage.nullman@example.org,11/28/2025,"$1,500",,General
+D021,Tatum,Fakerson,tatum.fakerson@example.org,2024-12-10,$45,,General
+D021,Tatum,Fakerson,tatum.fakerson@example.org,2025-12-10,$45,,General
+D022,Uma,Sampleberg,uma.sampleberg@example.org,2023-05-05,$80,,General
+D023,Val,Placeholt,val.placeholt@example.org,2026-01-22,$35,,General
+D024,Wren,Demoski,wren.demoski@example.org,2026-03-30,$125,,General
+D025,Xan,Testova,xan.testova@example.org,2025-03-03,$250,,General
+D025,Xan,Testova,xan.testova@example.org,2026-03-03,$250,,General

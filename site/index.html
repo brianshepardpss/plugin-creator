@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plugin Creator</title><meta name="description" content="Claude plugins for the gaps in the official directory.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+</style></head><body><div class="wrap"><h1>Claude plugins for the gaps</h1>
+<p class="lead">Focused plugins for industries and tools the official directory doesn't cover yet,
+each with sample data so it works in the first five minutes, guardrails written into the skills,
+and an eval suite. Built with Plugin Creator, which you can use too.</p>
+<pre>/plugin marketplace add brianshepardpss/plugin-creator</pre>
+<h2>Plugins</h2><div class='grid'><div class="card"><span class="chip">Scala developers</span>
+<h3>Grounded Scala</h3><p>Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.</p>
+<span class="chip">Claude Code</span><code>/plugin install grounded-scala@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/grounded-scala?utm_source=site&utm_campaign=grounded-scala">Source, docs and evals</a></div><div class="card"><span class="chip">Flutter developers</span>
+<h3>Analyzer Loop</h3><p>Dart analysis server LSP for Claude Code plus Flutter/Dart workflow skills (fix-analyzer-errors loop, major package upgrades, Android Gradle/AGP/Kotlin build fixer, golden tests, Riverpod 3 and Bloc 9 state management) that complement, not duplicate, Google&#x27;s official dart-flutter plugin.</p>
+<span class="chip">Claude Code</span><code>/plugin install analyzer-loop@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/analyzer-loop?utm_source=site&utm_campaign=analyzer-loop">Source, docs and evals</a></div><div class="card"><span class="chip">GitLab users (incl. self-managed)</span>
+<h3>Merge Medic for GitLab</h3><p>Fix red GitLab pipelines and review merge requests from Claude Code through the glab CLI: failed-job log triage, draft-only MR review, MR creation and thread resolution. Works on self-managed GitLab, no MCP or admin toggle.</p>
+<span class="chip">Claude Code</span><code>/plugin install merge-medic@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/merge-medic?utm_source=site&utm_campaign=merge-medic">Source, docs and evals</a></div><div class="card"><span class="chip">support teams</span>
+<h3>Helpdesk Triage</h3><p>Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install helpdesk@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/helpdesk?utm_source=site&utm_campaign=helpdesk">Source, docs and evals</a></div><div class="card"><span class="chip">recruiters and hiring managers</span>
+<h3>Structured Hiring Kit</h3><p>Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install structured-hiring@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/structured-hiring?utm_source=site&utm_campaign=structured-hiring">Source, docs and evals</a></div><div class="card"><span class="chip">SMB sales</span>
+<h3>DealTender</h3><p>Pipeline triage, call logging, forecast briefs and meeting prep for Pipedrive users: ranks stale deals, drafts follow-ups, and proposes CRM updates you approve. Try it on a CSV export, no login.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install deal-tender@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/deal-tender?utm_source=site&utm_campaign=deal-tender">Source, docs and evals</a></div><div class="card"><span class="chip">residential real estate agents</span>
+<h3>Listing Desk</h3><p>Listing appointment prep and listing launch for US residential real estate agents: a CMA from your own MLS CSV export, listing copy, and a Fair Housing check on every word, plus contract deadlines and follow-up drafts.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install listing-desk@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/listing-desk?utm_source=site&utm_campaign=listing-desk">Source, docs and evals</a></div><div class="card"><span class="chip">construction project managers</span>
+<h3>Construction PM Toolkit</h3><p>Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install construction-pm@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/construction-pm?utm_source=site&utm_campaign=construction-pm">Source, docs and evals</a></div><div class="card"><span class="chip">independent restaurants</span>
+<h3>Restaurant Ops</h3><p>Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install restaurant-ops@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/restaurant-ops?utm_source=site&utm_campaign=restaurant-ops">Source, docs and evals</a></div><div class="card"><span class="chip">nonprofits and grant writers</span>
+<h3>Grant Desk</h3><p>Grant writing desk for small nonprofits: free funder research from public 990-PF grantee lists and Grants.gov, source-tagged proposal drafts that never invent a number, logic models, deadline tracking and donor thank-yous.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install grant-desk@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/grant-desk?utm_source=site&utm_campaign=grant-desk">Source, docs and evals</a></div></div><h2>Build plugins</h2><div class='grid'><div class="card"><span class="chip">plugin developers</span>
+<h3>Plugin Creator</h3><p>Go from a plugin idea to a published, tested Claude plugin: live demand check, design brief, strict-valid scaffold, skills that trigger, evals with a no-plugin baseline, .plugin packaging, directory listings and traction tracking.</p>
+<span class="chip">Claude Code</span><code>/plugin install plugin-creator@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/plugin-creator-plugin?utm_source=site&utm_campaign=plugin-creator">Source, docs and evals</a></div></div><h2>Run a portfolio</h2><div class='grid'><div class="card"><span class="chip">plugin portfolio builders</span>
+<h3>Plugin Studio</h3><p>Run a portfolio of Claude plugins like a studio: rank gaps with live demand data, track every published plugin&#x27;s traction daily, and get a kill / iterate / double-down verdict at day 30 against thresholds set before launch.</p>
+<span class="chip">Claude Code</span><code>/plugin install plugin-studio@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/plugin-studio?utm_source=site&utm_campaign=plugin-studio">Source, docs and evals</a></div></div><h2>No-code</h2><div class='grid'><div class="card"><span class="chip">non-developer domain experts</span>
+<h3>Make My Plugin</h3><p>Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.</p>
+<span class="chip">Cowork, claude.ai, Claude Code</span><code>/plugin install make-my-plugin@plugin-creator</code>
+<a href="https://github.com/brianshepardpss/make-my-plugin?utm_source=site&utm_campaign=make-my-plugin">Source, docs and evals</a></div></div>
+<h2>Not a developer?</h2><p class="lead">We can build one from your own examples.
+<a href="built-for-you.html">See how it works</a>.</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

@@ -1,0 +1,10 @@
+DealTender match - as of 2026-10-05 (Monday)
+Source: deals_export.csv (bundled sample, fictional)
+Person 501 | Dana Whitfield | Acme Anvil Co | dana@acmeanvilco.example.com | match: name, organization (score 5)
+   open deal 101 | Acme Anvil - Warehouse Robotics Pilot | New Business / Proposal Made | 48,000.00 USD | close 2026-11-04 | title keyword hits: ['pilot']
+   open deal 112 | Acme Anvil - Support Renewal 2027 | Renewals / Up for Renewal | 12,000.00 USD | close 2026-12-19 | title keyword hits: none
+   AMBIGUOUS: 2 open deals. Pick only if one title clearly matches the notes; otherwise ask.
+Person 538 | Raj Mehta | Acme Anvil Co | raj@acmeanvilco.example.com | match: organization (score 2)
+   open deal 101 | Acme Anvil - Warehouse Robotics Pilot | New Business / Proposal Made | 48,000.00 USD | close 2026-11-04 | title keyword hits: ['pilot']
+   open deal 112 | Acme Anvil - Support Renewal 2027 | Renewals / Up for Renewal | 12,000.00 USD | close 2026-12-19 | title keyword hits: none
+   AMBIGUOUS: 2 open deals. Pick only if one title clearly matches the notes; otherwise ask.

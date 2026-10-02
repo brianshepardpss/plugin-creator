@@ -1,0 +1,37 @@
+== job 90302 npm-ci (failure_reason: script_failure) ==
+log: 226 lines -> 25 shown; failed in section: step_script
+failing command: npm ci --no-audit --loglevel=http
+exit code: 1
+class hint: dependency (npm peer dependency conflict (ERESOLVE); first match at line 202)
+retry may help: no (fix the cause first)
+other signals: none
+secrets masked: 0
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-146 omitted ...]
+   147 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0125 30ms (cache miss)
+   148 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0126 98ms (cache miss)
+       | [... 52 similar lines collapsed ...]
+   201 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0179 250ms (cache miss)
+   202 | npm error code ERESOLVE
+   203 | npm error ERESOLVE could not resolve
+   204 | npm error
+   205 | npm error While resolving: react-chartkit@3.1.0
+   206 | npm error Found: react@19.1.0
+   207 | npm error node_modules/react
+   208 | npm error   react@"^19.1.0" from the root project
+   209 | npm error
+   210 | npm error Could not resolve dependency:
+   211 | npm error peer react@"^18.2.0" from react-chartkit@3.1.0
+   212 | npm error node_modules/react-chartkit
+   213 | npm error   react-chartkit@"^3.1.0" from the root project
+   214 | npm error
+   215 | npm error Fix the upstream dependency conflict, or retry
+   216 | npm error this command with --force or --legacy-peer-deps
+   217 | npm error to accept an incorrect (and potentially broken) dependency resolution.
+   218 | npm error
+   219 | npm error
+   220 | npm error For a full report see:
+   221 | npm error /root/.npm/_logs/2026-09-29T12_48_31_442Z-eresolve-report.txt
+   222 | npm error A complete log of this run can be found in: /root/.npm/_logs/2026-09-29T12_48_31_442Z-debug-0.log
+       | [... lines 223-225 omitted ...]
+   226 | ERROR: Job failed: exit code 1

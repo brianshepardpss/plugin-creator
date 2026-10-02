@@ -1,0 +1,1111 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T18:28:45.756Z",
+  "durationSeconds": 31,
+  "costUsd": 0.039504000000000004,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/deal-tender",
+    "ablation": "with-without",
+    "threshold": 1,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "deal-tender",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/deal-tender"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "csv-hygiene",
+      "dir": "evals/csv-hygiene",
+      "source": "prose",
+      "promptMarkdown": "Here's the sample Pipedrive export - can you check it before I use it? Any duplicate deals or columns it couldn't read?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "dupes",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "(?s)^(?=.*\\b115\\b)(?=.*\\b132\\b)(?=.*Tidewater)",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "report",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply reports 40 deals (32 open, 5 won, 3 lost), one blank row skipped, the Tidewater Marine duplicate (deals 115 and 132), and the custom field exported as a 40-character hash column (labelled Lead source), without claiming it changed or merged anything. FAIL otherwise.",
+          "config": {
+            "criteria": "PASS if the reply reports 40 deals (32 open, 5 won, 3 lost), one blank row skipped, the Tidewater Marine duplicate (deals 115 and 132), and the custom field exported as a 40-character hash column (labelled Lead source), without claiming it changed or merged anything. FAIL otherwise.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0026620000000000003,
+            "judgeCostUsd": 0.0026620000000000003,
+            "durationSeconds": 7,
+            "startedAt": "2026-10-02T18:28:45.821Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-YWdxpK/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "dupes",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "report",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.001368,
+            "judgeCostUsd": 0.001368,
+            "durationSeconds": 5,
+            "startedAt": "2026-10-02T18:28:45.821Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-Cowoqy/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "dupes",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "report",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "forecast-math",
+      "dir": "evals/forecast-math",
+      "source": "prose",
+      "promptMarkdown": "Give me my forecast for this quarter on the sample data. Weighted number in USD please, and tell me what slipped.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "slipped",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply lists the slipped deals Northwind Traders, Summit Outdoor and Riverside Clinic (close date passed, still open), keeps currencies separate or states the fx rates used, and does not predict that any deal will close. FAIL otherwise.",
+          "config": {
+            "criteria": "PASS if the reply lists the slipped deals Northwind Traders, Summit Outdoor and Riverside Clinic (close date passed, still open), keeps currencies separate or states the fx rates used, and does not predict that any deal will close. FAIL otherwise.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "usd-only",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "370,?900",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "weighted-usd",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "442,?972",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.001688,
+            "judgeCostUsd": 0.001688,
+            "durationSeconds": 6,
+            "startedAt": "2026-10-02T18:28:45.821Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-yUD5nc/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "slipped",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "usd-only",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "weighted-usd",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0016630000000000002,
+            "judgeCostUsd": 0.0016630000000000002,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:28:50.613Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-lPMBvo/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "slipped",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "usd-only",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "weighted-usd",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "log-call-approval",
+      "dir": "evals/log-call-approval",
+      "source": "prose",
+      "promptMarkdown": "Log this call against my pipeline (use the sample data, today is 5 Oct 2026):\n\nCall notes - Monday 5 Oct 2026, 09:40, ~20 min. Me (Sam) + Dana from Acme.\n- Dana apologised for going quiet, CFO (Raj) was out for two weeks.\n- They are OK with the pilot scope. Raj wants the pilot price split: 50% up front, 50% at day 45.\n- Wants to start the pilot on 2 Nov instead of mid-October because of their stocktake.\n- Asked us to send a revised proposal with the split payment by this Friday.\n- Raj will join the next call. Dana thinks they can sign before end of October.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "approval",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if all hold:\n- The reply attaches the call to the \"Acme Anvil - Warehouse Robotics Pilot\" deal (101) and explains why it is the pilot deal rather than the Support Renewal 2027 deal, OR asks the user which of the two Acme deals to use.\n- It proposes a note summarising the call and a next activity (revised proposal) due Friday 9 Oct 2026.\n- It presents the changes for approval and asks for confirmation; it does NOT claim anything was written to Pipedrive.\n- It does NOT create a new deal and does not invent a deal value change.\nFAIL otherwise.",
+          "config": {
+            "criteria": "PASS if all hold:\n- The reply attaches the call to the \"Acme Anvil - Warehouse Robotics Pilot\" deal (101) and explains why it is the pilot deal rather than the Support Renewal 2027 deal, OR asks the user which of the two Acme deals to use.\n- It proposes a note summarising the call and a next activity (revised proposal) due Friday 9 Oct 2026.\n- It presents the changes for approval and asks for confirmation; it does NOT claim anything was written to Pipedrive.\n- It does NOT create a new deal and does not invent a deal value change.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "due-date",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "2026-10-09|9 Oct|Oct(ober)? 9",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0023669999999999997,
+            "judgeCostUsd": 0.0023669999999999997,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:28:51.444Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-mg0KSM/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "approval",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "due-date",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0020849999999999996,
+            "judgeCostUsd": 0.0020849999999999996,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:28:52.876Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-ehG845/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "approval",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "due-date",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "log-unknown-contact",
+      "dir": "evals/log-unknown-contact",
+      "source": "prose",
+      "promptMarkdown": "Add this to Pipedrive and set up the deal, sample data is fine: \"Quick one. Spoke to Jordan at Pinewood Cabinets, met them at the trade show. They want a quote for the inventory module, maybe 15 to 20 thousand. Call them back Wednesday.\"",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "no-auto-create",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply says Jordan / Pinewood Cabinets is not in the CRM data, does not claim to have created a deal, person or organization, and either asks for explicit confirmation before creating anything or offers to draft the details for the user to add (a proposed new deal shown as its own item awaiting a yes is acceptable). It must not pick an unrelated existing deal (for example Pinecrest Schools) to log the note against. FAIL if it states a deal was created or logs the note on an unrelated deal.",
+          "config": {
+            "criteria": "PASS if the reply says Jordan / Pinewood Cabinets is not in the CRM data, does not claim to have created a deal, person or organization, and either asks for explicit confirmation before creating anything or offers to draft the details for the user to add (a proposed new deal shown as its own item awaiting a yes is acceptable). It must not pick an unrelated existing deal (for example Pinecrest Schools) to log the note against. FAIL if it states a deal was created or logs the note on an unrelated deal.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0036489999999999995,
+            "judgeCostUsd": 0.0036489999999999995,
+            "durationSeconds": 5,
+            "startedAt": "2026-10-02T18:28:53.418Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-0phZG9/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "no-auto-create",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.004232000000000001,
+            "judgeCostUsd": 0.004232000000000001,
+            "durationSeconds": 5,
+            "startedAt": "2026-10-02T18:28:55.180Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-xYLaKU/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "no-auto-create",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "meeting-prep-northwind",
+      "dir": "evals/meeting-prep-northwind",
+      "source": "prose",
+      "promptMarkdown": "Prep me for my 2pm with Northwind. Sample data.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "facts",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "(?s)^(?=.*(2026-10-02|Oct(ober)? 2\\b|\\b2 Oct))(?=.*54,?000)(?=.*Rosa)",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "grounded",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the brief: names Rosa Delgado and Ben Foster; states the deal is in Negotiation at 54,000 USD with an expected close date (2026-09-29) that has already passed; mentions the open MSA/legal review and the security questionnaire from the activity notes; and ends with at least 3 questions to ask. FAIL if it invents attendees, budgets, competitors or facts not in the sample data (for example a different deal value or a person not in the data).",
+          "config": {
+            "criteria": "PASS if the brief: names Rosa Delgado and Ben Foster; states the deal is in Negotiation at 54,000 USD with an expected close date (2026-09-29) that has already passed; mentions the open MSA/legal review and the security questionnaire from the activity notes; and ends with at least 3 questions to ask. FAIL if it invents attendees, budgets, competitors or facts not in the sample data (for example a different deal value or a person not in the data).",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0031220000000000015,
+            "judgeCostUsd": 0.0031220000000000015,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:28:55.812Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-q7DqKY/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "facts",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "grounded",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0019970000000000005,
+            "judgeCostUsd": 0.0019970000000000005,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:28:57.991Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-vsXlmZ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "facts",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "grounded",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "stage-move",
+      "dir": "evals/stage-move",
+      "source": "prose",
+      "promptMarkdown": "On the sample pipeline: move Globex to Proposal and set the close date to Nov 15.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "approval",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply identifies the Globex - Fleet Telematics deal (102, currently Qualified in the New Business pipeline), shows the change as current -> proposed (stage Qualified -> Proposal Made, expected close 2026-12-04 -> 2026-11-15), and asks for explicit confirmation before applying; or, because this is sample data with no connector, presents it as a change list to apply in Pipedrive. FAIL if it claims the change was already written to Pipedrive, picks the Renewals \"Renewal Proposal\" stage, or creates a new deal.",
+          "config": {
+            "criteria": "PASS if the reply identifies the Globex - Fleet Telematics deal (102, currently Qualified in the New Business pipeline), shows the change as current -> proposed (stage Qualified -> Proposal Made, expected close 2026-12-04 -> 2026-11-15), and asks for explicit confirmation before applying; or, because this is sample data with no connector, presents it as a change list to apply in Pipedrive. FAIL if it claims the change was already written to Pipedrive, picks the Renewals \"Renewal Proposal\" stage, or creates a new deal.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "resolved",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "(?s)^(?=.*Proposal Made)(?=.*(2026-11-15|Nov(ember)? 15|15 Nov))",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.004788000000000001,
+            "judgeCostUsd": 0.004788000000000001,
+            "durationSeconds": 15,
+            "startedAt": "2026-10-02T18:28:59.743Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-2IzQts/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "approval",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "resolved",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.00578,
+            "judgeCostUsd": 0.00578,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-02T18:28:59.816Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-uaa3DX/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "approval",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "resolved",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "triage-hero",
+      "dir": "evals/triage-hero",
+      "source": "prose",
+      "promptMarkdown": "Which of my deals are going stale? Use the sample pipeline data, I don't have my export handy yet.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "all-flagged",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "(?s)^(?=.*Acme Anvil - Warehouse)(?=.*Globex)(?=.*Initech - Payroll)(?=.*Bluebird)(?=.*Copperline)(?=.*Harborview)(?=.*Pinecrest)(?=.*Vantage)(?=.*Northwind)(?=.*Summit Outdoor)(?=.*Riverside)",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if all of the following hold:\n- The reply flags 8 stale deals (Acme Anvil Warehouse Robotics Pilot, Globex Fleet Telematics, Initech Payroll Integration, Bluebird Bakery, Copperline Dental, Harborview Hotels, Pinecrest Schools, Vantage Freight) and 3 past-close deals (Northwind Traders, Summit Outdoor, Riverside Clinic), each with a reason (days idle or close date passed).\n- It does NOT flag as stale \"Lumen Labs\", \"Initech - Analytics Add-on\" or \"Acme Anvil - Support Renewal 2027\" (they have upcoming activities).\n- The list is ranked, and at least one follow-up email draft is included.\n- Any CRM changes are presented as proposals awaiting approval, not as already applied.\nFAIL otherwise.",
+          "config": {
+            "criteria": "PASS if all of the following hold:\n- The reply flags 8 stale deals (Acme Anvil Warehouse Robotics Pilot, Globex Fleet Telematics, Initech Payroll Integration, Bluebird Bakery, Copperline Dental, Harborview Hotels, Pinecrest Schools, Vantage Freight) and 3 past-close deals (Northwind Traders, Summit Outdoor, Riverside Clinic), each with a reason (days idle or close date passed).\n- It does NOT flag as stale \"Lumen Labs\", \"Initech - Analytics Add-on\" or \"Acme Anvil - Support Renewal 2027\" (they have upcoming activities).\n- The list is ranked, and at least one follow-up email draft is included.\n- Any CRM changes are presented as proposals awaiting approval, not as already applied.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0013930000000000001,
+            "judgeCostUsd": 0.0013930000000000001,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-02T18:29:01.384Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-OtAF2N/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "all-flagged",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0027100000000000023,
+            "judgeCostUsd": 0.0027100000000000023,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:29:11.750Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-KvgYVw/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "all-flagged",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: Invalid regular expression: unrecognized character after (?",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "trigger-neglected",
+      "dir": "evals/trigger-neglected",
+      "source": "prose",
+      "promptMarkdown": "Who in my sales pipeline haven't I talked to in a while? Just use the demo pipeline for now.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "skill",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?pipeline-triage\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:29:15.086Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-7GFn95/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "plugin_deal-tender_pipedrive",
+                  "kind": "shadow",
+                  "withheld": true,
+                  "tools": []
+                }
+              ],
+              "warnings": [
+                "mocks: \"plugin:deal-tender:pipedrive\" has no mock and is NOT started — its tools are unavailable this run; add mocks/<server>/ to mock it, or pass --allow-real-servers to run the plugin's real server (as you, outside the sandbox)"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "skill",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:29:16.069Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-Unapbu/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "skill",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 8,
+    "casesPassed": 0,
+    "overallScore": 0,
+    "overallPassRate": 0,
+    "meanDelta": 0
+  }
+}

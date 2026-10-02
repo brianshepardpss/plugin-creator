@@ -1,0 +1,8 @@
+pipeline 1873 (failed) ref refs/merge-requests/42/head sha ae38bb20
+url: https://gitlab.example-corp.test/platform/invoice-api/-/pipelines/1873
+failed jobs: 3 (2 blocking, 1 allowed to fail)
+JOB_ID   NAME         STAGE    FAILURE_REASON          BLOCKING  DURATION  HINT
+90413    unit-tests   test     script_failure          yes       31.2s     read the log
+90414    build-image  build    script_failure          yes       58.6s     read the log
+90415    e2e-smoke    test     job_execution_timeout   no        600.9s    timeout
+retry uses JOB IDs (90413 90414 90415), never the pipeline ID (1873).

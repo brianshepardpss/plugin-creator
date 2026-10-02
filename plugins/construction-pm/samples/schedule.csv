@@ -1,0 +1,42 @@
+Activity ID,Activity Name,Original Duration,Start,Finish,Total Float,Spec Section,Responsible
+A1000,Notice to Proceed,0,08-Sep-26 A,,0,,Owner
+A1010,Mobilize and site protection,3,08-Sep-26 A,10-Sep-26 A,0,01 50 00,GC
+A1020,Selective demolition,10,11-Sep-26 A,24-Sep-26 A,0,02 41 19,Demo sub
+A1030,Hazmat abatement verification,2,25-Sep-26 A,28-Sep-26 A,0,02 82 00,Owner consultant
+A1040,Layout walls,2,29-Sep-26 A,30-Sep-26 A,0,,GC
+A1050,Underslab plumbing trench and rough-in,8,01-Oct-26 A,12-Oct-26,0,22 11 16,Plumbing sub
+A1060,Underslab plumbing inspection,1,13-Oct-26,13-Oct-26,0,,City inspector
+A1070,Patch slab at trenches,2,14-Oct-26,15-Oct-26,0,03 30 00,GC
+A1080,Metal stud framing - walls,10,05-Oct-26,16-Oct-26,2,09 22 16,Drywall sub
+A1090,Install hollow metal frames,4,12-Oct-26,15-Oct-26,3,08 11 13,GC carpentry
+A1100,Overhead ductwork rough-in,12,12-Oct-26,27-Oct-26,4,23 31 13,Mechanical sub
+A1110,Overhead electrical rough-in,12,14-Oct-26,29-Oct-26,2,26 05 19,Electrical sub
+A1120,Access control rough-in (low voltage),5,19-Oct-26,23-Oct-26,6,28 13 00,Low voltage sub
+A1130,In-wall plumbing rough-in,8,19-Oct-26,28-Oct-26,3,22 11 16,Plumbing sub
+A1140,Fire sprinkler branch relocation,6,20-Oct-26,27-Oct-26,5,21 13 13,Sprinkler sub
+A1150,Above-ceiling inspection,1,02-Nov-26,02-Nov-26,0,,City inspector
+
+A1160,Insulation and drywall hang,8,03-Nov-26,12-Nov-26,0,09 29 00,Drywall sub
+A1170,Drywall tape and finish,10,13-Nov-26,30-Nov-26,0,09 29 00,Drywall sub
+A1180,Paint mockup,1,01-Dec-26,01-Dec-26,0,09 91 23,Painting sub
+A1190,Prime and first coat paint,6,02-Dec-26,09-Dec-26,0,09 91 23,Painting sub
+A1200,Ceiling grid,5,10-Dec-26,16-Dec-26,0,09 51 13,Ceiling sub
+A1210,RTU-2 replacement (crane day),1,08-Dec-26,08-Dec-26,10,23 74 13,Mechanical sub
+A1220,VAV and diffuser trim-out,6,17-Dec-26,28-Dec-26,0,23 37 13,Mechanical sub
+A1230,Lighting trim-out,6,17-Dec-26,28-Dec-26,0,26 51 00,Electrical sub
+A1240,Flooring - resilient,6,04-Jan-27,11-Jan-27,0,09 65 19,Flooring sub
+A1250,Casework install,5,06-Jan-27,12-Jan-27,2,06 41 16,Casework sub
+A1260,Hang doors,3,13-Jan-27,15-Jan-27,0,08 14 16,GC carpentry
+A1270,Install door hardware,5,18-Jan-27,22-Jan-27,0,08 71 00,GC carpentry
+A1280,Final paint coat,5,18-Jan-27,22-Jan-27,0,09 91 23,Painting sub
+A1290,Access control terminations and testing,3,25-Jan-27,27-Jan-27,0,28 13 00,Low voltage sub
+A1300,Plumbing fixture trim,4,13-Jan-27,18-Jan-27,3,22 42 00,Plumbing sub
+A1310,"Testing, adjusting and balancing",5,25-Jan-27,29-Jan-27,0,23 05 93,TAB agency
+A1320,Fire alarm devices and test,4,25-Jan-27,28-Jan-27,1,28 46 00,Electrical sub
+A1330,Final cleaning,3,01-Feb-27,03-Feb-27,0,01 74 23,GC
+A1340,Punch list walk,1,04-Feb-27,04-Feb-27,0,,GC / Architect
+A1350,Punch list completion,5,05-Feb-27,11-Feb-27,0,,All trades
+A1360,Final building inspections,2,08-Feb-27,09-Feb-27,0,,City inspector
+A1370,Closeout documents,5,08-Feb-27,12-Feb-27,0,01 77 00,GC
+A1380,Substantial Completion,0,15-Feb-27,,0,,GC
+A1390,Owner move-in,3,16-Feb-27,18-Feb-27,0,,Owner

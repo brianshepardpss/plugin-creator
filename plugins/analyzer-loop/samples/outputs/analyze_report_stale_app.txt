@@ -1,0 +1,16 @@
+Analyzer: 27 issues  (errors 17, warnings 0, infos 10)
+  by code:
+     10  deprecated_member_use
+      8  undefined_identifier
+      5  undefined_getter
+      1  extends_non_class
+      1  extra_positional_arguments
+      1  undefined_function
+      1  undefined_class
+  by file:
+     12  lib/cart/cart_notifier.dart
+      8  lib/screens/home_screen.dart
+      3  lib/router.dart
+      3  lib/screens/product_screen.dart
+      1  lib/main.dart
+  ignore comments: 0   analysis_options.yaml: e7ac31ed88f71506

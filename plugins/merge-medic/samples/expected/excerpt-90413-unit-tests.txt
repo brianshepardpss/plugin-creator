@@ -1,0 +1,64 @@
+== job 90413 unit-tests (failure_reason: script_failure) ==
+log: 74 lines -> 53 shown; failed in section: step_script
+failing command: python -m pytest -q
+exit code: 1
+class hint: test (pytest failure; first match at line 46)
+retry may help: no (fix the cause first)
+other signals: none
+secrets masked: 0
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-18 omitted ...]
+    19 | Executing "step_script" stage of the job script
+    20 | Using docker image sha256:4c6d1f0e2a for python:3.12-slim with digest python@sha256:8e2a91 ...
+    21 | $ pip install pytest==8.3.3
+    22 | Collecting pytest==8.3.3
+    23 |   Downloading pytest-8.3.3-py3-none-any.whl.metadata (3.0 kB)
+    24 | Collecting iniconfig>=2.0.0
+    25 |   Downloading iniconfig-2.0.0-py3-none-any.whl.metadata (6.3 kB)
+    26 | Collecting packaging>=24.1
+    27 |   Downloading packaging-24.1-py3-none-any.whl.metadata (5.2 kB)
+    28 | Collecting pluggy>=1.5.0
+    29 |   Downloading pluggy-1.5.0-py3-none-any.whl.metadata (3.8 kB)
+    30 | Downloading pytest-8.3.3-py3-none-any.whl (64 kB)
+    31 |    ---------------------------------------- 322.6/36.0 kB 10.3 MB/s eta 0:00:00
+    32 | Downloading iniconfig-2.0.0-py3-none-any.whl (139 kB)
+    33 |    ---------------------------------------- 278.9/33.8 kB 17.8 MB/s eta 0:00:00
+    34 | Downloading packaging-24.1-py3-none-any.whl (234 kB)
+    35 |    ---------------------------------------- 132.7/321.4 kB 5.2 MB/s eta 0:00:00
+    36 | Downloading pluggy-1.5.0-py3-none-any.whl (377 kB)
+    37 |    ---------------------------------------- 236.5/162.2 kB 18.5 MB/s eta 0:00:00
+    38 | Installing collected packages: pluggy, packaging, iniconfig, pytest
+    39 | Successfully installed pluggy-1.5.0 packaging-24.1 iniconfig-2.0.0 pytest-8.3.3
+    40 | WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+    41 | 
+    42 | [notice] A new release of pip is available: 24.2 -> 26.2
+    43 | [notice] To update, run: pip install --upgrade pip
+    44 | $ python -m pytest -q
+    45 | .FF.                                                                     [100%]
+    46 | =================================== FAILURES ===================================
+    47 | _____________________ LateFeeTests.test_fee_accrues_daily ______________________
+    48 | 
+    49 | self = <tests.test_late_fees.LateFeeTests testMethod=test_fee_accrues_daily>
+    50 | 
+    51 |     def test_fee_accrues_daily(self):
+    52 |         # 15 days late = 10 billable days * 0.05% * 1000.00
+    53 | >       self.assertEqual(late_fee(Decimal("1000.00"), 15), Decimal("5.00"))
+    54 | E       AssertionError: Decimal('100.00') != Decimal('5.00')
+    55 | 
+    56 | tests/test_late_fees.py:13: AssertionError
+    57 | _______________________ LateFeeTests.test_fee_is_capped ________________________
+    58 | 
+    59 | self = <tests.test_late_fees.LateFeeTests testMethod=test_fee_is_capped>
+    60 | 
+    61 |     def test_fee_is_capped(self):
+    62 |         # 400 days late would be 197.50, but the cap is 10% = 100.00
+    63 | >       self.assertEqual(late_fee(Decimal("1000.00"), 400), Decimal("100.00"))
+    64 | E       AssertionError: Decimal('197.50') != Decimal('100.00')
+    65 | 
+    66 | tests/test_late_fees.py:17: AssertionError
+    67 | =========================== short test summary info ============================
+    68 | FAILED tests/test_late_fees.py::LateFeeTests::test_fee_accrues_daily - AssertionError: Decimal('100.00') != Decimal('5.00')
+    69 | FAILED tests/test_late_fees.py::LateFeeTests::test_fee_is_capped - AssertionError: Decimal('197.50') != Decimal('100.00')
+    70 | 2 failed, 2 passed in 0.04s
+       | [... lines 71-73 omitted ...]
+    74 | ERROR: Job failed: exit code 1

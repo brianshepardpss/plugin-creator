@@ -1,0 +1,80 @@
+{
+  "company": "Fernhill Robotics (fictional)",
+  "req_id": "REQ-1042",
+  "role": "Senior Backend Engineer",
+  "rating_scale": {
+    "1": "Strong No",
+    "2": "No",
+    "3": "Yes",
+    "4": "Strong Yes"
+  },
+  "competencies": [
+    {
+      "name": "System Design",
+      "definition": "Designs services that meet stated load, failure and data constraints, and explains the trade-offs.",
+      "anchors": {
+        "1": "Cannot produce a workable design, or ignores the stated constraints.",
+        "2": "Workable happy-path design; misses failure modes or capacity limits when prompted.",
+        "3": "Sound design that handles the stated load and at least two failure modes, with trade-offs named.",
+        "4": "Sound design plus quantified capacity reasoning and a migration or rollout plan, unprompted."
+      }
+    },
+    {
+      "name": "Code Quality & Testing",
+      "definition": "Writes readable, tested code and refactors safely.",
+      "anchors": {
+        "1": "Code does not run or has no structure.",
+        "2": "Runs, but untested and hard to change.",
+        "3": "Readable, tested core paths, sensible names and boundaries.",
+        "4": "Tests drive the design; edge cases covered; refactors with confidence."
+      }
+    },
+    {
+      "name": "Debugging & Operations",
+      "definition": "Finds root causes in a running system using logs, metrics and traces.",
+      "anchors": {
+        "1": "Guesses without evidence.",
+        "2": "Finds symptoms but not the cause.",
+        "3": "Finds the root cause with a methodical narrowing approach.",
+        "4": "Finds the cause, proposes a fix and a guard that prevents recurrence."
+      }
+    },
+    {
+      "name": "Communication",
+      "definition": "Explains technical reasoning clearly to engineers and non-engineers.",
+      "anchors": {
+        "1": "Reasoning cannot be followed.",
+        "2": "Clear only when repeatedly prompted.",
+        "3": "Structures explanations and checks understanding.",
+        "4": "Adapts the explanation to the audience and surfaces disagreement constructively."
+      }
+    },
+    {
+      "name": "Ownership",
+      "definition": "Takes responsibility for outcomes beyond the assigned task.",
+      "anchors": {
+        "1": "No example of owning an outcome.",
+        "2": "Owned tasks, not outcomes.",
+        "3": "A specific example of driving an outcome end to end.",
+        "4": "Several examples, including fixing something nobody assigned."
+      }
+    },
+    {
+      "name": "Collaboration",
+      "definition": "Works through disagreement and helps teammates succeed.",
+      "anchors": {
+        "1": "Describes teammates as obstacles.",
+        "2": "Cooperates but avoids disagreement.",
+        "3": "A specific example of resolving a disagreement on the merits.",
+        "4": "Examples of raising the team's output, e.g. mentoring or unblocking others."
+      }
+    }
+  ],
+  "sessions": [
+    {"name": "Hiring manager screen", "stage": "Hiring Manager Screen", "competencies": ["Ownership", "Collaboration"]},
+    {"name": "Technical screen", "stage": "Technical Screen", "competencies": ["Code Quality & Testing"]},
+    {"name": "System design", "stage": "Onsite", "competencies": ["System Design", "Communication"], "interviewers": 2},
+    {"name": "Architecture deep dive", "stage": "Onsite", "competencies": ["System Design", "Ownership"], "interviewers": 2},
+    {"name": "Debugging & operations", "stage": "Onsite", "competencies": ["Debugging & Operations"]}
+  ]
+}

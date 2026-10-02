@@ -1,0 +1,26 @@
+{
+  "metals": {
+    "command": "metals",
+    "args": ["-J-Dmetals.client=claude-code", "-J-Dmetals.auto-import-builds=all"],
+    "extensionToLanguage": {
+      ".scala": "scala",
+      ".sc": "scala",
+      ".sbt": "scala",
+      ".mill": "scala"
+    },
+    "transport": "stdio",
+    "initializationOptions": {
+      "isExitOnShutdown": true,
+      "statusBarProvider": "log-message"
+    },
+    "settings": {
+      "metals": {
+        "autoImportBuilds": "all"
+      }
+    },
+    "startupTimeout": 180000,
+    "shutdownTimeout": 10000,
+    "restartOnCrash": true,
+    "maxRestarts": 3
+  }
+}

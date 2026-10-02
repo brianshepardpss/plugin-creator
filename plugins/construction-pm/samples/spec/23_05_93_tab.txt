@@ -1,0 +1,62 @@
+SECTION 23 05 93 - TESTING, ADJUSTING, AND BALANCING FOR HVAC
+
+PART 1 - GENERAL
+
+1.1 SUMMARY
+A. Section includes testing, adjusting, and balancing (TAB) of air
+   systems serving the tenant improvement area, including rooftop unit
+   RTU-2, VAV terminal units, and exhaust fans EF-1 and EF-2.
+
+1.2 DEFINITIONS
+A. TAB: Testing, adjusting, and balancing.
+B. TAB Specialist: An independent entity meeting qualifications to
+   perform TAB work.
+
+1.3 ACTION SUBMITTALS
+A. None required for this Section.
+
+1.4 INFORMATIONAL SUBMITTALS
+A. Qualification Data: Within 30 days after Notice to Proceed, submit
+   documentation that the TAB Specialist and this Project's TAB team
+   members meet the qualifications specified in "Quality Assurance"
+   Article.
+B. Contract Documents Examination Report: Within 45 days after Notice to
+   Proceed, submit the Contract Documents review report as specified in
+   Part 3.
+C. Strategies and Procedures Plan: Within 60 days after Notice to Proceed,
+   submit TAB strategies and step-by-step procedures as specified in
+   "Preparation" Article.
+D. Certified TAB Reports: Submit two copies of the certified TAB report,
+   signed by the TAB Specialist.
+E. Instrument Calibration Reports, including:
+   1. Instrument type and make.
+   2. Serial number.
+   3. Date of calibration.
+
+1.5 QUALITY ASSURANCE
+A. TAB Specialist Qualifications: Certified by AABC or NEBB.
+B. Certify TAB field data reports and perform the following:
+   1. Review field data reports to validate accuracy of data.
+   2. Certify that the TAB team complied with the approved TAB plan.
+
+Marlowe Creek Clinic TI (FICTIONAL SAMPLE)   23 05 93 - 1   TAB FOR HVAC
+
+PART 2 - PRODUCTS (Not Applicable)
+
+PART 3 - EXECUTION
+
+3.1 EXAMINATION
+A. Examine the Contract Documents to become familiar with Project
+   requirements and to discover conditions in systems designs that may
+   preclude proper TAB of systems and equipment.
+
+3.2 PREPARATION
+A. Prepare a TAB plan that includes strategies and step-by-step
+   procedures for balancing the systems.
+
+3.3 FINAL REPORT
+A. Final TAB Report: Submit the final report for Architect and Engineer
+   review before Substantial Completion. Include a certification sheet,
+   system diagrams, and measured versus design airflow for each outlet.
+
+END OF SECTION 23 05 93

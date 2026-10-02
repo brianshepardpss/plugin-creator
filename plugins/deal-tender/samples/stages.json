@@ -1,0 +1,17 @@
+{
+  "_comment": "Pipelines and stages as Pipedrive's getStages returns them (name, deal_probability, rotten_days). Sample data, fictional.",
+  "pipelines": [
+    {"name": "New Business", "stages": [
+      {"name": "Lead In", "probability": 10, "rotten_days": 21},
+      {"name": "Qualified", "probability": 25, "rotten_days": 14},
+      {"name": "Demo Scheduled", "probability": 40, "rotten_days": 14},
+      {"name": "Proposal Made", "probability": 60, "rotten_days": 10},
+      {"name": "Negotiation", "probability": 80, "rotten_days": 7}
+    ]},
+    {"name": "Renewals", "stages": [
+      {"name": "Up for Renewal", "probability": 50, "rotten_days": 30},
+      {"name": "Renewal Proposal", "probability": 70, "rotten_days": 14},
+      {"name": "Verbal Yes", "probability": 90, "rotten_days": 7}
+    ]}
+  ]
+}

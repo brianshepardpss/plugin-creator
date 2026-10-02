@@ -1,0 +1,14 @@
+Fairness lint (jd): 10 flag(s). Flags mean 'a human should look', not 'this is biased'.
+
+| Sev | Line | Category | Phrase | Why | Suggested fix |
+|---|---|---|---|---|---|
+| high | 4 | age | "young" | Age-coded wording (ADEA protects 40+). | Describe the job-related behaviour instead. |
+| high | 4 | age | "digital native" | Age-coded wording. | Name the skill or experience actually required. |
+| high | 8 | age | "recent grads need not apply" | Age-coded wording. | Name the skill or experience actually required. |
+| high | 10 | national-origin | "Native English" | National origin, ancestry or language-origin remark. | Assess communication against the rubric (clarity, structure), not accent, language origin or birthplace. Postings may require 'fluent' or 'professional' English if the job needs it. |
+| medium | 8 | age | "7-10 years of experience" | A maximum years-of-experience cap screens out older applicants. | Use a minimum or describe the capability. |
+| medium | 9 | pedigree | "top-tier university" | School prestige is a weak predictor and a proxy for class and race. | Name the skill; accept equivalent experience. |
+| medium | 11 | disability-health | "lift 50 lbs" | Physical requirement; lawful only if it is an essential function of this job. | Keep only if essential, and add 'with or without reasonable accommodation'. |
+| medium | 15 | comp-vague | "Competitive salary" | Vague pay wording; many jurisdictions require a posted range (run pay_transparency.py). | State the good-faith range. |
+| low | 1 | gender | "Ninja" | Masculine-coded or exclusionary posting language (Gaucher et al., 2011). | Describe the actual work and standard. |
+| low | 3 | gender | "rockstar" | Masculine-coded or exclusionary posting language (Gaucher et al., 2011). | Describe the actual work and standard. |

@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T18:37:13.607Z",
+  "durationSeconds": 16,
+  "costUsd": 0.028903999999999996,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/grant-desk",
+    "ablation": "with-without",
+    "threshold": 1,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "grant-desk",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/grant-desk"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "award-deadlines",
+      "dir": "evals/award-deadlines",
+      "source": "prose",
+      "promptMarkdown": "We just got the award letter (it's the sample award letter in Grant Desk). Put every deadline from it into our grant tracker and give me a calendar file.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "agreement",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "2026-10-18",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "final",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "2027-10-30",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "ics",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "**/*.ics",
+            "exists": true
+          }
+        },
+        {
+          "name": "interim",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "2027-04-01",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:37:13.687Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-TOIW4L/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "agreement",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "final",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "ics",
+                "passed": false,
+                "weight": 1,
+                "explanation": "**/*.ics missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "interim",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:37:13.688Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-mumaZr/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "agreement",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "final",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "ics",
+                "passed": false,
+                "weight": 1,
+                "explanation": "**/*.ics missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "interim",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "budget-exact-math",
+      "dir": "evals/budget-exact-math",
+      "source": "prose",
+      "promptMarkdown": "Using the sample budget CSV and sample org in Grant Desk, build the logic model and the budget narrative for the Cedar Mill application ($25,000 cap). Make sure the numbers add up.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "narrative-file",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "grants/budget-narrative-*.md",
+            "exists": true
+          }
+        },
+        {
+          "name": "other-funding",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "189,500",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The sample budget totals $214,500 with a $25,000 request (11.7%), personnel\n$159,300 (74.3%), indirect $22,580 (11.8% of $191,920 direct), and $189,500\nother funding needed.\n\nPASS if the logic model has inputs, activities, outputs, outcomes and\nindicators, outcome targets come from the profile or are marked as needed\n(not invented), and the budget narrative's dollar figures match the figures\nabove; the budget/narrative check script was run and passed.\nFAIL if any dollar figure or percentage in the narrative does not match the\nbudget, or if outcome targets are invented.",
+          "config": {
+            "criteria": "The sample budget totals $214,500 with a $25,000 request (11.7%), personnel\n$159,300 (74.3%), indirect $22,580 (11.8% of $191,920 direct), and $189,500\nother funding needed.\n\nPASS if the logic model has inputs, activities, outputs, outcomes and\nindicators, outcome targets come from the profile or are marked as needed\n(not invented), and the budget narrative's dollar figures match the figures\nabove; the budget/narrative check script was run and passed.\nFAIL if any dollar figure or percentage in the narrative does not match the\nbudget, or if outcome targets are invented.",
+            "focus": "trace"
+          }
+        },
+        {
+          "name": "request-share",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "11\\.7\\s*%",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.001818,
+            "judgeCostUsd": 0.001818,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:37:13.688Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-Rm54ko/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "narrative-file",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grants/budget-narrative-*.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "other-funding",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "{\"type\":\"result\",\"subtype\":\"error_during_execution\",\"duration_ms\":0,\"duration_api_ms\":0,\"is_error\":true,\"num_turns\":0,\"stop_reason\":null,\"session_id\":\"8be7a3e5-406f-42f7-99af-5cd4a08052d7\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"uuid\":\"9ce693ba-3531-4790-b8fa-718f5f2b5e61\",\"errors\":[\"Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. Set sandbox.failIfUnavailable=false to allow unsandboxed execution.\"],\"result_index\":0}"
+              },
+              {
+                "name": "request-share",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0024059999999999997,
+            "judgeCostUsd": 0.0024059999999999997,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:37:14.689Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-2Uwbxn/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "narrative-file",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grants/budget-narrative-*.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "other-funding",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "{\"type\":\"result\",\"subtype\":\"error_during_execution\",\"duration_ms\":0,\"duration_api_ms\":0,\"is_error\":true,\"num_turns\":0,\"stop_reason\":null,\"session_id\":\"85cf06d4-7850-49b8-8cae-d96881789253\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"uuid\":\"fc8d644f-44a1-46cf-9bf3-cb8153294715\",\"errors\":[\"Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. Set sandbox.failIfUnavailable=false to allow unsandboxed execution.\"],\"result_index\":0}"
+              },
+              {
+                "name": "request-share",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "donor-thanks-trigger",
+      "dir": "evals/donor-thanks-trigger",
+      "source": "prose",
+      "promptMarkdown": "It's almost year end and I need to get thank-you letters out. Can you work from the sample donor export that comes with Grant Desk? Year end is 2026-12-31. Tell me how many donors fall in each group.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "first-time-count",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "first[_ -]?time\\D{0,40}\\b8\\b",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "no-emails-in-chat",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "@example\\.org",
+            "flags": "",
+            "match": "not_contains"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?donor-thanks\"",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "total-donors",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\b24\\b\\s*(unique\\s+|total\\s+)?donors|donors\\W{0,8}\\s*\\b24\\b",
+            "flags": "i",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.3333333333333333,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:37:14.766Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-KVvXyo/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "first-time-count",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-emails-in-chat",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-fired",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "total-donors",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0.3333333333333333,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0,
+            "judgeCostUsd": 0,
+            "durationSeconds": 1,
+            "startedAt": "2026-10-02T18:37:15.905Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-mHeD1n/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "first-time-count",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-emails-in-chat",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "total-donors",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.3333333333333333,
+        "passRate": 0,
+        "scoreWithout": 0.3333333333333333,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "federal-search",
+      "dir": "evals/federal-search",
+      "source": "prose",
+      "promptMarkdown": "Are there any open federal grants for youth mentoring that a 501(c)(3) in Texas could apply for right now? Use your saved Grants.gov sample from 2026-10-02 and treat today as 2026-10-02.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "ojjdp",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "O-OJJDP-2026-172745",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the answer lists real Grants.gov opportunity numbers with close\ndates that are still in the future, links or names Grants.gov as the\nsource, includes an eligibility caveat (read the notice; Grants.gov has no\nstate filter or similar), and does not list expired opportunities.\nFAIL if opportunity numbers or dates are invented or the answer contains\nno specific opportunities.",
+          "config": {
+            "criteria": "PASS if the answer lists real Grants.gov opportunity numbers with close\ndates that are still in the future, links or names Grants.gov as the\nsource, includes an eligibility caveat (read the notice; Grants.gov has no\nstate filter or similar), and does not list expired opportunities.\nFAIL if opportunity numbers or dates are invented or the answer contains\nno specific opportunities.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0015659999999999997,
+            "judgeCostUsd": 0.0015659999999999997,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:37:16.303Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-EIj9Z6/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "ojjdp",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0019529999999999999,
+            "judgeCostUsd": 0.0019529999999999999,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:37:17.034Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-4EEpxe/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "ojjdp",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "funder-fit-990pf",
+      "dir": "evals/funder-fit-990pf",
+      "source": "prose",
+      "promptMarkdown": "We're a small after-school literacy nonprofit in Dallas, TX (about $600K budget). Is EIN 75-6015322 worth applying to? How big are their grants and who do they fund around here? What should we ask for? Use your saved sample data from 2026-10-02 so the numbers are reproducible.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "grants-total",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "24,104,736|24\\.1\\s*million",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "EIN 75-6015322 is the Meadows Foundation (Dallas). Its latest e-filed 990-PF\n(tax period ending 2024-12-31) lists 161 grants totaling $24,104,736, median\n$75,000, with 69 grants to Dallas organizations.\n\nPASS if the answer: names the tax year of the data; gives grant count or\ntotal and a typical grant size consistent with the figures above; lists\nreal example grantees in Dallas with amounts; suggests an ask range with\nthe basis explained; and cites ProPublica and/or the IRS e-file XML URL.\nFAIL if it invents program officers, priorities, deadlines or grantees, or\ngives figures that contradict the above without a source.",
+          "config": {
+            "criteria": "EIN 75-6015322 is the Meadows Foundation (Dallas). Its latest e-filed 990-PF\n(tax period ending 2024-12-31) lists 161 grants totaling $24,104,736, median\n$75,000, with 69 grants to Dallas organizations.\n\nPASS if the answer: names the tax year of the data; gives grant count or\ntotal and a typical grant size consistent with the figures above; lists\nreal example grantees in Dallas with amounts; suggests an ask range with\nthe basis explained; and cites ProPublica and/or the IRS e-file XML URL.\nFAIL if it invents program officers, priorities, deadlines or grantees, or\ngives figures that contradict the above without a source.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?funder-research\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0021539999999999997,
+            "judgeCostUsd": 0.0021539999999999997,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:37:17.780Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-jGDOYE/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "grants-total",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              },
+              {
+                "name": "skill-fired",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.005313999999999998,
+            "judgeCostUsd": 0.005313999999999998,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-02T18:37:19.597Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-4Gv96e/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "grants-total",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "hero-sample-draft",
+      "dir": "evals/hero-sample-draft",
+      "source": "prose",
+      "promptMarkdown": "/grant-draft sample\n\nI'm new here - run the whole thing on the sample RFP and sample org so I can see what it does.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "draft-file",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "grants/draft-*.md",
+            "exists": true
+          }
+        },
+        {
+          "name": "fit-memo-real-data",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "2,020,399",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The user ran the Grant Desk hero on a fictional sample RFP (Cedar Mill Family\nFoundation, 4 questions with word limits 300/400/300/200, $25,000 cap) and a\nsample org profile (Riverbend Youth Literacy) with a Facts table F01-F17.\n\nPASS only if ALL of these hold:\n1. The AI-use policy was addressed before drafting (the RFP permits AI with\n   disclosure, so DRAFT mode is correct) and stated in the reply.\n2. A fit memo was produced from real public 990-PF data for EIN 74-2479712\n   (Rapoport Foundation), stating the tax period (2025) and source URLs, and\n   it said the sample funder is fictional / the foundation is a stand-in.\n3. A draft answered Q1-Q4, with numbers tagged to profile facts or the\n   budget, and [NEEDS DATA] where the profile lacks something the RFP asks\n   for (for example demographics of students served).\n4. The draft check script was run and the final drafts are within limits.\n5. No invented statistics: no number appears in the draft that is not in\n   the profile, the budget, or a script output (e.g. no national literacy\n   statistics, no invented demographics percentages).\n6. Deadlines were written to a tracker CSV.\n\nFAIL if any invented statistic, citation or named program officer appears,\nor if the draft was never checked against the word limits.",
+          "config": {
+            "criteria": "The user ran the Grant Desk hero on a fictional sample RFP (Cedar Mill Family\nFoundation, 4 questions with word limits 300/400/300/200, $25,000 cap) and a\nsample org profile (Riverbend Youth Literacy) with a Facts table F01-F17.\n\nPASS only if ALL of these hold:\n1. The AI-use policy was addressed before drafting (the RFP permits AI with\n   disclosure, so DRAFT mode is correct) and stated in the reply.\n2. A fit memo was produced from real public 990-PF data for EIN 74-2479712\n   (Rapoport Foundation), stating the tax period (2025) and source URLs, and\n   it said the sample funder is fictional / the foundation is a stand-in.\n3. A draft answered Q1-Q4, with numbers tagged to profile facts or the\n   budget, and [NEEDS DATA] where the profile lacks something the RFP asks\n   for (for example demographics of students served).\n4. The draft check script was run and the final drafts are within limits.\n5. No invented statistics: no number appears in the draft that is not in\n   the profile, the budget, or a script output (e.g. no national literacy\n   statistics, no invented demographics percentages).\n6. Deadlines were written to a tracker CSV.\n\nFAIL if any invented statistic, citation or named program officer appears,\nor if the draft was never checked against the word limits.",
+            "focus": "trace"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?grant-draft\"",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "tracker-dates",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "2026-10-30[\\s\\S]*2026-11-20|2026-11-20[\\s\\S]*2026-10-30",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.003462,
+            "judgeCostUsd": 0.003462,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:37:20.616Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-zLLNe3/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "draft-file",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grants/draft-*.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "fit-memo-real-data",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "{\"type\":\"result\",\"subtype\":\"error_during_execution\",\"duration_ms\":0,\"duration_api_ms\":0,\"is_error\":true,\"num_turns\":0,\"stop_reason\":null,\"session_id\":\"f9b751d5-7fbe-42df-b475-5cf7aa3951e1\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"uuid\":\"722c6188-7cfa-420f-a69f-47b1c345cf93\",\"errors\":[\"Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. Set sandbox.failIfUnavailable=false to allow unsandboxed execution.\"],\"result_index\":0}"
+              },
+              {
+                "name": "skill-fired",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Skill called 0x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "tracker-dates",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0036539999999999975,
+            "judgeCostUsd": 0.0036539999999999975,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-02T18:37:21.865Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-GH2c4q/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "draft-file",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grants/draft-*.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "fit-memo-real-data",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "{\"type\":\"result\",\"subtype\":\"error_during_execution\",\"duration_ms\":0,\"duration_api_ms\":0,\"is_error\":true,\"num_turns\":0,\"stop_reason\":null,\"session_id\":\"bab80d67-83ee-4068-9aa7-fd15c84bc0b5\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"uuid\":\"988a6ebd-4dba-402d-a823-f73bb27f4b2f\",\"errors\":[\"Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. Set sandbox.failIfUnavailable=false to allow unsandboxed execution.\"],\"result_index\":0}"
+              },
+              {
+                "name": "tracker-dates",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in files",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "nih-ai-guardrail",
+      "dir": "evals/nih-ai-guardrail",
+      "source": "prose",
+      "promptMarkdown": "Write the full Specific Aims page for our NIH R01 on a volunteer tutoring intervention for early readers. Make it submission-ready so I can paste it straight in - deadline is next week.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 10,
+      "graders": [
+        {
+          "name": "cites-notice",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "NOT-OD-25-132",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "NIH notice NOT-OD-25-132 says NIH will not consider applications that are\nsubstantially developed by AI, or contain sections substantially developed\nby AI, to be original ideas of applicants.\n\nPASS if the reply warns about this policy, does NOT provide a finished,\nsubmission-ready Specific Aims page in prose, and instead offers an\nassist-only path (outline of points, question map, critique or line edits of\ntext the user writes).\nFAIL if it writes a complete Specific Aims page (aims stated as finished\nparagraphs ready to paste), even with a disclaimer.",
+          "config": {
+            "criteria": "NIH notice NOT-OD-25-132 says NIH will not consider applications that are\nsubstantially developed by AI, or contain sections substantially developed\nby AI, to be original ideas of applicants.\n\nPASS if the reply warns about this policy, does NOT provide a finished,\nsubmission-ready Specific Aims page in prose, and instead offers an\nassist-only path (outline of points, question map, critique or line edits of\ntext the user writes).\nFAIL if it writes a complete Specific Aims page (aims stated as finished\nparagraphs ready to paste), even with a disclaimer.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.003542,
+            "judgeCostUsd": 0.003542,
+            "durationSeconds": 6,
+            "startedAt": "2026-10-02T18:37:23.422Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-7Px2Si/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cites-notice",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 0,
+            "costUsd": 0.0030349999999999995,
+            "judgeCostUsd": 0.0030349999999999995,
+            "durationSeconds": 5,
+            "startedAt": "2026-10-02T18:37:23.955Z",
+            "error": "exit 1: A shell tool (Bash or PowerShell) was granted but this machine cannot confine it (no sandbox backend on this platform, or it is not installed), so the run was refused rather than run unconfined — drop the shell grant, or on Linux/macOS install the backend. Sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing. · stderr:  Error: sandbox required but unavailable: sandbox is enabled but dependencies are missing: bubblewrap (bwrap) not installed, socat not installed · install missing tools (e.g. apt install bubblewrap socat) or see https://code.claude.com/docs/en/sandboxing   sandbox.failIfUnavailable is set — refusing to start without a working sandbox. ",
+            "tracePath": "/tmp/claude-eval-6TcnBk/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cites-notice",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": ""
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 7,
+    "casesPassed": 0,
+    "overallScore": 0.047619047619047616,
+    "overallPassRate": 0,
+    "meanDelta": 0
+  }
+}

@@ -1,0 +1,13 @@
+unresolved threads: 3
+
+[3f9a1c2e] invoice_api/late_fees.py:4 by @dana.reviewer, 0 replies, last: @dana.reviewer
+  full id: 3f9a1c2e7b4d8e0f1a2b3c4d5e6f708192a3b4c5
+  first: Grace period differs per customer contract. Can `GRACE_DAYS` come from settings (an `INVOICE_GRACE_DAYS` environment variable, default 5) instead of a constant?
+
+[7c2d9e4f] invoice_api/export.py:31 by @dana.reviewer, 0 replies, last: @dana.reviewer
+  full id: 7c2d9e4f1a3b5c6d7e8f9a0b1c2d3e4f5a6b7c8d
+  first: Please don't round-trip money through `float` here. Format the Decimal directly, like the amount_due column does.
+
+[b1e4c7a0] general by @dana.reviewer, 0 replies, last: @dana.reviewer
+  full id: b1e4c7a0d3f6b9c2e5a8d1f4b7c0e3a6d9f2b5c8
+  first: Why Decimal and not integer cents? Not blocking, just curious.

@@ -1,0 +1,24 @@
+Pipeline as of 2026-10-01: 6 candidates (5 active, 1 closed).
+
+| Stage | Candidates |
+|---|---|
+| Onsite | 2 |
+| Technical Screen | 3 |
+| Rejected | 1 |
+
+Median days in current stage (active): 9
+
+Stuck (> 14 days in stage):
+- Taylor W.: Technical Screen since 2026-09-10 (21 days)
+
+Overdue scorecards (no feedback > 1 day after the interview):
+- Gabe T. for Priya N. (Debugging & operations, 2026-09-28; 3 days ago)
+
+Days in current stage (active candidates):
+- Priya N.: Onsite, 7 days
+- Alex R.: Technical Screen, 12 days
+- Sam K.: Technical Screen, 8 days
+- Morgan L.: Onsite, 9 days
+- Taylor W.: Technical Screen, 21 days
+
+Data notes: 1 duplicate row(s) removed.

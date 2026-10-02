@@ -1,0 +1,44 @@
+== job 90414 build-image (failure_reason: script_failure) ==
+log: 68 lines -> 33 shown; failed in section: step_script
+failing command: docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" .
+exit code: 1
+class hint: infra-flaky (registry pull rate limit (HTTP 429); first match at line 49)
+retry may help: yes
+other signals: none
+secrets masked: 0
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-32 omitted ...]
+    33 | Executing "step_script" stage of the job script
+    34 | Using docker image sha256:4c6d1f0e2a for docker:27.3 with digest docker@sha256:8e2a91 ...
+    35 | $ echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+    36 | WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+    37 | Configure a credential helper to remove this warning. See
+    38 | https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+    39 | 
+    40 | Login Succeeded
+    41 | $ docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" .
+    42 | #0 building with "default" instance using docker driver
+    43 | 
+    44 | #1 [internal] load build definition from Dockerfile
+    45 | #1 transferring dockerfile: 128B done
+    46 | #1 DONE 0.0s
+    47 | 
+    48 | #2 [internal] load metadata for docker.io/library/python:3.12-slim
+    49 | #2 ERROR: failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://auth.docker.io/token?scope=repository%3Alibrary%2Fpython%3Apull&service=registry.docker.io: 429 Too Many Requests
+    50 | 
+    51 | #3 [internal] load .dockerignore
+    52 | #3 transferring context: 2B done
+    53 | #3 DONE 0.0s
+    54 | ------
+    55 |  > [internal] load metadata for docker.io/library/python:3.12-slim:
+    56 | ------
+    57 | Dockerfile:1
+    58 | --------------------
+    59 |    1 | >>> FROM python:3.12-slim
+    60 |    2 |     WORKDIR /app
+    61 |    3 |     COPY . .
+    62 | --------------------
+    63 | ERROR: failed to solve: python:3.12-slim: failed to resolve source metadata for docker.io/library/python:3.12-slim: failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://auth.docker.io/token?scope=repository%3Alibrary%2Fpython%3Apull&service=registry.docker.io: 429 Too Many Requests
+    64 | toomanyrequests: You have reached your unauthenticated pull rate limit. https://www.docker.com/increase-rate-limit
+       | [... lines 65-67 omitted ...]
+    68 | ERROR: Job failed: exit code 1

@@ -1,0 +1,166 @@
+{
+ "schemaVersion": 1,
+ "claudeVersion": "2.1.287",
+ "startedAt": "2026-10-02T18:35:12.298Z",
+ "durationSeconds": 29,
+ "costUsd": 0.1514846,
+ "partial": false,
+ "suite": {
+  "root": "/home/admin/code/plugin-creator/plugins/grounded-scala",
+  "ablation": "with-without",
+  "caseFilter": "blocking-jdbc-trigger",
+  "threshold": 1,
+  "concurrency": 1,
+  "plugins": [
+   {
+    "name": "grounded-scala",
+    "version": "0.1.0",
+    "path": "/home/admin/code/plugin-creator/plugins/grounded-scala"
+   }
+  ]
+ },
+ "cases": [
+  {
+   "name": "blocking-jdbc-trigger",
+   "dir": "evals/blocking-jdbc-trigger",
+   "source": "prose",
+   "promptMarkdown": "Our cats-effect service has this, and a reviewer said it's wrong but didn't say why. jdbc.find is a plain blocking JDBC call. What should it be?\n\n```scala\nimport scala.concurrent.Future\nimport scala.concurrent.ExecutionContext.Implicits.global\n\ndef find(id: Long): IO[Option[User]] =\n  IO.fromFuture(IO(Future(jdbc.find(id))))\n```",
+   "runsPerCase": 3,
+   "timeoutSeconds": 300,
+   "maxTurns": 10,
+   "graders": [
+    {
+     "name": "io-blocking",
+     "type": "regex",
+     "weight": 1,
+     "config": {
+      "target": "last_message",
+      "pattern": "IO\\.(?:blocking|interruptible)\\s*\\(\\s*jdbc\\.find",
+      "flags": "",
+      "match": "contains"
+     }
+    },
+    {
+     "name": "quality",
+     "type": "llm",
+     "weight": 1,
+     "graderMarkdown": "PASS if the answer replaces the code with IO.blocking(jdbc.find(id)) (or\nIO.interruptible), explains that the Future runs the blocking JDBC call on the\nglobal compute pool and the global ExecutionContext import should go, and\ndoes not recommend keeping Future, Await or the global ExecutionContext.\nFAIL if it keeps the Future or suggests a custom ExecutionContext as the main\nfix.",
+     "config": {
+      "criteria": "PASS if the answer replaces the code with IO.blocking(jdbc.find(id)) (or\nIO.interruptible), explains that the Future runs the blocking JDBC call on the\nglobal compute pool and the global ExecutionContext import should go, and\ndoes not recommend keeping Future, Await or the global ExecutionContext.\nFAIL if it keeps the Future or suggests a custom ExecutionContext as the main\nfix.",
+      "focus": "last_message"
+     }
+    },
+    {
+     "name": "skill-fired",
+     "type": "tool_used",
+     "weight": 1,
+     "config": {
+      "tool": "Skill",
+      "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?effects-idioms\"",
+      "arm": "with-only"
+     }
+    }
+   ],
+   "arms": {
+    "with": [
+     {
+      "score": 1,
+      "passed": true,
+      "turns": 3,
+      "costUsd": 0.086282,
+      "judgeCostUsd": 0.00213,
+      "durationSeconds": 14,
+      "startedAt": "2026-10-02T18:35:12.357Z",
+      "error": null,
+      "tracePath": "/tmp/claude-eval-L2i5CQ/out/trace.jsonl",
+      "skippedPaidGraders": false,
+      "graders": [
+       {
+        "name": "io-blocking",
+        "passed": true,
+        "weight": 1,
+        "explanation": "matched IO\\.(?:blocking|interruptible)\\s*\\(\\s*jdbc\\.find",
+        "withOnly": false,
+        "scored": true
+       },
+       {
+        "name": "quality",
+        "passed": true,
+        "weight": 1,
+        "explanation": "judge votes: PASS PASS PASS",
+        "withOnly": false,
+        "scored": true,
+        "judgeVotes": [
+         true,
+         true,
+         true
+        ],
+        "evidence": "It should be:\n\n```scala\ndef find(id: Long): IO[Option[User]] =\n  IO.blocking(jdbc.find(id))\n```\n\nThen delete the `Future` and `ExecutionContext.Implicits.global` imports.\n\n**What's wrong with the original:**\n\n1. **The blocking call runs on the wrong thread pool.** `Future(jdbc.find(id))` runs on Scala's `global` ExecutionContext. That pool has about one thread per CPU core and is meant for CPU work. While a JDBC call waits on the database, it holds one of those few threads. Under load, a handful of slow queries can use up the whole pool and stall every other `Future` in the JVM that relies on `global`. `IO.blocking` moves the call to cats-effect's blocking pool, which grows as needed and exists for this kind of call. It also keeps the blocking work off cats-effect's own compute threads.\n\n2. **It mixes two effect types for no reason.** `IO.fromFuture` is for calling a library that already returns a `Future`. Here you create the `Future` yourself just to convert it straight back into `IO`. That adds an extra thread hop and an extra allocation, and it brings in `global`, which shouldn't appear in cats-effect code.\n\n3. **Cancellation doesn't work.** If the fiber is cancelled (for example by a timeout or a `race`), `IO.fromFuture` can't stop a `Future` that has already started, so the query keeps running in the background. `IO.blocking` doesn't fix this on its own, but it's the right base. If you need a timeout to actually interrupt the call, use `IO.interruptible(jdbc.find(id))`. Only do that if your driver handles thread interruption properly. Many JDBC drivers don't, and for those `Statement.setQueryTimeout` is the more reliable option.\n\n**Longer term:** if you're writing more than a few of these, consider Doobie (or Skunk if you're on Postgres). Doobie runs JDBC through a `Transactor` that handles the blocking pool, connection acquisition and release, and transactions for you. Until then, `IO.blocking` is the correct minimal fix."
+       },
+       {
+        "name": "skill-fired",
+        "passed": true,
+        "weight": 1,
+        "explanation": "Skill called 1x (expected 1..\u221e)",
+        "withOnly": true,
+        "scored": false
+       }
+      ]
+     }
+    ],
+    "without": [
+     {
+      "score": 1,
+      "passed": true,
+      "turns": 1,
+      "costUsd": 0.0652026,
+      "judgeCostUsd": 0.0025259999999999996,
+      "durationSeconds": 15,
+      "startedAt": "2026-10-02T18:35:26.197Z",
+      "error": null,
+      "tracePath": "/tmp/claude-eval-uKXKtD/out/trace.jsonl",
+      "skippedPaidGraders": false,
+      "graders": [
+       {
+        "name": "io-blocking",
+        "passed": true,
+        "weight": 1,
+        "explanation": "matched IO\\.(?:blocking|interruptible)\\s*\\(\\s*jdbc\\.find",
+        "withOnly": false,
+        "scored": true
+       },
+       {
+        "name": "quality",
+        "passed": true,
+        "weight": 1,
+        "explanation": "judge votes: PASS PASS PASS",
+        "withOnly": false,
+        "scored": true,
+        "judgeVotes": [
+         true,
+         true,
+         true
+        ],
+        "evidence": "The reviewer is right. Use `IO.blocking`:\n\n```scala\ndef find(id: Long): IO[Option[User]] =\n  IO.blocking(jdbc.find(id))\n```\n\n## What's wrong with the original\n\n1. **The blocking call runs on the wrong thread pool.** `Future(jdbc.find(id))` runs on `ExecutionContext.Implicits.global`. That's a ForkJoinPool with about one thread per CPU core, and it's meant for short CPU-bound work. Each JDBC call holds one of those threads while it waits on the network. Under load, a few slow queries can tie up the whole pool. Anything else using `global` then stalls: other Futures, and libraries that default to it. The pool can add threads if the call is wrapped in `scala.concurrent.blocking { ... }`, but it isn't here, and the next fix is better anyway.\n\n2. **The Future wrapper does nothing useful.** Cats-effect already gives you a runtime with a separate, growable thread pool for blocking calls. Going through `Future` adds two thread hops (IO compute pool \u2192 `global` \u2192 back). It also skips the cats-effect runtime, so tracing and fiber dumps don't see this work.\n\n3. **Cancellation.** `IO.fromFuture` can't cancel a Future that's already running. If the fiber is cancelled, for example by a timeout or a `race`, the query keeps running in the background and the result is thrown away.\n\n`IO.blocking` fixes all three. It moves the call onto the runtime's blocking pool and then moves back to the compute pool when it finishes. There's no extra ExecutionContext and no Future.\n\n## Variants\n\n- **Cancellation:** `IO.interruptible(jdbc.find(id))` interrupts the thread when the fiber is cancelled. This only helps if your JDBC driver handles `Thread.interrupt` properly. Many don't, or handle it badly, so test it before relying on it. Otherwise use `IO.blocking` and set a query timeout on the JDBC side.\n- **Cats-effect 2:** `IO.blocking` doesn't exist there. Use a `Blocker`, e.g. `blocker.delay[IO, Option[User]](jdbc.find(id))`.\n- **Generic code:** if the code is written against `F[_]`, use `Sync[F].blocking(...)`.\n- **Bounding concurrency:** the blocking pool grows without limit, so it won't cap how many queries run at once. Your connection pool (e.g. HikariCP) does that. If you have many such calls, Doobie handles all of this for you.\n\nAlso remove the `ExecutionContext.Implicits.global` import, so nothing else in that file ends up on `global` by accident."
+       }
+      ]
+     }
+    ]
+   },
+   "aggregates": {
+    "score": 1,
+    "passRate": 1,
+    "scoreWithout": 1,
+    "passRateWithout": 1,
+    "delta": 0
+   }
+  }
+ ],
+ "aggregates": {
+  "casesTotal": 1,
+  "casesPassed": 1,
+  "overallScore": 1,
+  "overallPassRate": 1,
+  "meanDelta": 0
+ }
+}

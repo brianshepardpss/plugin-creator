@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "greenhouse": {
+      "type": "http",
+      "url": "https://mcp.us.greenhouse.io/mcp"
+    },
+    "ashby": {
+      "type": "http",
+      "url": "https://mcp.ashbyhq.com/mcp/v1"
+    }
+  }
+}

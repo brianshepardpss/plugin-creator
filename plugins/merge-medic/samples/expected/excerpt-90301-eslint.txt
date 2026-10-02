@@ -1,0 +1,28 @@
+== job 90301 eslint (failure_reason: script_failure) ==
+log: 457 lines -> 16 shown; failed in section: step_script
+failing command: npx eslint . --max-warnings=0
+exit code: 1
+class hint: lint (lint errors; first match at line 447)
+retry may help: no (fix the cause first)
+other signals: none
+secrets masked: 0
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-377 omitted ...]
+   378 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0356 153ms (cache miss)
+   379 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0357 111ms (cache miss)
+       | [... 61 similar lines collapsed ...]
+   441 | npm http fetch GET 200 https://registry.npmjs.org/fake-pkg-0419 95ms (cache miss)
+   442 | added 412 packages in 21s
+   443 | $ npx eslint . --max-warnings=0
+   444 | 
+   445 | /builds/platform/invoice-api/web/src/components/InvoiceTable.tsx
+   446 |    14:7   warning  'formatDate' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   447 |    41:23  error    React Hook useEffect has a missing dependency: 'customerId'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   448 | 
+   449 | /builds/platform/invoice-api/web/src/lib/money.ts
+   450 |    9:10  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   451 | 
+   452 | X 3 problems (2 errors, 1 warning)
+   453 | 
+       | [... lines 454-456 omitted ...]
+   457 | ERROR: Job failed: exit code 1

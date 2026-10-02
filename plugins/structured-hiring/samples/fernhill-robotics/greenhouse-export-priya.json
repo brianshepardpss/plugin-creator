@@ -1,0 +1,368 @@
+{
+  "_comment": "Greenhouse-style export (Harvest scorecard shape), synthetic. Fernhill Robotics is fictional.",
+  "job": {
+    "id": 4410042,
+    "name": "Senior Backend Engineer",
+    "requisition_id": "REQ-1042"
+  },
+  "candidate": {
+    "id": 9100442,
+    "first_name": "Priya",
+    "last_name": "N.",
+    "email_addresses": [
+      {
+        "value": "priya.n@example.com",
+        "type": "personal"
+      }
+    ],
+    "phone_numbers": [
+      {
+        "value": "303-555-0147",
+        "type": "mobile"
+      }
+    ],
+    "addresses": [
+      {
+        "value": "100 Example St, Denver, CO",
+        "type": "home"
+      }
+    ]
+  },
+  "application": {
+    "id": 7720031,
+    "status": "active",
+    "current_stage": {
+      "name": "Onsite"
+    },
+    "eeoc": {
+      "gender": {
+        "description": "Female"
+      },
+      "race": {
+        "description": "Decline to self-identify"
+      },
+      "veteran_status": {
+        "description": "I am not a protected veteran"
+      },
+      "disability_status": {
+        "description": "No"
+      }
+    }
+  },
+  "scheduled_interviews": [
+    {
+      "interview": {
+        "name": "Debugging & operations"
+      },
+      "start": {
+        "date_time": "2026-09-28T19:00:00.000Z"
+      },
+      "interviewers": [
+        {
+          "name": "Gabe T.",
+          "scorecard_id": null
+        }
+      ]
+    }
+  ],
+  "scorecards": [
+    {
+      "id": 50002,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "Hiring manager screen",
+      "interview_step": {
+        "id": 301,
+        "name": "Hiring manager screen"
+      },
+      "interviewed_at": "2026-09-10T16:00:00.000Z",
+      "submitted_at": "2026-09-10T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1001,
+        "first_name": "Elena",
+        "last_name": "V.",
+        "name": "Elena V."
+      },
+      "interviewer": {
+        "id": 1001,
+        "name": "Elena V."
+      },
+      "overall_recommendation": "yes",
+      "attributes": [
+        {
+          "name": "Ownership",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        },
+        {
+          "name": "Collaboration",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "Ownership: evidence",
+          "answer": "Described leading the move of the billing queue off a single Postgres table after two incidents; she wrote the RFC, ran the cutover and owned the on-call runbook afterwards."
+        },
+        {
+          "id": null,
+          "question": "Collaboration: evidence",
+          "answer": "Disagreed with a staff engineer on event schema versioning; set up a short spike to compare both options and adopted his approach when the data favored it."
+        },
+        {
+          "id": null,
+          "question": "Key take-aways",
+          "answer": "Reached her at 303-555-0147 to reschedule the onsite once; no issues."
+        }
+      ]
+    },
+    {
+      "id": 50003,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "Technical screen",
+      "interview_step": {
+        "id": 302,
+        "name": "Technical screen"
+      },
+      "interviewed_at": "2026-09-15T16:00:00.000Z",
+      "submitted_at": "2026-09-17T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1002,
+        "first_name": "Chen",
+        "last_name": "H.",
+        "name": "Chen H."
+      },
+      "interviewer": {
+        "id": 1002,
+        "name": "Chen H."
+      },
+      "overall_recommendation": "strong_yes",
+      "attributes": [
+        {
+          "name": "Code Quality & Testing",
+          "type": "Skills",
+          "note": null,
+          "rating": "strong_yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "Code Quality & Testing: evidence",
+          "answer": "Solid coder, would be great."
+        }
+      ]
+    },
+    {
+      "id": 50004,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "System design",
+      "interview_step": {
+        "id": 303,
+        "name": "System design"
+      },
+      "interviewed_at": "2026-09-28T16:00:00.000Z",
+      "submitted_at": "2026-09-28T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1003,
+        "first_name": "Ana",
+        "last_name": "Q.",
+        "name": "Ana Q."
+      },
+      "interviewer": {
+        "id": 1003,
+        "name": "Ana Q."
+      },
+      "overall_recommendation": "yes",
+      "attributes": [
+        {
+          "name": "System Design",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        },
+        {
+          "name": "Communication",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "System Design: evidence",
+          "answer": "Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key."
+        },
+        {
+          "id": null,
+          "question": "Communication: evidence",
+          "answer": "Drew the design in stages and paused to check that I followed before going deeper; restated my constraint about cost before answering."
+        }
+      ]
+    },
+    {
+      "id": 50005,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "System design",
+      "interview_step": {
+        "id": 304,
+        "name": "System design"
+      },
+      "interviewed_at": "2026-09-28T16:00:00.000Z",
+      "submitted_at": "2026-09-29T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1004,
+        "first_name": "Ben",
+        "last_name": "O.",
+        "name": "Ben O."
+      },
+      "interviewer": {
+        "id": 1004,
+        "name": "Ben O."
+      },
+      "overall_recommendation": "no",
+      "attributes": [
+        {
+          "name": "System Design",
+          "type": "Skills",
+          "note": null,
+          "rating": "no"
+        },
+        {
+          "name": "Communication",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "System Design: evidence",
+          "answer": "Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed."
+        },
+        {
+          "id": null,
+          "question": "Communication: evidence",
+          "answer": "Clear structure, explained the queue choice well."
+        },
+        {
+          "id": null,
+          "question": "Key take-aways",
+          "answer": "Seemed nervous at the start, warmed up later."
+        }
+      ]
+    },
+    {
+      "id": 50006,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "Architecture deep dive",
+      "interview_step": {
+        "id": 305,
+        "name": "Architecture deep dive"
+      },
+      "interviewed_at": "2026-09-28T16:00:00.000Z",
+      "submitted_at": "2026-09-28T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1005,
+        "first_name": "Dev",
+        "last_name": "M.",
+        "name": "Dev M."
+      },
+      "interviewer": {
+        "id": 1005,
+        "name": "Dev M."
+      },
+      "overall_recommendation": "strong_yes",
+      "attributes": [
+        {
+          "name": "System Design",
+          "type": "Skills",
+          "note": null,
+          "rating": "strong_yes"
+        },
+        {
+          "name": "Ownership",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "System Design: evidence",
+          "answer": "Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds."
+        },
+        {
+          "id": null,
+          "question": "Ownership: evidence",
+          "answer": "Owned the post-incident review and the follow-up work for the billing outage."
+        },
+        {
+          "id": null,
+          "question": "Key take-aways",
+          "answer": "Great culture fit -- she brings the young energy this team needs. Email priya.n@example.com if we need anything else."
+        }
+      ]
+    },
+    {
+      "id": 50007,
+      "application_id": 7720031,
+      "candidate_id": 9100442,
+      "interview": "Architecture deep dive",
+      "interview_step": {
+        "id": 306,
+        "name": "Architecture deep dive"
+      },
+      "interviewed_at": "2026-09-28T16:00:00.000Z",
+      "submitted_at": "2026-09-29T21:30:00.000Z",
+      "submitted_by": {
+        "id": 1006,
+        "first_name": "Farah",
+        "last_name": "S.",
+        "name": "Farah S."
+      },
+      "interviewer": {
+        "id": 1006,
+        "name": "Farah S."
+      },
+      "overall_recommendation": "no",
+      "attributes": [
+        {
+          "name": "System Design",
+          "type": "Skills",
+          "note": null,
+          "rating": "no"
+        },
+        {
+          "name": "Ownership",
+          "type": "Skills",
+          "note": null,
+          "rating": "yes"
+        }
+      ],
+      "questions": [
+        {
+          "id": null,
+          "question": "System Design: evidence",
+          "answer": "The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work."
+        },
+        {
+          "id": null,
+          "question": "Ownership: evidence",
+          "answer": "Clear example of owning the billing runbook after the incident."
+        }
+      ]
+    }
+  ]
+}

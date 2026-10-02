@@ -1,0 +1,38 @@
+DealTender pipeline triage - as of 2026-10-05 (Monday)
+Source: deals_export.csv (bundled sample, fictional)
+Open deals: 32 | needs attention: 11 (stale 8, past close 3, both 0) | watch: 2
+Score = value in USD x (days idle + days past close) / 1000
+
+Rank | ID | Deal | Stage | Value | Last touch (days idle) | Next activity | Close | Flags | Score
+1 | 101 | Acme Anvil - Warehouse Robotics Pilot | New Business / Proposal Made | 48,000.00 USD | 2026-09-16 (19d) | none | 2026-11-04 | STALE | 912.0
+2 | 102 | Globex - Fleet Telematics | New Business / Qualified | 36,000.00 EUR | 2026-09-12 (23d) | none | 2026-12-04 | STALE | 910.8
+3 | 103 | Initech - Payroll Integration | New Business / Negotiation | 72,000.00 USD | 2026-09-23 (12d) | 2026-10-02 OVERDUE | 2026-10-25 | STALE | 864.0
+4 | 110 | Summit Outdoor - Ecommerce Replatform | New Business / Proposal Made | 41,000.00 USD | 2026-09-30 (5d) | 2026-10-09 | 2026-09-23 | PAST CLOSE | 697.0
+5 | 107 | Pinecrest Schools - Annual Licence | Renewals / Up for Renewal | 15,000.00 USD | 2026-08-21 (45d) | none | 2026-11-14 | STALE | 675.0
+6 | 109 | Northwind Traders - Inventory Sync | New Business / Negotiation | 54,000.00 USD | 2026-10-02 (3d) | 2026-10-05 | 2026-09-29 | PAST CLOSE | 486.0
+7 | 108 | Vantage Freight - Route Optimizer | New Business / Proposal Made | 28,000.00 EUR | 2026-09-20 (15d) | none | 2026-11-09 | STALE | 462.0
+8 | 106 | Harborview Hotels - Guest Wifi Upgrade | Renewals / Renewal Proposal | 22,000.00 USD | 2026-09-17 (18d) | 2026-09-30 OVERDUE | 2026-10-30 | STALE | 396.0
+9 | 104 | Bluebird Bakery - POS Rollout | New Business / Demo Scheduled | 9,500.00 GBP | 2026-09-05 (30d) | none | 2026-11-19 | STALE | 370.5
+10 | 105 | Copperline Dental - Patient Portal | New Business / Lead In | 6,000.00 USD | 2026-08-26 (40d) | none | 2027-01-03 | STALE | 240.0
+11 | 111 | Riverside Clinic - Scheduling Suite | Renewals / Verbal Yes | 18,000.00 GBP | 2026-10-03 (2d) | 2026-10-06 | 2026-10-02 | PAST CLOSE | 117.0
+
+Reasons
+  101: no activity for 19 days (threshold 10, stage); nothing scheduled
+  102: no activity for 23 days (threshold 14, stage); nothing scheduled
+  103: no activity for 12 days (threshold 7, stage); next activity overdue since 2026-10-02
+  110: expected close 2026-09-23 passed 12 days ago
+  107: no activity for 45 days (threshold 30, stage); nothing scheduled
+  109: expected close 2026-09-29 passed 6 days ago
+  108: no activity for 15 days (threshold 10, stage); nothing scheduled
+  106: no activity for 18 days (threshold 14, stage); next activity overdue since 2026-09-30
+  104: no activity for 30 days (threshold 14, stage); nothing scheduled
+  105: no activity for 40 days (threshold 21, stage); nothing scheduled
+  111: expected close 2026-10-02 passed 3 days ago
+
+Watch list (recent touch but no next activity scheduled)
+  115 | Tidewater Marine - Parts Catalog | Qualified | 11,000.00 USD | last touch 2026-10-01 (4d)
+  116 | Maple & Main Realty - CRM Migration | Demo Scheduled | 8,000.00 USD | last touch 2026-09-29 (6d)
+
+Possible duplicates: 115 and 132 (Tidewater Marine - Parts Catalog)
+
+Rules: STALE = no activity for >= the stage's rotting days (else default 14) and no upcoming activity. PAST CLOSE = expected close date before today.

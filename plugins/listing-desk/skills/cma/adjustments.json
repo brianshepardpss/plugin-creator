@@ -1,0 +1,14 @@
+{
+  "_note": "Default adjustment rates for the sample market (fictional Cedar Hollow, TX). These are assumptions, not market facts: replace them with the rates you would defend at a listing appointment (paired-sales analysis, your broker's guidance). Positive rate x (subject - comp).",
+  "rates": {
+    "living_area_per_sqft": 60,
+    "bedroom": 7500,
+    "full_bath": 6000,
+    "half_bath": 3000,
+    "garage_space": 5000,
+    "pool": 15000,
+    "year_built_per_year": 1000,
+    "lot_per_acre": 20000,
+    "market_time_pct_per_month": 0
+  }
+}

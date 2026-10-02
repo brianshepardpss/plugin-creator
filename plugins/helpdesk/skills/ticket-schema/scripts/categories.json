@@ -1,0 +1,43 @@
+{
+  "_about": "Edit this file (or pass your own with --rules) to match your product. Keywords are case-insensitive regular expressions matched on word boundaries. 'route' is the suggested owner group. Weights feed the triage score; the formula is in helpdesk.py.",
+  "categories": [
+    {"name": "outage", "route": "Tier 2",
+     "keywords": ["sms", "text reminders?", "not sending", "service (is )?down", "outage", "500 error", "not loading"]},
+    {"name": "billing", "route": "Billing",
+     "keywords": ["invoice", "charged?", "refund", "receipt", "payment", "billing", "renewal", "card", "upgrade", "downgraded", "plan"]},
+    {"name": "cancellation", "route": "Billing",
+     "keywords": ["cancel", "cancellation", "close (my|our) account", "switching to"]},
+    {"name": "calendar-sync", "route": "Tier 2",
+     "keywords": ["google calendar", "outlook", "sync", "syncing", "calendar", "calendario", "sincroniza"]},
+    {"name": "timezone", "route": "Tier 2",
+     "keywords": ["time ?zone", "daylight saving", "dst", "hour off", "hour early", "wrong time", "clocks changed"]},
+    {"name": "access", "route": "Tier 1",
+     "keywords": ["password", "log ?in", "locked out", "2fa", "two-factor", "reset", "hacked", "sign-in"]},
+    {"name": "data-export", "route": "Tier 2",
+     "keywords": ["export", "csv", "spreadsheet", "download (all|my|our)", "backup"]},
+    {"name": "staff-permissions", "route": "Tier 1",
+     "keywords": ["staff", "permissions?", "team member", "seats?", "receptionist"]},
+    {"name": "booking-form", "route": "Tier 1",
+     "keywords": ["custom question", "booking form", "intake form", "form field", "required question"]},
+    {"name": "data-loss", "route": "Tier 2",
+     "keywords": ["wiped", "deleted", "lost (our|all|the)? ?(data|notes|records)", "missing (data|notes|records)"]},
+    {"name": "feature-request", "route": "Product",
+     "keywords": ["feature request", "would be great", "please add"]}
+  ],
+  "escalation": {
+    "legal": ["lawyer", "attorney", "legal action", "lawsuit", "sue", "small claims", "solicitor"],
+    "security": ["hacked", "unauthori[sz]ed", "compromised", "phishing", "unknown login", "account takeover"],
+    "churn": ["cancel", "switching to", "another provider", "another tool", "chargeback", "refund"],
+    "anger": ["unacceptable", "ridiculous", "worst", "furious", "third time", "disgusted"]
+  },
+  "escalation_route": "Team lead",
+  "vip_tags": ["vip", "enterprise", "key-account"],
+  "weights": {
+    "sla_breached": 100, "sla_within_4h": 70, "sla_within_24h": 20,
+    "priority": {"urgent": 40, "high": 25, "normal": 10, "low": 0},
+    "flags": {"legal": 40, "security": 35, "vip": 25, "churn": 15, "anger": 10, "repeat": 10},
+    "per_day_waiting": 1, "waiting_cap": 10
+  },
+  "repeat_window_days": 14,
+  "duplicate_jaccard": 0.4
+}

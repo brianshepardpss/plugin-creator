@@ -1,0 +1,12 @@
+PASS read=True  mcp__plugin_structured-hiring_ashby__get_submitted_feedback
+PASS read=False mcp__plugin_structured-hiring_ashby__change_application_stage
+PASS read=True  mcp__plugin_structured-hiring_greenhouse__list_scorecards
+PASS read=False mcp__plugin_structured-hiring_greenhouse__get_or_create_candidate
+PASS read=True  mcp__greenhouse__candidate_search
+PASS read=False mcp__greenhouse__rejectApplication
+PASS read=False mcp__greenhouse__mystery_tool
+PASS send=True  mcp__claude_ai_Gmail__send_message
+PASS send=True  mcp__claude_ai_Gmail__reply
+PASS send=False mcp__claude_ai_Gmail__create_draft
+PASS send=True  mcp__claude_ai_Gmail__forward
+0 failure(s)

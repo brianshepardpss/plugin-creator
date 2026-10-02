@@ -1,0 +1,27 @@
+{
+  "name": "analyzer-loop",
+  "displayName": "Analyzer Loop",
+  "version": "0.1.0",
+  "description": "Dart analysis server LSP for Claude Code plus Flutter/Dart workflow skills (fix-analyzer-errors loop, major package upgrades, Android Gradle/AGP/Kotlin build fixer, golden tests, Riverpod 3 and Bloc 9 state management) that complement, not duplicate, Google's official dart-flutter plugin.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "flutter",
+    "dart",
+    "lsp",
+    "analyzer",
+    "gradle",
+    "riverpod",
+    "bloc",
+    "golden-tests"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/analyzer-loop",
+  "repository": "https://github.com/brianshepardpss/analyzer-loop"
+}

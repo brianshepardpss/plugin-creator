@@ -1,0 +1,196 @@
+{
+  "source": "normalized",
+  "req_id": "REQ-1042",
+  "role": "Senior Backend Engineer",
+  "company": "Fernhill Robotics (fictional)",
+  "interviews": [
+    {
+      "candidate": "Priya N.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-10",
+      "submitted_at": "2026-09-10",
+      "ratings": {"Ownership": 3, "Collaboration": 3},
+      "evidence": {
+        "Ownership": "Described leading the move of the billing queue off a single Postgres table after two incidents; she wrote the RFC, ran the cutover and owned the on-call runbook afterwards.",
+        "Collaboration": "Disagreed with a staff engineer on event schema versioning; set up a short spike to compare both options and adopted his approach when the data favored it."
+      },
+      "notes": "Reached her at 303-555-0147 to reschedule the onsite once; no issues."
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "Technical screen",
+      "interviewer": "Chen H.",
+      "date": "2026-09-15",
+      "submitted_at": "2026-09-17",
+      "ratings": {"Code Quality & Testing": 4},
+      "evidence": {
+        "Code Quality & Testing": "Solid coder, would be great."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "System design",
+      "interviewer": "Ana Q.",
+      "date": "2026-09-28",
+      "submitted_at": "2026-09-28",
+      "ratings": {"System Design": 3, "Communication": 3},
+      "evidence": {
+        "System Design": "Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key.",
+        "Communication": "Drew the design in stages and paused to check that I followed before going deeper; restated my constraint about cost before answering."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "System design",
+      "interviewer": "Ben O.",
+      "date": "2026-09-28",
+      "submitted_at": "2026-09-29",
+      "ratings": {"System Design": 2, "Communication": 3},
+      "evidence": {
+        "System Design": "Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed.",
+        "Communication": "Clear structure, explained the queue choice well."
+      },
+      "notes": "Seemed nervous at the start, warmed up later."
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "Architecture deep dive",
+      "interviewer": "Dev M.",
+      "date": "2026-09-28",
+      "submitted_at": "2026-09-28",
+      "ratings": {"System Design": 4, "Ownership": 3},
+      "evidence": {
+        "System Design": "Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds.",
+        "Ownership": "Owned the post-incident review and the follow-up work for the billing outage."
+      },
+      "notes": "Great culture fit -- she brings the young energy this team needs. Email priya.n@example.com if we need anything else."
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "Architecture deep dive",
+      "interviewer": "Farah S.",
+      "date": "2026-09-28",
+      "submitted_at": "2026-09-29",
+      "ratings": {"System Design": 2, "Ownership": 3},
+      "evidence": {
+        "System Design": "The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work.",
+        "Ownership": "Clear example of owning the billing runbook after the incident."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Priya N.",
+      "session": "Debugging & operations",
+      "interviewer": "Gabe T.",
+      "date": "2026-09-28",
+      "submitted_at": null,
+      "ratings": {},
+      "evidence": {},
+      "notes": ""
+    },
+    {
+      "candidate": "Alex R.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-18",
+      "submitted_at": "2026-09-18",
+      "ratings": {"Ownership": 3, "Collaboration": 2},
+      "evidence": {
+        "Ownership": "Built the deploy pipeline at his last company end to end, including the rollback tooling nobody had asked for.",
+        "Collaboration": "Could not give an example of resolving a disagreement; said he usually just ships his version."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Alex R.",
+      "session": "Technical screen",
+      "interviewer": "Chen H.",
+      "date": "2026-09-24",
+      "submitted_at": "2026-09-24",
+      "ratings": {"Code Quality & Testing": 3},
+      "evidence": {
+        "Code Quality & Testing": "Wrote the rate limiter test-first, covered the window boundary edge case, extracted a clock interface to make it testable."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Sam K.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-22",
+      "submitted_at": "2026-09-23",
+      "ratings": {"Ownership": 3, "Collaboration": 3},
+      "evidence": {
+        "Ownership": "Took over an abandoned metrics service and cut its p99 from 900 ms to 120 ms over a quarter.",
+        "Collaboration": "Paired with a junior engineer weekly and described how she changed review comments to questions."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Morgan L.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-05",
+      "submitted_at": "2026-09-05",
+      "ratings": {"Ownership": 3, "Collaboration": 3},
+      "evidence": {
+        "Ownership": "Led the on-call rotation redesign that halved pages per week.",
+        "Collaboration": "Mediated a schema dispute between two teams by writing a compatibility layer both accepted."
+      },
+      "notes": "Mentioned two young kids, so may not want the on-call load."
+    },
+    {
+      "candidate": "Morgan L.",
+      "session": "Technical screen",
+      "interviewer": "Chen H.",
+      "date": "2026-09-12",
+      "submitted_at": "2026-09-12",
+      "ratings": {"Code Quality & Testing": 3},
+      "evidence": {
+        "Code Quality & Testing": "Clean decomposition of the parser, table-driven tests for the edge cases, and named the one case left untested."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Morgan L.",
+      "session": "Technical screen",
+      "interviewer": "Hana W.",
+      "date": "2026-09-12",
+      "submitted_at": "2026-09-13",
+      "ratings": {"Code Quality & Testing": 3},
+      "evidence": {
+        "Code Quality & Testing": "Refactored the parser into a pure function before adding the new token type; tests stayed green throughout."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Riley P.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-08",
+      "submitted_at": "2026-09-08",
+      "ratings": {"Ownership": 2, "Collaboration": 2},
+      "evidence": {
+        "Ownership": "Examples were all assigned tickets; no outcome he drove himself.",
+        "Collaboration": "Described the QA team as the reason releases slipped, with no example of working with them."
+      },
+      "notes": ""
+    },
+    {
+      "candidate": "Taylor W.",
+      "session": "Hiring manager screen",
+      "interviewer": "Elena V.",
+      "date": "2026-09-09",
+      "submitted_at": "2026-09-09",
+      "ratings": {"Ownership": 3, "Collaboration": 3},
+      "evidence": {
+        "Ownership": "Shipped an internal feature-flag service used by four teams, and wrote its deprecation plan.",
+        "Collaboration": "Ran the design review for a cross-team API and changed the proposal after feedback from mobile."
+      },
+      "notes": ""
+    }
+  ]
+}

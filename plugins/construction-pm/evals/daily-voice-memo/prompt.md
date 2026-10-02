@@ -1,0 +1,28 @@
+---
+max_turns: 15
+allowed_tools: [Read, Glob, Grep, Skill, Bash, Write, Edit]
+timeout_seconds: 600
+tags: [trigger]
+---
+
+my super just sent me this voice memo text from today. can you turn it into the report for today's file? paste the report here in the chat.
+
+[Voice memo transcript, auto-generated, Thursday October 1 2026, 4:52 PM, recorded by Sam Reyes, super]
+
+ok daily for the clinic job, Thursday October first. uh weather was, it was cloudy morning, rain started around one thirty and kept going on and off. I didn't look at the actual temp, felt like low sixties.
+
+manpower. we had our guys, me plus two carpenters, so three GC. Rio Verde Plumbing, fake name obviously, they had four guys on the underslab, three journeyman and an apprentice, so four. Electric, Brightline, had two, they were just walking it and pulling some temp power. And the demo guys came back for like two hours with one laborer to pull the last of the old ceiling grid in 112, so one demo. that's it. oh and the layout guy from yesterday did not come back.
+
+work. plumbing trenched and set pipe in the trench along gridline C from about 3 to 6, the restroom group. they got about eighty percent of the trench. carpenters staged hollow metal frames in 108 and checked them against the frame list, the door 104 frame doesnt have the EPT prep, Dana is writing an RFI. electric pulled temp power to the north wall.
+
+so the big one. about ten fifteen the plumbers hit an old abandoned concrete footing, not on the drawings, right in the trench line at about C-4. maybe two foot by two foot, it's under where the new waste line has to go. they stopped on that run and moved to the other leg. I called Pat at Fernbrook, the architect, fake firm, at ten forty and left a voicemail, then emailed photos at eleven. no answer yet. plumber foreman says it's probably half a day to a day of chipping if they can't reroute. that's lost time on that run today, they lost maybe three hours with four guys on that part before they switched.
+
+deliveries. the drywall stud package came at seven thirty, Coastal Supply, one truck. the frames had already come Tuesday.
+
+inspections none today. visitors, the owner's rep Jordan came by at two for like twenty minutes and saw the footing. didn't say anything about it, just took pictures.
+
+safety. toolbox talk this morning on trench and slab cutting silica, everybody signed. one thing, a plumber didn't have his glasses on at the saw, I stopped him and he put them on. no injuries.
+
+photos, I took the footing, three shots, and the frame at 104.
+
+uh, porta john service was today too. that's it.

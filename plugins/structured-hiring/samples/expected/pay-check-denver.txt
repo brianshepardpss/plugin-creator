@@ -1,0 +1,6 @@
+Pay-transparency check as of 2026-10-01 (law data last reviewed 2026-10-02; not legal advice).
+
+- CO -- Colorado Equal Pay for Equal Work Act (in force since 2021-01-01, 1+ employees; location Denver, CO). Requires: good-faith pay range; general description of benefits and other compensation; application deadline or window. Remote: Covers remote jobs that could be performed in Colorado.
+
+JD contains: pay range NO; benefits NO; application deadline NO.
+- CO: missing pay range, benefits description, application deadline

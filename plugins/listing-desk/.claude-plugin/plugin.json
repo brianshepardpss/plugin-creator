@@ -1,0 +1,29 @@
+{
+  "name": "listing-desk",
+  "displayName": "Listing Desk",
+  "version": "0.1.0",
+  "description": "Listing appointment prep and listing launch for US residential real estate agents: a CMA from your own MLS CSV export, listing copy, and a Fair Housing check on every word, plus contract deadlines and follow-up drafts.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "real-estate",
+    "listing",
+    "cma",
+    "fair-housing",
+    "comps",
+    "mls-export",
+    "listing-description",
+    "contract-deadlines",
+    "open-house",
+    "cowork"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/listing-desk",
+  "repository": "https://github.com/brianshepardpss/listing-desk"
+}

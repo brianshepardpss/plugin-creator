@@ -1,0 +1,143 @@
+{
+    "property": "26 Larkspur Dr, Cedar Hollow, TX 75999",
+    "effective_date": "2026-10-09",
+    "rollover": true,
+    "deadline_time": "5:00 p.m. local time at the property",
+    "terms": [
+        [
+            "Seller",
+            "Dana Samplewood and Rowan Samplewood",
+            "Para 1"
+        ],
+        [
+            "Buyer",
+            "Avery Sampleton",
+            "Para 1"
+        ],
+        [
+            "Sales price",
+            "$405,000",
+            "Para 3"
+        ],
+        [
+            "Earnest money",
+            "$4,000 to Fictional Title Company",
+            "Para 5"
+        ],
+        [
+            "Option fee",
+            "$250",
+            "Para 5"
+        ],
+        [
+            "Financing",
+            "$324,000 conventional",
+            "Para 3"
+        ]
+    ],
+    "deadlines": [
+        {
+            "id": "effective_date",
+            "name": "Effective Date",
+            "date": "2026-10-09",
+            "source": "Para 4"
+        },
+        {
+            "id": "earnest",
+            "name": "Earnest money and option fee delivered",
+            "days": 3,
+            "unit": "business",
+            "from": "effective",
+            "source": "Para 5",
+            "owner": "Buyer"
+        },
+        {
+            "id": "option",
+            "name": "Inspection (option) period ends",
+            "days": 10,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 6",
+            "owner": "Buyer"
+        },
+        {
+            "id": "disclosure",
+            "name": "Seller's Disclosure delivered",
+            "days": 5,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 7",
+            "owner": "Seller"
+        },
+        {
+            "id": "hoa",
+            "name": "HOA documents delivered",
+            "days": 5,
+            "unit": "business",
+            "from": "effective",
+            "source": "Para 8",
+            "owner": "Seller"
+        },
+        {
+            "id": "title",
+            "name": "Title commitment delivered",
+            "days": 15,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 9",
+            "owner": "Seller / title"
+        },
+        {
+            "id": "title_objection",
+            "name": "Buyer title objections",
+            "days": 5,
+            "unit": "business",
+            "from": "title",
+            "source": "Para 9",
+            "owner": "Buyer"
+        },
+        {
+            "id": "survey",
+            "name": "Survey delivered",
+            "days": 20,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 10",
+            "owner": "Seller / Buyer"
+        },
+        {
+            "id": "appraisal",
+            "name": "Appraisal contingency ends",
+            "days": 21,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 11",
+            "owner": "Buyer"
+        },
+        {
+            "id": "financing",
+            "name": "Financing contingency ends",
+            "days": 25,
+            "unit": "calendar",
+            "from": "effective",
+            "source": "Para 12",
+            "owner": "Buyer"
+        },
+        {
+            "id": "closing",
+            "name": "Closing",
+            "date": "2026-11-13",
+            "source": "Para 13",
+            "owner": "All"
+        },
+        {
+            "id": "walkthrough",
+            "name": "Final walk-through (latest)",
+            "days": 1,
+            "unit": "calendar",
+            "before": "closing",
+            "source": "Para 14",
+            "owner": "Buyer"
+        }
+    ]
+}

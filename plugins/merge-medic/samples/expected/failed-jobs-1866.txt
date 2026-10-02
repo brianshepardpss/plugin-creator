@@ -1,0 +1,9 @@
+pipeline 1866 (failed) ref chore/frontend-deps sha c0ffee12
+url: https://gitlab.example-corp.test/platform/invoice-api/-/pipelines/1866
+failed jobs: 4 (4 blocking, 0 allowed to fail)
+JOB_ID   NAME           STAGE    FAILURE_REASON          BLOCKING  DURATION  HINT
+90301    eslint         test     script_failure          yes       47.1s     read the log
+90302    npm-ci         build    script_failure          yes       33.5s     read the log
+90303    integration    test     script_failure          yes       1490.3s   read the log
+90304    deploy-review  deploy   script_failure          yes       12.0s     read the log
+retry uses JOB IDs (90301 90302 90303 90304), never the pipeline ID (1866).

@@ -1,0 +1,36 @@
+{
+  "description": "ATS write guard: any Greenhouse, Ashby or Lever MCP tool that is not clearly read-only needs explicit user confirmation and is logged without candidate free text. Email send/reply/forward tools always ask first, so outreach stays drafts-only.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*([Gg]reenhouse|GREENHOUSE|[Aa]shby|ASHBY|[_-][Ll]ever[_-]|[_-]LEVER[_-]).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/ats_write_guard.py\" pre || printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"Structured Hiring Kit: the write guard could not run, so confirm this ATS action yourself.\"}}'"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*([Gg]mail|GMAIL).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/ats_write_guard.py\" mail || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__.*([Gg]reenhouse|GREENHOUSE|[Aa]shby|ASHBY|[_-][Ll]ever[_-]|[_-]LEVER[_-]).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/ats_write_guard.py\" post || true"
+          }
+        ]
+      }
+    ]
+  }
+}

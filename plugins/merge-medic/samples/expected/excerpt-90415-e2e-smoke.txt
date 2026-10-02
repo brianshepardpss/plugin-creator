@@ -1,0 +1,15 @@
+== job 90415 e2e-smoke (failure_reason: job_execution_timeout) ==
+log: 620 lines -> 4 shown; failed in section: step_script
+failing command: ./scripts/e2e-smoke.sh
+exit code: -
+class hint: timeout (job timeout; first match at line 620)
+retry may help: maybe
+other signals: none
+secrets masked: 1
+--- excerpt (raw log line numbers) ---
+       | [... lines 1-540 omitted ...]
+   541 | waiting for review app (attempt 519/600)
+   542 | waiting for review app (attempt 520/600)
+       | [... 76 similar lines collapsed ...]
+   619 | waiting for review app (attempt 597/600)
+   620 | ERROR: Job failed: execution took longer than 10m0s seconds

@@ -1,0 +1,8 @@
+{
+  "id": 512,
+  "name": "invoice-api",
+  "path_with_namespace": "platform/invoice-api",
+  "default_branch": "main",
+  "web_url": "https://gitlab.example-corp.test/platform/invoice-api",
+  "visibility": "internal"
+}

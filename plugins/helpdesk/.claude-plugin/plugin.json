@@ -1,0 +1,29 @@
+{
+  "name": "helpdesk",
+  "displayName": "Helpdesk Triage",
+  "version": "0.1.0",
+  "description": "Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "helpdesk",
+    "support",
+    "customer-support",
+    "zendesk",
+    "freshdesk",
+    "triage",
+    "sla",
+    "ticket",
+    "macros",
+    "knowledge-base"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/helpdesk",
+  "repository": "https://github.com/brianshepardpss/helpdesk"
+}

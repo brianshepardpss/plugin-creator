@@ -1,0 +1,14 @@
+From: Rosa Delgado <rosa@northwindtraders.example.com>
+To: Sam Okafor <sam@dealtender-demo.example.com>
+Cc: Ben Foster <ben@northwindtraders.example.com>
+Date: Sun, 4 Oct 2026 19:03
+Subject: MSA redlines
+
+Sam,
+
+Legal sent two redlines on the MSA: liability cap at 12 months of fees, and
+30-day termination for convenience in year one. Ben is happy with the security
+answers. If you can accept the liability cap we can sign this week. Let's go
+through it at our 2pm on Monday.
+
+Rosa

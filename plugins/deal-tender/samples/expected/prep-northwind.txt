@@ -1,0 +1,19 @@
+DealTender prep for 'Northwind' - as of 2026-10-05 (Monday)
+Source: deals_export.csv (bundled sample, fictional)
+
+Deal 109 | Northwind Traders - Inventory Sync | status open | New Business / Negotiation | 54,000.00 USD | probability 80.0% (stage) | owner Sam Okafor
+  Contact: Rosa Delgado | Org: Northwind Traders | expected close 2026-09-29 (PASSED 6 days ago)
+  Last touch 2026-10-02 (3 days ago, from activity) | next activity 2026-10-05 | flags: PAST CLOSE
+
+People at Northwind Traders
+  Rosa Delgado | VP Operations | rosa@northwindtraders.example.com | +1 555 0109
+  Ben Foster | IT Manager | ben@northwindtraders.example.com | +1 555 0191
+
+Last 5 done activities (newest first)
+  2026-10-02 | email | Security questionnaire returned | deal 109 | note: Sent completed questionnaire. Rosa said legal is reviewing the MSA; signature slipped past 29 Sep.
+  2026-09-25 | call | Pricing follow-up | deal 109 | note: Agreed 54000 USD if signed by end of September; Ben still needs the security questionnaire.
+  2026-09-18 | email | Sent proposal v1 | deal 109 | note: Proposal at 60000 USD/yr. Rosa: budget approved up to 55k this fiscal year.
+  2026-09-07 | meeting | Demo with ops team | deal 109 | note: Ben Foster (IT) asked about SSO and an on-prem SQL connector. Rosa liked the low-stock alerts.
+  2026-08-26 | meeting | Discovery call | deal 109 | note: Rosa wants stock levels synced between 3 warehouses and the webshop. Current tool: spreadsheets + nightly CSV.
+Planned
+  2026-10-05 | meeting | Contract review (14:00) | deal 109

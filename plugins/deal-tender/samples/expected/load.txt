@@ -1,0 +1,16 @@
+DealTender load check - as of 2026-10-05 (Monday)
+Source: deals_export.csv (bundled sample, fictional)
+Columns: 21  |  deal rows: 40  |  blank rows skipped: 1
+Mapped: id <- 'Deal - ID'; title <- 'Deal - Title'; value <- 'Deal - Value'; currency <- 'Deal - Currency'; pipeline <- 'Deal - Pipeline'; stage <- 'Deal - Stage'; status <- 'Deal - Status'; owner <- 'Deal - Owner'; org <- 'Deal - Organization'; person <- 'Deal - Contact person'; probability <- 'Deal - Probability'; close <- 'Deal - Expected close date'; created <- 'Deal - Deal created'; stage_change <- 'Deal - Last stage change'; last_activity <- 'Deal - Last activity date'; next_activity <- 'Deal - Next activity date'; update_time <- 'Deal - Update time'; won_time <- 'Deal - Won time'; lost_reason <- 'Deal - Lost reason'
+Custom field (hash key) 9f2c4a7e1b3d5f60a8c2e4b6d8f0a1c3e5b7d9f1: labelled 'Lead source' via settings field_map
+Ignored columns: Deal - Industry
+Status counts: lost 3, open 32, won 5
+Currencies: EUR, GBP, USD  (base USD; fx for EUR, GBP, USD)
+Stages file: stages.json  |  settings: settings.json
+
+Hygiene
+  Possible duplicates: 115 and 132 (Tidewater Marine - Parts Catalog)
+  Open deals missing close date: none
+  Open deals with zero value: none
+  Stages not in stages file: none
+  Open deals with no probability: none

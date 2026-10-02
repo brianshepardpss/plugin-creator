@@ -1,0 +1,7 @@
+Golden: price_badge
+  size            master 138x42, test 138x42
+  differing px    1 of 5796 = 0.0173%  (flutter prints 0.02%, 1px)
+  max channel d   8 (0-255)
+  bbox            (69,1)-(69,1)
+  min tolerance   0.0002 (precisionTolerance that would just accept this run)
+  verdict         rendering drift: few pixels, small channel change: typical of font hinting, anti-aliasing or OS/GPU differences

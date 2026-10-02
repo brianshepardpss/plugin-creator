@@ -1,0 +1,14 @@
+[
+  {"id": "m-201", "title": "Refund - within 14 days", "category": "billing",
+   "body": "Hi {{first_name}}, thanks for reaching out. Your charge on {{charge_date}} is within our 14-day refund window, so I've requested a full refund to your original payment method. It usually appears in 5-10 business days."},
+  {"id": "m-202", "title": "Send invoice or receipt copy", "category": "billing",
+   "body": "Hi {{first_name}}, you can download every invoice and receipt under Settings > Billing > History. I've also attached the one you asked for."},
+  {"id": "m-203", "title": "Password reset / lockout", "category": "access",
+   "body": "Hi {{first_name}}, after too many attempts accounts lock for 30 minutes and then unlock on their own. If the reset email doesn't arrive, please allow-list no-reply@quillfern.example.com and try again."},
+  {"id": "m-204", "title": "Calendar resync steps", "category": "calendar-sync",
+   "body": "Hi {{first_name}}, let's get your calendar syncing again: 1) disconnect and reconnect under Settings > Integrations, 2) re-authorize each affected staff member, 3) check their calendar time zone matches your business time zone. Changes can take up to 10 minutes."},
+  {"id": "m-205", "title": "Known issue - SMS reminders", "category": "outage",
+   "body": "Hi {{first_name}}, thanks for flagging this. We're seeing delays with SMS reminders for some carriers right now. Reminders are queued and will go out once the carrier recovers; you can follow updates at status.quillfern.example.com."},
+  {"id": "m-206", "title": "Cancellation confirmation", "category": "cancellation",
+   "body": "Hi {{first_name}}, I'm sorry to see you go. The account owner can cancel under Settings > Billing > Cancel plan, and service continues until {{period_end}}. Your data stays available for export for 30 days after that."}
+]

@@ -1,0 +1,76 @@
+SECTION 09 91 23
+INTERIOR PAINTING
+
+PART 1 GENERAL
+
+1.01 SECTION INCLUDES
+A. Surface preparation and field application of paint systems on interior
+   gypsum board, hollow metal, and wood substrates.
+
+1.02 REFERENCES
+A. MPI Architectural Painting Specification Manual, current edition.
+
+1.03 SUBMITTALS
+A. Submit under provisions of Section 01 33 00.
+B. Product Data: For each paint system specified, including primers.
+   Include manufacturer's printed product information and VOC content.
+C. Samples for Verification: Submit two 8 by 10 inch drawdown samples of
+   each color and sheen selected, on the actual substrate where practical.
+   1. Colors will be selected by the Architect from the manufacturer's full
+      range.
+D. Product List: Cross-reference to paint system and locations of
+   application areas. Use same designations indicated on Drawings and in
+   the finish schedule.
+E. VOC Certification: Manufacturer's certification that each interior
+   coating complies with the VOC limits specified.
+F. Maintenance Material: Furnish 1 gallon of each color and sheen applied,
+   in unopened, labeled containers, to Owner at Substantial Completion.
+
+1.04 QUALITY ASSURANCE
+A. Mockups: Apply benchmark samples of each paint system indicated on a
+   wall area of not less than 100 sq. ft. in the location directed by the
+   Architect. Obtain the Architect's approval of mockups before starting
+   final painting work. Approved mockups may remain as part of the Work.
+B. Applicator Qualifications: Company specializing in performing the work
+   of this section with minimum 5 years documented experience.
+
+1.05 DELIVERY, STORAGE AND HANDLING
+A. Deliver materials in original, unopened containers bearing
+   manufacturer's labels.
+
+1.06 FIELD CONDITIONS
+A. Apply paint only when temperature of surfaces and surrounding air is
+   between 50 and 95 deg F, unless otherwise permitted by manufacturer.
+
+Marlowe Creek Clinic TI (FICTIONAL SAMPLE)   09 91 23-1   INTERIOR PAINTING
+
+PART 2 PRODUCTS
+
+2.01 MANUFACTURERS
+A. Basis of design: Products of a single manufacturer listed on the MPI
+   Approved Products List for each paint system, or approved equal.
+B. Substitutions: Under provisions of Section 01 25 00.
+
+2.02 PAINT SYSTEMS
+A. Gypsum Board, Eggshell: MPI INT 9.2A, latex, 1 primer coat and 2
+   finish coats.
+B. Hollow Metal, Semi-Gloss: MPI INT 5.1R, waterborne acrylic, 1 primer
+   coat and 2 finish coats.
+C. Wood Trim, Semi-Gloss: MPI INT 6.3T, latex, 1 primer coat and 2
+   finish coats.
+
+PART 3 EXECUTION
+
+3.01 EXAMINATION
+A. Verify that substrate moisture content is within limits recommended by
+   the paint manufacturer before application.
+
+3.02 APPLICATION
+A. Apply each coat at the spreading rate recommended by the manufacturer.
+
+3.03 FIELD QUALITY CONTROL
+A. Owner may engage a testing agency to sample paint at the site. If test
+   results show materials do not comply, Contractor shall remove
+   non-complying paint and reapply.
+
+END OF SECTION

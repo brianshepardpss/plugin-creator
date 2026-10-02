@@ -1,0 +1,48 @@
+stages: [test, build, deploy]
+
+default:
+  image: python:3.12-slim
+
+lint:
+  stage: test
+  script:
+    - pip install ruff==0.6.9
+    - ruff check .
+
+typecheck:
+  stage: test
+  script:
+    - pip install mypy==1.11.2
+    - mypy invoice_api
+
+unit-tests:
+  stage: test
+  script:
+    - pip install pytest==8.3.3
+    - python -m pytest -q
+
+sast:
+  stage: test
+  script:
+    - echo "SAST scan (placeholder in the demo project)"
+
+e2e-smoke:
+  stage: test
+  allow_failure: true
+  timeout: 10m
+  script:
+    - ./scripts/e2e-smoke.sh
+
+build-image:
+  stage: build
+  image: docker:27.3
+  services: [docker:27.3-dind]
+  script:
+    - docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+
+deploy-review:
+  stage: deploy
+  when: manual
+  script:
+    - echo "deploy to review app"

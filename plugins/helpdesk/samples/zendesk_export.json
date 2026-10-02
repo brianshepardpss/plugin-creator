@@ -1,0 +1,2348 @@
+{
+ "exported_at": "2026-10-02T09:00:00Z",
+ "tickets": [
+  {
+   "id": 1001,
+   "subject": "Need a copy of last month's invoice",
+   "description": "Hi, can you send me a PDF of the August invoice? Our accountant needs it.",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8001,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 701,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-18T10:12:00Z",
+   "updated_at": "2026-09-18T15:30:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-19T10:12:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-18T15:30:00Z"
+   },
+   "comments": [
+    {
+     "id": 50001,
+     "author_id": 8001,
+     "public": true,
+     "body": "Hi, can you send me a PDF of the August invoice? Our accountant needs it.",
+     "created_at": "2026-09-18T10:12:00Z"
+    },
+    {
+     "id": 50002,
+     "author_id": 9003,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-18T15:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1002,
+   "subject": "Locked out after 2FA phone change",
+   "description": "I got a new phone and now I can't log in, the two-factor code goes to my old phone.",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8003,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 703,
+   "tags": [
+    "login"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-18T14:40:00Z",
+   "updated_at": "2026-09-19T09:05:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-19T14:40:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-19T09:05:00Z"
+   },
+   "comments": [
+    {
+     "id": 50003,
+     "author_id": 8003,
+     "public": true,
+     "body": "I got a new phone and now I can't log in, the two-factor code goes to my old phone.",
+     "created_at": "2026-09-18T14:40:00Z"
+    },
+    {
+     "id": 50004,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-19T09:05:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1003,
+   "subject": "Google Calendar sync stopped",
+   "description": "Our Google Calendar sync stopped overnight for three clinicians. Bookings are not showing up.",
+   "status": "closed",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8002,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 702,
+   "tags": [
+    "calendar"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-19T08:05:00Z",
+   "updated_at": "2026-09-19T13:20:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-19T16:05:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-19T13:20:00Z"
+   },
+   "comments": [
+    {
+     "id": 50005,
+     "author_id": 8002,
+     "public": true,
+     "body": "Our Google Calendar sync stopped overnight for three clinicians. Bookings are not showing up.",
+     "created_at": "2026-09-19T08:05:00Z"
+    },
+    {
+     "id": 50006,
+     "author_id": 9004,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-19T13:20:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1004,
+   "subject": "Bookings not appearing in Google Calendar",
+   "description": "New bookings since this morning are not appearing in our Google Calendar. Old ones are fine.",
+   "status": "open",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8014,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 701,
+   "tags": [
+    "calendar"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T09:45:00Z",
+   "updated_at": "2026-10-01T09:45:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T09:45:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50007,
+     "author_id": 8014,
+     "public": true,
+     "body": "New bookings since this morning are not appearing in our Google Calendar. Old ones are fine.",
+     "created_at": "2026-10-01T09:45:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1005,
+   "subject": "Appointments showing an hour off",
+   "description": "Since our clocks changed, every appointment in the client reminder shows one hour off. The calendar itself looks right.",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8004,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 704,
+   "tags": [
+    "timezone"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-19T16:22:00Z",
+   "updated_at": "2026-09-21T11:00:00Z",
+   "satisfaction_rating": {
+    "score": "bad",
+    "comment": "Took two days and the answer was a workaround."
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-20T16:22:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-21T11:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50008,
+     "author_id": 8004,
+     "public": true,
+     "body": "Since our clocks changed, every appointment in the client reminder shows one hour off. The calendar itself looks right.",
+     "created_at": "2026-09-19T16:22:00Z"
+    },
+    {
+     "id": 50009,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-21T11:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1006,
+   "subject": "How do I add a custom question to the booking form?",
+   "description": "We want to ask new tutoring clients for their grade level when they book. Is there a custom question option on the booking form?",
+   "status": "closed",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8005,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 705,
+   "tags": [
+    "howto"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-21T09:30:00Z",
+   "updated_at": "2026-09-22T10:10:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-23T09:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-22T10:10:00Z"
+   },
+   "comments": [
+    {
+     "id": 50010,
+     "author_id": 8005,
+     "public": true,
+     "body": "We want to ask new tutoring clients for their grade level when they book. Is there a custom question option on the booking form?",
+     "created_at": "2026-09-21T09:30:00Z"
+    },
+    {
+     "id": 50011,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-22T10:10:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1007,
+   "subject": "Export all bookings to CSV",
+   "description": "How do I export all of our bookings for the year to a CSV file for our records?",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8006,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 706,
+   "tags": [
+    "export"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-22T11:15:00Z",
+   "updated_at": "2026-09-22T13:45:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-23T11:15:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-22T13:45:00Z"
+   },
+   "comments": [
+    {
+     "id": 50012,
+     "author_id": 8006,
+     "public": true,
+     "body": "How do I export all of our bookings for the year to a CSV file for our records?",
+     "created_at": "2026-09-22T11:15:00Z"
+    },
+    {
+     "id": 50013,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-22T13:45:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1008,
+   "subject": "Charged twice this month",
+   "description": "My card was charged twice for September. Please refund the duplicate payment.",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8007,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 707,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-22T15:02:00Z",
+   "updated_at": "2026-09-23T10:40:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-23T15:02:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-23T10:40:00Z"
+   },
+   "comments": [
+    {
+     "id": 50014,
+     "author_id": 8007,
+     "public": true,
+     "body": "My card was charged twice for September. Please refund the duplicate payment.",
+     "created_at": "2026-09-22T15:02:00Z"
+    },
+    {
+     "id": 50015,
+     "author_id": 9003,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-23T10:40:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1009,
+   "subject": "New vet can't see her schedule",
+   "description": "We added Dr. Pat Imaginary as a staff member but she sees an empty schedule when she logs in.",
+   "status": "open",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8012,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 706,
+   "tags": [
+    "staff"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T11:30:00Z",
+   "updated_at": "2026-10-01T11:30:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T11:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50016,
+     "author_id": 8012,
+     "public": true,
+     "body": "We added Dr. Pat Imaginary as a staff member but she sees an empty schedule when she logs in.",
+     "created_at": "2026-10-01T11:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1010,
+   "subject": "Add a new staff member",
+   "description": "How do I add a new stylist as a team member so she can see her own schedule only?",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8009,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 703,
+   "tags": [
+    "staff"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-23T10:00:00Z",
+   "updated_at": "2026-09-23T12:00:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-24T10:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-23T12:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50017,
+     "author_id": 8009,
+     "public": true,
+     "body": "How do I add a new stylist as a team member so she can see her own schedule only?",
+     "created_at": "2026-09-23T10:00:00Z"
+    },
+    {
+     "id": 50018,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-23T12:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1011,
+   "subject": "Reminder emails have wrong time",
+   "description": "Reminder emails say 3pm but the booking is at 2pm. Our time zone in settings is correct.",
+   "status": "closed",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8010,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 704,
+   "tags": [
+    "timezone"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-24T13:30:00Z",
+   "updated_at": "2026-09-26T09:00:00Z",
+   "satisfaction_rating": {
+    "score": "bad",
+    "comment": "Still not fixed properly."
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-25T13:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-26T09:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50019,
+     "author_id": 8010,
+     "public": true,
+     "body": "Reminder emails say 3pm but the booking is at 2pm. Our time zone in settings is correct.",
+     "created_at": "2026-09-24T13:30:00Z"
+    },
+    {
+     "id": 50020,
+     "author_id": 9004,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-26T09:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1012,
+   "subject": "Export is missing prices",
+   "description": "The bookings CSV export has an empty price column for September. We need it for payroll today.",
+   "status": "new",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8013,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 707,
+   "tags": [
+    "export"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T12:15:00Z",
+   "updated_at": "2026-10-01T12:15:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T12:15:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50021,
+     "author_id": 8013,
+     "public": true,
+     "body": "The bookings CSV export has an empty price column for September. We need it for payroll today.",
+     "created_at": "2026-10-01T12:15:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1013,
+   "subject": "Download my data as a spreadsheet",
+   "description": "Where can I download all client records and bookings as a spreadsheet? We need a backup.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8011,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 705,
+   "tags": [
+    "export"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-25T12:10:00Z",
+   "updated_at": "2026-09-25T14:00:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-26T12:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-25T14:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50022,
+     "author_id": 8011,
+     "public": true,
+     "body": "Where can I download all client records and bookings as a spreadsheet? We need a backup.",
+     "created_at": "2026-09-25T12:10:00Z"
+    },
+    {
+     "id": 50023,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-25T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1014,
+   "subject": "Invoice shows wrong company name",
+   "description": "The invoice still shows our old company name. Can you update billing details and resend the invoice?",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8012,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 706,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-25T16:45:00Z",
+   "updated_at": "2026-09-26T09:30:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-26T16:45:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-26T09:30:00Z"
+   },
+   "comments": [
+    {
+     "id": 50024,
+     "author_id": 8012,
+     "public": true,
+     "body": "The invoice still shows our old company name. Can you update billing details and resend the invoice?",
+     "created_at": "2026-09-25T16:45:00Z"
+    },
+    {
+     "id": 50025,
+     "author_id": 9003,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-26T09:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1015,
+   "subject": "Intake form field for allergies",
+   "description": "Can I add an intake form field so spa clients list allergies before booking a massage?",
+   "status": "solved",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8013,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 707,
+   "tags": [
+    "howto"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-26T09:20:00Z",
+   "updated_at": "2026-09-26T15:00:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-28T09:20:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-26T15:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50026,
+     "author_id": 8013,
+     "public": true,
+     "body": "Can I add an intake form field so spa clients list allergies before booking a massage?",
+     "created_at": "2026-09-26T09:20:00Z"
+    },
+    {
+     "id": 50027,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-26T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1016,
+   "subject": "Password reset email never arrives",
+   "description": "I clicked forgot password three times and no email arrives. Checked spam.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8014,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 701,
+   "tags": [
+    "login"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-26T11:00:00Z",
+   "updated_at": "2026-09-26T12:15:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-27T11:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-26T12:15:00Z"
+   },
+   "comments": [
+    {
+     "id": 50028,
+     "author_id": 8014,
+     "public": true,
+     "body": "I clicked forgot password three times and no email arrives. Checked spam.",
+     "created_at": "2026-09-26T11:00:00Z"
+    },
+    {
+     "id": 50029,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-26T12:15:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1017,
+   "subject": "Refund for annual renewal",
+   "description": "We were charged $588.00 for the annual renewal on 2026-08-20. We have barely used Quillfern since and want a full refund.",
+   "status": "open",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8007,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 707,
+   "tags": [
+    "billing",
+    "refund"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-29T10:05:00Z",
+   "updated_at": "2026-10-01T08:30:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T10:05:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50030,
+     "author_id": 8007,
+     "public": true,
+     "body": "We were charged $588.00 for the annual renewal on 2026-08-20. We have barely used Quillfern since and want a full refund.",
+     "created_at": "2026-09-29T10:05:00Z"
+    },
+    {
+     "id": 50031,
+     "author_id": 9003,
+     "public": true,
+     "body": "Thanks Taylor, I'm checking the renewal details with our billing lead.",
+     "created_at": "2026-09-29T13:00:00Z"
+    },
+    {
+     "id": 50032,
+     "author_id": 9003,
+     "public": false,
+     "body": "Internal: renewal charged 2026-08-20, 40 days ago. Outside 14-day window per kb-101.",
+     "created_at": "2026-09-29T13:02:00Z"
+    },
+    {
+     "id": 50033,
+     "author_id": 8007,
+     "public": true,
+     "body": "Any update? We really need this money back this month.",
+     "created_at": "2026-10-01T08:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1018,
+   "subject": "Daylight saving broke our reminders",
+   "description": "Text reminders are going out an hour early since the daylight saving change. Is this a known issue?",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8004,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 704,
+   "tags": [
+    "timezone"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-27T08:40:00Z",
+   "updated_at": "2026-09-29T10:00:00Z",
+   "satisfaction_rating": {
+    "score": "bad",
+    "comment": "Third time we report this time zone problem."
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-28T08:40:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-29T10:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50034,
+     "author_id": 8004,
+     "public": true,
+     "body": "Text reminders are going out an hour early since the daylight saving change. Is this a known issue?",
+     "created_at": "2026-09-27T08:40:00Z"
+    },
+    {
+     "id": 50035,
+     "author_id": 9004,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-29T10:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1019,
+   "subject": "CSV export of appointments for accountant",
+   "description": "Our accountant needs a CSV export of last quarter's appointments with prices. How?",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8006,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 706,
+   "tags": [
+    "export"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-27T13:05:00Z",
+   "updated_at": "2026-09-27T16:20:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-28T13:05:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-27T16:20:00Z"
+   },
+   "comments": [
+    {
+     "id": 50036,
+     "author_id": 8006,
+     "public": true,
+     "body": "Our accountant needs a CSV export of last quarter's appointments with prices. How?",
+     "created_at": "2026-09-27T13:05:00Z"
+    },
+    {
+     "id": 50037,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-27T16:20:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1020,
+   "subject": "Upgrade plan and add two seats",
+   "description": "We'd like to upgrade to the Studio plan and add two seats. Will we be charged a prorated amount?",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8007,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 707,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-28T10:30:00Z",
+   "updated_at": "2026-09-28T12:00:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-29T10:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-28T12:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50038,
+     "author_id": 8007,
+     "public": true,
+     "body": "We'd like to upgrade to the Studio plan and add two seats. Will we be charged a prorated amount?",
+     "created_at": "2026-09-28T10:30:00Z"
+    },
+    {
+     "id": 50039,
+     "author_id": 9003,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-28T12:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1021,
+   "subject": "Deleted client notes - consulting my lawyer",
+   "description": "Your update on Tuesday wiped the treatment notes for 40 of our clients. This is completely unacceptable. I am consulting my lawyer about legal action if the notes are not restored.",
+   "status": "open",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8010,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 704,
+   "tags": [
+    "data"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T16:00:00Z",
+   "updated_at": "2026-10-01T19:40:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T07:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50040,
+     "author_id": 8010,
+     "public": true,
+     "body": "Your update on Tuesday wiped the treatment notes for 40 of our clients. This is completely unacceptable. I am consulting my lawyer about legal action if the notes are not restored.",
+     "created_at": "2026-10-01T16:00:00Z"
+    },
+    {
+     "id": 50041,
+     "author_id": 8010,
+     "public": true,
+     "body": "Waiting for an answer. Tomorrow my lawyer sends a letter.",
+     "created_at": "2026-10-01T19:40:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1022,
+   "subject": "Custom booking question for first visit",
+   "description": "Is there a way to show a custom question on the booking form only for a first visit?",
+   "status": "solved",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8005,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 705,
+   "tags": [
+    "howto"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-29T09:00:00Z",
+   "updated_at": "2026-09-29T14:00:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-01T09:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-29T14:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50042,
+     "author_id": 8005,
+     "public": true,
+     "body": "Is there a way to show a custom question on the booking form only for a first visit?",
+     "created_at": "2026-09-29T09:00:00Z"
+    },
+    {
+     "id": 50043,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-29T14:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1023,
+   "subject": "Outlook calendar not syncing",
+   "description": "My Outlook calendar is not syncing new bookings since yesterday.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8009,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 703,
+   "tags": [
+    "calendar"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-29T11:20:00Z",
+   "updated_at": "2026-09-29T15:00:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-30T11:20:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-29T15:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50044,
+     "author_id": 8009,
+     "public": true,
+     "body": "My Outlook calendar is not syncing new bookings since yesterday.",
+     "created_at": "2026-09-29T11:20:00Z"
+    },
+    {
+     "id": 50045,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-29T15:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1024,
+   "subject": "Clients in another time zone see wrong slot",
+   "description": "Clients booking from another time zone see the wrong time slot on the booking page.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8010,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 704,
+   "tags": [
+    "timezone"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-29T15:10:00Z",
+   "updated_at": "2026-10-01T10:00:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-09-30T15:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-10-01T10:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50046,
+     "author_id": 8010,
+     "public": true,
+     "body": "Clients booking from another time zone see the wrong time slot on the booking page.",
+     "created_at": "2026-09-29T15:10:00Z"
+    },
+    {
+     "id": 50047,
+     "author_id": 9004,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-10-01T10:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1025,
+   "subject": "Receipt for annual payment",
+   "description": "Please send me a receipt for our annual payment, I can't find it in the billing page.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8001,
+   "assignee_id": 9003,
+   "group_id": 502,
+   "organization_id": 701,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-30T10:00:00Z",
+   "updated_at": "2026-09-30T11:00:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-01T10:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-30T11:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50048,
+     "author_id": 8001,
+     "public": true,
+     "body": "Please send me a receipt for our annual payment, I can't find it in the billing page.",
+     "created_at": "2026-09-30T10:00:00Z"
+    },
+    {
+     "id": 50049,
+     "author_id": 9003,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-30T11:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1026,
+   "subject": "THIRD TIME asking - card charged but plan downgraded",
+   "description": "This is the THIRD time I am writing. You charged our card and then downgraded all six clinics to the free plan. Here is the card you charged, 4111 1111 1111 1111 exp 12/28, check it yourself. Fix this today or we cancel every location and move to another provider.",
+   "status": "open",
+   "priority": "urgent",
+   "type": "question",
+   "requester_id": 8002,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 702,
+   "tags": [
+    "billing"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T07:30:00Z",
+   "updated_at": "2026-10-02T08:20:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T17:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50050,
+     "author_id": 8002,
+     "public": true,
+     "body": "This is the THIRD time I am writing. You charged our card and then downgraded all six clinics to the free plan. Here is the card you charged, 4111 1111 1111 1111 exp 12/28, check it yourself. Fix this today or we cancel every location and move to another provider.",
+     "created_at": "2026-10-02T07:30:00Z"
+    },
+    {
+     "id": 50051,
+     "author_id": 9004,
+     "public": false,
+     "body": "Internal: Harborview is our largest account (6 locations). Customer pasted a full card number in the ticket body; needs redaction.",
+     "created_at": "2026-10-02T07:50:00Z"
+    },
+    {
+     "id": 50052,
+     "author_id": 8002,
+     "public": true,
+     "body": "Still nothing. Our front desks cannot take online bookings. This is ridiculous.",
+     "created_at": "2026-10-02T08:20:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1027,
+   "subject": "Feature request: waitlist",
+   "description": "Feature request: it would be great to have a waitlist when a day is fully booked. Please add!",
+   "status": "solved",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8013,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 707,
+   "tags": [
+    "feature-request"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-30T14:30:00Z",
+   "updated_at": "2026-09-30T16:00:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-02T14:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-09-30T16:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50053,
+     "author_id": 8013,
+     "public": true,
+     "body": "Feature request: it would be great to have a waitlist when a day is fully booked. Please add!",
+     "created_at": "2026-09-30T14:30:00Z"
+    },
+    {
+     "id": 50054,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-09-30T16:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1028,
+   "subject": "Locked out of account",
+   "description": "I'm locked out of my account after too many login attempts.",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8012,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 706,
+   "tags": [
+    "login"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T09:10:00Z",
+   "updated_at": "2026-10-01T09:50:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-02T09:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-10-01T09:50:00Z"
+   },
+   "comments": [
+    {
+     "id": 50055,
+     "author_id": 8012,
+     "public": true,
+     "body": "I'm locked out of my account after too many login attempts.",
+     "created_at": "2026-10-01T09:10:00Z"
+    },
+    {
+     "id": 50056,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-10-01T09:50:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1029,
+   "subject": "Staff permissions for receptionist",
+   "description": "What permission should our receptionist have so she can book for everyone but not see reports?",
+   "status": "solved",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8003,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 703,
+   "tags": [
+    "staff"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T12:00:00Z",
+   "updated_at": "2026-10-01T13:30:00Z",
+   "satisfaction_rating": {
+    "score": "good",
+    "comment": ""
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-02T12:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-10-01T13:30:00Z"
+   },
+   "comments": [
+    {
+     "id": 50057,
+     "author_id": 8003,
+     "public": true,
+     "body": "What permission should our receptionist have so she can book for everyone but not see reports?",
+     "created_at": "2026-10-01T12:00:00Z"
+    },
+    {
+     "id": 50058,
+     "author_id": 9002,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-10-01T13:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1030,
+   "subject": "Double bookings after Google Calendar sync",
+   "description": "Since last week the Google Calendar sync is creating double bookings for two of our hygienists.",
+   "status": "open",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8001,
+   "assignee_id": 9004,
+   "group_id": 503,
+   "organization_id": 701,
+   "tags": [
+    "calendar",
+    "double-booking"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-09-22T09:00:00Z",
+   "updated_at": "2026-10-01T16:30:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T12:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50059,
+     "author_id": 8001,
+     "public": true,
+     "body": "Since last week the Google Calendar sync is creating double bookings for two of our hygienists. Example bookings BK-55102 and BK-55117 both show twice.",
+     "created_at": "2026-09-22T09:00:00Z"
+    },
+    {
+     "id": 50060,
+     "author_id": 9001,
+     "public": true,
+     "body": "Thanks Avery. Could you disconnect and reconnect Google Calendar under Settings > Integrations and tell me if new bookings still duplicate?",
+     "created_at": "2026-09-22T10:30:00Z"
+    },
+    {
+     "id": 50061,
+     "author_id": 8001,
+     "public": true,
+     "body": "Done, reconnected both hygienists. Still duplicates on new bookings this afternoon.",
+     "created_at": "2026-09-22T14:10:00Z"
+    },
+    {
+     "id": 50062,
+     "author_id": 9001,
+     "public": true,
+     "body": "Thank you. Next, please clear the browser cache and check the sync direction is set to two-way.",
+     "created_at": "2026-09-22T15:00:00Z"
+    },
+    {
+     "id": 50063,
+     "author_id": 8001,
+     "public": true,
+     "body": "Cache cleared. Sync is two-way. Still getting doubles.",
+     "created_at": "2026-09-23T08:45:00Z"
+    },
+    {
+     "id": 50064,
+     "author_id": 9001,
+     "public": true,
+     "body": "Let's try one-way sync (Quillfern to Google) for a day to see if the duplicates stop.",
+     "created_at": "2026-09-23T09:30:00Z"
+    },
+    {
+     "id": 50065,
+     "author_id": 8001,
+     "public": true,
+     "body": "One-way sync for a day: fewer doubles but still 3 yesterday.",
+     "created_at": "2026-09-24T08:20:00Z"
+    },
+    {
+     "id": 50066,
+     "author_id": 9001,
+     "public": true,
+     "body": "I'm escalating to our Tier 2 team. Casey will take it from here.",
+     "created_at": "2026-09-24T09:00:00Z"
+    },
+    {
+     "id": 50067,
+     "author_id": 9004,
+     "public": true,
+     "body": "Hi Avery, Casey here. Can you re-authorize Google access for both hygienists and confirm their calendar time zone matches the clinic time zone?",
+     "created_at": "2026-09-24T11:00:00Z"
+    },
+    {
+     "id": 50068,
+     "author_id": 8001,
+     "public": true,
+     "body": "Re-authorized. Time zones both say America/Chicago, same as the clinic.",
+     "created_at": "2026-09-24T15:30:00Z"
+    },
+    {
+     "id": 50069,
+     "author_id": 9004,
+     "public": true,
+     "body": "Thanks. Please send the sync log export from Settings > Integrations > Download log for one hygienist.",
+     "created_at": "2026-09-25T09:10:00Z"
+    },
+    {
+     "id": 50070,
+     "author_id": 8001,
+     "public": true,
+     "body": "Attached the log export for Hygienist A (sync-log-0925.csv).",
+     "created_at": "2026-09-25T13:00:00Z"
+    },
+    {
+     "id": 50071,
+     "author_id": 9004,
+     "public": true,
+     "body": "Got it, I see the same booking pushed twice within a second. I've filed this with engineering as ENG-4471.",
+     "created_at": "2026-09-25T16:00:00Z"
+    },
+    {
+     "id": 50072,
+     "author_id": 8001,
+     "public": true,
+     "body": "OK. Meanwhile patients are showing up to the same slot. What should we do?",
+     "created_at": "2026-09-26T08:30:00Z"
+    },
+    {
+     "id": 50073,
+     "author_id": 9004,
+     "public": true,
+     "body": "As a workaround, please keep the one-way sync on and check the day view each morning for duplicates.",
+     "created_at": "2026-09-26T09:00:00Z"
+    },
+    {
+     "id": 50074,
+     "author_id": 8001,
+     "public": true,
+     "body": "We had two patients double booked on Friday. This is costing us money.",
+     "created_at": "2026-09-28T10:15:00Z"
+    },
+    {
+     "id": 50075,
+     "author_id": 9004,
+     "public": true,
+     "body": "I'm sorry about Friday. I've asked engineering to prioritize ENG-4471 and will share their timeline.",
+     "created_at": "2026-09-28T11:00:00Z"
+    },
+    {
+     "id": 50076,
+     "author_id": 8001,
+     "public": true,
+     "body": "Any timeline yet?",
+     "created_at": "2026-09-29T08:00:00Z"
+    },
+    {
+     "id": 50077,
+     "author_id": 9004,
+     "public": true,
+     "body": "Engineering confirmed the cause: a retry in the Google push that does not check for an existing event. They are working on the fix.",
+     "created_at": "2026-09-29T09:30:00Z"
+    },
+    {
+     "id": 50078,
+     "author_id": 8001,
+     "public": true,
+     "body": "Good to hear. Will we get anything for the lost appointments? That's two cancelled cleanings, invoice INV-20931 covers this month.",
+     "created_at": "2026-09-29T12:00:00Z"
+    },
+    {
+     "id": 50079,
+     "author_id": 9004,
+     "public": true,
+     "body": "I've passed your credit question to our billing lead; I can't confirm an amount myself.",
+     "created_at": "2026-09-29T13:00:00Z"
+    },
+    {
+     "id": 50080,
+     "author_id": 8001,
+     "public": true,
+     "body": "Thanks. Please keep me posted.",
+     "created_at": "2026-09-30T08:40:00Z"
+    },
+    {
+     "id": 50081,
+     "author_id": 9004,
+     "public": true,
+     "body": "Engineering has the ENG-4471 fix scheduled for the 2026-10-06 release. I'll update you by Tuesday 2026-10-06 at the latest, sooner if it ships early.",
+     "created_at": "2026-09-30T10:00:00Z"
+    },
+    {
+     "id": 50082,
+     "author_id": 9004,
+     "public": false,
+     "body": "Internal: billing lead (Morgan) to decide on credit for INV-20931; do not promise an amount.",
+     "created_at": "2026-09-30T10:05:00Z"
+    },
+    {
+     "id": 50083,
+     "author_id": 8001,
+     "public": true,
+     "body": "Thanks Casey. Two questions: can you confirm the fix will also clean up the existing duplicates, and has billing decided on the credit for INV-20931?",
+     "created_at": "2026-10-01T16:30:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1031,
+   "subject": "Add a question to booking form",
+   "description": "How do I add a required question like 'student name' to the booking form?",
+   "status": "solved",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8011,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 705,
+   "tags": [
+    "howto"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T15:00:00Z",
+   "updated_at": "2026-10-01T17:00:00Z",
+   "satisfaction_rating": {
+    "score": "bad",
+    "comment": "The answer was that it is not possible, very disappointing."
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "achieved",
+      "breach_at": "2026-10-03T15:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": "2026-10-01T17:00:00Z"
+   },
+   "comments": [
+    {
+     "id": 50084,
+     "author_id": 8011,
+     "public": true,
+     "body": "How do I add a required question like 'student name' to the booking form?",
+     "created_at": "2026-10-01T15:00:00Z"
+    },
+    {
+     "id": 50085,
+     "author_id": 9001,
+     "public": true,
+     "body": "Following up: this is resolved on our side. Reply here if anything else comes up.",
+     "created_at": "2026-10-01T17:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1032,
+   "subject": "Booking form custom question for parents",
+   "description": "Can the booking form ask parents for a custom question like 'child's school'?",
+   "status": "open",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8005,
+   "assignee_id": 9002,
+   "group_id": 501,
+   "organization_id": 705,
+   "tags": [
+    "howto"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T18:20:00Z",
+   "updated_at": "2026-10-01T18:20:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T18:20:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50086,
+     "author_id": 8005,
+     "public": true,
+     "body": "Can the booking form ask parents for a custom question like 'child's school'?",
+     "created_at": "2026-10-01T18:20:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1033,
+   "subject": "No se sincroniza el calendario de Google",
+   "description": "Hola, desde ayer las citas nuevas no aparecen en nuestro calendario de Google. Ya intentamos desconectar y volver a conectar la cuenta. Gracias por la ayuda.",
+   "status": "new",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8008,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 708,
+   "tags": [],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T20:10:00Z",
+   "updated_at": "2026-10-01T20:10:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T20:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50087,
+     "author_id": 8008,
+     "public": true,
+     "body": "Hola, desde ayer las citas nuevas no aparecen en nuestro calendario de Google. Ya intentamos desconectar y volver a conectar la cuenta. Gracias por la ayuda.",
+     "created_at": "2026-10-01T20:10:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1034,
+   "subject": "Reset two-factor for former manager",
+   "description": "Our former manager had 2FA on the owner account. How do we reset it?",
+   "status": "pending",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8009,
+   "assignee_id": 9001,
+   "group_id": 501,
+   "organization_id": 703,
+   "tags": [
+    "login"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-01T21:00:00Z",
+   "updated_at": "2026-10-01T21:00:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "paused",
+      "breach_at": "2026-10-03T21:00:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50088,
+     "author_id": 8009,
+     "public": true,
+     "body": "Our former manager had 2FA on the owner account. How do we reset it?",
+     "created_at": "2026-10-01T21:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1035,
+   "subject": "Please add Apple Calendar",
+   "description": "Feature request: please add Apple Calendar sync, it would be great for our tutors.",
+   "status": "new",
+   "priority": "low",
+   "type": "question",
+   "requester_id": 8011,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 705,
+   "tags": [
+    "feature-request"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T06:10:00Z",
+   "updated_at": "2026-10-02T06:10:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-04T06:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50089,
+     "author_id": 8011,
+     "public": true,
+     "body": "Feature request: please add Apple Calendar sync, it would be great for our tutors.",
+     "created_at": "2026-10-02T06:10:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1036,
+   "subject": "SMS reminders not sending since this morning",
+   "description": "None of our SMS reminders went out this morning. Clients are missing appointments.",
+   "status": "new",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8003,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 703,
+   "tags": [
+    "sms"
+   ],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T06:40:00Z",
+   "updated_at": "2026-10-02T06:40:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T14:40:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50090,
+     "author_id": 8003,
+     "public": true,
+     "body": "None of our SMS reminders went out this morning. Clients are missing appointments.",
+     "created_at": "2026-10-02T06:40:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1037,
+   "subject": "Cancel our subscription",
+   "description": "Please cancel our subscription at the end of this billing period. We are switching to another tool.",
+   "status": "new",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8015,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 702,
+   "tags": [],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T07:05:00Z",
+   "updated_at": "2026-10-02T07:05:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T07:05:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50091,
+     "author_id": 8015,
+     "public": true,
+     "body": "Please cancel our subscription at the end of this billing period. We are switching to another tool.",
+     "created_at": "2026-10-02T07:05:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1038,
+   "subject": "Clients didn't get text reminders today",
+   "description": "Our clients did not get their text reminders today. Is the SMS reminder service down?",
+   "status": "new",
+   "priority": "high",
+   "type": "question",
+   "requester_id": 8006,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 706,
+   "tags": [],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T07:55:00Z",
+   "updated_at": "2026-10-02T07:55:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-02T15:55:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50092,
+     "author_id": 8006,
+     "public": true,
+     "body": "Our clients did not get their text reminders today. Is the SMS reminder service down?",
+     "created_at": "2026-10-02T07:55:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1039,
+   "subject": "Time zone wrong again on reminders",
+   "description": "Text reminders show the wrong time again, one hour off, same as last week.",
+   "status": "new",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8004,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 704,
+   "tags": [],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T08:10:00Z",
+   "updated_at": "2026-10-02T08:10:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T08:10:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50093,
+     "author_id": 8004,
+     "public": true,
+     "body": "Text reminders show the wrong time again, one hour off, same as last week.",
+     "created_at": "2026-10-02T08:10:00Z"
+    }
+   ]
+  },
+  {
+   "id": 1040,
+   "subject": "Unknown login from another country",
+   "description": "We got an email about a login to our account from a country we have never been to. Was our account hacked?",
+   "status": "new",
+   "priority": "normal",
+   "type": "question",
+   "requester_id": 8014,
+   "assignee_id": null,
+   "group_id": null,
+   "organization_id": 701,
+   "tags": [],
+   "via": {
+    "channel": "email"
+   },
+   "created_at": "2026-10-02T08:30:00Z",
+   "updated_at": "2026-10-02T08:30:00Z",
+   "satisfaction_rating": {
+    "score": "unoffered"
+   },
+   "slas": {
+    "policy_metrics": [
+     {
+      "metric": "next_reply_time",
+      "stage": "active",
+      "breach_at": "2026-10-03T08:30:00Z"
+     }
+    ]
+   },
+   "metric_set": {
+    "solved_at": null
+   },
+   "comments": [
+    {
+     "id": 50094,
+     "author_id": 8014,
+     "public": true,
+     "body": "We got an email about a login to our account from a country we have never been to. Was our account hacked?",
+     "created_at": "2026-10-02T08:30:00Z"
+    }
+   ]
+  }
+ ],
+ "users": [
+  {
+   "id": 8001,
+   "name": "Avery Sample",
+   "email": "avery.sample@example.com",
+   "role": "end-user",
+   "organization_id": 701
+  },
+  {
+   "id": 8002,
+   "name": "Jordan Testwell",
+   "email": "jordan.testwell@example.org",
+   "role": "end-user",
+   "organization_id": 702
+  },
+  {
+   "id": 8003,
+   "name": "Riley Placeholder",
+   "email": "riley.placeholder@example.net",
+   "role": "end-user",
+   "organization_id": 703
+  },
+  {
+   "id": 8004,
+   "name": "Quinn Mockford",
+   "email": "quinn.mockford@example.com",
+   "role": "end-user",
+   "organization_id": 704
+  },
+  {
+   "id": 8005,
+   "name": "Dana Fixture",
+   "email": "dana.fixture@example.org",
+   "role": "end-user",
+   "organization_id": 705
+  },
+  {
+   "id": 8006,
+   "name": "Robin Dummyworth",
+   "email": "robin.dummyworth@example.net",
+   "role": "end-user",
+   "organization_id": 706
+  },
+  {
+   "id": 8007,
+   "name": "Taylor Stubbs",
+   "email": "taylor.stubbs@example.com",
+   "role": "end-user",
+   "organization_id": 707
+  },
+  {
+   "id": 8008,
+   "name": "Lucia Ejemplo",
+   "email": "lucia.ejemplo@example.org",
+   "role": "end-user",
+   "organization_id": 708
+  },
+  {
+   "id": 8009,
+   "name": "Morgan Fakely",
+   "email": "morgan.fakely@example.com",
+   "role": "end-user",
+   "organization_id": 703
+  },
+  {
+   "id": 8010,
+   "name": "Casey Notreal",
+   "email": "casey.notreal@example.net",
+   "role": "end-user",
+   "organization_id": 704
+  },
+  {
+   "id": 8011,
+   "name": "Jamie Specimen",
+   "email": "jamie.specimen@example.com",
+   "role": "end-user",
+   "organization_id": 705
+  },
+  {
+   "id": 8012,
+   "name": "Alex Pretendo",
+   "email": "alex.pretendo@example.org",
+   "role": "end-user",
+   "organization_id": 706
+  },
+  {
+   "id": 8013,
+   "name": "Drew Samplesen",
+   "email": "drew.samplesen@example.net",
+   "role": "end-user",
+   "organization_id": 707
+  },
+  {
+   "id": 8014,
+   "name": "Parker Testa",
+   "email": "parker.testa@example.com",
+   "role": "end-user",
+   "organization_id": 701
+  },
+  {
+   "id": 8015,
+   "name": "Skyler Mockett",
+   "email": "skyler.mockett@example.org",
+   "role": "end-user",
+   "organization_id": 702
+  },
+  {
+   "id": 9001,
+   "name": "Sam Agentson",
+   "email": "sam.agentson@quillfern.example.com",
+   "role": "agent",
+   "default_group_id": 501
+  },
+  {
+   "id": 9002,
+   "name": "Lee Supportly",
+   "email": "lee.supportly@quillfern.example.com",
+   "role": "agent",
+   "default_group_id": 501
+  },
+  {
+   "id": 9003,
+   "name": "Morgan Billingham",
+   "email": "morgan.billingham@quillfern.example.com",
+   "role": "agent",
+   "default_group_id": 502
+  },
+  {
+   "id": 9004,
+   "name": "Casey Escalante",
+   "email": "casey.escalante@quillfern.example.com",
+   "role": "agent",
+   "default_group_id": 503
+  }
+ ],
+ "organizations": [
+  {
+   "id": 701,
+   "name": "Maple Row Dental (Sample)",
+   "tags": []
+  },
+  {
+   "id": 702,
+   "name": "Harborview Clinics Group (Sample)",
+   "tags": [
+    "vip"
+   ]
+  },
+  {
+   "id": 703,
+   "name": "Bramblewood Salon (Sample)",
+   "tags": []
+  },
+  {
+   "id": 704,
+   "name": "Quartzline Physio (Sample)",
+   "tags": []
+  },
+  {
+   "id": 705,
+   "name": "Tealbrook Tutoring (Sample)",
+   "tags": []
+  },
+  {
+   "id": 706,
+   "name": "Copperfield Vets (Sample)",
+   "tags": []
+  },
+  {
+   "id": 707,
+   "name": "Juniper Lane Spa (Sample)",
+   "tags": []
+  },
+  {
+   "id": 708,
+   "name": "Estudio Nube Azul (Muestra)",
+   "tags": []
+  }
+ ],
+ "groups": [
+  {
+   "id": 501,
+   "name": "Tier 1"
+  },
+  {
+   "id": 502,
+   "name": "Billing"
+  },
+  {
+   "id": 503,
+   "name": "Tier 2"
+  }
+ ]
+}

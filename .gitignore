@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+dist/
+evals/results/*
+!evals/results/last.json
+plugins/*/evals/results/*
+!plugins/*/evals/results/last.json
+.DS_Store

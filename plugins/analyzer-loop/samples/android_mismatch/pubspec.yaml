@@ -1,0 +1,14 @@
+name: pebble_pine
+description: "Analyzer Loop sample: an Android build pinned to 2022-era Gradle, AGP and Kotlin (fake app)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

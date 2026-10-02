@@ -1,0 +1,724 @@
+#!/usr/bin/env python3
+"""Fake `glab` for the Merge Medic demo and evals. Replays recorded GitLab
+responses from samples/gitlab/ for the fictional self-managed project
+gitlab.example-corp.test/platform/invoice-api. No network, no account.
+
+It behaves like glab v1.120 for the commands Merge Medic uses, including the
+flag rules of `glab mr note create` and the fact that `glab ci trace` streams
+and blocks (here it refuses instead). Writes are recorded, never sent:
+state lives in <repo>/.git/merge-medic-fake/ (calls.log, state.json).
+
+Run `glab help` for the supported command list.
+"""
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+DATA = HERE.parent / "gitlab"
+TRACES = DATA / "traces"
+FAKE_HOST = "gitlab.example-corp.test"
+PROJ = "platform/invoice-api"
+VERSION = "1.120.0"
+BRANCH_PIPELINE = {"feature/late-fees": 1873, "chore/frontend-deps": 1866, "chore/ci-review-env": 1859}
+MR_BRANCH = {42: "feature/late-fees"}
+
+SUPPORTED = """fake glab (Merge Medic demo) supports:
+  version | auth status | config get host | repo view
+  ci get [--merge-request N | -p ID | -b BRANCH] [-s STATUS] [-d] [-F json] [--jq EXPR]
+  ci list | ci retry <job-id|name> | ci lint | ci trace (refused: streams and blocks)
+  api <endpoint> [-X METHOD] [-f k=v] [-F k=v] [--hostname H]
+  mr view|list|diff|create|update|merge|approve|close
+  mr note list|create|publish|resolve|reopen
+  issue view <iid>"""
+
+
+# ---------------------------------------------------------------- helpers
+def git(*args):
+    r = subprocess.run(["git", *args], capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else ""
+
+
+def state_dir():
+    gd = git("rev-parse", "--absolute-git-dir")
+    d = Path(gd) / "merge-medic-fake" if gd else Path(os.environ.get("TMPDIR", "/tmp")) / "merge-medic-fake"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def load_state():
+    p = state_dir() / "state.json"
+    if p.exists():
+        return json.loads(p.read_text())
+    return {"drafts": [], "notes": [], "resolved": {}, "mrs": [], "retries": [], "recorded": []}
+
+
+def save_state(s):
+    (state_dir() / "state.json").write_text(json.dumps(s, indent=2))
+
+
+def log_call(argv):
+    with open(state_dir() / "calls.log", "a") as fh:
+        fh.write(datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ") + " glab " + " ".join(argv) + "\n")
+
+
+def host():
+    url = git("remote", "get-url", "origin")
+    m = re.match(r"(?:https?://|ssh://)?(?:[^@/]+@)?([^/:]+)", url) if url else None
+    return (m.group(1) if m else None) or os.environ.get("GITLAB_HOST", "").replace("https://", "") or FAKE_HOST
+
+
+def die(msg, code=1):
+    sys.stderr.write(msg.rstrip() + "\n")
+    sys.exit(code)
+
+
+def out_json(obj, jq=None):
+    text = json.dumps(obj, indent=2)
+    if jq:
+        if not shutil.which("jq"):
+            die("fake glab: --jq needs the jq binary on PATH; use -F json instead")
+        r = subprocess.run(["jq", jq], input=text, capture_output=True, text=True)
+        sys.stdout.write(r.stdout)
+        if r.returncode:
+            die(r.stderr)
+        return
+    print(text)
+
+
+def load(name):
+    return json.loads((DATA / name).read_text())
+
+
+CI_BOOLS = {"-d", "--with-job-details", "--with-variables"}
+NOTE_BOOLS = {"--draft", "--unique", "--internal", "--yes", "-y", "--resolvable"}
+MR_VIEW_BOOLS = {"--comments", "-c", "--unresolved", "--resolved", "-s", "--system-logs", "--web", "-w",
+                 "--raw", "--all", "-A", "--draft", "--not-draft", "--mine"}
+MR_CREATE_BOOLS = {"--draft", "--wip", "--yes", "-y", "--push", "--fill", "-f", "--remove-source-branch",
+                   "--squash-before-merge", "--web", "-w", "--no-editor", "--fill-commit-body",
+                   "--create-source-branch", "--auto-merge", "--copy-issue-labels", "--signoff",
+                   "--allow-collaboration", "--recover"}
+API_BOOLS = {"--paginate", "--include", "-i", "--silent"}
+AUTH_BOOLS = {"--all", "-a", "--show-token", "-t"}
+
+
+class Args:
+    """Tiny flag parser: --flag value, --flag=value, -x value, booleans."""
+    def __init__(self, argv, bools=()):
+        self.pos, self.opts = [], {}
+        bools = set(bools)
+        i = 0
+        while i < len(argv):
+            a = argv[i]
+            if a.startswith("-") and a != "-":
+                if "=" in a and a.startswith("--"):
+                    k, v = a.split("=", 1)
+                    self.opts.setdefault(k, []).append(v)
+                elif a in bools:
+                    self.opts.setdefault(a, []).append(True)
+                elif i + 1 < len(argv):
+                    self.opts.setdefault(a, []).append(argv[i + 1])
+                    i += 1
+                else:
+                    self.opts.setdefault(a, []).append(True)
+            else:
+                self.pos.append(a)
+            i += 1
+
+    def get(self, *names, default=None):
+        for n in names:
+            if n in self.opts:
+                return self.opts[n][-1]
+        return default
+
+    def all(self, *names):
+        vals = []
+        for n in names:
+            vals += self.opts.get(n, [])
+        return vals
+
+    def has(self, *names):
+        return any(n in self.opts for n in names)
+
+
+def current_branch():
+    return git("rev-parse", "--abbrev-ref", "HEAD")
+
+
+def mr_for(ref, s):
+    """Resolve an MR IID from an IID, a branch name or the current branch."""
+    if ref and str(ref).lstrip("!").isdigit():
+        iid = int(str(ref).lstrip("!"))
+        if iid in MR_BRANCH or any(m["iid"] == iid for m in s["mrs"]):
+            return iid
+        die(f"failed to get merge request {iid}: 404 Not Found")
+    br = ref or current_branch()
+    for iid, b in MR_BRANCH.items():
+        if b == br:
+            return iid
+    for m in s["mrs"]:
+        if m["source_branch"] == br:
+            return m["iid"]
+    die(f"no open merge request available for \"{br}\"")
+
+
+def mr_obj(iid, s):
+    if iid == 42:
+        mr = load("mr-42.json")
+        for k in ("web_url",):
+            mr[k] = mr[k].replace(FAKE_HOST, host())
+        return mr
+    for m in s["mrs"]:
+        if m["iid"] == iid:
+            return m
+    die(f"failed to get merge request {iid}: 404 Not Found")
+
+
+def pushed_after_setup(branch):
+    """True if the user pushed new commits to this branch in the demo."""
+    local = git("rev-parse", branch)
+    return bool(local) and local not in (load("mr-42.json")["sha"],) and branch == "feature/late-fees" \
+        and git("rev-parse", f"origin/{branch}") == local
+
+
+def pipeline(pid, branch=None):
+    if pid == 1880 or (pid == 1873 and branch and pushed_after_setup(branch)):
+        p = load("pipeline-1873.json")
+        sha = git("rev-parse", "feature/late-fees")
+        p.update(id=1880, iid=312, sha=sha, status="running", web_url=p["web_url"].replace("1873", "1880"))
+        for n, j in enumerate(p["jobs"]):
+            j.update(id=90500 + n, status="running" if j["stage"] == "test" else
+                     ("manual" if j["name"] == "deploy-review" else "created"),
+                     web_url=j["web_url"].rsplit("/", 1)[0] + f"/{90500 + n}")
+            j.pop("failure_reason", None)
+            j["commit"]["id"], j["commit"]["short_id"] = sha, sha[:8]
+        return p
+    f = DATA / f"pipeline-{pid}.json"
+    if not f.exists():
+        die(f"GET https://{host()}/api/v4/projects/{PROJ.replace('/', '%2F')}/pipelines/{pid}: 404 Not Found")
+    p = json.loads(f.read_text())
+    p["web_url"] = p["web_url"].replace(FAKE_HOST, host())
+    return p
+
+
+def all_jobs():
+    jobs = {}
+    for pid in (1873, 1866):
+        for j in load(f"pipeline-{pid}.json")["jobs"]:
+            jobs[j["id"]] = j
+    return jobs
+
+
+def trace_file(jid):
+    hits = list(TRACES.glob(f"{jid}-*.log"))
+    return hits[0] if hits else None
+
+
+# ---------------------------------------------------------------- commands
+def cmd_ci(argv, s):
+    sub = argv[0] if argv else ""
+    a = Args(argv[1:], CI_BOOLS)
+    if sub in ("get", "stats"):
+        if a.has("--merge-request"):
+            iid = mr_for(a.get("--merge-request"), s)
+            br = MR_BRANCH.get(iid)
+            if not br:
+                die(f"no pipeline found for merge request !{iid}")
+            pid = BRANCH_PIPELINE[br]
+        elif a.has("-p", "--pipeline-id"):
+            pid, br = int(a.get("-p", "--pipeline-id")), None
+        else:
+            br = a.get("-b", "--branch") or current_branch()
+            if br not in BRANCH_PIPELINE:
+                die(f"No pipelines running or available on branch: {br}")
+            pid = BRANCH_PIPELINE[br]
+        p = pipeline(pid, br)
+        status = a.get("-s", "--status")
+        if status:
+            p["jobs"] = [j for j in p["jobs"] if j["status"] == status]
+        if a.get("-F", "--output") == "json" or a.has("--jq"):
+            return out_json(p, a.get("--jq"))
+        print(f"# Pipeline:\nid:\t{p['id']}\nstatus:\t{p['status']}\nsource:\t{p['source']}\nref:\t{p['ref']}\n"
+              f"sha:\t{p['sha']}\nyaml Errors:\t{p['yaml_errors'] or ''}\nupdated:\t{p['updated_at']}\n\n# Jobs:")
+        for j in p["jobs"]:
+            line = f"{j['name']}:\t{j['status']}"
+            if a.has("-d", "--with-job-details"):
+                line = f"{j['id']}\t{j['name']}\t{j['stage']}\t{j['status']}\t{j.get('failure_reason', '')}"
+            print(line)
+        return
+    if sub == "list":
+        rows = [pipeline(pid) for pid in (1873, 1866, 1859)]
+        for r in rows:
+            r.pop("jobs", None)
+            r.pop("variables", None)
+        if a.get("-F", "--output") == "json":
+            return out_json(rows)
+        for r in rows:
+            print(f"({r['status']}) #{r['id']}\t({r['ref']})\t{r['created_at']}")
+        return
+    if sub == "trace":
+        die("fake glab: refusing `glab ci trace`. In real glab it streams the log and blocks until the job\n"
+            "finishes (it never returns for running jobs). Fetch the finished log instead:\n"
+            "  glab api projects/:id/jobs/<job-id>/trace", 2)
+    if sub == "retry":
+        target = a.pos[0] if a.pos else None
+        if not target:
+            die("fake glab: job selection is interactive in real glab; pass a job ID")
+        jobs = all_jobs()
+        if target.isdigit():
+            jid = int(target)
+            if jid not in jobs:
+                die(f"POST https://{host()}/api/v4/projects/{PROJ.replace('/', '%2F')}/jobs/{jid}/retry: "
+                    f"404 Not Found\n(hint: {jid} is not a job ID in this project; pipeline IDs are not job IDs)")
+        else:
+            br = a.get("-b", "--branch") or current_branch()
+            pid = int(a.get("-p", "--pipeline-id") or BRANCH_PIPELINE.get(br, 0) or 0)
+            match = [j for j in jobs.values() if j["name"] == target and j["pipeline"]["id"] == pid]
+            if not match:
+                die(f"fake glab: no job named {target!r} in pipeline {pid}")
+            jid = match[0]["id"]
+        j = jobs[jid]
+        new = jid + 1000
+        s["retries"].append(jid)
+        save_state(s)
+        print(f"Retried job (ID: {new} ), status: pending , ref: {j['ref']} , weburl:  "
+              f"https://{host()}/{PROJ}/-/jobs/{new} )")
+        return
+    if sub == "lint":
+        f = Path(a.pos[0]) if a.pos else Path(".gitlab-ci.yml")
+        if not f.exists():
+            die(f"fake glab: {f} not found")
+        print(f"Validating...\nCI/CD YAML is valid! (fake glab: syntax not checked; real glab asks {host()})")
+        return
+    if sub == "view":
+        die("fake glab: `ci view` is an interactive TUI; use `glab ci get -F json` instead")
+    if sub in ("delete", "cancel", "run"):
+        s["recorded"].append(["ci", sub] + argv[1:])
+        save_state(s)
+        print(f"fake glab: recorded `glab ci {sub} {' '.join(argv[1:])}` (nothing changed)")
+        return
+    die(SUPPORTED)
+
+
+def diff_files_lines():
+    """Map new_path -> set of new-side line numbers that appear in the MR diff."""
+    files, cur, new = {}, None, 0
+    for line in (DATA / "mr-42.diff").read_text().splitlines():
+        if line.startswith("+++ "):
+            cur = line[6:] if line.startswith("+++ b/") else None
+            if cur:
+                files.setdefault(cur, set())
+        elif line.startswith("@@"):
+            m = re.match(r"@@ -\d+(?:,\d+)? \+(\d+)", line)
+            new = int(m.group(1))
+        elif cur and line.startswith(("+", " ")) and not line.startswith("+++"):
+            files[cur].add(new)
+            new += 1
+    return files
+
+
+def note_body(a):
+    msg = a.get("-m", "--message")
+    if msg and msg is not True:
+        return msg
+    if not sys.stdin.isatty():
+        data = sys.stdin.read()
+        if data.strip():
+            return data
+    die("fake glab: no message given (-m) and no stdin; real glab would open an editor")
+
+
+def resolve_disc(prefix, s):
+    discs = load("mr-42-discussions.json")
+    if str(prefix).isdigit():
+        hits = [d for d in discs if any(n["id"] == int(prefix) for n in d["notes"])]
+    else:
+        if len(prefix) < 8:
+            die("discussion ID prefix must be at least 8 characters")
+        hits = [d for d in discs if d["id"].startswith(prefix)]
+    if not hits:
+        die(f"no discussion matching {prefix!r} on !42")
+    if len(hits) > 1:
+        die(f"ambiguous discussion prefix {prefix!r}")
+    return hits[0]
+
+
+def discussions_with_state(s):
+    discs = load("mr-42-discussions.json")
+    for d in discs:
+        if d["id"] in s["resolved"]:
+            for n in d["notes"]:
+                if n["resolvable"]:
+                    n["resolved"] = s["resolved"][d["id"]]
+        for r in s["notes"]:
+            if r.get("reply_to") == d["id"]:
+                d["notes"].append({"id": r["id"], "type": "DiscussionNote", "body": r["body"],
+                                   "author": {"username": "demo.dev", "name": "Demo Dev"},
+                                   "system": False, "resolvable": True,
+                                   "resolved": d["notes"][0]["resolved"]})
+    return discs
+
+
+def cmd_mr_note(argv, s):
+    sub = argv[0] if argv else ""
+    if sub == "list":
+        a = Args(argv[1:], NOTE_BOOLS)
+        iid = mr_for(a.pos[0] if a.pos else None, s)
+        if iid != 42:
+            return out_json([]) if a.get("-F", "--output") == "json" else print("No discussions.")
+        discs = discussions_with_state(s)
+        state = a.get("--state", default="all")
+        ntype = a.get("-t", "--type", default="all")
+        f = a.get("--file")
+
+        def resolvable(d):
+            return any(n["resolvable"] for n in d["notes"])
+
+        def resolved(d):
+            return all(n["resolved"] for n in d["notes"] if n["resolvable"])
+        if state == "unresolved":
+            discs = [d for d in discs if resolvable(d) and not resolved(d)]
+        elif state == "resolved":
+            discs = [d for d in discs if resolvable(d) and resolved(d)]
+        if ntype == "diff":
+            discs = [d for d in discs if d["notes"][0]["type"] == "DiffNote"]
+        elif ntype == "system":
+            discs = [d for d in discs if d["notes"][0]["system"]]
+        elif ntype == "general":
+            discs = [d for d in discs if d["notes"][0]["type"] != "DiffNote" and not d["notes"][0]["system"]]
+        if f:
+            discs = [d for d in discs if d["notes"][0].get("position", {}).get("new_path") == f]
+        if a.get("-F", "--output") == "json" or a.has("--jq"):
+            return out_json(discs, a.get("--jq"))
+        for d in discs:
+            n0 = d["notes"][0]
+            where = ""
+            if n0.get("position"):
+                where = f" {n0['position']['new_path']}:{n0['position']['new_line']}"
+            st = "resolved" if n0["resolved"] else ("unresolved" if n0["resolvable"] else "")
+            print(f"[discussion: {d['id'][:8]}...]{where} {st}")
+            for n in d["notes"]:
+                print(f"  @{n['author']['username']}: {n['body']}")
+        return
+    if sub == "create":
+        a = Args(argv[1:], NOTE_BOOLS)
+        iid = mr_for(a.pos[0] if a.pos else None, s)
+        draft, unique, reply, f = a.has("--draft"), a.has("--unique"), a.get("--reply"), a.get("--file")
+        line, old_line = a.get("--line"), a.get("--old-line")
+        resolvable = str(a.get("--resolvable", default="true")).lower() != "false"
+        if (line or old_line) and not f:
+            die("--line and --old-line require --file")
+        if line and old_line:
+            die("if any flags in the group [line old-line] are set none of the others can be; [line old-line] were all set")
+        if sum(bool(x) for x in (f, reply, unique)) > 1:
+            die("if any flags in the group [file reply unique] are set none of the others can be")
+        if draft and (unique or not resolvable):
+            die("--draft cannot be combined with --unique or --resolvable=false")
+        if a.has("--internal") and (draft or f):
+            die("--internal cannot be combined with --draft or --file")
+        body = note_body(a)
+        rec = {"iid": iid, "body": body, "draft": draft, "file": f, "line": line, "old_line": old_line,
+               "reply_to": None}
+        if reply:
+            rec["reply_to"] = resolve_disc(reply, s)["id"]
+        if f:
+            lines = diff_files_lines() if iid == 42 else {}
+            if f not in lines:
+                die(f"POST .../merge_requests/{iid}/{'draft_notes' if draft else 'discussions'}: 400 Bad Request "
+                    f"{{message: {{base: [\"{f} is not part of the latest merge request diff\"]}}}}")
+            if line:
+                lo, _, hi = str(line).partition(":")
+                for ln in (int(lo), int(hi or lo)):
+                    if ln not in lines[f]:
+                        die(f"POST .../merge_requests/{iid}/{'draft_notes' if draft else 'discussions'}: "
+                            f"400 Bad Request {{message: {{line_code: [\"can't be blank\"]}}}}\n"
+                            f"(fake glab: {f}:{ln} is not a new-side line inside a diff hunk)")
+        if unique and any(n["body"] == body for n in s["notes"]):
+            print("Comment already exists; skipped (--unique).")
+            return
+        if draft:
+            rec["id"] = 5001 + len(s["drafts"])
+            s["drafts"].append(rec)
+            save_state(s)
+            print(f"Added pending comment {rec['id']} to the review on !{iid}"
+                  f"{' at ' + f + (':' + str(line) if line else '') if f else ''}. "
+                  f"Only you can see it until you run `glab mr note publish {iid}`.")
+        else:
+            rec["id"] = 880201 + len(s["notes"])
+            s["notes"].append(rec)
+            save_state(s)
+            print(f"https://{host()}/{PROJ}/-/merge_requests/{iid}#note_{rec['id']}")
+        return
+    if sub == "publish":
+        a = Args(argv[1:], NOTE_BOOLS)
+        iid = mr_for(a.pos[0] if a.pos else None, s)
+        mine = [d for d in s["drafts"] if d["iid"] == iid and not d.get("published")]
+        if not mine:
+            die(f"no pending comments to publish on !{iid}")
+        if not a.has("--yes", "-y") and not sys.stdin.isatty():
+            die("--yes required when not running interactively")
+        for d in mine:
+            d["published"] = True
+        save_state(s)
+        print(f"Published {len(mine)} pending comment(s) on !{iid}.")
+        return
+    if sub in ("resolve", "reopen"):
+        a = Args(argv[1:], NOTE_BOOLS)
+        if len(a.pos) == 2:
+            iid, disc = mr_for(a.pos[0], s), a.pos[1]
+        elif len(a.pos) == 1:
+            iid, disc = mr_for(None, s), a.pos[0]
+        else:
+            die(f"usage: glab mr note {sub} [<id> | <branch>] <discussion-id>")
+        d = resolve_disc(disc, s)
+        s["resolved"][d["id"]] = sub == "resolve"
+        save_state(s)
+        print(f"{'Resolved' if sub == 'resolve' else 'Reopened'} discussion {d['id'][:8]} on !{iid}.")
+        return
+    die(SUPPORTED)
+
+
+def cmd_mr(argv, s):
+    sub = argv[0] if argv else ""
+    if sub == "note":
+        return cmd_mr_note(argv[1:], s)
+    a = Args(argv[1:], MR_CREATE_BOOLS if sub in ("create", "new", "update") else MR_VIEW_BOOLS)
+    if sub in ("view", "show"):
+        iid = mr_for(a.pos[0] if a.pos else None, s)
+        mr = mr_obj(iid, s)
+        if a.get("-F", "--output") == "json" or a.has("--jq"):
+            return out_json(mr, a.get("--jq"))
+        print(f"title:\t{mr['title']}\nstate:\t{mr['state']}\nauthor:\t{mr['author']['username']}\n"
+              f"labels:\t{', '.join(mr.get('labels', []))}\nsource:\t{mr['source_branch']}\n"
+              f"target:\t{mr['target_branch']}\ndraft:\t{str(mr.get('draft', False)).lower()}\n"
+              f"url:\t{mr['web_url']}\n--\n{mr['description']}")
+        if a.has("--unresolved", "--comments", "-c"):
+            print("\n(fake glab: for threads use `glab mr note list --state unresolved -F json`)")
+        return
+    if sub == "list":
+        mrs = [mr_obj(42, s)] + s["mrs"]
+        br = a.get("--source-branch", "-s")
+        if br:
+            mrs = [m for m in mrs if m["source_branch"] == br]
+        if a.get("-F", "--output") == "json":
+            return out_json(mrs)
+        for m in mrs:
+            print(f"!{m['iid']}\t{m['title']}\t({m['target_branch']}) <- ({m['source_branch']})")
+        return
+    if sub == "diff":
+        iid = mr_for(a.pos[0] if a.pos else None, s)
+        if iid != 42:
+            die(f"fake glab: no recorded diff for !{iid}")
+        sys.stdout.write((DATA / "mr-42.diff").read_text())
+        return
+    if sub in ("create", "new"):
+        br = a.get("-s", "--source-branch") or current_branch()
+        for m in [mr_obj(42, s)] + s["mrs"]:
+            if m["source_branch"] == br:
+                die(f"There's already an open merge request for this branch: !{m['iid']} {m['web_url']}")
+        title = a.get("-t", "--title")
+        desc = a.get("-d", "--description")
+        dfile = a.get("--description-file")
+        if dfile:
+            desc = sys.stdin.read() if dfile == "-" else Path(dfile).read_text()
+        if a.has("--fill", "-f"):
+            title = title or git("log", "-1", "--format=%s", br)
+            desc = desc or git("log", "-1", "--format=%b", br)
+        if not title:
+            die("fake glab: --title (or --fill) required in non-interactive mode")
+        if a.has("--push", "--fill", "-f"):
+            r = subprocess.run(["git", "push", "-u", "origin", br], capture_output=True, text=True)
+            sys.stderr.write(r.stderr)
+            if r.returncode:
+                die("git push failed")
+        elif not git("rev-parse", "--verify", "--quiet", f"refs/remotes/origin/{br}"):
+            die(f"fake glab: source branch {br!r} is not on the remote; push it first or pass --push")
+        iid = 43 + len(s["mrs"])
+        draft = a.has("--draft", "--wip")
+        labels = [x for v in a.all("-l", "--label") for x in str(v).split(",") if x]
+        reviewers = [x for v in a.all("--reviewer") for x in str(v).split(",") if x]
+        mr = {"iid": iid, "title": ("Draft: " if draft and not title.lower().startswith("draft") else "") + title,
+              "description": desc or "", "source_branch": br,
+              "target_branch": a.get("-b", "--target-branch") or "main", "draft": draft,
+              "labels": labels, "reviewers": reviewers, "state": "opened",
+              "author": {"username": "demo.dev"},
+              "web_url": f"https://{host()}/{PROJ}/-/merge_requests/{iid}"}
+        s["mrs"].append(mr)
+        save_state(s)
+        print(f"\nCreating {'draft ' if draft else ''}merge request for {br} into {mr['target_branch']} in {PROJ}\n")
+        print(f"!{iid} {mr['title']} ({br})")
+        print(f" {mr['web_url']}")
+        return
+    if sub in ("update", "merge", "approve", "close", "reopen", "delete", "revoke", "rebase"):
+        s["recorded"].append(["mr", sub] + argv[1:])
+        save_state(s)
+        print(f"fake glab: recorded `glab mr {sub} {' '.join(argv[1:])}` (nothing changed)")
+        return
+    die(SUPPORTED)
+
+
+def cmd_api(argv, s):
+    a = Args(argv, API_BOOLS)
+    if not a.pos:
+        die("usage: glab api <endpoint>")
+    ep = a.pos[0].lstrip("/")
+    ep = re.sub(r"^api/v4/", "", ep)
+    method = str(a.get("-X", "--method", default="GET")).upper()
+    if method == "GET" and (a.has("-f", "--raw-field", "-F", "--field") and not a.has("-X", "--method")):
+        method = "POST"
+    path, _, query = ep.partition("?")
+    path = re.sub(r"^projects/(:id|:fullpath|512|platform%2Finvoice-api|platform/invoice-api)(/|$)",
+                  r"projects/:id\2", path)
+    if method != "GET":
+        s["recorded"].append(["api", method, ep])
+        save_state(s)
+        m = re.fullmatch(r"projects/:id/jobs/(\d+)/retry", path)
+        if m and int(m.group(1)) in all_jobs():
+            return out_json({"id": int(m.group(1)) + 1000, "status": "pending"})
+        m = re.fullmatch(r"projects/:id/merge_requests/42/draft_notes", path)
+        if m and method == "POST":
+            s["drafts"].append({"iid": 42, "body": "(via api)", "draft": True, "id": 5001 + len(s["drafts"])})
+            save_state(s)
+            return out_json({"id": s["drafts"][-1]["id"], "note": "(via api)"})
+        return out_json({"message": f"fake glab: recorded {method} {ep} (nothing changed)"})
+    routes = [
+        (r"projects/:id/jobs/(\d+)/trace", "trace"),
+        (r"projects/:id/jobs/(\d+)", "job"),
+        (r"projects/:id/pipelines/(\d+)/jobs", "pjobs"),
+        (r"projects/:id/pipelines/(\d+)", "pipeline"),
+        (r"projects/:id/pipelines", "pipelines"),
+        (r"projects/:id/merge_requests/(\d+)/pipelines", "mrpipes"),
+        (r"projects/:id/merge_requests/(\d+)/discussions", "discs"),
+        (r"projects/:id/merge_requests/(\d+)/draft_notes", "drafts"),
+        (r"projects/:id/merge_requests/(\d+)/(?:diffs|changes)", "diffs"),
+        (r"projects/:id/merge_requests/(\d+)", "mr"),
+        (r"projects/:id/issues/(\d+)", "issue"),
+        (r"projects/:id", "project"),
+        (r"user", "user"),
+        (r"version", "version"),
+    ]
+    for pat, kind in routes:
+        m = re.fullmatch(pat, path)
+        if not m:
+            continue
+        arg = int(m.group(1)) if m.groups() else None
+        if kind == "trace":
+            f = trace_file(arg)
+            if not f:
+                die(f"glab: 404 Not Found (GET https://{host()}/api/v4/projects/512/jobs/{arg}/trace)")
+            sys.stdout.write(f.read_text())
+            return
+        if kind == "job":
+            j = all_jobs().get(arg)
+            return out_json(j) if j else die("glab: 404 Job Not Found")
+        if kind == "pjobs":
+            jobs = pipeline(arg)["jobs"]
+            scopes = re.findall(r"scope(?:%5B%5D|\[\])?=(\w+)", query)
+            return out_json([j for j in jobs if not scopes or j["status"] in scopes])
+        if kind == "pipeline":
+            p = pipeline(arg)
+            p.pop("jobs", None)
+            p.pop("variables", None)
+            return out_json(p)
+        if kind == "pipelines":
+            return out_json([{k: pipeline(i)[k] for k in ("id", "iid", "sha", "ref", "status", "web_url")}
+                             for i in (1873, 1866, 1859)])
+        if kind == "mrpipes":
+            return out_json([{k: pipeline(1873)[k] for k in ("id", "iid", "sha", "ref", "status", "web_url")}]
+                            if arg == 42 else [])
+        if kind == "discs":
+            return out_json(discussions_with_state(s) if arg == 42 else [])
+        if kind == "drafts":
+            return out_json([{"id": d["id"], "note": d["body"]} for d in s["drafts"] if d["iid"] == arg])
+        if kind == "diffs":
+            return out_json({"message": "fake glab: use `glab mr diff 42` for the recorded diff"})
+        if kind == "mr":
+            return out_json(mr_obj(arg, s))
+        if kind == "issue":
+            return out_json(issue(arg))
+        if kind == "project":
+            return out_json(load("project.json"))
+        if kind == "user":
+            return out_json({"id": 3101, "username": "demo.dev", "name": "Demo Dev"})
+        if kind == "version":
+            return out_json({"version": "19.4.1-ee", "revision": "fake0000"})
+    die(f"glab: 404 Not Found (GET https://{host()}/api/v4/{ep})\n(fake glab: no recorded response)")
+
+
+def issue(iid):
+    if iid == 17:
+        return {"iid": 17, "title": "Customer names with accents are mangled when finance opens the CSV export in Excel",
+                "state": "opened", "labels": ["bug", "finance-export"],
+                "web_url": f"https://{host()}/{PROJ}/-/issues/17",
+                "description": "Example: 'Cafe Neko Fictif' (with an accent on the e) shows as garbage in Excel."}
+    if iid == 12:
+        return {"iid": 12, "title": "Show late fees in the finance export", "state": "opened",
+                "web_url": f"https://{host()}/{PROJ}/-/issues/12"}
+    die(f"glab: 404 Issue Not Found ({iid})")
+
+
+def main():
+    argv = sys.argv[1:]
+    # global flags glab accepts anywhere
+    clean = []
+    i = 0
+    while i < len(argv):
+        if argv[i] in ("-R", "--repo"):
+            i += 2
+            continue
+        if argv[i].startswith("--repo="):
+            i += 1
+            continue
+        clean.append(argv[i])
+        i += 1
+    log_call(argv)
+    s = load_state()
+    if not clean or clean[0] in ("help", "-h", "--help"):
+        print(SUPPORTED)
+        return
+    top, rest = clean[0], clean[1:]
+    if top in ("version", "--version", "-v"):
+        print(f"glab {VERSION} (merge-medic fake replay)")
+        return
+    if top == "auth":
+        a = Args(rest[1:], AUTH_BOOLS)
+        h = a.get("--hostname") or host()
+        if rest[:1] != ["status"]:
+            die("fake glab: only `auth status` is supported")
+        if h != host() and h != FAKE_HOST:
+            die(f"x {h} has not been authenticated with glab. Run `glab auth login --hostname {h}`")
+        sys.stderr.write(f"{h}\n  - Logged in to {h} as demo.dev (fake replay)\n"
+                         f"  - Git operations for {h} configured to use https protocol.\n"
+                         f"  - API calls for {h} are made over https protocol.\n"
+                         f"  - REST API Endpoint: https://{h}/api/v4/\n  - Token found: **************************\n")
+        return
+    if top == "config":
+        if rest[:2] == ["get", "host"]:
+            print(host())
+            return
+        die("fake glab: only `config get host` is supported")
+    if top == "repo" and rest[:1] == ["view"]:
+        return out_json(load("project.json"))
+    if top == "issue" and rest[:1] == ["view"]:
+        a = Args(rest[1:], {"--comments", "-c", "--web", "-w", "--system-logs", "-s"})
+        iss = issue(int(str(a.pos[0]).lstrip("#")))
+        if a.get("-F", "--output") == "json":
+            return out_json(iss)
+        print(f"title:\t{iss['title']}\nstate:\t{iss['state']}\nurl:\t{iss['web_url']}\n--\n{iss.get('description', '')}")
+        return
+    if top == "ci":
+        return cmd_ci(rest, s)
+    if top == "mr":
+        return cmd_mr(rest, s)
+    if top == "api":
+        return cmd_api(rest, s)
+    die(f"fake glab: unsupported command `glab {' '.join(clean)}`\n\n{SUPPORTED}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,69 @@
+[0KRunning with gitlab-runner 19.3.1 (5a2c8f3e)[0;m
+[0K  on fake-runner-03 Zx81kQe2W, system ID: s_7c1e0d9a2b44[0;m
+section_start:1759242400:prepare_executor[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image docker:27.3 ...[0;m
+[0KStarting service docker:27.3-dind ...[0;m
+[0KPulling docker image docker:27.3-dind ...[0;m
+[0KUsing docker image sha256:9f1c2b7d0e for docker:27.3-dind with digest docker@sha256:1d3a0c ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+[0;33m*** WARNING:[0;m Service runner-zx81kqe2w-project-512-concurrent-0-docker-0 probably didn't start properly.
+
+Health check error:
+service "runner-zx81kqe2w-project-512-concurrent-0-docker-0-wait-for-service" timeout
+
+Health check container logs:
+2026-09-30T14:23:31.117392Z FATAL: No HOST or PORT found
+
+[0;33m*********[0;m
+
+[0KPulling docker image docker:27.3 ...[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for docker:27.3 with digest docker@sha256:8e2a91 ...[0;m
+section_end:1759242404:prepare_executor[0K
+section_start:1759242404:prepare_script[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-zx81kqe2w-project-512-concurrent-0 via fake-runner-03...
+section_end:1759242405:prepare_script[0K
+section_start:1759242405:get_sources[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Initialized empty Git repository in /builds/platform/invoice-api/.git/
+[32;1mCreated fresh repository.[0;m
+[32;1mChecking out ae38bb20 as detached HEAD (ref is refs/merge-requests/42/head)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1759242407:get_sources[0K
+section_start:1759242407:step_script[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:4c6d1f0e2a for docker:27.3 with digest docker@sha256:8e2a91 ...[0;m
+[32;1m$ echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"[0;m
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker build -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA" .[0;m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 128B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 ERROR: failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://auth.docker.io/token?scope=repository%3Alibrary%2Fpython%3Apull&service=registry.docker.io: 429 Too Many Requests
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+------
+ > [internal] load metadata for docker.io/library/python:3.12-slim:
+------
+Dockerfile:1
+--------------------
+   1 | >>> FROM python:3.12-slim
+   2 |     WORKDIR /app
+   3 |     COPY . .
+--------------------
+ERROR: failed to solve: python:3.12-slim: failed to resolve source metadata for docker.io/library/python:3.12-slim: failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://auth.docker.io/token?scope=repository%3Alibrary%2Fpython%3Apull&service=registry.docker.io: 429 Too Many Requests
+toomanyrequests: You have reached your unauthenticated pull rate limit. https://www.docker.com/increase-rate-limit
+section_end:1759242458:step_script[0K
+section_start:1759242458:cleanup_file_variables[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1759242459:cleanup_file_variables[0K
+[31;1mERROR: Job failed: exit code 1
+[0;m

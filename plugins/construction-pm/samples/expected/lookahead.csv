@@ -1,0 +1,11 @@
+Activity ID,Activity Name,Start,Finish,Responsible,Spec Section,Wk 1 2026-10-05,Wk 2 2026-10-12,Wk 3 2026-10-19,Constraints
+A1050,Underslab plumbing trench and rough-in,2026-10-01,2026-10-12,Plumbing sub,22 11 16,X,X,,
+A1080,Metal stud framing - walls,2026-10-05,2026-10-16,Drywall sub,09 22 16,X,X,,
+A1090,Install hollow metal frames,2026-10-12,2026-10-15,GC carpentry,08 11 13,,X,,RFI-006 open (Door 104 frame type F1 lacks EPT prep required by hardware set HW-3)
+A1100,Overhead ductwork rough-in,2026-10-12,2026-10-27,Mechanical sub,23 31 13,,X,X,
+A1060,Underslab plumbing inspection,2026-10-13,2026-10-13,City inspector,,,X,,
+A1070,Patch slab at trenches,2026-10-14,2026-10-15,GC,03 30 00,,X,,
+A1110,Overhead electrical rough-in,2026-10-14,2026-10-29,Electrical sub,26 05 19,,X,X,
+A1120,Access control rough-in (low voltage),2026-10-19,2026-10-23,Low voltage sub,28 13 00,,,X,
+A1130,In-wall plumbing rough-in,2026-10-19,2026-10-28,Plumbing sub,22 11 16,,,X,
+A1140,Fire sprinkler branch relocation,2026-10-20,2026-10-27,Sprinkler sub,21 13 13,,,X,

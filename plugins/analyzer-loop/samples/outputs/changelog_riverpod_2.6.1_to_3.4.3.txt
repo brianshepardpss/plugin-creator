@@ -1,0 +1,30 @@
+riverpod: 2.6.1 -> 3.4.3  (~/.pub-cache/hosted/pub.dev/riverpod-3.4.3/CHANGELOG.md)
+Sections crossed: 21   flagged lines: 25
+Release majors crossed: 3
+
+Flagged (version: line):
+  3.4.0: - Deprecated `SyncProviderTransformerMixin`. It is replaced by the newly added APIs
+  3.3.2-dev.1: - Removed `@internal` for `ProviderFamily.new`
+  3.2.0: - Deprecated `family.overrideWith` in favour of `family.overrideWith2`
+  3.2.0: In 4.0.0, `overrideWith2` will be renamed to `overrideWith`.
+  3.0.0-dev.18: - Removed `FamilyNotifier` and variants, in favour of `Notifier`.
+  3.0.0-dev.16: - **Breaking**: When a `ref.watch`/`ref.read` rethrows an error,
+  3.0.0-dev.12: that in mind when migrating.
+  3.0.0-dev.12: They may be modified in breaking ways without a major version. Use with care!
+  3.0.0-dev.12: - **Breaking**: `ChangeNotifierProvider`, `StateProvider` and `StateNotifierProvider`
+  3.0.0-dev.12: - **Breaking**: All providers now use `==` to compare previous/new values and filter
+  3.0.0-dev.12: - **Breaking**: ProviderListenable.addListener is deleted and now internal-only.
+  3.0.0-dev.12: - **Breaking**: ProviderObserver methods have been updated to take a `ProviderObserverContext` parameter.
+  3.0.0-dev.12: - **Breaking**: Removed all `Ref` subclasses (such `FutureProviderRef`).
+  3.0.0-dev.12: For `FutureProviderRef.future`, migrate to using an `AsyncNotifier`.
+  3.0.0-dev.12: - **Breaking** All ref and notifier methods besides "mounted" now throw if used after getting disposed.
+  3.0.0-dev.12: - **Breaking**: `StateProvider` and `StateNotifierProvider`
+  3.0.0-dev.12: - **Breaking** Some internal utils are no-longer exported.
+  3.0.0-dev.12: - **Breaking** `AsyncValue.value` now returns `null` during errors.
+  3.0.0-dev.12: - **Breaking** removed `AsyncValue.valueOrNull` (use `.value` instead).
+  3.0.0-dev.12: - **Breaking**: `Notifier` and variants are now recreated whenever the provider
+  3.0.0-dev.12: - **Breaking**: `StreamProvider` now pauses its `StreamSubscription` when
+  3.0.0-dev.12: - **Breaking**: Calling ref.watch multiple times calls ref.onListen every-times.
+  3.0.0-dev.12: - **Breaking**: A provider is now considered "paused" if all
+  3.0.0-dev.12: - **Breaking**: When an asynchronous provider rebuilds, it doesn't immediately stops
+  3.0.0-dev.12: listening to its previous providers. Instead, those subscriptions are removed when the rebuild completes.

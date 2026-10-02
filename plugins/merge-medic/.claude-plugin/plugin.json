@@ -1,0 +1,27 @@
+{
+  "name": "merge-medic",
+  "displayName": "Merge Medic for GitLab",
+  "version": "0.1.0",
+  "description": "Fix red GitLab pipelines and review merge requests from Claude Code through the glab CLI: failed-job log triage, draft-only MR review, MR creation and thread resolution. Works on self-managed GitLab, no MCP or admin toggle.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gitlab",
+    "glab",
+    "ci",
+    "pipeline",
+    "merge-request",
+    "code-review",
+    "self-managed",
+    "devops"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/merge-medic",
+  "repository": "https://github.com/brianshepardpss/merge-medic"
+}

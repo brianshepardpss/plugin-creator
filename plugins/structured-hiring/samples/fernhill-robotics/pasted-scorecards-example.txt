@@ -1,0 +1,15 @@
+(What a user might paste from email or Slack. Synthetic.)
+
+Candidate: Jordan E. -- Product Designer, Loop Lane Labs (fictional)
+
+From Kim A. (portfolio review, 2026-09-30) -- Overall: Yes
+Craft: strong. Walked through the checkout redesign; showed three
+discarded flows and why the final one cut steps from 7 to 4.
+Collaboration: worked with PM to cut scope when eng capacity dropped.
+Reach me at kim.a@example.com.
+
+From Luis D. (design exercise, 2026-09-30) -- Overall: No
+Craft: fine, but the exercise solution skipped error states entirely.
+Communication: hard to follow, strong accent. Not sure he'd be a culture fit.
+
+From Mae P. (cross-functional, 2026-09-30) -- not submitted yet

@@ -1,0 +1,28 @@
+{
+  "name": "grounded-scala",
+  "displayName": "Grounded Scala",
+  "version": "0.1.0",
+  "description": "Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.",
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
+  "license": "MIT",
+  "keywords": [
+    "scala",
+    "metals",
+    "lsp",
+    "sbt",
+    "scala-cli",
+    "mill",
+    "cats-effect",
+    "zio",
+    "scala3"
+  ],
+  "skills": [
+    "./skills/"
+  ],
+  "homepage": "https://github.com/brianshepardpss/grounded-scala",
+  "repository": "https://github.com/brianshepardpss/grounded-scala"
+}

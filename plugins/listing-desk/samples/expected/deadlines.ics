@@ -1,0 +1,218 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Listing Desk//contract-timeline//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-effective_date-20261009@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:[VERIFY] Effective Date - 26 Larkspur Dr\, Cedar Hollow\, TX 75999
+DESCRIPTION:Effective Date (Para 4). Due 5:00 p.m. local time at the proper
+ ty. Working: fixed date in contract: Fri 2026-10-09. VERIFY against the ex
+ ecuted contract with your broker\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Effective Date
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-disclosure-20261014@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261014
+DTEND;VALUE=DATE:20261015
+SUMMARY:[VERIFY] Seller's Disclosure delivered - 26 Larkspur Dr\, Cedar Hol
+ low\, TX 75999
+DESCRIPTION:Seller's Disclosure delivered (Para 7). Due 5:00 p.m. local tim
+ e at the property. Working: Effective Date Fri 2026-10-09 + 5 calendar day
+ s = Wed 2026-10-14. VERIFY against the executed contract with your broker\
+ , TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Seller's Disclosure delivered
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-earnest-20261015@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261015
+DTEND;VALUE=DATE:20261016
+SUMMARY:[VERIFY] Earnest money and option fee delivered - 26 Larkspur Dr\, 
+ Cedar Hollow\, TX 75999
+DESCRIPTION:Earnest money and option fee delivered (Para 5). Due 5:00 p.m. 
+ local time at the property. Working: Effective Date Fri 2026-10-09 + 3 bus
+ iness days = Thu 2026-10-15\; skipped holiday: 2026-10-12 Columbus Day. VE
+ RIFY against the executed contract with your broker\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Earnest money and option fee delivered
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-option-20261019@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:[VERIFY] Inspection (option) period ends - 26 Larkspur Dr\, Cedar H
+ ollow\, TX 75999
+DESCRIPTION:Inspection (option) period ends (Para 6). Due 5:00 p.m. local t
+ ime at the property. Working: Effective Date Fri 2026-10-09 + 10 calendar 
+ days = Mon 2026-10-19. VERIFY against the executed contract with your brok
+ er\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Inspection (option) period ends
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-hoa-20261019@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261019
+DTEND;VALUE=DATE:20261020
+SUMMARY:[VERIFY] HOA documents delivered - 26 Larkspur Dr\, Cedar Hollow\, 
+ TX 75999
+DESCRIPTION:HOA documents delivered (Para 8). Due 5:00 p.m. local time at t
+ he property. Working: Effective Date Fri 2026-10-09 + 5 business days = Mo
+ n 2026-10-19\; skipped holiday: 2026-10-12 Columbus Day. VERIFY against th
+ e executed contract with your broker\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: HOA documents delivered
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-title-20261026@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261026
+DTEND;VALUE=DATE:20261027
+SUMMARY:[VERIFY] Title commitment delivered - 26 Larkspur Dr\, Cedar Hollow
+ \, TX 75999
+DESCRIPTION:Title commitment delivered (Para 9). Due 5:00 p.m. local time a
+ t the property. Working: Effective Date Fri 2026-10-09 + 15 calendar days 
+ = Sat 2026-10-24\; falls on Sat\; rolls to next business day Mon 2026-10-2
+ 6. VERIFY against the executed contract with your broker\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Title commitment delivered
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-survey-20261029@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261029
+DTEND;VALUE=DATE:20261030
+SUMMARY:[VERIFY] Survey delivered - 26 Larkspur Dr\, Cedar Hollow\, TX 7599
+ 9
+DESCRIPTION:Survey delivered (Para 10). Due 5:00 p.m. local time at the pro
+ perty. Working: Effective Date Fri 2026-10-09 + 20 calendar days = Thu 202
+ 6-10-29. VERIFY against the executed contract with your broker\, TC or att
+ orney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Survey delivered
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-appraisal-20261030@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261030
+DTEND;VALUE=DATE:20261031
+SUMMARY:[VERIFY] Appraisal contingency ends - 26 Larkspur Dr\, Cedar Hollow
+ \, TX 75999
+DESCRIPTION:Appraisal contingency ends (Para 11). Due 5:00 p.m. local time 
+ at the property. Working: Effective Date Fri 2026-10-09 + 21 calendar days
+  = Fri 2026-10-30. VERIFY against the executed contract with your broker\,
+  TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Appraisal contingency ends
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-title_objection-20261102@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261102
+DTEND;VALUE=DATE:20261103
+SUMMARY:[VERIFY] Buyer title objections - 26 Larkspur Dr\, Cedar Hollow\, T
+ X 75999
+DESCRIPTION:Buyer title objections (Para 9). Due 5:00 p.m. local time at th
+ e property. Working: title Mon 2026-10-26 + 5 business days = Mon 2026-11-
+ 02. VERIFY against the executed contract with your broker\, TC or attorney
+ .
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Buyer title objections
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-financing-20261103@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261103
+DTEND;VALUE=DATE:20261104
+SUMMARY:[VERIFY] Financing contingency ends - 26 Larkspur Dr\, Cedar Hollow
+ \, TX 75999
+DESCRIPTION:Financing contingency ends (Para 12). Due 5:00 p.m. local time 
+ at the property. Working: Effective Date Fri 2026-10-09 + 25 calendar days
+  = Tue 2026-11-03. VERIFY against the executed contract with your broker\,
+  TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Financing contingency ends
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-walkthrough-20261112@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261112
+DTEND;VALUE=DATE:20261113
+SUMMARY:[VERIFY] Final walk-through (latest) - 26 Larkspur Dr\, Cedar Hollo
+ w\, TX 75999
+DESCRIPTION:Final walk-through (latest) (Para 14). Due 5:00 p.m. local time
+  at the property. Working: closing Fri 2026-11-13 - 1 calendar days = Thu 
+ 2026-11-12. VERIFY against the executed contract with your broker\, TC or 
+ attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Final walk-through (latest)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:26larkspurdrcedarhollowt-closing-20261113@listing-desk
+DTSTAMP:20261002T182145Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:[VERIFY] Closing - 26 Larkspur Dr\, Cedar Hollow\, TX 75999
+DESCRIPTION:Closing (Para 13). Due 5:00 p.m. local time at the property. Wo
+ rking: fixed date in contract: Fri 2026-11-13. VERIFY against the executed
+  contract with your broker\, TC or attorney.
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15H
+DESCRIPTION:Tomorrow: Closing
+END:VALARM
+END:VEVENT
+END:VCALENDAR

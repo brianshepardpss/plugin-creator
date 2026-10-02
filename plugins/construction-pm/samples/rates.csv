@@ -1,0 +1,8 @@
+trade,classification,rate_per_hour,notes
+Painter,Journeyman,68.50,"Fully burdened (wage, taxes, insurance, benefits). Fictional sample rate."
+Painter,Apprentice,47.25,Fully burdened. Fictional.
+Carpenter,Journeyman,78.00,Fully burdened. Fictional.
+Laborer,General,52.40,Fully burdened. Fictional.
+Superintendent,,95.00,Fully burdened. Fictional.
+Electrician,Journeyman,91.10,Fully burdened. Fictional.
+Drywall,Hanger,72.75,Fully burdened. Fictional.
