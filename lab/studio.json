@@ -124,7 +124,7 @@
     {
       "name": "grant-desk",
       "repo": "grant-desk",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 50,
         "stars": 15,

@@ -12,7 +12,7 @@
       "name": "plugin-creator",
       "displayName": "Plugin Creator",
       "description": "Go from a plugin idea to a published, tested Claude plugin: live demand check, design brief, strict-valid scaffold, skills that trigger, evals with a no-plugin baseline, .plugin packaging, directory listings and traction tracking.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/plugin-creator-plugin"
@@ -31,7 +31,7 @@
       "name": "plugin-studio",
       "displayName": "Plugin Studio",
       "description": "Run a portfolio of Claude plugins like a studio: rank gaps with live demand data, track every published plugin's traction daily, and get a kill / iterate / double-down verdict at day 30 against thresholds set before launch.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/plugin-studio"
@@ -49,7 +49,7 @@
       "name": "make-my-plugin",
       "displayName": "Make My Plugin",
       "description": "Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/make-my-plugin"
@@ -68,7 +68,7 @@
       "name": "grounded-scala",
       "displayName": "Grounded Scala",
       "description": "Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/grounded-scala"
@@ -111,7 +111,7 @@
       "name": "merge-medic",
       "displayName": "Merge Medic for GitLab",
       "description": "Fix red GitLab pipelines and review merge requests from Claude Code through the glab CLI: failed-job log triage, draft-only MR review, MR creation and thread resolution. Works on self-managed GitLab, no MCP or admin toggle.",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/merge-medic"
@@ -132,7 +132,7 @@
       "name": "helpdesk",
       "displayName": "Helpdesk Triage",
       "description": "Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/helpdesk"
@@ -155,7 +155,7 @@
       "name": "structured-hiring",
       "displayName": "Structured Hiring Kit",
       "description": "Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/structured-hiring"
@@ -178,7 +178,7 @@
       "name": "deal-tender",
       "displayName": "DealTender",
       "description": "Pipeline triage, call logging, forecast briefs and meeting prep for Pipedrive users: ranks stale deals, drafts follow-ups, and proposes CRM updates you approve. Try it on a CSV export, no login.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/deal-tender"
@@ -198,7 +198,7 @@
       "name": "listing-desk",
       "displayName": "Listing Desk",
       "description": "Listing appointment prep and listing launch for US residential real estate agents: a CMA from your own MLS CSV export, listing copy, and a Fair Housing check on every word, plus contract deadlines and follow-up drafts.",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/listing-desk"
@@ -221,7 +221,7 @@
       "name": "construction-pm",
       "displayName": "Construction PM Toolkit",
       "description": "Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/construction-pm"
