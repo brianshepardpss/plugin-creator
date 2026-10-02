@@ -1,7 +1,8 @@
 # Analyzer Loop samples
 
 All apps, names and data here are fake ("Pebble and Pine Goods"). Skills copy a
-sample into your working directory before editing, so these files stay pristine.
+sample into your working directory with `python3 copy_sample.py <name>` before
+editing, so these files stay pristine.
 
 | Folder | What is wrong | Used by |
 |---|---|---|

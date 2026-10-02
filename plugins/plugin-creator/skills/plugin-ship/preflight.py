@@ -62,6 +62,9 @@ def check(d):
     cases = list((d / "evals").glob("*/prompt.md")) if (d / "evals").exists() else []
     if len(cases) < 3:
         warns.append(f"only {len(cases)} eval cases (aim for 3+)")
+    if not (d / ".claude-plugin" / "icon.png").exists():
+        warns.append("no .claude-plugin/icon.png -- the directory captures the icon only on the first "
+                     "save or submit; run make_icon.py before submitting")
     if not (d / "samples").exists():
         warns.append("no samples/ -- new users cannot try it without an account")
 

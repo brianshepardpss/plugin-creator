@@ -12,8 +12,8 @@ The plugin root is two directories above it; the demo is
 
 ## 1. Collect facts (no edits yet)
 
-1. Argument `sample`: `cp -r "<plugin root>/samples/android_mismatch" ./android_mismatch`
-   and work there. Never edit files inside the plugin directory.
+1. Argument `sample`: `python3 "<plugin root>/samples/copy_sample.py" android_mismatch`
+   and work in `./android_mismatch`. Never edit files inside the plugin directory.
 2. Get the failing log: the user's paste, a log file, or run
    `flutter build apk --debug 2>&1 | tail -80` once if they agree (a cold
    Gradle build can take 5+ minutes; ask first). Save a pasted log to

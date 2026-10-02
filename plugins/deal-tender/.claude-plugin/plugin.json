@@ -1,7 +1,7 @@
 {
   "name": "deal-tender",
   "displayName": "DealTender",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pipeline triage, call logging, forecast briefs and meeting prep for Pipedrive users: ranks stale deals, drafts follow-ups, and proposes CRM updates you approve. Try it on a CSV export, no login.",
   "author": {
     "name": "Press Start Studios",

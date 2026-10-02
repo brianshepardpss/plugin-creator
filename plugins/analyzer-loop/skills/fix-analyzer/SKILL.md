@@ -16,7 +16,7 @@ directory. The plugin root is two directories above it; the demo app is
 ## 1. Pick the project
 
 - Argument `sample`, or the user asks to try it on the sample: run
-  `cp -r "<plugin root>/samples/stale_app" ./stale_app` and work in
+  `python3 "<plugin root>/samples/copy_sample.py" stale_app` and work in
   `./stale_app`. Never edit files inside the plugin directory.
 - Otherwise use the given directory, or the nearest folder with `pubspec.yaml`.
   In a monorepo (melos, pub workspaces) do one package at a time.

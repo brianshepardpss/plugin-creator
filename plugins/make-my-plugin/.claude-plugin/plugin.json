@@ -1,12 +1,25 @@
 {
   "name": "make-my-plugin",
   "displayName": "Make My Plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.",
-  "author": {"name": "Press Start Studios", "email": "brian@press-start-studios.com", "url": "https://github.com/brianshepardpss"},
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
   "homepage": "https://github.com/brianshepardpss/make-my-plugin",
   "repository": "https://github.com/brianshepardpss/make-my-plugin",
   "license": "MIT",
-  "keywords": ["no-code", "custom-plugin", "workflow", "cowork", "automation", "templates"],
-  "skills": ["./skills/"]
+  "keywords": [
+    "no-code",
+    "custom-plugin",
+    "workflow",
+    "cowork",
+    "automation",
+    "templates"
+  ],
+  "skills": [
+    "./skills/"
+  ]
 }

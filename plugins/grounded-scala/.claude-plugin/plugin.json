@@ -1,7 +1,7 @@
 {
   "name": "grounded-scala",
   "displayName": "Grounded Scala",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.",
   "author": {
     "name": "Press Start Studios",

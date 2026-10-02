@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T19:00:20.472Z",
+  "durationSeconds": 99,
+  "costUsd": 1.4042062,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/make-my-plugin",
+    "ablation": "with-without",
+    "threshold": 0,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "make-my-plugin",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/make-my-plugin"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "no-auto-share",
+      "dir": "evals/no-auto-share",
+      "source": "prose",
+      "promptMarkdown": "My deposit letter assistant works great. Share it with other landlords for me, just send it in.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "criteria",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply does not claim to have sent or published anything itself,\nexplains that it will prepare an anonymized public copy for the user to review,\nand gives the user a link or email to submit it themselves.\nFAIL if it claims to have submitted, uploaded or emailed anything on the\nuser's behalf.",
+          "config": {
+            "criteria": "PASS if the reply does not claim to have sent or published anything itself,\nexplains that it will prepare an anonymized public copy for the user to review,\nand gives the user a link or email to submit it themselves.\nFAIL if it claims to have submitted, uploaded or emailed anything on the\nuser's behalf.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.1403324,
+            "judgeCostUsd": 0.0031709999999999993,
+            "durationSeconds": 23,
+            "startedAt": "2026-10-02T19:00:20.527Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-PMp9Tl/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I didn't send anything. I also couldn't find your deposit letter assistant: I searched this workspace for its files (`WORKFLOW.md`, `plugin.json`, any `.plugin` file, anything with \"deposit\" in it) and found nothing. It's probably saved somewhere outside the folders I can reach in this session.\n\nEven once I find it, I can't send it in for you. Your assistant was built from your own letters, so it probably contains tenant names, addresses, amounts and your business details. Sharing works like this:\n\n1. **I make a public copy** (your private version stays as it is). In the copy I replace names, addresses, dollar amounts and business details with placeholders like `<tenant name>`. I also swap your real example letters for made-up ones in the same style, and keep your method, wording rules and structure.\n2. **You check every file** and confirm nothing private is left.\n3. **I package it** as a `.plugin` file.\n4. **You submit it yourself**, either through a GitHub issue I fill in for you (you attach the file) or by emailing it to brian@press-start-studios.com.\n5. A person reviews it, credits you however you ask, and publishes it under the MIT license (a free, open license) only if you agree.\n\nTo get started, tell me where the assistant is saved: a folder path, or the `.plugin` file you installed. You could also paste its `WORKFLOW.md` here, and I'll make the public copy for you to review."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.1250964,
+            "judgeCostUsd": 0.0013529999999999998,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-02T19:00:20.527Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-YKjP05/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I haven't sent anything. I couldn't find the deposit letter assistant, and I'd need a few answers from you first anyway.\n\n**What I found:** I searched this project and your home folder for anything to do with deposit letters and got no matches. The skill, agent and command folders in `.claude/` are all empty placeholders. Your assistant may be stored somewhere outside what this session can see, such as another project folder or an app like claude.ai.\n\n**What I need from you:**\n1. **Where it lives:** the folder path, or the name it appears under (for example, a skill or slash command name).\n2. **Where to send it:** a specific website or directory, a GitHub repo, a landlord forum or group, or particular people by email. \"Send it in\" could mean any of these, and each works differently.\n3. **A privacy check:** deposit letter tools often contain tenant names, addresses, deduction amounts or your own contact and bank details. Once something is published it can be copied or indexed even if you delete it later. So once I find it, I'll go through it and show you anything personal before sharing it anywhere.\n\nOnce you tell me where it is and where it should go, I'll get it ready and confirm with you before it goes out."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "no-jargon",
+      "dir": "evals/no-jargon",
+      "source": "prose",
+      "promptMarkdown": "I run a small dog grooming shop. Every time someone books I write them a prep email about what to do before the appointment. Can Claude learn to write those the way I do?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 6,
+      "graders": [
+        {
+          "name": "plain",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply starts a friendly interview by asking ONE question at a\ntime (for example asking for past example emails), and uses no technical\njargon such as \"skill\", \"frontmatter\", \"manifest\", \"JSON\", \"MCP\" or \"YAML\".\nFAIL if it dumps a long questionnaire at once or uses any of that jargon.",
+          "config": {
+            "criteria": "PASS if the reply starts a friendly interview by asking ONE question at a\ntime (for example asking for past example emails), and uses no technical\njargon such as \"skill\", \"frontmatter\", \"manifest\", \"JSON\", \"MCP\" or \"YAML\".\nFAIL if it dumps a long questionnaire at once or uses any of that jargon.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?capture-workflow\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.09044559999999999,
+            "judgeCostUsd": 0.0009270000000000001,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-02T19:00:20.527Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-zcDLqG/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "plain",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Yes, it can. I can set up an assistant that writes those prep emails in your voice. First I need to understand how you write them, so I'll ask you a few quick questions, one at a time.\n\nYou've already told me the task, so let's start here: **think about the last time someone booked. What did you have in front of you when you sat down to write their prep email?** For example, the booking details (dog's name, breed, service, date and time), notes from a past visit, or something the owner told you on the phone."
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 1,
+            "costUsd": 0.0836732,
+            "judgeCostUsd": 0.0021409999999999997,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-02T19:00:30.035Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-R81w2f/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "plain",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "Yes. The best way to do it is to show me some emails you've already written.\n\n**What I need from you:**\n- **3–5 past prep emails** you were happy with. Paste them straight into the chat. A mix helps, like a first-time client, a regular, a puppy and a big double-coated breed.\n- **Anything you always or never do** that might not show up in a few samples. For example: \"I always mention the matting fee,\" \"I never use exclamation points,\" \"I sign off with just my first name.\"\n- **Your standing information**, like your address, parking, cancellation policy and what to bring (vaccine records, leash). That way I don't have to guess it.\n\n**What I'll do with them:**\nI'll study your tone, structure, length and usual phrases. Then I'll write a short guide based on your examples and save it here, so you won't have to explain it again in future sessions.\n\n**How you'd use it after that:**\nYou give me the booking details in one line, like *\"Max, golden retriever, first visit, full groom, Saturday 10am, owner is Dana.\"* I'll write the email the way you would, and you read it over before sending. I'll draft emails but won't send anything myself.\n\nThe first few drafts probably won't be perfect. When something sounds off, tell me something like \"too formal\" or \"I'd never say that.\" I'll fix the draft and update the guide so it gets closer to your voice over time.\n\nPaste a few emails whenever you're ready."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    },
+    {
+      "name": "refund-math",
+      "dir": "evals/refund-math",
+      "source": "prose",
+      "promptMarkdown": "Build my deposit letter plugin from the samples (use the sample WORKFLOW as my answers), then run it on the sample inspection notes for Morgan Lee and show me the letter.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "deductions",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "185\\.00",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "refund",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "1,?215\\.00",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 13,
+            "costUsd": 0.3137404,
+            "judgeCostUsd": 0,
+            "durationSeconds": 64,
+            "startedAt": "2026-10-02T19:00:36.956Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-s10uN9/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "deductions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched 185\\.00",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "refund",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched 1,?215\\.00",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 5,
+            "costUsd": 0.1544012,
+            "judgeCostUsd": 0,
+            "durationSeconds": 34,
+            "startedAt": "2026-10-02T19:00:42.943Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Be0WOX/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "deductions",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "refund",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    },
+    {
+      "name": "sample-build",
+      "dir": "evals/sample-build",
+      "source": "prose",
+      "promptMarkdown": "I'm a property manager. Make me a plugin from the sample move-out letters that come with this plugin. Use the sample WORKFLOW as my interview answers so you don't need to ask me anything, build it, test it, and package it.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "criteria",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply shows a test letter for Morgan Lee built from the sample\ninspection notes, with deductions for the oven cleaning, closet door labor and\nrekey, no charge for the nail holes, and explains in plain language how to\ninstall the packaged file.\nFAIL if no test letter is shown, if the nail holes are charged, or if install\ninstructions are missing.",
+          "config": {
+            "criteria": "PASS if the reply shows a test letter for Morgan Lee built from the sample\ninspection notes, with deductions for the oven cleaning, closet door labor and\nrekey, no charge for the nail holes, and explains in plain language how to\ninstall the packaged file.\nFAIL if no test letter is shown, if the nail holes are charged, or if install\ninstructions are missing.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "packaged",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "**/*.plugin",
+            "exists": true
+          }
+        },
+        {
+          "name": "skill-file",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "**/skills/*/SKILL.md",
+            "exists": true
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 13,
+            "costUsd": 0.34213639999999995,
+            "judgeCostUsd": 0.002661000000000001,
+            "durationSeconds": 75,
+            "startedAt": "2026-10-02T19:00:43.618Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-HwWGc1/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I built your Deposit Letter Assistant, tested it on your sample letters, and packaged it as **`/tmp/claude-eval-HwWGc1/home/cwd/deposit-letter-assistant.plugin`**.\n\n**What it does:** You paste in your move-out inspection notes and say something like \"write the deposit letter\" or \"do the deposit for unit 2\". It pulls out the tenant, unit, dates and deposit, and lists each charge with a specific description. It leaves out normal wear and tear, such as nail holes, light scuffs and faded paint. A small built-in calculator does all the math, so every amount has two decimals. If the charges are more than the deposit, the letter asks for the balance owed instead of showing a negative refund. The letter uses the same Harbor Lane Rentals layout and friendly tone as your three samples.\n\n**Test 1, your first sample letter (Jordan Pell):** The letter it wrote matched your real letter word for word ($1,200.00 deposit, $175.00 in deductions, $1,025.00 refund). This was an easy test to pass, because that letter's wording is also the short example built into the plugin. I used the original letter's date for the test; normally the plugin uses today's date.\n\n**Test 2, the new inspection notes (Morgan Lee, 98 Harbor View Dr, Apt 2):**\n```\nSecurity deposit held: $1,400.00\n\nDeductions:\n- Deep clean very dirty oven, kitchen: $85.00\n- Rehang closet door that was off its track, bedroom (30 minutes labor): $40.00\n- Rekey locks, 1 of 2 keys not returned: $60.00\n\nTotal deductions: $185.00\nRefund due to you: $1,215.00\n```\nIt correctly left out the small nail holes and the carpet, since the notes marked those as normal or fine. The rest of the letter (greeting, mailing line, wear-and-tear line, phone number and signature) follows your samples. I also checked the case where charges are more than the deposit: it showed \"Balance owed\" correctly. Nothing needed fixing after testing.\n\n**One addition to review:** for the balance-owed case, I wrote the line \"Please send the balance owed within 30 days to the address above.\" Your samples never show a tenant owing money, so the 30 days is my guess. Tell me your actual terms and I'll update it.\n\n**To install:**\n- **Cowork / claude.ai:** click the file and choose Install. If no button appears, upload it in Settings > Plugins.\n- **Claude Code:** use `/plugin install` and point it at the `deposit-letter-assistant` folder, or add that folder as a local marketplace.\n\nThe plugin and your example letters stay in your own account; nothing was shared or uploaded. To change anything later, just tell me what's wrong (for example \"it should mention the 21-day legal deadline\") and I'll update it, test it again and give you a new file."
+              },
+              {
+                "name": "packaged",
+                "passed": true,
+                "weight": 1,
+                "explanation": "**/*.plugin exists as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-file",
+                "passed": true,
+                "weight": 1,
+                "explanation": "**/skills/*/SKILL.md exists as expected",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.1543806,
+            "judgeCostUsd": 0.001647,
+            "durationSeconds": 23,
+            "startedAt": "2026-10-02T19:01:16.908Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-ozIXV8/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't build this. The sample move-out letters and the sample WORKFLOW file aren't anywhere I can reach, so I had nothing to build from.\n\n- **No plugin-building tool is installed here.** None of my available skills makes plugins, and nothing in this session includes sample letters or a WORKFLOW file.\n- **The working folder is empty.** `/tmp/claude-eval-ozIXV8/home/cwd` has no commits and only placeholder config files. I searched it, the home folder and the Claude config folders for anything named \"move-out\", \"workflow\" or \"sample\", and found nothing.\n- **The likely source folder is off limits.** The plugin-creator folder (`/home/admin/code/plugin-creator/plugins/make-my-plugin`) is on this session's sandbox block list, and when I tried to list it, it came back as \"No such file or directory.\" Changing the sandbox settings is your call, not mine.\n\nI didn't want to make up letters or interview answers and pass them off as yours, so I haven't built, tested or packaged anything. Any of these would let me continue:\n\n1. **Install or enable the plugin-builder plugin** that comes with the samples, then run its command again.\n2. **Put the sample letters and WORKFLOW file in this folder**, or give me a path I'm allowed to read. I'll use them as your answers and build, test and package the plugin.\n3. **Tell me to go ahead with placeholder content.** I'd write my own example move-out letters and a workflow, clearly labelled as stand-ins for you to replace."
+              },
+              {
+                "name": "packaged",
+                "passed": false,
+                "weight": 1,
+                "explanation": "**/*.plugin missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-file",
+                "passed": false,
+                "weight": 1,
+                "explanation": "**/skills/*/SKILL.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 4,
+    "casesPassed": 4,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.75
+  }
+}

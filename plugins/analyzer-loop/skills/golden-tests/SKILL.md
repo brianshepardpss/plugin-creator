@@ -22,7 +22,7 @@ against, and list every PNG that changed.
 ## 1. Measure the failure
 
 1. Argument `sample` (or the user points at the golden_drift sample): run
-   `cp -r "<plugin root>/samples/golden_drift" ./golden_drift` and work in the
+   `python3 "<plugin root>/samples/copy_sample.py" golden_drift` and work in the
    copy; its failures are in `./golden_drift/ci_artifacts/failures` and the
    log is `./golden_drift/ci_failure.log`. Never edit files inside the plugin
    directory.

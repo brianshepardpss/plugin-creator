@@ -13,8 +13,8 @@ The migration table is `<plugin root>/skills/fix-analyzer/references/migrations.
 
 ## 1. Set up
 
-1. Argument `sample`: `cp -r "<plugin root>/samples/upgrade_app" ./upgrade_app`
-   and work there. Never edit files inside the plugin directory.
+1. Argument `sample`: `python3 "<plugin root>/samples/copy_sample.py" upgrade_app`
+   and work in `./upgrade_app`. Never edit files inside the plugin directory.
 2. If the project is a git repo, run `git status --short`. If there are
    uncommitted changes, tell the user and suggest committing or stashing first
    so each upgrade step is reviewable. Do not commit for them unless asked.

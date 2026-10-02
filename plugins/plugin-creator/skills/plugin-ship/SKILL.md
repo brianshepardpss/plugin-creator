@@ -19,6 +19,17 @@ the user decides otherwise. `--package` writes `dist/<name>-<version>.plugin`,
 a zip that Cowork and claude.ai users can install directly; attach it to the
 GitHub release.
 
+Then give it an icon BEFORE any directory submission. The directory takes
+`.claude-plugin/icon.png` only the first time the plugin is saved or
+submitted in the developer portal, and never updates it after that:
+
+```
+python3 <this skill dir>/make_icon.py <plugin-dir> --text "AB" --color "#0f766e" --accent "#5eead4"
+```
+
+(Needs Pillow. Any square PNG of 512-2048 px under 2 MB works if you have a
+designed one.)
+
 ## 2. One repo per plugin
 
 Give each plugin its own public GitHub repository. GitHub reports views,
@@ -49,10 +60,17 @@ Users then run `/plugin marketplace add <owner>/<marketplace-repo>` and
 
 Prepare, and submit only with the user's go-ahead:
 
-- Anthropic plugin directory: https://clau.de/plugin-directory-submission
-  (or claude.ai/directory/manage on a paid plan)
-  (needs strict validation to pass, full manifest metadata, and ideally an
-  eval suite).
+- Anthropic plugin directory, through the developer portal at
+  https://claude.ai/directory/manage (Pro, Max, Team or Enterprise; GitHub
+  connected on claude.ai with push access to the repo). One submission per
+  plugin folder, at most 10 per organization per 24 hours. The portal's
+  Validate step blocks on: no README of 40+ words, no license, files outside
+  the plugin folder, unpinned npx/uvx launchers, credentials in files. It
+  holds for a human reviewer: any non-image binary (PDF, zip), any file over
+  256 KiB, more than 512 files, generic or brand-like names. Keep samples as
+  text to avoid a hold on every version. A listing reaches claude.ai, Cowork,
+  the mobile apps and Claude Code, and its Usage tab shows installs and how
+  often each skill runs -- the best traction data you can get.
 - Community directories: claudemarketplaces.com, claude-plugins.dev,
   claudepluginhub.com, buildwithclaude.com.
 - If the plugin includes its own MCP server: the official MCP registry and

@@ -1,7 +1,7 @@
 {
   "name": "construction-pm",
   "displayName": "Construction PM Toolkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.",
   "author": {
     "name": "Press Start Studios",

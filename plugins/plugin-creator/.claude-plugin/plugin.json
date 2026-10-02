@@ -1,12 +1,25 @@
 {
   "name": "plugin-creator",
   "displayName": "Plugin Creator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Go from a plugin idea to a published, tested Claude plugin: live demand check, design brief, strict-valid scaffold, skills that trigger, evals with a no-plugin baseline, .plugin packaging, directory listings and traction tracking.",
-  "author": {"name": "Press Start Studios", "email": "brian@press-start-studios.com", "url": "https://github.com/brianshepardpss"},
+  "author": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com",
+    "url": "https://github.com/brianshepardpss"
+  },
   "homepage": "https://github.com/brianshepardpss/plugin-creator-plugin",
   "repository": "https://github.com/brianshepardpss/plugin-creator-plugin",
   "license": "MIT",
-  "keywords": ["plugin-development", "skills", "evals", "scaffold", "marketplace", "demand-research"],
-  "skills": ["./skills/"]
+  "keywords": [
+    "plugin-development",
+    "skills",
+    "evals",
+    "scaffold",
+    "marketplace",
+    "demand-research"
+  ],
+  "skills": [
+    "./skills/"
+  ]
 }

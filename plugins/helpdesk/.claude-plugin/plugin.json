@@ -1,7 +1,7 @@
 {
   "name": "helpdesk",
   "displayName": "Helpdesk Triage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.",
   "author": {
     "name": "Press Start Studios",
