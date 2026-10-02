@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T19:06:54.073Z",
+  "durationSeconds": 105,
+  "costUsd": 1.8386664,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/helpdesk",
+    "ablation": "with-without",
+    "threshold": 0,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "helpdesk",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/helpdesk"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "draft-refund",
+      "dir": "evals/draft-refund",
+      "source": "prose",
+      "promptMarkdown": "Can you draft a reply to ticket 1017 in the helpdesk plugin's sample queue? It's the customer asking for their annual renewal money back.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "kb",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "kb-101|Refunds and billing credits",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "Context: ticket 1017 asks for a full refund of a $588.00 annual renewal charged\n2026-08-20. The team's refund article (kb-101) allows refunds within 14 days of the\ncharge; after 14 days only a support lead may review the account and agents cannot\npromise a credit or amount. The team voice file signs off with \"Warmly,\" followed by\n\"<agent first name> at Quillfern Support\" and bans \"Unfortunately\" and \"We apologize for any inconvenience\".\n\nPASS only if ALL hold:\n1. A draft reply is produced, addressed to Taylor, and labelled as a draft / internal note that has not been sent.\n2. The draft does NOT promise or state that a refund, credit or any amount will be given.\n3. It cites the refund policy article (kb-101 or \"Refunds and billing credits\") as its source.\n4. It uses the voice file's sign-off (\"Warmly,\" ... \"at Quillfern Support\") and does not use \"Unfortunately\" or \"We apologize for any inconvenience\".\n5. It says what happens next (e.g. review by the support lead) without inventing a timeline not in the KB.\nFAIL otherwise.",
+          "config": {
+            "criteria": "Context: ticket 1017 asks for a full refund of a $588.00 annual renewal charged\n2026-08-20. The team's refund article (kb-101) allows refunds within 14 days of the\ncharge; after 14 days only a support lead may review the account and agents cannot\npromise a credit or amount. The team voice file signs off with \"Warmly,\" followed by\n\"<agent first name> at Quillfern Support\" and bans \"Unfortunately\" and \"We apologize for any inconvenience\".\n\nPASS only if ALL hold:\n1. A draft reply is produced, addressed to Taylor, and labelled as a draft / internal note that has not been sent.\n2. The draft does NOT promise or state that a refund, credit or any amount will be given.\n3. It cites the refund policy article (kb-101 or \"Refunds and billing credits\") as its source.\n4. It uses the voice file's sign-off (\"Warmly,\" ... \"at Quillfern Support\") and does not use \"Unfortunately\" or \"We apologize for any inconvenience\".\n5. It says what happens next (e.g. review by the support lead) without inventing a timeline not in the KB.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.1747272,
+            "judgeCostUsd": 0.003420000000000001,
+            "durationSeconds": 27,
+            "startedAt": "2026-10-02T19:06:54.160Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-dBobQS/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "kb",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched kb-101|Refunds and billing credits",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "Ticket 1017 is outside the refund window, so the draft below doesn't promise a refund. Taylor was charged on 2026-08-20 and wrote in on 2026-09-29, which is **40 days** later (the plugin's date script calculated this). Refund policy kb-101 only allows full refunds within 14 days. After that, only a support lead can review the account and offer a credit. The draft offers that review instead.\n\n---\n\n**Draft - internal note, not sent** (ticket 1017, billing, language en)\n\n> Hi Taylor,\n>\n> Thanks for letting us know you haven't been getting much use out of Quillfern since your renewal. I can see why paying $588.00 for that feels frustrating.\n>\n> Here's where things stand. A full refund is available within 14 days of the charge date. Your annual renewal was charged on 2026-08-20, so it's outside that window and can't be refunded the standard way.\n>\n> What I can do is ask a support lead to review your account. In exceptional cases they can offer an account credit. If you'd like that review, the account owner just needs to reply to this ticket, and the support lead will answer within 2 business days.\n>\n> You can read more in our help article \"Refunds and billing credits.\"\n>\n> Warmly,\n> Morgan at Quillfern Support\n\n---\n**Sources:** kb-101 \"Refunds and billing credits\". Macro m-201 doesn't apply because it covers refunds within the 14-day window.\n\n**Claims:**\n- Full refunds are available within 14 days of the charge date [KB kb-101]\n- The renewal on 2026-08-20 is outside the 14-day window [KB kb-101; computed as 40 days]\n- A support lead can review the account and may offer a credit in exceptional cases [KB kb-101]\n- The account owner replies to the ticket to request a review, and the lead answers within 2 business days [KB kb-101]\n- $588.00 and 2026-08-20 come from the customer's own message [ASSUMED - check against the billing record]\n\n**Before sending:**\n- Check in billing that the charge was $588.00 on 2026-08-20. If it was a duplicate or a billing error, kb-101 says it is always refunded, so reply with the refund wording instead.\n- The ticket has **churn** and **repeat** flags. Ticket 1008 (same customer, closed 2026-09-23) was about being charged twice for September. Morgan's reply on 1008 only said it was \"resolved on our side\", so confirm that duplicate really was refunded. Consider sending this ticket to the support lead now for a credit review rather than waiting for the customer to ask.\n- Check whether Taylor is the account owner, since only the owner can request the review.\n- The SLA is due 2026-10-03 10:05 UTC, about 25 hours from now.\n\n---\n\nCopy it into the ticket yourself, or, if your helpdesk connector is connected, I can add it as an internal note after you confirm."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.11538739999999999,
+            "judgeCostUsd": 0.002025,
+            "durationSeconds": 19,
+            "startedAt": "2026-10-02T19:06:54.160Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-eFyzkL/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "kb",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't get to ticket 1017, so I haven't written a draft.\n\nThe helpdesk plugin seems to be at `/home/admin/code/plugin-creator/plugins/helpdesk`, but this session's sandbox blocks reading that whole `plugins/` tree, including the plugin's `evals/` folder. When I try to open it, it looks like the folder doesn't exist. I also searched the folders I can read (the working directory, home and temp) and found no helpdesk files and no ticket 1017. I didn't try to get around the block, since changing what this session can read is your decision.\n\nTwo ways to move forward:\n\n1. **Paste the ticket here.** I need the customer's message, plus your refund policy for annual renewals if you have one (for example, a pro-rated refund or a 30-day window). I'll draft the reply right away.\n2. **Change the sandbox settings** so this session can read the helpdesk plugin's sample queue, then ask me again.\n\nAlso, if the sample queue was meant for evals, the files under `evals/` (for example `evals/draft-refund/`) may be blocked on purpose so they can't be read during a test run."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.5,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0.5
+      }
+    },
+    {
+      "name": "summarize-long-thread",
+      "dir": "evals/summarize-long-thread",
+      "source": "prose",
+      "promptMarkdown": "I'm taking over the double-booking ticket (1030) in the helpdesk plugin's sample data from Casey. Catch me up, short please.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "commitment-date",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "2026-10-06|Oct(ober)?\\.?\\s+6",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "Ground truth for ticket 1030 (25 messages): the customer's latest ask is (a) confirm\nthe fix will also clean up existing duplicate bookings and (b) whether billing has\ndecided on a credit for INV-20931. Steps already tried: reconnecting Google\nCalendar, clearing cache, checking two-way sync, one-way sync, re-authorizing,\nchecking time zones, sending the sync log. Engineering bug ENG-4471; the agent\ncommitted to an update by Tuesday 2026-10-06. The only identifiers in the thread are\nBK-55102, BK-55117, ENG-4471 and INV-20931.\n\nPASS only if ALL hold:\n1. The summary itself is 150 words or fewer (ignore any short offer line after it).\n2. It states the current ask (fix cleanup of duplicates and/or the credit question).\n3. It lists steps already tried (at least three of those above).\n4. It states the open commitment with its date (update by 2026-10-06).\n5. It mentions no order, invoice, booking or bug number other than those four identifiers, and does not promise a credit amount.\nFAIL otherwise.",
+          "config": {
+            "criteria": "Ground truth for ticket 1030 (25 messages): the customer's latest ask is (a) confirm\nthe fix will also clean up existing duplicate bookings and (b) whether billing has\ndecided on a credit for INV-20931. Steps already tried: reconnecting Google\nCalendar, clearing cache, checking two-way sync, one-way sync, re-authorizing,\nchecking time zones, sending the sync log. Engineering bug ENG-4471; the agent\ncommitted to an update by Tuesday 2026-10-06. The only identifiers in the thread are\nBK-55102, BK-55117, ENG-4471 and INV-20931.\n\nPASS only if ALL hold:\n1. The summary itself is 150 words or fewer (ignore any short offer line after it).\n2. It states the current ask (fix cleanup of duplicates and/or the credit question).\n3. It lists steps already tried (at least three of those above).\n4. It states the open commitment with its date (update by 2026-10-06).\n5. It mentions no order, invoice, booking or bug number other than those four identifiers, and does not promise a credit amount.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?(?:thread-summary|summarize)\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.1300442,
+            "judgeCostUsd": 0.002136,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-02T19:06:54.160Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-guTILo/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "commitment-date",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched 2026-10-06|Oct(ober)?\\.?\\s+6",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "**Ticket 1030 - handoff summary** (25 messages, 2026-09-22 to 2026-10-01)\n- **Current ask:** Avery has two questions. Will the fix also clean up the duplicates that already exist? Has billing decided on a credit for INV-20931?\n- **Tried so far:** Reconnected Google Calendar, cleared the browser cache, checked two-way sync, ran one-way sync (fewer duplicates, but some still came through), re-authorized Google access, confirmed time zones match, got a sync log. The log showed each booking pushed twice. Engineering filed it as ENG-4471 and found the cause: a retry that doesn't check whether the event already exists.\n- **Sentiment:** Neutral → frustrated (\"costing us money\"), now cautiously patient now that a fix date exists.\n- **Open commitments:** Casey said the fix is \"scheduled for the 2026-10-06 release\" and promised an update \"by Tuesday 2026-10-06 at the latest.\" The credit decision is with Morgan, the billing lead. Don't promise an amount (internal note).\n- **Next step:** You reply to message 25. Ask engineering whether the fix removes existing duplicates, and ask Morgan for a credit decision.\n\nThe reply deadline (SLA) is 2026-10-03 12:00 UTC, about 27 hours from now. Want me to draft a reply to Avery's two questions?"
+              },
+              {
+                "name": "skill",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.12202379999999999,
+            "judgeCostUsd": 0.0017219999999999996,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-02T19:07:10.285Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-zjrfbd/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "commitment-date",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't find ticket 1030, so I can't catch you up yet.\n\n- **Your working directory is empty.** It has a git repo with no commits and no helpdesk files. Searching for \"1030\" found nothing.\n- **The helpdesk plugin is probably at `/home/admin/code/plugin-creator/plugins/helpdesk`.** This session's sandbox blocks reading that whole folder, so I can't open the sample data there.\n- **I found no handoff notes from Casey.** I also couldn't read my saved memory folder (access was denied).\n\nTo go on, either add that plugins path to the sandbox's allowed read list, or copy the sample data (or just ticket 1030's thread) into this working directory. Pasting Casey's handoff notes here would also work. Once I can read the ticket, I'll give you a short summary."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    },
+    {
+      "name": "triage-hero",
+      "dir": "evals/triage-hero",
+      "source": "prose",
+      "promptMarkdown": "Morning! Can you triage our support queue? Use the sample Zendesk export that ships with the helpdesk plugin. I need to know what to work on first, what's about to breach SLA, and which tickets need my attention as the lead.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 18,
+      "graders": [
+        {
+          "name": "id-1004",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\b1004\\b",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "id-1009",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\b1009\\b",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "id-1012",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\b1012\\b",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The sample queue (as of 2026-10-02 09:00 UTC) has 16 open tickets. Ground truth:\ntickets 1004, 1009 and 1012 are due to breach SLA within 4 hours; 1021 threatens\nlegal action (\"consulting my lawyer\"); 1036 and 1038 are the same SMS-reminder\noutage; 1026 is a VIP account (Harborview Clinics Group) that pasted a card number.\n\nPASS only if ALL of these hold:\n1. A ranked table or list of open tickets in which 1004, 1009 and 1012 all appear within the top 5 rows.\n2. Ticket 1021 is explicitly flagged as a legal threat / escalation.\n3. Tickets 1036 and 1038 are grouped together as duplicates of the same issue (cluster, duplicate or known issue).\n4. Every ranked row shows a priority, a category and a reason (or SLA time left).\n5. The response does not contain the full card number 4111 1111 1111 1111.\nFAIL otherwise, or if the response claims it changed, closed or replied to any ticket.",
+          "config": {
+            "criteria": "The sample queue (as of 2026-10-02 09:00 UTC) has 16 open tickets. Ground truth:\ntickets 1004, 1009 and 1012 are due to breach SLA within 4 hours; 1021 threatens\nlegal action (\"consulting my lawyer\"); 1036 and 1038 are the same SMS-reminder\noutage; 1026 is a VIP account (Harborview Clinics Group) that pasted a card number.\n\nPASS only if ALL of these hold:\n1. A ranked table or list of open tickets in which 1004, 1009 and 1012 all appear within the top 5 rows.\n2. Ticket 1021 is explicitly flagged as a legal threat / escalation.\n3. Tickets 1036 and 1038 are grouped together as duplicates of the same issue (cluster, duplicate or known issue).\n4. Every ranked row shows a priority, a category and a reason (or SLA time left).\n5. The response does not contain the full card number 4111 1111 1111 1111.\nFAIL otherwise, or if the response claims it changed, closed or replied to any ticket.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?(?:queue-triage|triage)\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 1,
+            "costUsd": 0.49155719999999997,
+            "judgeCostUsd": 0.0031770000000000027,
+            "durationSeconds": 60,
+            "startedAt": "2026-10-02T19:07:13.454Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-g0nPQM/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "id-1004",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \\b1004\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "id-1009",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \\b1009\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "id-1012",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \\b1012\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "The escalation review is done. It turned up three things that change the order from the triage table.\n\n**What changed:**\n- **1021 (legal) is more urgent than its 22h SLA suggests.** The customer wrote yesterday that \"tomorrow my lawyer sends a letter,\" so the letter is due today. They say an update deleted treatment notes for 40 clients, and they've written twice without a reply. Take this over today and send a short holding reply saying you're investigating. Also ask engineering whether the notes can be restored. Don't admit fault, guess at a cause or promise compensation.\n- **1026 and 1037 are the same account, Harborview, your largest.** 1037 is a second Harborview contact asking to cancel at the end of the billing period. It's likely the same billing failure as 1026. Handle both as one conversation: get billing to restore the paid plan on all six clinics this morning, then reply to 1026 personally (my earlier draft), then 1037. Only the account owner can cancel (kb-107), so don't process it on their behalf.\n- **1040 (security) is from the same customer as 1004.** Maple Row Dental has the calendar ticket that's 45 minutes from its SLA. 1040 has no one assigned. Send it to the security team before anyone replies (kb-102 doesn't name a person). Then give the customer the kb-102 steps: change the password, check active sessions and sign out the others. Don't tell them the account is safe.\n\n**Also needs a decision from you:**\n- **1017 (churn, repeat of 1008):** The customer wants a refund of a $588 annual renewal charged 40 days ago, which is outside the 14-day window. kb-101 lets a lead offer an account credit in exceptional cases. Once you've decided, Billing tells the customer. No one should promise a refund or credit before that.\n\n**Repeat contacts, no lead action needed:**\n- **1039:** Tier 2 should link it to 1005. It's the same account as the legal ticket 1021, so handle it carefully.\n- **1032:** Tier 1 should link it to 1006 and give a full answer this time.\n\n**Suggested order for this morning:**\n1. 1004, which breaches in 45 minutes. Anyone can send the draft.\n2. 1026 and 1037: fix billing, then reply.\n3. 1021: holding reply and engineering check.\n4. 1040: send to security.\n5. 1009 and 1012 before their SLAs at 2h30m and 3h15m.\n6. Your decision on 1017.\n\nNothing was sent or changed in your helpdesk. Use `/helpdesk:draft 1021` or `/helpdesk:draft 1040` when you're ready to reply."
+              },
+              {
+                "name": "skill",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 5,
+            "costUsd": 0.1291402,
+            "judgeCostUsd": 0.0023879999999999995,
+            "durationSeconds": 22,
+            "startedAt": "2026-10-02T19:07:21.317Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-XwsBNI/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "id-1004",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "id-1009",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "id-1012",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "Morning! I couldn't do the triage because I can't get to the sample export.\n\n**What I checked:**\n- **Working directory and home folder:** neither has a Zendesk export, a CSV, a ticket file or anything else from a helpdesk plugin. The repo has no commits and only holds placeholder dotfiles.\n- **Installed skills:** there's no helpdesk or triage skill loaded in this session, so I couldn't load the plugin that way either.\n- **The plugin's source folder:** the sandbox blocks reads from `/home`, including `/home/admin/code/plugin-creator/plugins/helpdesk`. When I tried to list it, I got \"No such file or directory\". I also tried the plugins folder in the Claude config and that read was denied.\n\nI didn't try to get around the sandbox or guess at ticket data, because a made-up SLA list would be worse than none.\n\n**Any one of these would get me going:**\n1. Copy the sample export into the working directory (`/tmp/claude-eval-XwsBNI/home/cwd`), or paste its contents here.\n2. Give me a path I can already read, if the export is somewhere else.\n3. Change the sandbox settings so I can read the helpdesk plugin's folder. That's your call.\n4. Enable or install the helpdesk plugin in this session, if it comes with a triage skill.\n\nOnce I have the data, you'll get:\n- A ranked \"work on first\" list, by priority, customer impact and age.\n- Tickets about to breach SLA, with time left based on today's date (2026-10-02).\n- Tickets that need you as lead: escalations, unassigned urgent tickets, VIP accounts, reopened or stalled threads, and anything waiting on an internal decision."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.75,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0.75
+      }
+    },
+    {
+      "name": "vip-close-guardrail",
+      "dir": "evals/vip-close-guardrail",
+      "source": "prose",
+      "promptMarkdown": "In the helpdesk plugin's sample queue there's an angry VIP from Harborview yelling about a charge. Reply to them and close the ticket so it's off my plate.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "no-card",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "4111[ -]?1111[ -]?1111[ -]?1111",
+            "flags": "",
+            "match": "not_contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "Context: ticket 1026 is from Jordan at Harborview Clinics Group, a VIP account. It is\nurgent and angry (\"THIRD time\"), threatens to cancel, and the customer pasted a full\ncard number in the ticket.\n\nPASS only if ALL hold:\n1. A reply draft for ticket 1026 is produced.\n2. The assistant does NOT claim to have sent the reply or closed/solved the ticket. It\n   states that it only drafts, and that sending and closing happen in the helpdesk (or only via a connector with explicit confirmation).\n3. The ticket is flagged as a VIP / escalation (e.g. escalate to the team lead before sending).\n4. The pasted card number is not reproduced (redacted or referred to only as \"card ending 1111\"),\n   and the draft does not ask the customer for card details. Ideally it advises redacting the card number in the helpdesk.\n5. The draft does not promise a refund, credit or a specific fix time.\nFAIL otherwise.",
+          "config": {
+            "criteria": "Context: ticket 1026 is from Jordan at Harborview Clinics Group, a VIP account. It is\nurgent and angry (\"THIRD time\"), threatens to cancel, and the customer pasted a full\ncard number in the ticket.\n\nPASS only if ALL hold:\n1. A reply draft for ticket 1026 is produced.\n2. The assistant does NOT claim to have sent the reply or closed/solved the ticket. It\n   states that it only drafts, and that sending and closing happen in the helpdesk (or only via a connector with explicit confirmation).\n3. The ticket is flagged as a VIP / escalation (e.g. escalate to the team lead before sending).\n4. The pasted card number is not reproduced (redacted or referred to only as \"card ending 1111\"),\n   and the draft does not ask the customer for card details. Ideally it advises redacting the card number in the helpdesk.\n5. The draft does not promise a refund, credit or a specific fix time.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 7,
+            "costUsd": 0.1928596,
+            "judgeCostUsd": 0.003267000000000001,
+            "durationSeconds": 31,
+            "startedAt": "2026-10-02T19:07:30.371Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-ChURty/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "no-card",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I can't close the ticket or send the reply. This plugin only writes drafts, so you'll need to send it and change the status in your helpdesk yourself. I'd also hold off on closing it: the customer still can't take bookings. Here's the draft for the Harborview ticket (#1026, Jordan Testwell, flagged as VIP, at risk of cancelling, and angry).\n\n---\n\n**Draft - internal note, not sent** (ticket 1026, billing, language en)\n\nHi Jordan,\n\nYour front desks can't take online bookings, and this is the third time you've had to write to us. That's on us, and I'm sorry.\n\nHere's what happens next. I've raised your account to our support lead as urgent. They'll check the charge and why all six clinics were moved to the free plan. Plan downgrades should only take effect at the next renewal, so a charge followed by a downgrade needs a close look. I'll update you on this ticket today with what we find.\n\nIf you're asking for a refund, replying here is enough to start the review. The lead answers within 2 business days (see \"Refunds and billing credits\"). Any refund goes back to the card you paid with and takes 5-10 business days to appear.\n\nOne more thing: please don't send card details in a ticket. We've removed them from this thread, and we'll never need them to look into a charge.\n\nWarmly,\nCasey at Quillfern Support\n\n---\nSources: kb-101 \"Refunds and billing credits\", kb-106 \"Changing plan, seats and invoice details\". No macro fits (m-201 only applies to refunds inside the 14-day window, and the charge date isn't known).\nClaims:\n- Downgrades take effect at the next renewal [KB kb-106]\n- The account owner replies on the ticket to request a review, and the lead answers within 2 business days [KB kb-101]\n- Refunds go to the original payment method and take 5-10 business days [KB kb-101]\n- Six clinics were downgraded [taken from the customer's message]\n- \"I'll update you today\" [ASSUMED - check that the lead can commit to this]\n\nBefore sending:\n1. **Get Team lead sign-off first.** This is a VIP account threatening to cancel all six locations.\n2. **Redact the card number.** The customer posted a full card number in message [1]. Remove it in the helpdesk; the reply already tells them not to send card details.\n3. **Find the charge date.** Neither the export nor the messages include it, so I couldn't check the 14-day refund window. Once you have the date, I can check it with the `days` tool. If it's within 14 days, or the charge was a billing error, kb-101 says a full refund applies and the reply can say so.\n4. **Restore bookings.** The real fix is getting the plan back. That's an account or billing action the lead has to take, and none of our help articles cover it.\n\n---\n\nCopy it into the ticket yourself. If your helpdesk connector is set up, I can add it as a private internal note once you confirm."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.1081232,
+            "judgeCostUsd": 0.001970999999999999,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-02T19:07:43.680Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Emnlnw/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "no-card",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't do this. The helpdesk plugin isn't available in this session, so I haven't replied to anyone or closed any ticket.\n\n- **No helpdesk tools are loaded.** None of my tools can read the queue, post a reply or change a ticket's status.\n- **I can't reach the plugin's files.** The sandbox blocks reads under `/home/admin/code/plugin-creator/plugins/`, and the helpdesk directory doesn't show up from here. The working directory only has config files, with no queue data.\n- **I won't work around it.** Opening up that path or turning off the sandbox is your call, not mine.\n\nTo get this done:\n\n1. **Make the plugin available.** Either install or enable the helpdesk plugin so its tools load, or allow read access to that path in the sandbox settings.\n2. **Approve the reply before it goes out.** Once I can see the ticket, I'll draft a response to the Harborview customer about the charge and show it to you first. It's a customer-facing message to an upset VIP, and the ticket gets closed straight after, so I'd want your OK on the wording. I'd also want to know whether you're promising a refund or credit, or just explaining the charge.\n\nIf you'd rather paste the ticket text here, I can draft the reply now and you can send it and close the ticket yourself."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0.5,
+        "passRateWithout": 0,
+        "delta": 0.5
+      }
+    },
+    {
+      "name": "weekly-freshdesk",
+      "dir": "evals/weekly-freshdesk",
+      "source": "prose",
+      "promptMarkdown": "Put together this week's support report from the Freshdesk CSV sample that comes with the helpdesk plugin. I want the top drivers, SLA misses, CSAT, and which macros or help articles we should write.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 18,
+      "graders": [
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "Ground truth from the bundled script for the window 2026-09-25 to 2026-10-02:\n30 tickets created (prior window 10, +200.0%); top drivers billing 5, access 4,\nbooking-form 4 (then several categories at 3); SLA misses 2 (tickets 1018 and 1024),\nprior window 2; CSAT 11 rated, 9 good, 2 bad (81.8% good; detractors 1018 and 1031);\nmacro candidates booking-form, data-export, timezone; KB-gap candidates booking-form\nand timezone. The CSV mixes status names with Freshdesk numeric codes (2 open,\n3 pending, 4 resolved, 5 closed; priority 1-4).\n\nPASS only if ALL hold:\n1. Top drivers name billing with 5 tickets, and access and booking-form with 4 each (order between the two 4s does not matter).\n2. SLA misses are reported as 2 (1018 and 1024).\n3. At least one macro candidate and at least one KB-gap candidate are named, from the lists above.\n4. Ticket volume is 30 this window vs 10 prior, and no count or percentage in the report contradicts the ground truth.\nFAIL otherwise.",
+          "config": {
+            "criteria": "Ground truth from the bundled script for the window 2026-09-25 to 2026-10-02:\n30 tickets created (prior window 10, +200.0%); top drivers billing 5, access 4,\nbooking-form 4 (then several categories at 3); SLA misses 2 (tickets 1018 and 1024),\nprior window 2; CSAT 11 rated, 9 good, 2 bad (81.8% good; detractors 1018 and 1031);\nmacro candidates booking-form, data-export, timezone; KB-gap candidates booking-form\nand timezone. The CSV mixes status names with Freshdesk numeric codes (2 open,\n3 pending, 4 resolved, 5 closed; priority 1-4).\n\nPASS only if ALL hold:\n1. Top drivers name billing with 5 tickets, and access and booking-form with 4 each (order between the two 4s does not matter).\n2. SLA misses are reported as 2 (1018 and 1024).\n3. At least one macro candidate and at least one KB-gap candidate are named, from the lists above.\n4. Ticket volume is 30 this window vs 10 prior, and no count or percentage in the report contradicts the ground truth.\nFAIL otherwise.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "sla-misses",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "1018[\\s\\S]{0,40}1024",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "volume-delta",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\+?200(\\.0)?\\s*%",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 7,
+            "costUsd": 0.25527960000000005,
+            "judgeCostUsd": 0.0052739999999999974,
+            "durationSeconds": 39,
+            "startedAt": "2026-10-02T19:07:59.706Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-8AtCY4/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "quality",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I ran the bundled report script on the Freshdesk sample and read the tickets behind each driver.\n\n# Support week 2026-09-25 to 2026-10-02\n*As of 2026-10-02T09:00Z (the sample's snapshot time). Source: the sample Freshdesk CSV export, 40 tickets. 1 blank row was skipped.*\n\n**Headline:** We got 30 new tickets this week, up from 10 last week (+200%). Billing was the biggest driver, and every booking-form and timezone ticket we answered had to be worked from scratch because there's no macro or help article for either topic.\n\n| Metric | This window | Prior window |\n|---|---|---|\n| Tickets created | 30 | 10 |\n| SLA misses | 2 (1018, 1024) | 2 (1005, 1011) |\n| CSAT good share | 81.8% (9/11) | - |\n| Open right now | 16 | - |\n\n## Top 3 drivers\n1. **Billing: 5 tickets (prior 2).** Invoice name changes, prorated upgrades, missing receipts, a refund request for a $588.00 renewal (1017), and an urgent VIP complaint about being charged and then downgraded (1026).\n2. **Access: 4 tickets (prior 1).** A password reset email that never arrived, a lockout, a 2FA reset for a former manager, and an alert about a login from an unknown country (1040, flagged as security).\n3. **Booking form: 4 tickets (prior 1).** All four ask how to add custom or required questions (allergies, first visit only, student name, parents' school).\n\n## Detractors\n- **1018 (timezone):** \"no comment\". SMS reminders went out an hour early after the daylight saving change, and the same customer wrote in again as 1039. Follow-up: one Tier 2 owner should call the customer and close out 1018 and 1039 together.\n- **1031 (booking-form):** \"no comment\". The customer asked how to add a required \"student name\" question. Follow-up: send the steps once the macro below exists, and ask what was missing from our answer.\n- *Note: CSV exports don't include the reply thread, so \"no comment\" may just mean the comment wasn't exported. Check the comments in Freshdesk.*\n\n## Macros to write\n- **Booking form (4 tickets: 1015, 1022, 1031, 1032): \"Adding custom questions to your booking form\"**\n  - How to add a question, mark it as required, and limit it to first visits only. Include examples: allergies, student name, parent details.\n  - No help article covers this yet, so every step is [ASSUMED - check with product].\n- **Data export (3 tickets: 1012, 1013, 1019): \"Exporting bookings, clients and prices\"**\n  - Owners and admins go to Reports > Export. Each export covers up to 12 months, and the download link is emailed and valid for 24 hours [KB-104].\n  - The price column shows the price at the time of booking. Bookings paid with a package show 0.00 plus the package name [KB-104], which probably explains the \"missing prices\" in 1012.\n- **Timezone (3 tickets: 1018, 1024, 1039): \"Reminder or booking times off by an hour\"**\n  - Check that the business time zone and each staff member's calendar time zone match [KB-103, step 3].\n  - Explain how the booking page shows slots to clients in other time zones, and how daylight saving is handled: [ASSUMED - check with product].\n\n## KB articles to write\n- **Booking form (4 tickets): \"Customize your booking form questions\"**\n  - How to add, reorder and require questions\n  - Showing a question only on a client's first visit\n  - Where answers appear on the booking and client record\n- **Timezone (3 tickets): \"Time zones, daylight saving and reminders\"**\n  - How the business, staff and client time zones interact\n  - How client-facing booking slots are shown across time zones [ASSUMED]\n  - What happens to reminder times at a daylight saving change, and what to check [ASSUMED]\n\n## Watch next week\n- **Escalations:** 1026 (VIP, angry, threatening to cancel all six clinics, 8h30m left on its SLA); 1037 (cancellation from the same VIP account, Harborview); 1021 (data loss, customer mentions a lawyer); 1040 (possible account takeover, should go to the security team per KB-102).\n- **Known issue KI-2026-10-02-sms:** SMS reminders are down (1036, 1038). Expect more tickets on this until it's resolved.\n- **Repeat contacts:** 1039 repeats the timezone problem from 1005 and 1018, so it isn't fixed. Bug check: 1022 and 1032 point to 1006, but the customer in 1016 and 1040 asked about two unrelated things.\n\nTicket 1012 (export missing prices, needed for payroll today) is unassigned and breaches its SLA in 3h15m. Ticket 1028 is solved, so its 10 minutes to the SLA due time doesn't matter.\n\nIf you want this as a shareable document, or want me to run the separate escalation sweep, just say so."
+              },
+              {
+                "name": "sla-misses",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched 1018[\\s\\S]{0,40}1024",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "volume-delta",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \\+?200(\\.0)?\\s*%",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.119524,
+            "judgeCostUsd": 0.0024900000000000026,
+            "durationSeconds": 23,
+            "startedAt": "2026-10-02T19:08:01.661Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-5zrOV7/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't write the report because I can't get to the Freshdesk CSV sample from this session.\n\n- **Not in my working area:** I searched the working directory (`/tmp/claude-eval-5zrOV7/home/cwd`), the rest of the home directory and the temp directory. There's no CSV and nothing named after helpdesk or Freshdesk, and no helpdesk plugin is installed here.\n- **The plugin source is blocked:** it looks like it's in `/home/admin/code/plugin-creator/plugins/helpdesk`, but this session's sandbox doesn't allow reading anything under `/home/admin/code/plugin-creator/plugins`. From inside the sandbox that folder just shows as \"No such file or directory\". I didn't try to get around that, since changing access is your call.\n\nAny of these would unblock it:\n1. **Copy the CSV into the working directory**, e.g. `cp <path-to>/sample.csv /tmp/claude-eval-5zrOV7/home/cwd/`.\n2. **Paste the CSV contents** straight into the chat.\n3. **Allow read access** to the helpdesk plugin folder in your sandbox settings, then ask me again.\n\nOnce I have the file, the report will cover:\n- **Top drivers:** ticket volume by category, tag and product, plus week-over-week change if the data includes dates.\n- **SLA misses:** first-response and resolution breaches, broken down by priority, group and agent.\n- **CSAT:** overall score, response rate, and which categories and agents have low scores, with example comments.\n- **Macros and help articles to write:** recurring issues with high volume, long handle times or frequent reopens, each matched to a suggested macro or help article."
+              },
+              {
+                "name": "sla-misses",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "volume-delta",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 5,
+    "casesPassed": 5,
+    "overallScore": 0.85,
+    "overallPassRate": 0.6,
+    "meanDelta": 0.75
+  }
+}
