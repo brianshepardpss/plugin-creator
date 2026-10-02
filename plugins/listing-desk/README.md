@@ -50,7 +50,8 @@ Then try:
 - "Is this OK? Charming 3/2 perfect for young families, quiet Christian
   neighborhood, walking distance to St. Mary's, safe area, no section 8."
 - "Build the deadline calendar for this contract" with
-  `samples/purchase_contract.pdf` (or the scanned version)
+  `samples/purchase_contract.txt` (the PDF and a scanned copy are in
+  [sample-pdfs](https://github.com/brianshepardpss/plugin-creator/tree/main/lab/sample-pdfs))
 - "Follow up with my open house sign-ins" with `samples/open_house_signins.csv`
 - "Make me a 12-month plan to stay in touch with my sphere" with
   `samples/sphere_contacts.csv`

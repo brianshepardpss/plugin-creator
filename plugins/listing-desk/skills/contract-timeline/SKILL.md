@@ -11,8 +11,9 @@ it is not legal advice and does not interpret the contract.
 
 ## 1. Read the contract
 
-- Read the PDF (sample: `../../samples/purchase_contract.pdf`; a scanned
-  variant is `../../samples/purchase_contract_scanned.pdf`). For a scan, read
+- Read the contract the user gives you, usually a PDF (sample: the text
+  extract `../../samples/purchase_contract.txt`; the original PDF and a
+  scanned variant are at https://github.com/brianshepardpss/plugin-creator/tree/main/lab/sample-pdfs). For a scan, read
   the page images carefully and mark any value you could not read clearly as
   `UNREADABLE` rather than guessing.
 - Find: parties, property, sales price, financing, earnest money and option

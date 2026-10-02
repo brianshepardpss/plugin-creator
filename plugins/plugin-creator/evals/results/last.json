@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T18:55:54.313Z",
+  "durationSeconds": 210,
+  "costUsd": 3.0721399999999996,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/plugin-creator",
+    "ablation": "with-without",
+    "threshold": 0,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "plugin-creator",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/plugin-creator"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "demand-check",
+      "dir": "evals/demand-check",
+      "source": "prose",
+      "promptMarkdown": "Is there real demand for a Claude Code plugin that adds Bitbucket support? Give me numbers, not vibes.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "numbers",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the answer reports concrete counts from live sources (for example a\nnumber of GitHub issues or reactions, Hacker News results, and whether an\nofficial Anthropic plugin already exists) and draws a conclusion from them.\nFAIL if it gives only general opinions with no measured numbers, or invents\nnumbers without saying where they came from.",
+          "config": {
+            "criteria": "PASS if the answer reports concrete counts from live sources (for example a\nnumber of GitHub issues or reactions, Hacker News results, and whether an\nofficial Anthropic plugin already exists) and draws a conclusion from them.\nFAIL if it gives only general opinions with no measured numbers, or invents\nnumbers without saying where they came from.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "scanner",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Bash",
+            "input_match": "demand\\.py",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 21,
+            "costUsd": 0.7052625999999999,
+            "judgeCostUsd": 0.005450999999999999,
+            "durationSeconds": 103,
+            "startedAt": "2026-10-02T18:55:54.376Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-DaWB5o/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "numbers",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "**Short answer: yes, there's real demand, but it's modest. And Atlassian already ships an official MCP server that covers most of what a basic Bitbucket plugin would do.** A plugin is only worth building if it targets what that server leaves out.\n\nOne caveat on method: the plugin-brief demand scanner couldn't reach the network from the sandbox, so all its results were connection errors. I got the numbers below through web fetch and search instead.\n\n## Demand\n\n| Signal | Number |\n|---|---|\n| Claude Code GitHub issues with \"Bitbucket\" in the title | **7 issues, ~101 reactions total** |\n| Top issue: [#38179 \"Native Bitbucket Integration\"](https://github.com/anthropics/claude-code/issues/38179) (open, Mar 2026) | **67 reactions**, 9 comments, no maintainer reply |\n| Next: #2210 \"Bitbucket support for code review actions\" (closed) | 31 reactions, 12 comments |\n| Hacker News stories about Bitbucket + Claude | 17 hits; the most directly relevant ones got **1–4 points**. Basically no HN signal. |\n| Monthly npm downloads (Sept 2026) of the top community Bitbucket MCP servers | `@nexus2520/bitbucket-mcp-server` **29,463**, `@aashari/mcp-server-atlassian-bitbucket` **18,398**, `bitbucket-mcp` **17,652**, `@atlassian-dc-mcp/bitbucket` **12,724** → about **78k/month** for these four |\n\nFor scale, 67 reactions is a real request, but not a top Claude Code issue. The npm downloads are the stronger signal: people are already wiring Bitbucket into AI tools themselves. Downloads aren't users, though, since CI runs and reinstalls inflate them.\n\nI couldn't find a reliable Bitbucket market-share figure. The often-quoted \"18% of professional developers\" probably comes from the 2022 Stack Overflow survey, not 2025 [UNVERIFIED].\n\n## Supply\n\n- **Atlassian's official Rovo MCP server has supported Bitbucket Cloud since Apr 8, 2026** ([announcement](https://www.atlassian.com/blog/bitbucket/the-atlassian-rovo-mcp-server-now-supports-bitbucket-cloud)). It covers repos, the full pull request lifecycle (create, diff, comment, approve, merge), branches, commits, Pipelines including step logs, and deployments. You add it with `claude mcp add --transport http ... https://mcp.atlassian.com/v1/mcp`.\n- **Anthropic's official plugin marketplace has GitHub and GitLab plugins but no Bitbucket or Atlassian plugin.** I checked both `plugins/` and `external_plugins/` in [claude-plugins-official](https://github.com/anthropics/claude-plugins-official).\n- There are also 5+ community MCP servers, plus [Composio](https://composio.dev/toolkits/bitbucket/framework/claude-code) and [CData](https://www.cdata.com/kb/tech/bitbucket-mcp-claude-code.rst).\n\n## What's left uncovered\n\n1. **Self-hosted Bitbucket (Data Center / Server).** Rovo only covers Cloud. The two Data Center-specific packages get about **17.7k downloads/month**, which is the clearest sign of a gap.\n2. **Setup friction on Cloud.** Your Bitbucket workspace must be linked to an Atlassian organization, and an admin has to turn on API-token authentication. OAuth support for the Bitbucket tools is unclear: sources disagree.\n3. **Things the official server leaves out:** the issue tracker, code search across a workspace, branch restrictions and webhooks.\n4. **No ready-made Claude Code workflow.** There's no Bitbucket plugin bundling a pull request review or pipeline-failure skill, like the GitLab plugin offers.\n\nSeparately, some complaints in those issues are about Claude Code itself assuming GitHub (`--worktree`, pull request status warnings). A plugin can't fix those.\n\n**My recommendation:** don't build a general \"Bitbucket support\" plugin, because Rovo already covers that for Cloud. The angles worth building are a **Data Center plugin** or a **workflow plugin built on Rovo** that does pull request review and pipeline triage. Of those, Data Center has the best evidence behind it.\n\nIf you want, I can write the full `BRIEF.md` for one of those two angles, with the main workflow, what v1 leaves out, and test scenarios.\n\nSources:\n- [GitHub issue search, anthropics/claude-code](https://api.github.com/search/issues?q=bitbucket+repo:anthropics/claude-code+in:title&sort=reactions&per_page=10)\n- [HN Algolia search](https://hn.algolia.com/api/v1/search?query=bitbucket%20claude&tags=story)\n- [npm download stats](https://api.npmjs.org/downloads/point/last-month/bitbucket-mcp)\n- [Atlassian Rovo MCP + Bitbucket Cloud announcement](https://www.atlassian.com/blog/bitbucket/the-atlassian-rovo-mcp-server-now-supports-bitbucket-cloud), [community post](https://community.atlassian.com/forums/Atlassian-Remote-MCP-Server/Bitbucket-Cloud-is-now-available-on-the-Atlassian-Rovo-MCP/ba-p/3218525)\n- [ChatGPT + Bitbucket: what Rovo actually delivers](https://www.usecarly.com/blog/chatgpt-bitbucket-integration/)\n- [Bitbucket-only Rovo MCP access thread](https://community.atlassian.com/forums/Bitbucket-questions/Do-we-have-access-to-MCP-server-with-only-Bitbucket-no/qaq-p/3241586)\n- [Bitbucket statistics 2026](https://www.getpanto.ai/blog/bitbucket-statistics), [Stack Overflow 2025 survey](https://survey.stackoverflow.co/2025/technology)\n- [Glama Bitbucket MCP list](https://glama.ai/mcp/servers/integrations/bitbucket), [Bubblyworld connector](https://github.com/Bubblyworld/claude-bitbucket-connector), [Data Center setup gist](https://gist.github.com/thepranaygupta/667054a4a4abc1c24f17d484ad05aeeb)"
+              },
+              {
+                "name": "scanner",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Bash called 2x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 13,
+            "costUsd": 0.6557546,
+            "judgeCostUsd": 0.005415,
+            "durationSeconds": 91,
+            "startedAt": "2026-10-02T18:55:54.376Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-M8gxcP/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "numbers",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I'd say there's some demand, but it's small, and a basic \"connect Claude Code to Bitbucket\" plugin already has a lot of competition. The part with less competition is Bitbucket Server/Data Center support and features where Claude Code assumes GitHub.\n\n**1. Votes on Anthropic's issue tracker (anthropics/claude-code)**\n\nSearching for \"bitbucket\" finds 63 issues. 7 have Bitbucket in the title:\n\n| Issue | Status | 👍 | Comments |\n|---|---|---|---|\n| #38179 Native Bitbucket Integration (Mar 2026) | open | 67 | 9 |\n| #2210 Bitbucket support for code review (Jun 2025) | closed, *not planned* | 31 | 12 |\n| #97604 Claude Tag: Bitbucket access (Sep 27, 2026) | open | 2 | 0 |\n| #94286 Remote Control demands GitHub access in a Bitbucket org | open | 1 | 1 |\n| #40829, #65522, #27947 (Pipelines reviews, PR-status warning, `--worktree` bug) | closed | 0 | 3–4 each |\n\nThat's about 100 upvotes in total. For comparison:\n- GitLab integration (#12346): 140 👍\n- Azure DevOps in cloud sessions (#54054): 49 👍\n- AGENTS.md support (#6235): 5,187 👍. That's what a high-demand request looks like.\n\nSo Bitbucket gets about half the votes GitLab does and roughly 1/75th of a top request. The 67 votes come from a fairly small group of Atlassian-shop users, but they keep asking: new Bitbucket issues came in during March, June and September 2026.\n\n**2. Existing tools (GitHub stars)**\n\nThere are about 277 repos matching \"bitbucket mcp\":\n- atlassian/atlassian-mcp-server (official): 1,078 ★. It covers Jira, Confluence and Bitbucket, and installs into Claude Code with one `claude mcp add` command.\n- MatanYemini/bitbucket-mcp: 166 ★ / 109 forks\n- aashari/mcp-server-atlassian-bitbucket: 163 ★\n- b1ff/atlassian-dc-mcp (Data Center): 102 ★, pushed Sep 22\n- garc33/bitbucket-server-mcp-server: 69 ★\n- pdogra1299/bitbucket-mcp-server: 29 ★\n\nThe fork counts are high relative to stars (109 forks on 166 stars), which suggests people are customizing these servers rather than finding one that fits. There are also Bitbucket skills for Claude Code (skempken/bitbucket-server, ethandrower/bitbucket-cli-claude-code). Atlassian's own Agentic Pipelines can already run Claude Code (open beta).\n\n**3. How many developers use Bitbucket**\n\nI don't have a solid number here:\n- The 2025 Stack Overflow survey dropped its version-control question. Bitbucket shows up at 0.1%, apparently from write-in answers, so that tells you nothing. GitHub is at 81% and GitLab at 36% under a different question.\n- Third-party estimates put Bitbucket at about 7% market share, or about 15M developers versus GitHub's 180M+. These are low-quality sources.\n- I couldn't confirm the older Stack Overflow figure, from when the survey still asked about version-control platforms.\n\n**What I couldn't measure:** npm download counts for the Bitbucket MCP packages, because the sandbox blocks api.npmjs.org. Those would be the best usage signal. You can get them with `npm view` or from npm-stat.com.\n\n**Where the gap is**\n- **Bitbucket Server/Data Center:** the official Atlassian server only supports Cloud, and only for workspaces linked to an Atlassian organization. The Data Center tools have about 170 stars combined, with recent commits.\n- **Claude Code features that assume GitHub:** PR-status checks, `--worktree`, Remote Control, Claude Tag and automated code review all break or are missing on Bitbucket. Issues #94286, #65522, #97604 and #40829 are users running into exactly these. An MCP server can't fix them; a plugin (hooks, skills, a Pipelines review step) might be able to fix some.\n\nIf you build it, aim at those gaps rather than a general Bitbucket API wrapper, which would compete directly with Atlassian's free official server.\n\nSources:\n- [GitHub issue search API: bitbucket in anthropics/claude-code](https://api.github.com/search/issues?q=bitbucket+repo:anthropics/claude-code&sort=reactions&per_page=30)\n- [#38179 Native Bitbucket Integration](https://github.com/anthropics/claude-code/issues/38179)\n- [#2210 Bitbucket support for code review](https://github.com/anthropics/claude-code/issues/2210)\n- [#40829 Bitbucket Pipelines code reviews](https://github.com/anthropics/claude-code/issues/40829)\n- [#97604 Claude Tag Bitbucket access](https://github.com/anthropics/claude-code/issues/97604)\n- [GitHub repo search API: bitbucket mcp](https://api.github.com/search/repositories?q=bitbucket+mcp&sort=stars&per_page=15)\n- [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server)\n- [Atlassian: Agentic Pipelines supports Claude Code](https://www.atlassian.com/blog/bitbucket/agentic-pipelines-now-supports-claude-code)\n- [skempken/bitbucket-server](https://github.com/skempken/bitbucket-server)\n- [ethandrower/bitbucket-cli-claude-code](https://github.com/ethandrower/bitbucket-cli-claude-code)\n- [Stack Overflow 2025 Survey – Technology](https://survey.stackoverflow.co/2025/technology)\n- [Stack Overflow 2025 press release](https://stackoverflow.co/company/press/archive/stack-overflow-2025-developer-survey/)\n- [Git market share statistics 2026](https://fosspost.org/git-market-share-statistics/)"
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "refuse-covered",
+      "dir": "evals/refuse-covered",
+      "source": "prose",
+      "promptMarkdown": "/plugin-creator:new a plugin that connects Claude to Linear issues",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "criteria",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the response discovers that an official Anthropic plugin for Linear\nalready exists and either stops or names a specific, evidenced gap it would\nfill instead of rebuilding the same connector, and does not scaffold files\nbefore checking in with the user.\nFAIL if it scaffolds a generic Linear connector without noticing the\nofficial one, or creates plugin files before the brief check-in.",
+          "config": {
+            "criteria": "PASS if the response discovers that an official Anthropic plugin for Linear\nalready exists and either stops or names a specific, evidenced gap it would\nfill instead of rebuilding the same connector, and does not scaffold files\nbefore checking in with the user.\nFAIL if it scaffolds a generic Linear connector without noticing the\nofficial one, or creates plugin files before the brief check-in.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 10,
+            "costUsd": 0.432804,
+            "judgeCostUsd": 0.0032910000000000005,
+            "durationSeconds": 64,
+            "startedAt": "2026-10-02T18:55:54.376Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-F0CfCk/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I'm stopping at stage 1 because there's already an official plugin that does this. I didn't write a BRIEF.md or create any files.\n\n**What already exists:** `linear@claude-plugins-official` is a partner plugin listed under Linear's name in Anthropic's official marketplace. Its description: *\"Create issues, manage projects, update statuses, search across workspaces…\"*. I opened its `.mcp.json` and it points Claude at Linear's own hosted MCP server (`https://mcp.linear.app/mcp`). That server has about 23 tools by Fiberplane's count (Gumloop lists 49): listing, reading, creating and updating issues, comments, projects, cycles, documents, labels and statuses. Claude Code adds the official marketplace automatically, so most users can install it with one command:\n\n```\n/plugin install linear@claude-plugins-official\n```\n\n**Why I couldn't find a real gap:** \"Connect Claude to Linear issues\" is exactly what that plugin does, using Linear's own server, so a new connector would only duplicate it. The plugin seems to be just a connection: its folder showed `.claude-plugin/` and `.mcp.json`, and I saw no skills or commands. But the GitHub page cut off the file list, so I haven't fully confirmed that. Any gap would therefore be a workflow built on top of that connection, not the connection itself. I couldn't back any such idea with data:\n\n- **The demand scan failed.** The sandbox's network proxy blocked every source the scanner uses (GitHub, Hacker News, Smithery, npm), so its \"0 official matches / gap score 0.0\" result means nothing. I checked the official marketplace through web search and fetch instead.\n- **I have no demand evidence** for any workflow on top of Linear, so naming one now would be a guess.\n\n**If you want to continue, I need a narrower idea.** It should be one workflow that the official plugin's tools make possible but don't do on their own. Some examples (none checked for demand):\n\n- Triaging a backlog: deduplicating, labelling and assigning priority following your team's rules.\n- Turning a cycle into a report with a fixed format: what shipped, what slipped, and carry-over.\n- Turning a bug report or PR into a well-formed Linear issue using your team's template.\n\nPick one, or give me your own, and I'll run the brief stage on that, building on the official Linear plugin rather than replacing it. If you can allow `api.github.com`, `hn.algolia.com`, `raw.githubusercontent.com`, `registry.smithery.ai` and `registry.npmjs.org` through the sandbox, I can rerun the demand scan with real numbers.\n\nThere's no plugin folder, no eval scores and nothing to ship yet. The next command is either the install above, or `/plugin-creator:new <narrower workflow idea>`.\n\nSources:\n- [claude-plugins-official marketplace.json](https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/.claude-plugin/marketplace.json)\n- [external_plugins/linear (official repo)](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/linear)\n- [Linear plugin .mcp.json](https://raw.githubusercontent.com/anthropics/claude-plugins-official/main/external_plugins/linear/.mcp.json)\n- [claudepluginhub listing](https://www.claudepluginhub.com/plugins/anthropics-linear-external-plugins-linear)\n- [Fiberplane: The Linear Team Made a Good MCP](https://blog.fiberplane.com/blog/mcp-server-analysis-linear/)\n- [Gumloop Linear MCP listing](https://www.gumloop.com/mcp/linear)\n- [Claude Code docs: discover plugins](https://code.claude.com/docs/en/discover-plugins)"
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 2,
+            "costUsd": 0.1069276,
+            "judgeCostUsd": 0.0014669999999999996,
+            "durationSeconds": 18,
+            "startedAt": "2026-10-02T18:56:58.516Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Nztra3/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "criteria",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I didn't build anything yet. `/plugin-creator:new` isn't installed in this session, so it didn't run. If you want it, it can be added as an organization plugin or a project skill.\n\nYou may not need a new plugin at all. Linear runs its own official MCP server, which lets Claude search, read, create and update Linear issues, projects and comments. I believe Anthropic's official plugin marketplace also has a Linear plugin that wraps it, so check `/plugin` before building your own.\n\nYou can connect directly with:\n\n```\nclaude mcp add --transport http linear https://mcp.linear.app/mcp\n```\n\nThen run `/mcp` to sign in to Linear.\n\nA custom plugin is worth building only if you need more than that connection. For example:\n- Commands like `/linear:triage` or `/linear:start <issue>`, which could create a branch from the issue and move it to \"In Progress\".\n- A skill with your team's conventions, such as labels, estimate scales and issue templates.\n- Hooks, such as linking commits to issue IDs.\n\nI can build that as a plugin folder here (a manifest file, a server config pointing at Linear's MCP server, and the commands or skills), but I'd need to know which of these workflows you want. Should I go ahead, or is the direct connection enough?"
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "scaffold-strict",
+      "dir": "evals/scaffold-strict",
+      "source": "prose",
+      "promptMarkdown": "Scaffold a new plugin in ./invoice-desk called invoice-desk (display name \"Invoice Desk\") with skills named extract and reconcile, for small-business bookkeepers. Author is Test Author, test@example.com. Don't write the skill contents yet, just a skeleton I can validate.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 25,
+      "graders": [
+        {
+          "name": "eval-stubs",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "invoice-desk/evals/*/prompt.md",
+            "exists": true
+          }
+        },
+        {
+          "name": "manifest",
+          "type": "file_exists",
+          "weight": 1,
+          "config": {
+            "path": "invoice-desk/.claude-plugin/plugin.json",
+            "exists": true
+          }
+        },
+        {
+          "name": "skills-path",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "invoice-desk/.claude-plugin/plugin.json"
+            },
+            "pattern": "\"skills\":\\s*\\[\\s*\"\\./skills/\"\\s*\\]",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.1599236,
+            "judgeCostUsd": 0,
+            "durationSeconds": 25,
+            "startedAt": "2026-10-02T18:57:16.501Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-gBCNS0/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "eval-stubs",
+                "passed": true,
+                "weight": 1,
+                "explanation": "invoice-desk/evals/*/prompt.md exists as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "manifest",
+                "passed": true,
+                "weight": 1,
+                "explanation": "invoice-desk/.claude-plugin/plugin.json exists as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skills-path",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \"skills\":\\s*\\[\\s*\"\\./skills/\"\\s*\\]",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0.3333333333333333,
+            "passed": false,
+            "turns": 8,
+            "costUsd": 0.1592126,
+            "judgeCostUsd": 0,
+            "durationSeconds": 27,
+            "startedAt": "2026-10-02T18:57:25.362Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-RuGBx8/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "eval-stubs",
+                "passed": false,
+                "weight": 1,
+                "explanation": "invoice-desk/evals/*/prompt.md missing (expected present)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "manifest",
+                "passed": true,
+                "weight": 1,
+                "explanation": "invoice-desk/.claude-plugin/plugin.json exists as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skills-path",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file invoice-desk/.claude-plugin/plugin.json",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0.3333333333333333,
+        "passRateWithout": 0,
+        "delta": 0.6666666666666667
+      }
+    },
+    {
+      "name": "trigger-brief",
+      "dir": "evals/trigger-brief",
+      "source": "prose",
+      "promptMarkdown": "I'm thinking about making a Claude plugin for dental office front desks. Who would actually use it and what should version one do?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 20,
+      "graders": [
+        {
+          "name": "hero",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the response names one specific hero workflow that could run on\nsample data in under five minutes, says what v1 deliberately leaves out, and\nraises at least one domain risk (for example patient privacy / HIPAA).\nFAIL if it lists many features with no single hero workflow, or ignores\npatient-privacy risk entirely.",
+          "config": {
+            "criteria": "PASS if the response names one specific hero workflow that could run on\nsample data in under five minutes, says what v1 deliberately leaves out, and\nraises at least one domain risk (for example patient privacy / HIPAA).\nFAIL if it lists many features with no single hero workflow, or ignores\npatient-privacy risk entirely.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?plugin-brief\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 11,
+            "costUsd": 0.7457647999999999,
+            "judgeCostUsd": 0.0046589999999999965,
+            "durationSeconds": 106,
+            "startedAt": "2026-10-02T18:57:37.552Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-fA2w9I/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "hero",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I wrote a design brief to `BRIEF.md`. In short: build v1 for the office manager, and have it turn an insurance benefits breakdown into the amount the patient will owe.\n\n## Who would use it\n\n- **Main user: the office manager or insurance coordinator at an independent practice with 1–3 locations.** They're the ones who would install a plugin. Most front desk staff use whatever tools they're given.\n- **Second user: remote dental billing and verification consultants.** They're more comfortable with tech, and each one works with many offices, so they're also a good way to reach practices.\n- **Why this group:** insurance verification and estimates are the most-cited front desk burden. Vendors estimate 12–30 minutes per patient. In one 2026 survey, 71% of billers called it their top daily challenge, but I only found that survey as quoted by another vendor. Front desk roles are also hard to fill: about 70% of practices hiring admin staff call it very or extremely hard, per ADA data. So new hires often don't know how to read a benefits breakdown.\n\n## The main limit: patient privacy law (HIPAA)\n\nAnthropic only signs a HIPAA agreement for its API and for sales-assisted Enterprise plans. Free, Pro, Max and Team plans aren't covered, and neither is Cowork. Most small offices would be on one of those plans, so v1 must never need patient names, birth dates or member IDs. That's workable, because the estimate math only needs the plan's terms, the procedure codes and the fees.\n\n## What version one should do\n\nThe main task, under 5 minutes using bundled sample files:\n1. The user drops in a payer benefits PDF and a treatment plan CSV.\n2. The plugin pulls out the plan's terms: deductible, coinsurance, annual max, frequency limits, waiting periods and downgrades.\n3. A bundled script calculates the amount owed per line, so the model never does the arithmetic itself.\n4. It flags problems, such as treatment that goes over the annual max or falls inside a waiting period.\n5. It writes a one-page estimate for the patient and a short phone script.\n\nIt would have three skills:\n- **`estimate`:** does the calculation.\n- **`explain-to-patient`:** writes a plain-language letter or phone script, in English or Spanish.\n- **`read-breakdown`:** walks a new hire through reading a benefits breakdown.\n\n## What it won't do in v1\n\n- **No connection to practice software** (Dentrix, Eaglesoft, Open Dental). Two of the three need vendor approval, and Eaglesoft's program reportedly costs $3–5k. All of them would bring patient data in.\n- **No live insurance checks or scraping of insurer websites.** That breaks insurer terms and needs logins.\n- **No claims, narratives or appeals.** That's a clinical liability risk.\n- **No phone answering or scheduling.** That market is crowded, with products from about $299 a month.\n- **No Medicaid.** The rules vary by state.\n\nThe brief also has five test scenarios with exact expected dollar amounts, the safety rules and the day-30 numbers for deciding whether to continue.\n\n## Caveats\n\n- The demand scanner was blocked by the sandbox, so I haven't checked whether an official Anthropic plugin or an existing connector already covers this. Allowing access to `api.github.com`, `hn.algolia.com`, `raw.githubusercontent.com`, `registry.smithery.ai` and `registry.npmjs.org` would let me run it.\n- I didn't find any discussion from actual front desk staff. Almost all sources were vendor blogs or ADA data.\n- Several figures are marked [UNVERIFIED] in the brief, including the turnover rate. So is the licensing for the dental procedure (CDT) codes, which the ADA controls.\n\nDo you want me to go ahead and set up the plugin files from this brief? If you'd rather change direction first, I'll update the brief. One example would be putting the new-hire training first, or building for consultants instead of offices.\n\n**Sources:**\n- [Curve Dental: insurance verification guide](https://www.curvedental.com/blog/dental-insurance-verification-guide)\n- [Patientdesk.ai: cites the Zentist survey](https://www.patientdesk.ai/blog/real-time-insurance-verification-94-claim-acceptance-in-2026)\n- [US Tech Automations](https://ustechautomations.com/resources/blog/dental-insurance-verification-automation)\n- [Overjet: time savings](https://www.overjet.com/blog/average-time-savings-ai-dental-insurance-verification-for-modern-dental-practices)\n- [Mentera: comparison of practice software](https://mentera.ai/blog/dental-pms-comparison-ai-layer-integration)\n- [Medix Dental: AI tools](https://medixdental.com/ai-tools-for-dental-practices/)\n- [Anthropic: HIPAA agreements](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)\n- [ADA News: staffing shortages, 2025](https://adanews.ada.org/ada-news/2025/february/five-years-later-staffing-shortages-infection-control-since-the-covid-19-pandemic/)\n- [DrBicuspid: ADA hiring survey](https://www.drbicuspid.com/dental-practice/office-management/staff-shortages/article/15446949/ada-dentists-say-its-still-challenging-to-hire-dental-assistants-dental-hygienists)\n- [Practice by Numbers: front desk shortage](https://practicenumbers.com/blog/dental-staffing-shortage/)"
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.1064902,
+            "judgeCostUsd": 0.0031260000000000038,
+            "durationSeconds": 25,
+            "startedAt": "2026-10-02T18:57:41.911Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-iacGfm/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "hero",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "## Who would use it\n\n**Daily users:**\n- **Front desk coordinators and receptionists.** They answer phones, handle scheduling, confirmations and check-in, and get most of the patient questions.\n- **Insurance coordinators and billers.** They verify eligibility, break down benefits, file claims and handle denials. In small offices this is usually the same person as the front desk.\n- **Treatment coordinators.** They present treatment plans and costs and set up payment arrangements.\n\n**The buyer is someone else:** the office manager or the practice-owner dentist. Your best first target is an independent practice with 1–5 dentists and 2–4 front desk staff. Those offices have the pain but no IT team or enterprise software budget. Dental service organizations (DSOs) buy differently and want integrations, so leave them for later.\n\n**What these users are like:** they're busy, get interrupted constantly, and many aren't technical. If a feature needs more than \"paste this in, get a usable answer,\" it won't get used.\n\n## What version 1 should do\n\nThe hard part of dental software is the practice management system (PMS), such as Dentrix, Eaglesoft or Open Dental. Integrating with them is slow, and some are closed. So v1 should **work on text the user pastes in and produce drafts**, with no system integration. That means 3–4 focused skills:\n\n1. **Benefits explainer.** Paste an insurance breakdown or EOB (explanation of benefits) and get back:\n   - a plain-language patient estimate (\"Your plan covers 80% of the filling after your $50 deductible, so you'll owe about...\")\n   - a list of what still needs checking: frequency limits, waiting periods, missing-tooth clause, downgrades\n\n   This is the biggest time sink at the front desk and has the clearest value.\n2. **Patient message drafts.** Recall reminders, no-show follow-ups, overdue balance notices, post-op check-ins and new-patient welcomes. They should be written in the office's own voice, which the office sets once in a short config (name, tone, policies, cancellation fee).\n3. **Claim narratives and denial appeals.** Paste the denial reason and the clinical notes, and get a draft narrative or appeal letter. This one task saves a lot of time and stress.\n4. **Phone and policy quick reference (optional).** The office's own FAQ (cancellation policy, accepted insurance, financing options), so new staff can give consistent answers.\n\n**Leave out of v1:**\n- writing data back to the PMS or the schedule\n- choosing billing codes (CDT codes) for staff to submit without review\n- anything that sounds like clinical advice\n- payment processing\n\nEvery output should be a draft that a person reviews before it goes out.\n\n## The issue to settle first: patient privacy\n\nFront desk work involves protected health information (PHI) all the time: names, dates of birth, insurance IDs, treatment details. Before you build:\n- Offices can only paste PHI into Claude if their Claude plan is covered by a **BAA** (business associate agreement, required under HIPAA). Check which plans currently offer one and say so clearly in your docs.\n- Design each skill so it still works with de-identified input where possible, for example \"Patient A, D2391 on #30\".\n- Include setup guidance so offices know what they're allowed to paste.\n\n## Before building\n\nTalk to 5–10 front desk people. Ask them what they did yesterday that took the longest and felt the most repetitive. I'd bet on insurance verification and benefits explanations, but their answers should decide which skill you build first.\n\nIf you'd like, I can set up the plugin structure with the benefits explainer as the first skill and an office-settings file for the voice and policies."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 4,
+    "casesPassed": 4,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.16666666666666669
+  }
+}

@@ -8,10 +8,10 @@ other signals: none
 secrets masked: 2
 --- excerpt (raw log line numbers) ---
        | [... lines 1-6165 omitted ...]
-  6166 | tests/integration/test_bulk_export_30.py::test_export_batch[125] PASSED [ 95%]
-  6167 | tests/integration/test_bulk_export_30.py::test_export_batch[126] PASSED [ 95%]
+  6166 | t30[125] ok
+  6167 | t30[126] ok
        | [... 72 similar lines collapsed ...]
-  6240 | tests/integration/test_bulk_export_30.py::test_export_batch[199] PASSED [ 96%]
+  6240 | t30[199] ok
   6241 | /scripts-512-90303/step_script: line 214:   312 Killed                  python -m pytest tests/integration -v -p no:cacheprovider
        | [... lines 6242-6244 omitted ...]
   6245 | ERROR: Job failed: exit code 137

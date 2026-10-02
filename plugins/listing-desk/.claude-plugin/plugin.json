@@ -1,7 +1,7 @@
 {
   "name": "listing-desk",
   "displayName": "Listing Desk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Listing appointment prep and listing launch for US residential real estate agents: a CMA from your own MLS CSV export, listing copy, and a Fair Housing check on every word, plus contract deadlines and follow-up drafts.",
   "author": {
     "name": "Press Start Studios",
