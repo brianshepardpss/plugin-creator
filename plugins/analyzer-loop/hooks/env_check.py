@@ -20,6 +20,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+SKIP = {".dart_tool", "build", ".git", "node_modules", ".fvm"}
+
 
 def ver(s):
     return tuple(int(x) for x in re.findall(r"\d+", s)[:3]) if s else ()
@@ -53,7 +55,12 @@ def main():
     root = Path(args[0] if args else os.environ.get("CLAUDE_PROJECT_DIR", os.getcwd()))
     pubspec = root / "pubspec.yaml"
     if not pubspec.exists():
-        if verbose:
+        nested = [q for q in list(root.glob("*/pubspec.yaml")) + list(root.glob("*/*/pubspec.yaml"))
+                  if not SKIP.intersection(q.parts)]
+        if nested and not shutil.which("dart"):
+            print("Analyzer Loop: found Dart/Flutter packages here but `dart` is not on PATH, so the Dart "
+                  "language server (LSP) cannot start. Add <flutter>/bin to PATH and restart Claude Code.")
+        elif verbose:
             print(f"No pubspec.yaml in {root}; nothing to check.")
         return 0
 

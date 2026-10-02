@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurant Ops</title><meta name="description" content="Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For independent restaurants</span>
+<h1>Restaurant Ops</h1><p class="lead">Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.</p>
+<h2>Install</h2>
+<p><strong>Claude Cowork or claude.ai:</strong> download the plugin file and install it.</p>
+<p><a class="btn" data-track="download_plugin" data-plugin="restaurant-ops" href="https://github.com/brianshepardpss/restaurant-ops/releases/latest?utm_source=site&utm_campaign=restaurant-ops">Download Restaurant Ops</a></p>
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="restaurant-ops">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install restaurant-ops@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><pre>/restaurant-ops:demo</pre><p>or just ask &quot;show me the restaurant ops demo&quot;. In a few minutes you get, for a fictional fast-casual spot:</p><p>1. Plate costs for 5 dishes and a sub-recipe sauce, with the arithmetic on every line. Chicken Bowl: $2.43 = 20.28% food cost at $12.00; price at 28% would be $8.69. 2. The latest invoice: chicken thighs +14.29% ($98.00 -&gt; $112.00 per 40 lb case), Chicken Bowl now $2.60 = 21.65%, every other dish unchanged. 3. Menu engineering on 30 days of Square-style item sales: stars, plowhorses, puzzles, dogs. 4. Five &quot;what to do Monday&quot; actions, and CSV files you can open in Excel or Google Sheets.</p>
+<h2>What it does</h2><div style='overflow-x:auto'><table><tr><th>Skill</th><th>Ask it</th><th>You get</th></tr><tr><td>plate-cost</td><td>&quot;cost out this recipe and price it at 28%&quot;</td><td>per-line costs (yield applied as AP / yield), plate cost, food cost %, price at target; <code>recipe_costs.csv</code>, <code>recipe_lines.csv</code></td></tr><tr><td>invoice-tracker</td><td>&quot;new invoice came in, what went up?&quot;</td><td>flagged price changes (default &gt;= 5%) and before/after plate costs; you confirm the extracted invoice lines first; <code>price_changes.csv</code>, <code>plate_impact.csv</code>, <code>ingredients_updated.csv</code></td></tr><tr><td>menu-engineer</td><td>&quot;which dishes are stars and dogs?&quot;</td><td>Kasavana-Smith matrix from a Toast, Square, Clover or any item-sales CSV; <code>menu_matrix.csv</code></td></tr><tr><td>allergen-matrix</td><td>&quot;make an allergen chart for the staff&quot;</td><td>DRAFT matrix of the 9 major US allergens; UNKNOWN wherever a spec sheet is missing; never says &quot;safe&quot; or &quot;free of&quot;; <code>allergen_matrix.csv</code></td></tr><tr><td>labor-draft</td><td>&quot;draft next week&#x27;s schedule at 28% labor on $18k&quot;</td><td>costed draft schedule with overtime, minor and predictive-scheduling flags; <code>schedule_draft.csv</code>, <code>labor_summary.csv</code></td></tr><tr><td>request</td><td>&quot;I wish this could...&quot;</td><td>a drafted feature request you can file yourself</td></tr></table></div><p>Output is CSV (opens in Excel and Google Sheets). The scripts use only the Python standard library, which cannot write .xlsx files.</p>
+<h2>Privacy</h2><p>Nothing leaves your machine beyond your normal Claude conversation. The plugin makes no network calls, has no telemetry, and connects to no POS. Sales and staff files can contain names; the skills avoid repeating them.</p>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="restaurant-ops" href="https://github.com/brianshepardpss/restaurant-ops?utm_source=site&utm_campaign=restaurant-ops">github.com/brianshepardpss/restaurant-ops</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Toast, Inc., Block, Inc. (Square), or</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

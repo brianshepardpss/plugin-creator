@@ -14,7 +14,7 @@ and will they pay someone to build one for them?
     business" threads with the deposit-letter example; no cold posts.
   - LinkedIn: a 60-second screen recording of the sample flow.
   - Cowork-focused communities and newsletters.
-- Waitlist test (the Level 4 signal): the landing page in site/ offers a
+- Waitlist test (the Level 4 signal): the landing page in docs/ (built-for-you.html) offers a
   "built for you" service -- send three examples, get a tested plugin back.
   Count signups before building any service.
 - Listing text: "Make My Plugin -- turn a task you repeat into your own

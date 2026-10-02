@@ -21,8 +21,11 @@ against, and list every PNG that changed.
 
 ## 1. Measure the failure
 
-1. Argument `sample`: use `<plugin root>/samples/golden_drift/ci_artifacts/failures`
-   and `ci_failure.log` (read only; nothing to copy).
+1. Argument `sample` (or the user points at the golden_drift sample): run
+   `cp -r "<plugin root>/samples/golden_drift" ./golden_drift` and work in the
+   copy; its failures are in `./golden_drift/ci_artifacts/failures` and the
+   log is `./golden_drift/ci_failure.log`. Never edit files inside the plugin
+   directory.
 2. Otherwise find the failure images: `test/failures/` next to the failing
    test (`<name>_masterImage.png`, `_testImage.png`, `_isolatedDiff.png`,
    `_maskedDiff.png`), or the CI artifact the user downloaded. If there are

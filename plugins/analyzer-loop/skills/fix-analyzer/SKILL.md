@@ -90,6 +90,7 @@ Analyzer Loop: <project>
 Before:  <N> issues (<e> errors, <w> warnings, <i> infos)      [analyze_report.py]
 dart fix: <k> fixes in <f> files
 After:   <M> issues                                             [analyze_report.py --compare]
+Before -> after: <copy the script's "Before -> after" line verbatim>
 Guardrails: <OK line from the script, or the FAIL lines>
 Tests:   <passed>/<total> (<command>)
 

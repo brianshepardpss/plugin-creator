@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Make My Plugin</title><meta name="description" content="Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For non-developer domain experts</span>
+<h1>Make My Plugin</h1><p class="lead">Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.</p>
+<h2>Install</h2>
+<p><strong>Claude Cowork or claude.ai:</strong> download the plugin file and install it.</p>
+<p><a class="btn" data-track="download_plugin" data-plugin="make-my-plugin" href="https://github.com/brianshepardpss/make-my-plugin/releases/latest?utm_source=site&utm_campaign=make-my-plugin">Download Make My Plugin</a></p>
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="make-my-plugin">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install make-my-plugin@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><p>Say: &quot;Make me a plugin from the sample move-out letters.&quot; It walks through the interview using the bundled examples from a fictional property manager, builds a Deposit Letter Assistant, tests it on new inspection notes, and packages it.</p><p>Then try it on your own work: <code>/make-my-plugin:make</code> and describe the task.</p>
+<h2>What it does</h2><div style='overflow-x:auto'><table><tr><th>Piece</th><th>Purpose</th></tr><tr><td><code>/make-my-plugin:make</code></td><td>The whole flow: interview, build, test, package</td></tr><tr><td>capture-workflow</td><td>A short, plain-language interview that writes WORKFLOW.md</td></tr><tr><td>build-my-plugin</td><td>Builds the plugin, tests it on your own example, packages a <code>.plugin</code> file</td></tr><tr><td>improve-my-plugin</td><td>&quot;It keeps getting X wrong&quot; -- fixes, retests and repackages</td></tr><tr><td>share-my-plugin</td><td>Optional: a generalized, anonymized public version you can submit</td></tr></table></div><p>Any numbers in your task (totals, dates, prices) are computed by a small script built from the rules you give, never guessed.</p>
+<h2>Privacy</h2><p>Your examples and your plugin stay in your Claude account and on your machine. Nothing is shared unless you use share-my-plugin and submit the public copy yourself, after reviewing every file.</p>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="make-my-plugin" href="https://github.com/brianshepardpss/make-my-plugin?utm_source=site&utm_campaign=make-my-plugin">github.com/brianshepardpss/make-my-plugin</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Anthropic.</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

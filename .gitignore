@@ -6,3 +6,4 @@ evals/results/*
 plugins/*/evals/results/*
 !plugins/*/evals/results/last.json
 .DS_Store
+plugins/*/evals-run.log

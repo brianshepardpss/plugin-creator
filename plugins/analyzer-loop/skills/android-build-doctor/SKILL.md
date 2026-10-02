@@ -52,7 +52,7 @@ Allowed files: `android/gradle/wrapper/gradle-wrapper.properties`,
 `android/app/build.gradle(.kts)`, `android/gradle.properties`. Never touch
 `lib/`, `pubspec.yaml`, `ios/` or signing config in this step.
 
-1. Generate a reference: `flutter create --platforms=android --project-name ref_app <tmp dir>/ref_app`
+1. Generate a reference: `flutter create --no-pub --platforms=android --project-name ref_app <tmp dir>/ref_app`
    (needs the Flutter SDK, no network) and diff its `android/` against the
    user's. Copy structure, not app ids or signing.
 2. `gradle-wrapper.properties`: set `distributionUrl` to the target Gradle

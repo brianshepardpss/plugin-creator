@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Construction PM Toolkit</title><meta name="description" content="Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For construction project managers</span>
+<h1>Construction PM Toolkit</h1><p class="lead">Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.</p>
+<h2>Install</h2>
+<p><strong>Claude Cowork or claude.ai:</strong> download the plugin file and install it.</p>
+<p><a class="btn" data-track="download_plugin" data-plugin="construction-pm" href="https://github.com/brianshepardpss/construction-pm/releases/latest?utm_source=site&utm_campaign=construction-pm">Download Construction PM Toolkit</a></p>
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="construction-pm">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install construction-pm@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><pre>/register sample</pre><p>It reads three fictional spec sections (08 71 00 Door Hardware, 09 91 23 Interior Painting, 23 05 93 TAB) and a 40-activity schedule, and writes <code>submittals.csv</code>: 23 rows, each citing its section and article, with action/informational/closeout category, Submit By dates computed from the schedule (working shown), LONG-LEAD flags on the electrified hardware and or-equal flags. Then:</p><pre>/rfi sample        # door 104 frame vs hardware set HW-3, logged as RFI-006
+/daily sample      # voice memo -&gt; daily report, unforeseen footing flagged</pre><p>Or just talk to it: &quot;write up the OAC minutes from this transcript&quot;, &quot;price this as a change order: 3 painters 2 days, $1,240 material, 10% OH 5% fee&quot;, &quot;make my three week look-ahead&quot;.</p>
+<h2>What it does</h2><div style='overflow-x:auto'><table><tr><th>Skill</th><th>You say</th><th>You get</th></tr><tr><td>submittal-register</td><td>&quot;build my submittal register&quot;</td><td>submittals.csv, cited to spec article, dated from your schedule</td></tr><tr><td>rfi</td><td>&quot;draft an RFI about...&quot;</td><td>one-question RFI with spec/drawing cite, logged to rfis.csv with days open</td></tr><tr><td>daily-report</td><td>&quot;write my daily from this voice memo&quot;</td><td>structured daily, manpower totals, notice events flagged, gaps marked &quot;not recorded&quot;</td></tr><tr><td>meeting-minutes</td><td>&quot;minutes from this OAC transcript&quot;</td><td>carry-forward minutes (old items keep numbers), actions.csv updated</td></tr><tr><td>change-order-narrative</td><td>&quot;price this added scope as a CO&quot;</td><td>change order request in our own template, math by script with working</td></tr><tr><td>lookahead</td><td>&quot;3-week look-ahead&quot;</td><td>week-by-week table with submittal/RFI constraints and procurement watch</td></tr><tr><td>delay-notice</td><td>&quot;the owner delayed us, what notice do I owe?&quot;</td><td>points you to your contract, quotes its notice clauses if you paste them, drafts a neutral notice letter</td></tr><tr><td>request</td><td>&quot;I wish this could...&quot;</td><td>a feature request draft you can file yourself</td></tr></table></div><p>Commands: <code>/register</code>, <code>/rfi</code>, <code>/daily</code>. Agent: <code>register-checker</code> does a second completeness pass on a draft register.</p><p>Inputs: spec PDFs with a text layer (scanned pages need OCR first), notes, voice-memo transcripts, photos, and CSV exports from your scheduling tool (Primavera P6, Microsoft Project or a spreadsheet). Outputs are CSV files that open in Excel and Markdown drafts you paste into Word or email.</p>
+<h2>Privacy</h2><p>Your specs, contracts and notes stay in your Claude conversation and the files it writes in your working folder. The plugin makes no network calls, has no telemetry and connects to no service. The bundled scripts are standard-library Python you can read.</p>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="construction-pm" href="https://github.com/brianshepardpss/construction-pm?utm_source=site&utm_campaign=construction-pm">github.com/brianshepardpss/construction-pm</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Procore Technologies, Inc. Not affiliated with or endorsed by Autodesk, Inc. Not affiliated with or endorsed by The American Institute of Architects (AIA). Not affiliated with or endorsed by the Construction Specifications Institute (CSI); MasterFormat is a CSI trademark. Not affiliated with or endorsed by Oracle (Primavera P6) or Microsoft (Project, Excel, Word).</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

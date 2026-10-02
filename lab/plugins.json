@@ -13,7 +13,7 @@
         "stars": 50,
         "requests": 3
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "plugin-studio",
@@ -26,7 +26,7 @@
         "stars": 25,
         "requests": 5
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "make-my-plugin",
@@ -39,7 +39,7 @@
         "stars": 15,
         "requests": 10
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "grounded-scala",
@@ -53,7 +53,7 @@
         "stars": 40,
         "requests": 10
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "analyzer-loop",
@@ -81,7 +81,7 @@
         "stars": 40,
         "requests": 5
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "helpdesk",
@@ -95,7 +95,7 @@
         "stars": 100,
         "requests": 15
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "structured-hiring",
@@ -109,7 +109,7 @@
         "stars": 30,
         "requests": 10
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "deal-tender",
@@ -123,7 +123,7 @@
         "stars": 40,
         "requests": 10
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "listing-desk",
@@ -137,7 +137,7 @@
         "stars": 30,
         "requests": 10
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "construction-pm",
@@ -151,7 +151,7 @@
         "stars": 40,
         "requests": 5
       },
-      "launched": null
+      "launched": "2026-10-02"
     },
     {
       "slug": "restaurant-ops",

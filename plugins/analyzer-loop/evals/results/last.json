@@ -1,0 +1,1077 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.287",
+  "startedAt": "2026-10-02T18:54:32.846Z",
+  "durationSeconds": 142,
+  "costUsd": 2.0420344000000004,
+  "partial": false,
+  "suite": {
+    "root": "/home/admin/code/plugin-creator/plugins/analyzer-loop",
+    "ablation": "with-without",
+    "threshold": 1,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "analyzer-loop",
+        "version": "0.1.0",
+        "path": "/home/admin/code/plugin-creator/plugins/analyzer-loop"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "android-mismatch-fix",
+      "dir": "evals/android-mismatch-fix",
+      "source": "prose",
+      "promptMarkdown": "My Android build broke right after I upgraded Flutter to 3.47.6 and Android Studio (its JDK is 21 now). The project is analyzer loop's android_mismatch sample, and build_failure.log in it is exactly what I get. Please copy the sample here and fix the Android build files to a set of versions that work together. I approve the edits, but don't touch my Dart code, and don't run a Gradle build.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "agp-kotlin",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "android_mismatch/android/settings.gradle"
+            },
+            "pattern": "com\\.android\\.application\"\\)?\\s+version\\s+\"(9\\.1\\.0|8\\.11\\.1)\"[\\s\\S]*org\\.jetbrains\\.kotlin\\.android\"\\)?\\s+version\\s+\"(2\\.4\\.0|2\\.2\\.20)\"",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "checker-ran",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Bash",
+            "input_match": "android_versions\\.py",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "gradle",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "android_mismatch/android/gradle/wrapper/gradle-wrapper.properties"
+            },
+            "pattern": "gradle-(9\\.3\\.1|8\\.14\\.3)-(all|bin)\\.zip",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "no-build",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Bash",
+            "input_match": "flutter build|gradlew",
+            "max": 0
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The sample pins Gradle 7.5, AGP 7.3.0, Kotlin 1.7.10, Java/Kotlin targets 1.8\nand minSdk 21; the log shows \"Unsupported class file major version 65\" (JDK 21).\n\nPASS if the reply ties the failure to JDK 21 running a Gradle that is too old,\nmoves Gradle, AGP and Kotlin together to one mutually compatible set (either\nGradle 9.3.1 / AGP 9.1.0 / Kotlin 2.4.0, or the stopgap Gradle 8.14.3 / AGP\n8.11.1 / Kotlin 2.2.20), aligns Java and Kotlin JVM targets (17), addresses\nminSdk (Flutter 3.47 requires at least 23; flutter.minSdkVersion is fine),\nshows a before/after table, and does not edit anything under lib/ or\npubspec.yaml or run a Gradle build.\nFAIL if it changes only one of the versions, picks versions that contradict\neach other, edits Dart code, or runs `flutter build` / `./gradlew`.",
+          "config": {
+            "criteria": "The sample pins Gradle 7.5, AGP 7.3.0, Kotlin 1.7.10, Java/Kotlin targets 1.8\nand minSdk 21; the log shows \"Unsupported class file major version 65\" (JDK 21).\n\nPASS if the reply ties the failure to JDK 21 running a Gradle that is too old,\nmoves Gradle, AGP and Kotlin together to one mutually compatible set (either\nGradle 9.3.1 / AGP 9.1.0 / Kotlin 2.4.0, or the stopgap Gradle 8.14.3 / AGP\n8.11.1 / Kotlin 2.2.20), aligns Java and Kotlin JVM targets (17), addresses\nminSdk (Flutter 3.47 requires at least 23; flutter.minSdkVersion is fine),\nshows a before/after table, and does not edit anything under lib/ or\npubspec.yaml or run a Gradle build.\nFAIL if it changes only one of the versions, picks versions that contradict\neach other, edits Dart code, or runs `flutter build` / `./gradlew`.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.12612500000000001,
+            "judgeCostUsd": 0.002632,
+            "durationSeconds": 18,
+            "startedAt": "2026-10-02T18:54:32.962Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-wn5yNz/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "agp-kotlin",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"android-mismatch-fix\" grader focus file \"android_mismatch/android/settings.gradle\": path \"android_mismatch/android/settings.gradle\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "checker-ran",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "gradle",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"android-mismatch-fix\" grader focus file \"android_mismatch/android/gradle/wrapper/gradle-wrapper.properties\": path \"android_mismatch/android/gradle/wrapper/gradle-wrapper.properties\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-build",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..0)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't copy the sample, so nothing has changed yet: no files edited, no build run.\n\nThe copy of `/home/admin/code/plugin-creator/plugins/analyzer-loop/samples/android_mismatch` into this directory was blocked by a deny rule in your permission settings. Every later step depends on that copy, including reading `build_failure.log`, running the version checker and editing the Android build files. I didn't try to reach the sample another way, because that would just get around the rule you set.\n\nYou can unblock this in one of two ways:\n\n1. **Allow the copy.** Loosen the deny rule for that `samples/` path and tell me to retry.\n2. **Copy it yourself.** Run `cp -r /home/admin/code/plugin-creator/plugins/analyzer-loop/samples/android_mismatch /tmp/claude-eval-wn5yNz/home/cwd/android_mismatch` and tell me when it's there.\n\nOnce the copy exists, I'll read the log and run the checker (`android_versions.py`) with JDK 21. It gives two version sets that work together: the current Flutter template, or a smaller stopgap. I'll recommend one and wait for your yes before editing. Then I'll change only the Android Gradle build files, not your Dart code, and I won't run a Gradle build."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.1175264,
+            "judgeCostUsd": 0.0037869999999999996,
+            "durationSeconds": 19,
+            "startedAt": "2026-10-02T18:54:32.962Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-S2mqfi/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "agp-kotlin",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"android-mismatch-fix\" grader focus file \"android_mismatch/android/settings.gradle\": path \"android_mismatch/android/settings.gradle\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "gradle",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"android-mismatch-fix\" grader focus file \"android_mismatch/android/gradle/wrapper/gradle-wrapper.properties\": path \"android_mismatch/android/gradle/wrapper/gradle-wrapper.properties\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-build",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..0)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't get to the sample, so I haven't copied or changed anything.\n\n**What blocked me:** The analyzer loop plugin (and its `android-mismatch-fix` eval sample) is under `/home/admin/code/plugin-creator/plugins/analyzer-loop/`. This session's sandbox blocks reading that tree, and from inside the sandbox the path doesn't exist at all. I also searched every location I can read, including the working directory `/tmp/claude-eval-S2mqfi/home/cwd`. No `android_mismatch` sample or `build_failure.log` is there. I didn't try other ways around the restriction, because changing the sandbox is up to you.\n\n**To unblock it, either:**\n1. Copy the sample into `/tmp/claude-eval-S2mqfi/home/cwd` yourself, e.g. `cp -r <path-to>/android_mismatch /tmp/claude-eval-S2mqfi/home/cwd/`, or\n2. Give this session read access to the sample's directory in the sandbox settings.\n\n**After that, I'll:**\n- Read `build_failure.log` to find the actual conflict.\n- Bring these into versions that work together with JDK 21 and Flutter 3.47.6:\n  - Gradle wrapper (`gradle-wrapper.properties`)\n  - Android Gradle Plugin and Kotlin plugin versions (`settings.gradle(.kts)` / top-level `build.gradle`)\n  - `compileOptions` / `kotlinOptions` / `jvmTarget` and SDK levels in `app/build.gradle(.kts)`\n- Edit only the Android build files. I won't touch any Dart code or `pubspec.yaml`, and I won't run a Gradle build."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "golden-ci-drift",
+      "dir": "evals/golden-ci-drift",
+      "source": "prose",
+      "promptMarkdown": "Our price badge golden test fails on CI but passes on my Mac. The CI log and the failure images are in the analyzer loop golden_drift sample (ci_failure.log and ci_artifacts/failures). How far off is it exactly, and what should we do so CI goes green?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 25,
+      "graders": [
+        {
+          "name": "exact-diff",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "0\\.0173\\s*%",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "exact-pixels",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\\b1\\s*(?:px|pixel)[^\\n]{0,40}\\b5,?796\\b|\\b5,?796\\b[^\\n]{0,60}\\b1\\s*(?:px|pixel)|1 of 5,?796",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "guardrail",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The golden differs by 1 pixel of 5796 (0.0173%, max channel delta 8) because\nit was generated on macOS and compared on Linux CI.\n\nPASS if the reply quotes the measured difference, explains it as cross-platform\nrendering drift (font/anti-aliasing/OS rasterisation), and proposes a durable\nfix such as generating and comparing goldens only on Linux, Alchemist CI\ngoldens, or a small tolerant comparator with a stated tolerance, and does NOT\nregenerate the goldens (no `--update-goldens`) since the user did not ask.\nFAIL if it ran or simply recommends running `flutter test --update-goldens` on\nthe Mac as the fix, recommends the discontinued golden_toolkit, or proposes a\ntolerance above 1% without justification.",
+          "config": {
+            "criteria": "The golden differs by 1 pixel of 5796 (0.0173%, max channel delta 8) because\nit was generated on macOS and compared on Linux CI.\n\nPASS if the reply quotes the measured difference, explains it as cross-platform\nrendering drift (font/anti-aliasing/OS rasterisation), and proposes a durable\nfix such as generating and comparing goldens only on Linux, Alchemist CI\ngoldens, or a small tolerant comparator with a stated tolerance, and does NOT\nregenerate the goldens (no `--update-goldens`) since the user did not ask.\nFAIL if it ran or simply recommends running `flutter test --update-goldens` on\nthe Mac as the fix, recommends the discontinued golden_toolkit, or proposes a\ntolerance above 1% without justification.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "no-update",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Bash",
+            "input_match": "update-goldens",
+            "max": 0
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 7,
+            "costUsd": 0.20639760000000001,
+            "judgeCostUsd": 0.003165000000000001,
+            "durationSeconds": 35,
+            "startedAt": "2026-10-02T18:54:32.962Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-ktPfJU/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "exact-diff",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched 0\\.0173\\s*%",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "exact-pixels",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched \\b1\\s*(?:px|pixel)[^\\n]{0,40}\\b5,?796\\b|\\b5,?796\\b[^\\n]{0,60}\\b1\\s*(?:px|pixel)|1 of 5,?796",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "guardrail",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I measured the diff, but I haven't changed any files.\n\n```\nGolden: price_badge  (test/price_badge_golden_test.dart)\nDiff: 1 px of 5796 = 0.0173% (flutter: 0.02%), max channel delta 8, bbox (69,1)-(69,1)   [golden_diff.py]\nVerdict: rendering drift because one anti-aliased pixel on the badge's top border edge is off by 8/255 in one channel; the image size (138x42) matches, and the golden was made on macOS but is compared on ubuntu-latest\nFix: compare goldens on Linux only (recipe B) -> dart_test.yaml (new), test/price_badge_golden_test.dart (@Tags(['golden']) + skip: !Platform.isLinux), CI job runs `flutter test --tags golden`, and a manual Linux job regenerates the PNG\nGoldens regenerated: none\n```\n\n**How far off it is:** exactly one pixel out of 5,796, which is 0.0173%. Flutter rounds that to 0.02% in the log. The worst channel is off by 8 out of 255, at x=69, y=1. That's the middle of the badge's 2px rounded border, where anti-aliasing differs slightly between Skia on macOS and on Linux. The widget hasn't changed. The setup is the problem: `test/goldens/price_badge.png` was made with `--update-goldens` on your MacBook, and CI checks it on Linux. Every golden you make on the Mac will have this problem.\n\n**What to do so CI goes green:**\n1. **Recommended: make Linux the only platform that makes and checks goldens.** Tag the golden tests `golden` and skip them when not on Linux. Run `flutter test --tags golden` on CI and `flutter test --exclude-tags golden` locally. Then regenerate `price_badge.png` once, either in a CI job you trigger by hand or in a Linux container on Flutter 3.47.6 (the same version CI uses), and commit that PNG. This fixes the cause instead of hiding it, and the comparison stays exact.\n2. **Quick alternative: a tolerant comparator** in `test/flutter_test_config.dart`. The smallest tolerance that passes this run is 0.0002 (0.02%), so something like 0.0005 would be enough. It does turn CI green without regenerating anything, but every future Mac-made golden is still a gamble, and it would let a real 1–2 pixel regression through.\n3. **For a bigger suite later: Alchemist.** Its CI goldens draw text as blocks and flatten shadows, so they compare the same on any OS.\n\nOne small thing while you're in the test: add `await tester.pumpAndSettle();` before `expectLater`.\n\n**I couldn't make the edits in a working copy.** A permission rule blocked copying the sample into your working directory. I only read the log and images where they are; nothing in the plugin directory changed. If you tell me where your real `pebble_pine` repo is, or allow the copy, I'll apply option 1 there. I won't regenerate `price_badge.png` unless you ask, and then only on Linux."
+              },
+              {
+                "name": "no-update",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.1241808,
+            "judgeCostUsd": 0.0026250000000000006,
+            "durationSeconds": 23,
+            "startedAt": "2026-10-02T18:54:50.980Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Hwmh1g/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "exact-diff",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "exact-pixels",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "guardrail",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't open the files, so I can't tell you yet how far off the test is.\n\nThe `golden_drift` sample (`ci_failure.log` and `ci_artifacts/failures/`) seems to be under `/home/admin/code/plugin-creator/plugins/analyzer-loop/evals/golden-ci-drift`. This session's sandbox blocks reading that path, and my command to list it was denied. My working directory has no copy, and searching the folders I can read found no `ci_failure` or golden files. I won't give you a pixel count I haven't measured.\n\n**To get an exact answer**, do one of these:\n- Copy the sample into my working directory: `cp -r <sample> /tmp/claude-eval-Hwmh1g/home/cwd/`\n- Paste the failure lines from `ci_failure.log` here. Flutter's golden comparator prints something like `Pixel test failed, X.XX%, XXXpx diff detected`.\n- Change the sandbox settings so that path is readable. That's your decision.\n\nWith the log and the `_isolatedDiff.png` / `_maskedDiff.png` images, I can give you the exact percentage, the pixel count, and which part of the badge changed.\n\n**Likely cause, until I can confirm it:** golden tests that pass on a Mac but fail on Linux CI are almost always caused by text rendering. Font hinting, antialiasing and fallback fonts differ between the two systems. That usually shows up as a fraction of a percent of pixels changing around the price text. A real layout regression looks different: large shifted areas in the diff image.\n\n**Usual ways to get CI green**, best first:\n1. **Generate and check goldens on one platform.** Run `flutter test --update-goldens` in the same Linux image CI uses, or tag golden tests so they only run on CI. Your Mac golden and CI's render will never match pixel for pixel.\n2. **Load real fonts in tests** (e.g. with `golden_toolkit`'s `loadAppFonts()`, or by bundling the font). Then the badge doesn't use the default \"Ahem\" font or a system fallback font.\n3. **Allow a small tolerance with a custom `GoldenFileComparator`**, for example ≤0.5%. Only do this if the diff really is tiny antialiasing noise. Setting a threshold without seeing the diff could hide real regressions, which is why I want the numbers first.\n\nSend me the log or the copied folder and I'll check which of these fits."
+              },
+              {
+                "name": "no-update",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.75,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0.75
+      }
+    },
+    {
+      "name": "hero-fix-sample",
+      "dir": "evals/hero-fix-sample",
+      "source": "prose",
+      "promptMarkdown": "/analyzer-loop:fix-analyzer sample",
+      "runsPerCase": 3,
+      "timeoutSeconds": 1200,
+      "maxTurns": 40,
+      "graders": [
+        {
+          "name": "dart-fix-first",
+          "type": "tool_order",
+          "weight": 1,
+          "config": {
+            "before": {
+              "tool": "Bash",
+              "input_match": "dart fix --apply"
+            },
+            "after": {
+              "tool": "Edit"
+            }
+          }
+        },
+        {
+          "name": "no-ignores",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "files",
+            "pattern": "//\\s*ignore(_for_file)?\\s*:",
+            "flags": "",
+            "match": "not_contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The user ran the fix-analyzer demo on a bundled Flutter sample (27 analyzer\nissues: Riverpod 2 StateNotifier code on Riverpod 3, removed go_router getters,\nwithOpacity, WillPopScope, MaterialStateProperty, textScaleFactor, ButtonBar).\n\nPASS if the final reply shows a before count of 27 and an after count of 0\nissues, says `dart fix` ran before manual edits, lists the manual migrations\n(for example StateNotifier -> Notifier, valueOrNull -> value, WillPopScope ->\nPopScope), reports test results, and states that no `// ignore` comments were\nadded and analysis_options.yaml was not changed.\nFAIL if issues remain without explanation, if it silenced diagnostics with\nignore comments or analysis_options edits, if it upgraded or downgraded\npackages, or if the counts were not produced by running the analyzer.",
+          "config": {
+            "criteria": "The user ran the fix-analyzer demo on a bundled Flutter sample (27 analyzer\nissues: Riverpod 2 StateNotifier code on Riverpod 3, removed go_router getters,\nwithOpacity, WillPopScope, MaterialStateProperty, textScaleFactor, ButtonBar).\n\nPASS if the final reply shows a before count of 27 and an after count of 0\nissues, says `dart fix` ran before manual edits, lists the manual migrations\n(for example StateNotifier -> Notifier, valueOrNull -> value, WillPopScope ->\nPopScope), reports test results, and states that no `// ignore` comments were\nadded and analysis_options.yaml was not changed.\nFAIL if issues remain without explanation, if it silenced diagnostics with\nignore comments or analysis_options edits, if it upgraded or downgraded\npackages, or if the counts were not produced by running the analyzer.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "zero-issues",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "27\\s*(?:->|to|→)\\s*0",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.25,
+            "passed": false,
+            "turns": 5,
+            "costUsd": 0.18213520000000002,
+            "judgeCostUsd": 0.002508,
+            "durationSeconds": 55,
+            "startedAt": "2026-10-02T18:54:52.136Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Q6Vxir/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "dart-fix-first",
+                "passed": false,
+                "weight": 1,
+                "explanation": "\"before\" tool Bash never called",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-ignores",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I stopped at preflight without changing anything, because two things this run depends on are blocked.\n\n**1. Copying the sample was refused.** The skill's first step is `cp -r <plugin root>/samples/stale_app ./stale_app`. A permission deny rule on the plugin directory blocked it. The Read tool can still see the sample's files (`lib/`, `test/`, `pubspec.yaml`, `pubspec.lock`, `analysis_options.yaml`). I didn't rebuild the copy file by file, because that would be a way around the deny rule rather than something you've approved.\n\n**2. Dart doesn't work inside the sandbox.** `dart --version` fails with:\n```\nError: The Flutter directory is not a clone of the GitHub project.\n```\nThe sandbox lets me read only `/home/admin/.local/sdk/flutter/bin`. The rest of the SDK is blocked, including its `.git` folder and `packages/flutter`. So the `dart` wrapper can't start, and even calling the Dart binary directly couldn't load `package:flutter`. Every count would be fake errors. Under the skill's rule, \"If `dart` is missing, say so and stop\", I stopped.\n\nThe bundled `analyze_report.py` does run (`--help` works), so the script isn't the problem.\n\n```\nAnalyzer Loop: samples/stale_app (not started)\nBefore:  not measured (dart could not run in the sandbox)\ndart fix: not run\nAfter:   not measured\nBefore -> after: n/a\nGuardrails: n/a (no files touched)\nTests:   not run\n\nManual changes:\n- none\nLeft for you: everything. The sample couldn't be copied and the Flutter SDK can't be read from the sandbox.\n```\n\n**To unblock** (these are your settings to change; I haven't touched them):\n- Let the sandbox read the whole `/home/admin/.local/sdk/flutter` folder, not just `bin`.\n- Lift the deny rule that blocks Bash from reading `plugins/analyzer-loop/samples`. Or copy `stale_app` into `/tmp/claude-eval-Q6Vxir/home/cwd/` yourself.\n\nOnce either is done, run `/analyzer-loop:fix-analyzer sample` again."
+              },
+              {
+                "name": "zero-issues",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0.25,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.10726300000000001,
+            "judgeCostUsd": 0.001740000000000002,
+            "durationSeconds": 21,
+            "startedAt": "2026-10-02T18:55:07.528Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-37Dorp/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "dart-fix-first",
+                "passed": false,
+                "weight": 1,
+                "explanation": "\"before\" tool Bash never called",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-ignores",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I didn't run anything. `/analyzer-loop:fix-analyzer` isn't installed in this session, so the command never executed. I also couldn't do the task by hand:\n\n- **No code to work on:** the working directory (`/tmp/claude-eval-37Dorp/home/cwd`) is an empty git repo with no commits and no analyzer code or \"sample\" target. The files in it are placeholder device nodes, not real files.\n- **The plugin is off-limits:** the `analyzer-loop` plugin seems to live under `/home/admin/code/plugin-creator/plugins/analyzer-loop`, but this session's sandbox blocks reading that path. So I can't check what `fix-analyzer` is meant to do or where its `sample` input lives.\n\nTo go ahead, either:\n1. Install `analyzer-loop` as an organization plugin or project skill so the command is available, then run it again. Or\n2. Give me the analyzer code and the \"sample\" input in a directory this session can read (like the current working directory), and tell me what \"fix\" means here: a failing test, wrong output, or a crash. I'll then debug and fix it directly."
+              },
+              {
+                "name": "zero-issues",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.25,
+        "passRate": 0,
+        "scoreWithout": 0.25,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "lsp-references",
+      "dir": "evals/lsp-references",
+      "source": "prose",
+      "promptMarkdown": "Copy analyzer loop's stale_app sample into this folder and run flutter pub get in it. Then tell me every place CartNotifier is used, with file:line, using the language server rather than text search.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 25,
+      "graders": [
+        {
+          "name": "call-sites",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "^(?=[\\s\\S]*cart_screen\\.dart:12)(?=[\\s\\S]*cart_notifier\\.dart:27)(?=[\\s\\S]*cart_notifier\\.dart:28)",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "lsp-used",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "LSP",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.1196062,
+            "judgeCostUsd": 0,
+            "durationSeconds": 15,
+            "startedAt": "2026-10-02T18:55:14.247Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-Ud8xfu/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "call-sites",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "lsp-used",
+                "passed": false,
+                "weight": 1,
+                "explanation": "LSP called 0x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.10673060000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 17,
+            "startedAt": "2026-10-02T18:55:28.690Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-dhJDkR/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "call-sites",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in last_message",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    },
+    {
+      "name": "state-notifier-migrate",
+      "dir": "evals/state-notifier-migrate",
+      "source": "prose",
+      "promptMarkdown": "We just bumped to flutter_riverpod 3.4.3 (no riverpod_generator in the project). Rewrite this the way it should be written now, keep the provider name and methods so the screens don't change, and give me a unit test for it. Write them to lib/favorites.dart and test/favorites_test.dart.\n\n```dart\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\nclass FavoritesNotifier extends StateNotifier<Set<String>> {\n  FavoritesNotifier() : super(<String>{});\n\n  void toggle(String sku) {\n    if (state.contains(sku)) {\n      state = {...state}..remove(sku);\n    } else {\n      state = {...state, sku};\n    }\n  }\n}\n\nfinal favoritesProvider =\n    StateNotifierProvider<FavoritesNotifier, Set<String>>((ref) => FavoritesNotifier());\n```",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 15,
+      "graders": [
+        {
+          "name": "no-legacy",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "lib/favorites.dart"
+            },
+            "pattern": "extends StateNotifier|StateNotifierProvider|legacy\\.dart",
+            "flags": "",
+            "match": "not_contains"
+          }
+        },
+        {
+          "name": "notifier",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "lib/favorites.dart"
+            },
+            "pattern": "extends Notifier<Set<String>>.*NotifierProvider<FavoritesNotifier,\\s*Set<String>>\\(\\s*FavoritesNotifier\\.new\\s*\\)",
+            "flags": "s",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?state-management\"",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "test-container",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "test/favorites_test.dart"
+            },
+            "pattern": "ProviderContainer(\\.test)?\\(",
+            "flags": "",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 9,
+            "costUsd": 0.23626619999999998,
+            "judgeCostUsd": 0,
+            "durationSeconds": 49,
+            "startedAt": "2026-10-02T18:55:29.281Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-errseo/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "no-legacy",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "notifier",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched extends Notifier<Set<String>>.*NotifierProvider<FavoritesNotifier,\\s*Set<String>>\\(\\s*FavoritesNotifier\\.new\\s*\\)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "test-container",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ProviderContainer(\\.test)?\\(",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.1360338,
+            "judgeCostUsd": 0,
+            "durationSeconds": 24,
+            "startedAt": "2026-10-02T18:55:45.200Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-UFOQfu/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "no-legacy",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "notifier",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched extends Notifier<Set<String>>.*NotifierProvider<FavoritesNotifier,\\s*Set<String>>\\(\\s*FavoritesNotifier\\.new\\s*\\)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "test-container",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ProviderContainer(\\.test)?\\(",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "trigger-android-log",
+      "dir": "evals/trigger-android-log",
+      "source": "prose",
+      "promptMarkdown": "flutter run on android suddenly fails with \"BUG! exception in phase 'semantic analysis' ... Unsupported class file major version 65\" since I updated android studio. what versions do I need to bump?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "answer",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply explains that class file major version 65 means Gradle is\nbeing run by JDK 21, that the Gradle wrapper must be raised (at least 8.4 to\nrun on JDK 21, and current Flutter needs Gradle 8.14 or newer), and that AGP\nand Kotlin must be raised together to a compatible set, and asks for or reads\ngradle-wrapper.properties and settings.gradle rather than guessing the\ncurrent versions.\nFAIL if it only suggests downgrading the JDK with no version guidance, or\ngives a single version bump without mentioning AGP/Kotlin compatibility.",
+          "config": {
+            "criteria": "PASS if the reply explains that class file major version 65 means Gradle is\nbeing run by JDK 21, that the Gradle wrapper must be raised (at least 8.4 to\nrun on JDK 21, and current Flutter needs Gradle 8.14 or newer), and that AGP\nand Kotlin must be raised together to a compatible set, and asks for or reads\ngradle-wrapper.properties and settings.gradle rather than guessing the\ncurrent versions.\nFAIL if it only suggests downgrading the JDK with no version guidance, or\ngives a single version bump without mentioning AGP/Kotlin compatibility.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "\"skill\"\\s*:\\s*\"(?:[\\w-]+:)?android-build-doctor\"",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 8,
+            "costUsd": 0.20038800000000004,
+            "judgeCostUsd": 0.002634000000000001,
+            "durationSeconds": 46,
+            "startedAt": "2026-10-02T18:55:47.185Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-qMVCWQ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "answer",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "**Cause:** class file major version 65 means JDK 21. Android Studio updates ship a newer bundled JDK (JBR), and Flutter uses it to run Gradle. Your Gradle wrapper is older than Gradle 8.4, which is the oldest version that runs on JDK 21. Bumping Gradle alone won't be enough, though: AGP and Kotlin have to move with it.\n\n**Versions to bump to.** These come from the checker's bundled Flutter 3.47.6 tables, and every pairwise check passes with JDK 21:\n\n| item | Recommended (current `flutter create` template) | Smaller change (no AGP 9 migration) |\n|---|---|---|\n| Gradle (`android/gradle/wrapper/gradle-wrapper.properties`) | 9.3.1 | 8.14.3 |\n| AGP `com.android.application` (`android/settings.gradle`) | 9.1.0 | 8.11.1 |\n| Kotlin `org.jetbrains.kotlin.android` (`android/settings.gradle`) | 2.4.0 | 2.2.20 |\n| Java `compileOptions` + Kotlin `jvmTarget` (`android/app/build.gradle`) | 17 (both) | 17 (both) |\n| `minSdk` | `flutter.minSdkVersion` (≥ 23) | same |\n\n- **Recommended set:** this is what Flutter generates today. Moving to AGP 9 also means copying the new template's `gradle.properties` flags (`android.newDsl`, `android.builtInKotlin`) and its `kotlin { compilerOptions }` block.\n- **Smaller change:** this gets past all of Flutter's minimums without the AGP 9 migration. Flutter will still warn that support for these versions \"will soon be dropped\". It's the better choice if one of your plugins doesn't work with AGP 9 yet.\n\n**Quickest workaround without upgrading:** point Flutter at a JDK 17 with `flutter config --jdk-dir=/path/to/jdk-17`. I'd still upgrade, because the old versions are below Flutter's minimums anyway.\n\n**What I couldn't check:** there's no Flutter project in the current directory, and the sandbox can't run the Flutter SDK. So I haven't read your actual build files. The table above comes from running the checker on the plugin's sample project, which has the same error. If you give me your project path, I can check your exact current versions, apply whichever set you choose to the Android build files only, and re-check them before you run `flutter run`."
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 2,
+            "costUsd": 0.1057886,
+            "judgeCostUsd": 0.0030120000000000043,
+            "durationSeconds": 19,
+            "startedAt": "2026-10-02T18:56:09.559Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-F77I19/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "answer",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Class file major version 65 means Java 21. Recent Android Studio releases (Hedgehog/Iguana and later, including Ladybug) ship JDK 21 as the bundled JBR, and Flutter builds with that JDK by default. Gradle versions older than 8.5 can't read Java 21 class files, and the Groovy compiler inside Gradle fails with that `BUG! exception in phase 'semantic analysis'` message.\n\nI couldn't check your versions because there's no Flutter project in my working directory. Here's what to bump.\n\n## Minimum versions for Java 21\n\n| Component | File | Minimum | Safe choice |\n|---|---|---|---|\n| **Gradle wrapper** | `android/gradle/wrapper/gradle-wrapper.properties` | 8.5 | 8.10.2 or newer |\n| **Android Gradle Plugin (AGP)** | `android/settings.gradle` (or `android/build.gradle` on older projects) | 8.2 | 8.7.x or newer |\n| **Kotlin Gradle plugin** | same place as AGP | 1.9.20 | 2.0.x or newer |\n\n**1. Gradle wrapper** (this change alone usually fixes the error):\n```properties\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\n```\n\n**2. AGP and Kotlin.** On the newer plugin DSL, in `android/settings.gradle`:\n```groovy\nplugins {\n    id \"dev.flutter.flutter-plugin-loader\" version \"1.0.0\"\n    id \"com.android.application\" version \"8.7.3\" apply false\n    id \"org.jetbrains.kotlin.android\" version \"2.1.0\" apply false\n}\n```\nOn the older style, in `android/build.gradle` → `buildscript { dependencies { ... } }`:\n```groovy\nclasspath 'com.android.tools.build:gradle:8.7.3'\n// and\next.kotlin_version = '2.1.0'\n```\n\n**3. If AGP is now 8.x and was 7.x before:** add a `namespace` to `android/app/build.gradle` if it doesn't have one, and remove `package=` from `AndroidManifest.xml`:\n```groovy\nandroid {\n    namespace \"com.example.yourapp\"\n    ...\n}\n```\n\nThen run:\n```sh\nflutter clean\ncd android && ./gradlew --stop && cd ..\nflutter run\n```\n\n## Alternative: build with JDK 17 instead\nIf you don't want to upgrade the build tooling yet, point Flutter at a JDK 17 install:\n```sh\nflutter config --jdk-dir=/path/to/jdk-17\n```\nThis works, but it's a stopgap. Future Flutter and plugin versions will expect the newer AGP and Gradle anyway.\n\nTo check which JDK Flutter is using, run `flutter doctor -v` and look for the \"Java version\" line under Android toolchain. If you run me from your project directory, I can read your current versions and make the edits."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "upgrade-majors",
+      "dir": "evals/upgrade-majors",
+      "source": "prose",
+      "promptMarkdown": "Copy analyzer loop's upgrade_app sample here, then upgrade go_router and Riverpod in it to their latest major versions and get it compiling with tests passing again. Go ahead with both families without asking me.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 1500,
+      "maxTurns": 50,
+      "graders": [
+        {
+          "name": "changelog-read",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Bash",
+            "input_match": "changelog_slice\\.py|CHANGELOG"
+          }
+        },
+        {
+          "name": "pubspec",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "upgrade_app/pubspec.yaml"
+            },
+            "pattern": "^(?=[\\s\\S]*flutter_riverpod:\\s*\\^3\\.)(?=[\\s\\S]*go_router:\\s*\\^18\\.)",
+            "flags": "",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "quality",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "The sample starts on flutter_riverpod 2.6.1 and go_router 6.5.9; the latest\nmajors are 3.x and 18.x, and upgrading breaks the code (StateNotifier,\nFutureProviderRef, valueOrNull, state.params/queryParams/location).\n\nPASS if the reply shows both packages moved to the new majors, cites specific\nbreaking changes taken from the packages' changelogs, migrates the code\n(StateNotifier -> Notifier or the legacy import, Ref, value,\npathParameters / uri.queryParameters / uri), reports `dart analyze` at 0\nissues and the tests passing, and did not add `// ignore` comments,\ndependency_overrides, or edit analysis_options.yaml.\nFAIL if either package stays on its old major, the analyzer still has errors,\ntests were not run, or diagnostics were silenced instead of fixed.",
+          "config": {
+            "criteria": "The sample starts on flutter_riverpod 2.6.1 and go_router 6.5.9; the latest\nmajors are 3.x and 18.x, and upgrading breaks the code (StateNotifier,\nFutureProviderRef, valueOrNull, state.params/queryParams/location).\n\nPASS if the reply shows both packages moved to the new majors, cites specific\nbreaking changes taken from the packages' changelogs, migrates the code\n(StateNotifier -> Notifier or the legacy import, Ref, value,\npathParameters / uri.queryParameters / uri), reports `dart analyze` at 0\nissues and the tests passing, and did not add `// ignore` comments,\ndependency_overrides, or edit analysis_options.yaml.\nFAIL if either package stays on its old major, the analyzer still has errors,\ntests were not run, or diagnostics were silenced instead of fixed.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 5,
+            "costUsd": 0.1372386,
+            "judgeCostUsd": 0.001968000000000001,
+            "durationSeconds": 22,
+            "startedAt": "2026-10-02T18:56:18.529Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-HAFAzB/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "changelog-read",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "pubspec",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"upgrade-majors\" grader focus file \"upgrade_app/pubspec.yaml\": path \"upgrade_app/pubspec.yaml\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't start the upgrade because the copy step was blocked. When I tried to copy `upgrade_app` from `/home/admin/code/plugin-creator/plugins/analyzer-loop/samples/` into this directory, the command was rejected by a deny rule on that path.\n\nI can still read the sample: listing it worked and shows `lib/`, `test/`, `pubspec.yaml`, `pubspec.lock` and `analysis_options.yaml`. But the rule blocks copying out of there. I could rebuild the files one by one with my file-reading and file-writing tools, but that would just be a way around your deny rule, so I haven't. Nothing has been created, changed or upgraded yet.\n\nTo unblock it, either:\n1. **Copy it yourself:** run `cp -r /home/admin/code/plugin-creator/plugins/analyzer-loop/samples/upgrade_app ./upgrade_app` from this directory, then tell me to continue; or\n2. **Allow the copy:** relax the deny rule so reading from that sample directory is allowed, or tell me directly to recreate the files with my file tools.\n\nOnce `./upgrade_app` exists, I'll upgrade go_router (from 6.5.9) and then Riverpod (`flutter_riverpod` from 2.6.1) to their latest major versions, one family at a time. After each one I'll get `dart analyze --fatal-infos` to zero and `flutter test` passing, then send the report."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 5,
+            "costUsd": 0.13635440000000001,
+            "judgeCostUsd": 0.0021299999999999965,
+            "durationSeconds": 26,
+            "startedAt": "2026-10-02T18:56:29.028Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-EFwwmR/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "changelog-read",
+                "passed": false,
+                "weight": 1,
+                "explanation": "Bash called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "pubspec",
+                "passed": false,
+                "weight": 1,
+                "explanation": "grader threw: case \"upgrade-majors\" grader focus file \"upgrade_app/pubspec.yaml\": path \"upgrade_app/pubspec.yaml\" does not exist",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "quality",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't do this because the sandbox won't let me read the source.\n\nThe analyzer-loop plugin lives under `/home/admin/code/plugin-creator/plugins/analyzer-loop/`, and this session's sandbox blocks reads there. Its `evals/` and `evals/upgrade-majors/` subdirectories are named in the deny list. `/home` is blocked too, apart from a few tool `bin` folders like Flutter and the Android SDK. Inside the sandbox, `plugin-creator` doesn't exist at all: `/home/admin/code` only contains `rental-analyzer-pro/google-cloud-sdk/bin`. I also checked the directories I can access (the eval home, `cwd`, and its `.claude` folder) and found no copy of `upgrade_app`.\n\nSo nothing was copied and no go_router or Riverpod upgrade was attempted. The working directory is unchanged.\n\nTo unblock this, either:\n- **Allow reads on the sample's path** in the sandbox settings (likely `.../analyzer-loop/evals/upgrade-majors/`). That's your call; I can't change it.\n- **Copy the `upgrade_app` folder into `/tmp/claude-eval-EFwwmR/home/cwd` yourself.**\n\nOnce I can see the project, I'll move both go_router and Riverpod to their latest major versions without checking back with you. That includes riverpod, flutter_riverpod, and any riverpod_annotation, riverpod_generator or riverpod_lint packages it uses. Then I'll fix the code until `flutter analyze` and `flutter test` pass. Package downloads from pub.dev may still be blocked by the network proxy, and I'll tell you if they are."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0,
+        "passRate": 0,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 0
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 7,
+    "casesPassed": 2,
+    "overallScore": 0.42857142857142855,
+    "overallPassRate": 0.2857142857142857,
+    "meanDelta": 0.10714285714285714
+  }
+}

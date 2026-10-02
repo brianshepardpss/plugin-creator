@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Structured Hiring Kit</title><meta name="description" content="Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For recruiters and hiring managers</span>
+<h1>Structured Hiring Kit</h1><p class="lead">Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.</p>
+<h2>Install</h2>
+<p><strong>Claude Cowork or claude.ai:</strong> download the plugin file and install it.</p>
+<p><a class="btn" data-track="download_plugin" data-plugin="structured-hiring" href="https://github.com/brianshepardpss/structured-hiring/releases/latest?utm_source=site&utm_campaign=structured-hiring">Download Structured Hiring Kit</a></p>
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="structured-hiring">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install structured-hiring@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><pre>/debrief-prep --sample</pre><p>It runs on bundled synthetic data (Fernhill Robotics, a fictional company) and produces a one-page packet for candidate Priya N.: the competency x interviewer evidence matrix with quotes, the 2 vs 2 split on System Design, the missing Debugging &amp; Operations scorecard, a &quot;Strong Yes&quot; backed by five words, and the flagged &quot;culture fit / young energy&quot; remark. See <code>samples/expected/debrief-priya.md</code> for the exact output.</p>
+<h2>What it does</h2><div style='overflow-x:auto'><table><tr><th>Skill / command</th><th>You say</th><th>You get</th></tr><tr><td><code>/debrief-prep</code> (debrief-prep)</td><td>&quot;prep the debrief for Priya&quot;, or paste scorecards</td><td>Evidence packet, disagreements, gaps, missing scorecards, fairness flags, debrief questions, decision-memo template</td></tr><tr><td>interview-kit</td><td>&quot;build an interview kit for a founding AE&quot;</td><td>4-6 competencies, behavioral + situational questions with probes, anchored 1-4 rubrics, panel split, ready to paste into Greenhouse or Ashby</td></tr><tr><td>job-description</td><td>&quot;write a JD from these intake notes&quot;</td><td>Must-haves vs nice-to-haves, pay-range check against posting laws (CO, CA, WA, NY, IL, MD, MN, NJ, MA, VA, CT and more), inclusive-language lint</td></tr><tr><td>pipeline-summary</td><td>&quot;where are we on the backend req?&quot;</td><td>Stage counts, days in stage, stuck candidates, overdue scorecards, a hiring-manager update draft</td></tr><tr><td><code>/outreach</code> (outreach-drafts)</td><td>&quot;write the rejection emails&quot;</td><td>Sourcing, follow-up, scheduling, status and rejection drafts; never sent</td></tr><tr><td>ats-update</td><td>&quot;move Alex to onsite&quot;</td><td>A change plan and a separate yes before every ATS write</td></tr><tr><td>hiring-decision</td><td>&quot;who should we hire? rank them&quot;</td><td>A plain explanation of why it will not rank, plus an alphabetical, unrated evidence table and a debrief plan</td></tr><tr><td>fairness-lint</td><td>&quot;is this interview question okay?&quot;</td><td>Flags for age, family, origin, disability, religion, culture fit, salary history and more, with fixes</td></tr><tr><td>request</td><td>&quot;I wish this could...&quot;</td><td>A feature request draft and a prefilled GitHub issue link for you to open</td></tr></table></div><p>Every number (days in stage, overdue days, rating counts) comes from a bundled standard-library Python script, not from the model.</p>
+<h2>Privacy</h2><ul><li>Nothing is sent anywhere by this plugin. Your data goes only to your</li></ul><p>Claude conversation and to services you connect yourself (your ATS, Gmail).</p><ul><li>The plugin stores no candidate data. The only file it writes on its own is</li></ul><p>the ATS action log (<code>ats-actions.log</code> in the plugin&#x27;s data folder), which holds tool names, timestamps and record ids, no names or notes.</p><ul><li>Sample data is synthetic: fictional companies, first-name-plus-initial</li></ul><p>people, example.com emails, 555-01xx phone numbers.</p><ul><li>No telemetry.</li></ul>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="structured-hiring" href="https://github.com/brianshepardpss/structured-hiring?utm_source=site&utm_campaign=structured-hiring">github.com/brianshepardpss/structured-hiring</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Greenhouse Software, Inc. Not affiliated with or endorsed by Ashby, Inc. Not affiliated with or endorsed by Lever (Employ Inc.). Not affiliated with or endorsed by Anthropic beyond use of its plugin format.</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

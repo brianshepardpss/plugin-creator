@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analyzer Loop</title><meta name="description" content="Dart analysis server LSP for Claude Code plus Flutter/Dart workflow skills (fix-analyzer-errors loop, major package upgrades, Android Gradle/AGP/Kotlin build fixer, golden tests, Riverpod 3 and Bloc 9 state management) that complement, not duplicate, Google&#x27;s official dart-flutter plugin.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For Flutter developers</span>
+<h1>Analyzer Loop</h1><p class="lead">Dart analysis server LSP for Claude Code plus Flutter/Dart workflow skills (fix-analyzer-errors loop, major package upgrades, Android Gradle/AGP/Kotlin build fixer, golden tests, Riverpod 3 and Bloc 9 state management) that complement, not duplicate, Google&#x27;s official dart-flutter plugin.</p>
+<h2>Install</h2>
+
+
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="analyzer-loop">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install analyzer-loop@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><pre>/analyzer-loop:fix-analyzer sample</pre><p>Claude copies <code>samples/stale_app</code> (current Riverpod 3 / go_router 18 lock, stale code) into your folder, runs <code>flutter pub get</code>, records the baseline, runs <code>dart fix</code>, fixes the rest file by file with LSP diagnostics after each edit, and checks tests. Expected result, from the bundled script:</p><pre>Before -&gt; after: 27 -&gt; 0 issues (27 fixed)
+  errors     17 -&gt;   0
+  infos      10 -&gt;   0
+  [OK guardrail] no new ignore comments; analysis_options.yaml unchanged</pre><p>More demos: <code>/analyzer-loop:android-build-doctor sample</code>, <code>/analyzer-loop:golden-tests sample</code>, <code>/analyzer-loop:pub-upgrade sample</code>.</p>
+<h2>What it does</h2><ul><li><code>.lsp.json</code>: runs <code>dart language-server --protocol=lsp</code> for <code>.dart</code> files</li></ul><p>(diagnostics after edits, go to definition, find references, hover). Uses <code>onlyAnalyzeProjectsWithOpenFiles</code> to keep memory down in monorepos.</p><ul><li>fix-analyzer: <code>dart fix</code>, then targeted edits until <code>dart analyze --fatal-infos</code></li></ul><p>is 0; before/after counts and a no-<code>// ignore</code> guardrail from <code>analyze_report.py</code>.</p><ul><li>pub-upgrade: one package family at a time; reads the CHANGELOG slice you</li></ul><p>cross from the pub cache (<code>changelog_slice.py</code>), migrates, re-greens.</p><ul><li>android-build-doctor: reads gradle-wrapper, settings.gradle, app/build.gradle;</li></ul><p><code>android_versions.py</code> checks Gradle/AGP/Kotlin/JDK pairwise and against Flutter&#x27;s own floors (re-read from your Flutter SDK), proposes a compatible set, edits only Android build files. iOS / CocoaPods notes included.</p><ul><li>golden-tests: <code>golden_diff.py</code> measures the failing golden exactly like</li></ul><p>flutter_test; separates OS rendering drift from real regressions; recipes for Linux-only goldens, Alchemist, or a tolerant comparator. Never runs <code>--update-goldens</code> unless you ask.</p><ul><li>state-management: detects Riverpod or Bloc and its version, writes Riverpod 3</li></ul><p>(plain or riverpod_generator 4) or bloc 9 code plus a test.</p><ul><li><code>/analyzer-loop:doctor</code> and a SessionStart check: warns when <code>dart</code> is</li></ul><p>missing, older than your pubspec <code>sdk:</code> constraint, or not the SDK your <code>.fvmrc</code> pins.</p><ul><li>request: say &quot;I wish this could...&quot; to draft a feature request.</li></ul>
+<h2>Privacy</h2><p>Nothing is sent anywhere by this plugin. The scripts read local files and run local <code>dart</code> / <code>flutter</code> commands. <code>flutter pub get</code> and <code>pub upgrade</code> contact pub.dev as they always do. No telemetry.</p>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="analyzer-loop" href="https://github.com/brianshepardpss/analyzer-loop?utm_source=site&utm_campaign=analyzer-loop">github.com/brianshepardpss/analyzer-loop</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Google LLC. Dart and Flutter are trademarks of Google LLC. Not affiliated with or endorsed by Anthropic, the Riverpod or Bloc maintainers, or Gradle Inc.</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

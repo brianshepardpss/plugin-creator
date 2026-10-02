@@ -4,7 +4,7 @@
     {
       "name": "plugin-creator",
       "repo": "plugin-creator-plugin",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 300,
         "stars": 50,
@@ -14,7 +14,7 @@
     {
       "name": "plugin-studio",
       "repo": "plugin-studio",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 100,
         "stars": 25,
@@ -24,7 +24,7 @@
     {
       "name": "make-my-plugin",
       "repo": "make-my-plugin",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 75,
         "stars": 15,
@@ -34,7 +34,7 @@
     {
       "name": "grounded-scala",
       "repo": "grounded-scala",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 40,
@@ -54,7 +54,7 @@
     {
       "name": "merge-medic",
       "repo": "merge-medic",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 40,
@@ -64,7 +64,7 @@
     {
       "name": "helpdesk",
       "repo": "helpdesk",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 100,
@@ -74,7 +74,7 @@
     {
       "name": "structured-hiring",
       "repo": "structured-hiring",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 30,
@@ -84,7 +84,7 @@
     {
       "name": "deal-tender",
       "repo": "deal-tender",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 40,
@@ -94,7 +94,7 @@
     {
       "name": "listing-desk",
       "repo": "listing-desk",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 30,
@@ -104,7 +104,7 @@
     {
       "name": "construction-pm",
       "repo": "construction-pm",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 40,

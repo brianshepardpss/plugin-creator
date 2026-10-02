@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Helpdesk Triage</title><meta name="description" content="Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.">
+<style>
+:root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
+:root[data-theme=dark]{--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin:40px 0 12px}
+p.lead{font-size:18px;color:var(--mute);max-width:680px;margin:0 0 20px}
+pre{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--mute);font-size:14px;flex:1}
+.chip{display:inline-block;font-size:12px;background:var(--chip);border-radius:999px;padding:2px 10px;color:var(--mute)}
+code{font-size:13px;background:var(--chip);padding:2px 6px;border-radius:5px;word-break:break-all}
+a{color:var(--accent)}.btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+footer{margin-top:56px;color:var(--mute);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
+.thanks{display:none;font-weight:600}
+</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+<span class="chip">For support teams</span>
+<h1>Helpdesk Triage</h1><p class="lead">Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.</p>
+<h2>Install</h2>
+<p><strong>Claude Cowork or claude.ai:</strong> download the plugin file and install it.</p>
+<p><a class="btn" data-track="download_plugin" data-plugin="helpdesk" href="https://github.com/brianshepardpss/helpdesk/releases/latest?utm_source=site&utm_campaign=helpdesk">Download Helpdesk Triage</a></p>
+<p><strong>Claude Code:</strong></p>
+<pre data-track="copy_install" data-plugin="helpdesk">/plugin marketplace add brianshepardpss/plugin-creator
+/plugin install helpdesk@plugin-creator</pre>
+<h2>Try it in 60 seconds</h2><pre>/helpdesk:triage sample</pre><p>This uses 40 fake tickets for Quillfern, a fictional booking-software company. You get a ranked table showing SLA time left, flags, the suggested owner and duplicate clusters, followed by drafts for the top 3 tickets. On the sample queue:</p><ul><li>3 tickets are about to breach SLA (1004, 1009, 1012).</li><li>A legal threat (1021) is flagged.</li><li>Two SMS-outage tickets (1036, 1038) are clustered under a known issue.</li><li>A VIP&#x27;s pasted card number (1026) is redacted.</li></ul><p>Then try:</p><ul><li><code>/helpdesk:draft 1017 sample</code>: a refund request outside the 14-day window.</li></ul><p>The draft cites the refund article and promises nothing.</p><ul><li><code>/helpdesk:summarize 1030 sample</code>: a 25-message thread condensed into a</li></ul><p>handoff note of 150 words or fewer.</p><ul><li><code>/helpdesk:weekly sample-freshdesk</code>: the same tickets as a Freshdesk CSV,</li></ul><p>showing drivers, SLA misses, CSAT, and macro and KB-gap candidates.</p><ul><li>&quot;Anything I should escalate?&quot;: runs the <code>escalation-scout</code> agent.</li></ul>
+<h2>What it does</h2><div style='overflow-x:auto'><table><tr><th>Piece</th><th>Job</th></tr><tr><td><code>/helpdesk:triage</code> (queue-triage)</td><td>Ranked open queue: SLA time left, priority, category, legal/security/VIP/churn/anger/repeat flags, suggested owner, duplicate clusters, known-issue matches, plus drafts for the top 3</td></tr><tr><td><code>/helpdesk:draft</code> (reply-draft)</td><td>Reply in your voice, grounded in KB and macros. Each claim is marked [KB] or [ASSUMED]. It never promises refunds or dates</td></tr><tr><td><code>/helpdesk:summarize</code> (thread-summary)</td><td>Handoff note of 150 words or fewer: current ask, steps tried, sentiment, open commitments with dates, next step</td></tr><tr><td><code>/helpdesk:weekly</code> (weekly-insights)</td><td>Volume delta, top drivers, SLA misses, CSAT detractors, and macro and KB-gap candidates</td></tr><tr><td><code>/helpdesk:setup</code> (helpdesk-setup)</td><td>Export or connector choice, writing voice.md, KB layout, VIP list, Zendesk admin OAuth checklist</td></tr><tr><td>ticket-schema</td><td>One schema for both helpdesks. It maps Freshdesk status codes 2-7 and priority codes 1-4, and owns <code>helpdesk.py</code></td></tr><tr><td>escalation-scout (agent)</td><td>Builds an escalation pack for the lead: legal, security, VIP, churn and repeat contacts</td></tr><tr><td>request</td><td>Drafts a feature request for you to file yourself</td></tr></table></div><p>All the numbers come from <code>skills/ticket-schema/scripts/helpdesk.py</code>: SLA time left, scores, counts, deltas, CSAT share and day counts. The formulas are in its docstring.</p>
+<h2>Privacy</h2><ul><li><strong>Card numbers and SSNs:</strong> Luhn-checked card numbers, SSNs, CVVs and</li></ul><p>expiry dates are redacted in every output.</p><ul><li><strong>Contact and health details:</strong> requester emails, phone numbers and health details are not repeated</li></ul><p>in summaries.</p><ul><li><strong>Files:</strong> nothing is written to disk except the files you ask setup to</li></ul><p>create. In connector mode, tickets are piped to the script in memory.</p><ul><li><strong>What leaves your machine:</strong> nothing beyond your Claude conversation and</li></ul><p>any connector you set up yourself. Ticket content is handled under your own Claude plan. Use a Team or Enterprise plan, with your company&#x27;s approval, for customer data.</p><ul><li><strong>No telemetry:</strong> the plugin collects none.</li></ul>
+<h2>Open source</h2><p>MIT licensed, with its design brief and eval suite:
+<a data-track="view_source" data-plugin="helpdesk" href="https://github.com/brianshepardpss/helpdesk?utm_source=site&utm_campaign=helpdesk">github.com/brianshepardpss/helpdesk</a>.
+Ideas or problems? Open an issue there, or ask the plugin's request skill to draft one for you.</p>
+<p class="lead" style="font-size:14px">Not affiliated with or endorsed by Zendesk. Not affiliated with or endorsed by Freshworks (Freshdesk).</p>
+<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
+</div></body></html>

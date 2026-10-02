@@ -39,15 +39,15 @@ claude plugin install <slug>@plugin-creator
    topics and the `request` label, cuts a release with the `.plugin` file,
    and sets `launched` in lab/plugins.json, which starts the day-30 clock.
 3. `python3 lab/build_marketplace.py` (GitHub sources), commit, and push this
-   repo to `brianshepardpss/plugin-creator`. Enable GitHub Pages on `/site`
-   or copy site/ to the Pages branch.
+   repo to `brianshepardpss/plugin-creator`. GitHub Pages serves docs/ at
+   https://brianshepardpss.github.io/plugin-creator/ .
 4. Directory submissions and launch posts: per plugin LAUNCH.md. One at a
    time, owner-approved.
 
 ## Track (daily; GitHub keeps only 14 days of traffic)
 
 ```
-python3 plugins/plugin-studio/skills/traction/collect.py lab/studio.json --html site/traction.html
+python3 plugins/plugin-studio/skills/traction/collect.py lab/studio.json --html docs/traction.html
 ```
 
 Schedule it (cron or a scheduled Claude routine) once the first plugin is
@@ -63,6 +63,8 @@ python3 plugins/plugin-studio/skills/radar/radar.py plugins/plugin-studio/skills
 
 ## Open owner decisions
 
-- Waitlist endpoint for site/built-for-you.html (currently a mailto). The
-  cheapest option is reusing the faithstack Firebase `subscribe` + Resend
-  stack; set `waitlist_endpoint` in lab/site.json and rerun build_site.py.
+- PostHog project key: put `{"posthog_key": "phc_..."}` in lab/site.json and
+  rerun `python3 lab/build_site.py`. That turns on cookieless pageview and
+  click analytics on the website (never in the plugins) and makes the
+  built-for-you waitlist record `waitlist_signup` events in PostHog. Until
+  then the waitlist falls back to email.

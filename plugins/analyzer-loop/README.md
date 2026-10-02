@@ -19,7 +19,9 @@ of Claude editing Dart blind or of losing a day to a Gradle upgrade.
 
 ## Install
 
-Requirements: Flutter (or the Dart SDK) with `dart` on your PATH.
+Requirements: Flutter (or the Dart SDK) with `dart` on your PATH. The bundled
+samples are locked to current packages and need Flutter 3.47 or newer; your own
+projects can use any Flutter version.
 
 ```
 /plugin marketplace add brianshepardpss/plugin-creator
@@ -34,7 +36,7 @@ claude plugin marketplace add flutter/agent-plugins
 claude plugin install dart-flutter@dart-flutter
 ```
 
-## Try it in 60 seconds
+## Try it (under 5 minutes after `flutter pub get`)
 
 ```
 /analyzer-loop:fix-analyzer sample

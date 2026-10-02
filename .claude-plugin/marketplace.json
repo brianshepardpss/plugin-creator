@@ -1,0 +1,281 @@
+{
+  "name": "plugin-creator",
+  "owner": {
+    "name": "Press Start Studios",
+    "email": "brian@press-start-studios.com"
+  },
+  "metadata": {
+    "description": "Plugins made with Plugin Creator: focused Claude plugins for industries and tools the official directory does not cover yet."
+  },
+  "plugins": [
+    {
+      "name": "plugin-creator",
+      "displayName": "Plugin Creator",
+      "description": "Go from a plugin idea to a published, tested Claude plugin: live demand check, design brief, strict-valid scaffold, skills that trigger, evals with a no-plugin baseline, .plugin packaging, directory listings and traction tracking.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/plugin-creator-plugin"
+      },
+      "category": "development",
+      "keywords": [
+        "plugin-development",
+        "skills",
+        "evals",
+        "scaffold",
+        "marketplace",
+        "demand-research"
+      ]
+    },
+    {
+      "name": "plugin-studio",
+      "displayName": "Plugin Studio",
+      "description": "Run a portfolio of Claude plugins like a studio: rank gaps with live demand data, track every published plugin's traction daily, and get a kill / iterate / double-down verdict at day 30 against thresholds set before launch.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/plugin-studio"
+      },
+      "category": "development",
+      "keywords": [
+        "plugin-portfolio",
+        "traction",
+        "analytics",
+        "demand-research",
+        "github-traffic"
+      ]
+    },
+    {
+      "name": "make-my-plugin",
+      "displayName": "Make My Plugin",
+      "description": "Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/make-my-plugin"
+      },
+      "category": "productivity",
+      "keywords": [
+        "no-code",
+        "custom-plugin",
+        "workflow",
+        "cowork",
+        "automation",
+        "templates"
+      ]
+    },
+    {
+      "name": "grounded-scala",
+      "displayName": "Grounded Scala",
+      "description": "Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/grounded-scala"
+      },
+      "category": "development",
+      "keywords": [
+        "scala",
+        "metals",
+        "lsp",
+        "sbt",
+        "scala-cli",
+        "mill",
+        "cats-effect",
+        "zio",
+        "scala3"
+      ]
+    },
+    {
+      "name": "analyzer-loop",
+      "displayName": "Analyzer Loop",
+      "description": "Dart analysis server LSP for Claude Code plus Flutter/Dart workflow skills (fix-analyzer-errors loop, major package upgrades, Android Gradle/AGP/Kotlin build fixer, golden tests, Riverpod 3 and Bloc 9 state management) that complement, not duplicate, Google's official dart-flutter plugin.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/analyzer-loop"
+      },
+      "category": "development",
+      "keywords": [
+        "flutter",
+        "dart",
+        "lsp",
+        "analyzer",
+        "gradle",
+        "riverpod",
+        "bloc",
+        "golden-tests"
+      ]
+    },
+    {
+      "name": "merge-medic",
+      "displayName": "Merge Medic for GitLab",
+      "description": "Fix red GitLab pipelines and review merge requests from Claude Code through the glab CLI: failed-job log triage, draft-only MR review, MR creation and thread resolution. Works on self-managed GitLab, no MCP or admin toggle.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/merge-medic"
+      },
+      "category": "development",
+      "keywords": [
+        "gitlab",
+        "glab",
+        "ci",
+        "pipeline",
+        "merge-request",
+        "code-review",
+        "self-managed",
+        "devops"
+      ]
+    },
+    {
+      "name": "helpdesk",
+      "displayName": "Helpdesk Triage",
+      "description": "Queue triage, SLA-risk ranking, on-brand reply drafts, thread summaries and weekly insights for support teams on Zendesk or Freshdesk, working from an export file or an optional connector.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/helpdesk"
+      },
+      "category": "productivity",
+      "keywords": [
+        "helpdesk",
+        "support",
+        "customer-support",
+        "zendesk",
+        "freshdesk",
+        "triage",
+        "sla",
+        "ticket",
+        "macros",
+        "knowledge-base"
+      ]
+    },
+    {
+      "name": "structured-hiring",
+      "displayName": "Structured Hiring Kit",
+      "description": "Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/structured-hiring"
+      },
+      "category": "productivity",
+      "keywords": [
+        "recruiting",
+        "hiring",
+        "structured-interview",
+        "interview-kit",
+        "scorecards",
+        "debrief",
+        "job-description",
+        "pay-transparency",
+        "greenhouse",
+        "ashby"
+      ]
+    },
+    {
+      "name": "deal-tender",
+      "displayName": "DealTender",
+      "description": "Pipeline triage, call logging, forecast briefs and meeting prep for Pipedrive users: ranks stale deals, drafts follow-ups, and proposes CRM updates you approve. Try it on a CSV export, no login.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/deal-tender"
+      },
+      "category": "productivity",
+      "keywords": [
+        "pipedrive",
+        "crm",
+        "sales",
+        "pipeline",
+        "forecast",
+        "follow-up",
+        "smb"
+      ]
+    },
+    {
+      "name": "listing-desk",
+      "displayName": "Listing Desk",
+      "description": "Listing appointment prep and listing launch for US residential real estate agents: a CMA from your own MLS CSV export, listing copy, and a Fair Housing check on every word, plus contract deadlines and follow-up drafts.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/listing-desk"
+      },
+      "category": "productivity",
+      "keywords": [
+        "real-estate",
+        "listing",
+        "cma",
+        "fair-housing",
+        "comps",
+        "mls-export",
+        "listing-description",
+        "contract-deadlines",
+        "open-house",
+        "cowork"
+      ]
+    },
+    {
+      "name": "construction-pm",
+      "displayName": "Construction PM Toolkit",
+      "description": "Project-engineer sidekick for small GCs and subs: spec sections to a cited submittal register, plus RFIs, daily reports, meeting minutes, change-order backup and 3-week look-aheads, all from your own files.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/construction-pm"
+      },
+      "category": "productivity",
+      "keywords": [
+        "construction",
+        "submittals",
+        "rfi",
+        "daily-report",
+        "project-management",
+        "general-contractor",
+        "csi-masterformat"
+      ]
+    },
+    {
+      "name": "restaurant-ops",
+      "displayName": "Restaurant Ops",
+      "description": "Plate costing, invoice price tracking, menu engineering, allergen matrix drafts and labor schedule drafts for independent restaurants, computed by bundled scripts on your own CSV exports.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/restaurant-ops"
+      },
+      "category": "productivity",
+      "keywords": [
+        "restaurant",
+        "food-cost",
+        "recipe-costing",
+        "menu-engineering",
+        "allergens",
+        "labor"
+      ]
+    },
+    {
+      "name": "grant-desk",
+      "displayName": "Grant Desk",
+      "description": "Grant writing desk for small nonprofits: free funder research from public 990-PF grantee lists and Grants.gov, source-tagged proposal drafts that never invent a number, logic models, deadline tracking and donor thank-yous.",
+      "version": "0.1.0",
+      "source": {
+        "source": "github",
+        "repo": "brianshepardpss/grant-desk"
+      },
+      "category": "productivity",
+      "keywords": [
+        "grants",
+        "nonprofit",
+        "grant-writing",
+        "990-pf",
+        "foundations",
+        "fundraising",
+        "grants-gov",
+        "donor-stewardship"
+      ]
+    }
+  ]
+}
