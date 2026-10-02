@@ -114,7 +114,7 @@
     {
       "name": "restaurant-ops",
       "repo": "restaurant-ops",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 30,
