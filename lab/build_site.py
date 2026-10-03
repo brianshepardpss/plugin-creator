@@ -246,5 +246,6 @@ if __name__ == "__main__":
     for e in REG["plugins"]:
         if (ROOT / "plugins" / e["slug"] / ".claude-plugin" / "plugin.json").exists():
             (site / "p" / f"{e['slug']}.html").write_text(plugin_page(e))
-    print("wrote docs/ (index, built-for-you, p/<slug>)"
-          + ("" if ENDPOINT else " (no posthog_key or waitlist_endpoint in lab/site.json: analytics off, waitlist falls back to email)"))
+    print("wrote docs/ (index, built-for-you, p/<slug>); analytics "
+          + ("on (PostHog)" if POSTHOG_KEY else "off")
+          + "; waitlist via " + ("endpoint" if ENDPOINT else "PostHog" if POSTHOG_KEY else "email"))
