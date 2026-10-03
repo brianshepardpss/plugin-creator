@@ -31,7 +31,7 @@
       "name": "plugin-studio",
       "displayName": "Plugin Studio",
       "description": "Run a portfolio of Claude plugins like a studio: rank gaps with live demand data, track every published plugin's traction daily, and get a kill / iterate / double-down verdict at day 30 against thresholds set before launch.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "source": {
         "source": "github",
         "repo": "brianshepardpss/plugin-studio"
