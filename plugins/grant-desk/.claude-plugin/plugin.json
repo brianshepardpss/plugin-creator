@@ -1,7 +1,7 @@
 {
   "name": "grant-desk",
   "displayName": "Grant Desk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Grant writing desk for small nonprofits: free funder research from public 990-PF grantee lists and Grants.gov, source-tagged proposal drafts that never invent a number, logic models, deadline tracking and donor thank-yous.",
   "author": {
     "name": "Press Start Studios",
