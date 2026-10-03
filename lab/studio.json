@@ -44,7 +44,7 @@
     {
       "name": "analyzer-loop",
       "repo": "analyzer-loop",
-      "launched": null,
+      "launched": "2026-10-02",
       "thresholds": {
         "cloners": 150,
         "stars": 40,
