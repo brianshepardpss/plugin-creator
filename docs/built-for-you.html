@@ -21,7 +21,15 @@ form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:1
 footer{margin-top:56px;color:var(--mute);font-size:13px}
 table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
 .thanks{display:none;font-weight:600}
-</style></head><body><div class="wrap"><h1>Your way of doing it, as a one-click Claude assistant</h1>
+</style><script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset identify get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init("phc_BzXqugUAET4AdrQFPQxXX6Yk5P9jqHSqKcqY4uutaLed", {api_host: "https://us.i.posthog.com", person_profiles: "never", persistence: "memory"});
+posthog.register({site_page: "built-for-you"});
+document.addEventListener("click", function (e) {
+  var el = e.target.closest("[data-track]");
+  if (el) posthog.capture(el.getAttribute("data-track"), {plugin: el.getAttribute("data-plugin") || null, href: el.getAttribute("href") || null});
+});
+</script></head><body><div class="wrap"><h1>Your way of doing it, as a one-click Claude assistant</h1>
 <p class="lead">Send us two or three past examples of something you write or prepare over and over:
 deposit letters, client recaps, quotes, lesson plans, inspection reports. We turn them into a tested
 Claude plugin that does it your way, then hand you the file. No coding, and your examples stay private.</p>
@@ -31,7 +39,21 @@ Claude plugin that does it your way, then hand you the file. No coding, and your
 <div class="card"><h3>2. We build and test</h3><p>We build the plugin and test it against your own examples until it matches.</p></div>
 <div class="card"><h3>3. Install in one click</h3><p>You get a .plugin file for Claude Cowork or claude.ai. Ask for changes any time.</p></div>
 </div>
-<h2>Join the waitlist</h2><p><a class='btn' data-track='waitlist_email' href="mailto:brian@press-start-studios.com?subject=Built-for-you%20plugin%20waitlist&body=What%20I%20do%3A%0A%0AThe%20task%20I%20repeat%3A%0A">Join the waitlist by email</a></p>
+<h2>Join the waitlist</h2><form id="wl"><input name="email" type="email" required placeholder="you@business.com" aria-label="Email">
+<input name="role" placeholder="What you do (e.g. property manager)" aria-label="Role">
+<textarea name="task" rows="3" placeholder="The task you repeat every week" aria-label="Task"></textarea>
+<button class="btn" type="submit">Join the waitlist</button>
+<p style="font-size:13px;color:var(--mute);margin:0">We store what you type here to contact you about this service, nothing else.</p></form>
+<p class="thanks" id="wl-thanks">Thanks, you're on the list. We'll email you before anything is built.</p>
+<script>
+document.getElementById("wl").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = new FormData(e.target);
+  posthog.capture("waitlist_signup", {list: "built-for-you", email: f.get("email"), role: f.get("role"), task: f.get("task")});
+  e.target.style.display = "none";
+  document.getElementById("wl-thanks").style.display = "block";
+});
+</script>
 <p class="lead" style="margin-top:20px">Prefer to do it yourself? The free
 <a href="https://github.com/brianshepardpss/make-my-plugin?utm_source=site&utm_campaign=built-for-you">Make My Plugin</a>
 does the same interview inside Claude.</p>

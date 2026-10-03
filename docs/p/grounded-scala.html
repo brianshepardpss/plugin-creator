@@ -21,7 +21,15 @@ form{display:grid;gap:10px;max-width:520px}input,textarea{font:inherit;padding:1
 footer{margin-top:56px;color:var(--mute);font-size:13px}
 table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-weight:500}
 .thanks{display:none;font-weight:600}
-</style></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
+</style><script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset identify get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init("phc_BzXqugUAET4AdrQFPQxXX6Yk5P9jqHSqKcqY4uutaLed", {api_host: "https://us.i.posthog.com", person_profiles: "never", persistence: "memory"});
+posthog.register({site_page: "grounded-scala"});
+document.addEventListener("click", function (e) {
+  var el = e.target.closest("[data-track]");
+  if (el) posthog.capture(el.getAttribute("data-track"), {plugin: el.getAttribute("data-plugin") || null, href: el.getAttribute("href") || null});
+});
+</script></head><body><div class="wrap"><p><a href="../index.html">All plugins</a></p>
 <span class="chip">For Scala developers</span>
 <h1>Grounded Scala</h1><p class="lead">Scala language server (Metals) and workflow skills for Claude Code: type errors after every edit, symbol-true navigation, and a compile-fix loop that keeps the build warm.</p>
 <h2>Install</h2>

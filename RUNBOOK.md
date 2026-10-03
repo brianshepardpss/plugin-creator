@@ -63,8 +63,8 @@ python3 plugins/plugin-studio/skills/radar/radar.py plugins/plugin-studio/skills
 
 ## Open owner decisions
 
-- PostHog project key: put `{"posthog_key": "phc_..."}` in lab/site.json and
-  rerun `python3 lab/build_site.py`. That turns on cookieless pageview and
-  click analytics on the website (never in the plugins) and makes the
-  built-for-you waitlist record `waitlist_signup` events in PostHog. Until
-  then the waitlist falls back to email.
+- (Done 2026-10-02) PostHog is live on the website only (US cloud, key in
+  lab/site.json). Events: pageviews, `download_plugin`, `copy_install`,
+  `view_source`, `open_plugin_page`, and `waitlist_signup` (email, role,
+  task) from built-for-you.html. Cookieless (memory persistence, no person
+  profiles). The plugins themselves have no telemetry.
