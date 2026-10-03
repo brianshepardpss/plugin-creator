@@ -2,8 +2,21 @@
 
 ## WHERE WE ARE
 
-2026-10-02: all 13 plugins built locally; nothing published. Next step is the
-owner's go-ahead on the publish checklist below.
+2026-10-02: all 13 plugins public (one repo each, releases with .plugin files,
+icons). Marketplace live: `/plugin marketplace add brianshepardpss/plugin-creator`.
+Site + per-plugin pages live at https://brianshepardpss.github.io/plugin-creator/
+with PostHog (website only). Traction clock started 2026-10-02 for all 13
+(lab/plugins.json `launched`).
+
+Next, in order:
+1. Anthropic directory submissions -- owner does these in the portal
+   (claude.ai/directory/manage); answers per plugin are in lab/DIRECTORY.md.
+   Max 10 per 24 h; day 1 list first. The Compliance acknowledgements are the
+   owner's to accept. (Claude Code's permission check blocks Claude from
+   creating these public listings itself.)
+2. Community directories and awesome-list PRs: lab/seeds.csv wave 1/1b.
+3. Daily traction: `python3 plugins/plugin-studio/skills/traction/collect.py lab/studio.json --html docs/traction.html`
+4. Wave 2 posts from each plugin's LAUNCH.md, one at a time.
 
 ## Check everything
 
