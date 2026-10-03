@@ -15,7 +15,7 @@ Next, in order:
    owner's to accept. (Claude Code's permission check blocks Claude from
    creating these public listings itself.)
 2. Community directories and awesome-list PRs: lab/seeds.csv wave 1/1b.
-3. Daily traction: `python3 plugins/plugin-studio/skills/traction/collect.py lab/studio.json --html docs/traction.html`
+3. Daily traction: `python3 plugins/plugin-studio/skills/traction/collect.py lab/studio.json --html lab/traction.html` (cron runs this daily at 09:00; output stays local and gitignored)
 4. Wave 2 posts from each plugin's LAUNCH.md, one at a time.
 
 ## Check everything

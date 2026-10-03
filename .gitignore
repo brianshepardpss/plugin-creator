@@ -7,3 +7,6 @@ plugins/*/evals/results/*
 !plugins/*/evals/results/last.json
 .DS_Store
 plugins/*/evals-run.log
+lab/studio-data/
+lab/traction.html
+lab/traction.log
