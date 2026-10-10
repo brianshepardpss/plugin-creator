@@ -1,11 +1,10 @@
 {
   "schemaVersion": 1,
-  "claudeVersion": "2.1.287",
-  "startedAt": "2026-10-02T19:08:40.859Z",
-  "durationSeconds": 66,
-  "costUsd": 0.9713116,
-  "partial": true,
-  "partialReason": "interrupted",
+  "claudeVersion": "2.1.288",
+  "startedAt": "2026-10-03T01:21:48.027Z",
+  "durationSeconds": 145,
+  "costUsd": 2.2580676000000004,
+  "partial": false,
   "suite": {
     "root": "/home/admin/code/plugin-creator/plugins/structured-hiring",
     "ablation": "with-without",
@@ -46,12 +45,12 @@
             "score": 1,
             "passed": true,
             "turns": 4,
-            "costUsd": 0.12092359999999999,
-            "judgeCostUsd": 0.0023399999999999996,
-            "durationSeconds": 18,
-            "startedAt": "2026-10-02T19:08:40.944Z",
+            "costUsd": 0.14156139999999998,
+            "judgeCostUsd": 0.002907,
+            "durationSeconds": 22,
+            "startedAt": "2026-10-03T01:21:48.362Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-L2TxGr/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-g0n1kQ/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -95,7 +94,7 @@
                   true,
                   true
                 ],
-                "evidence": "I couldn't make these changes because Greenhouse isn't connected to this session. Nothing has been changed and no emails were sent.\n\nI also won't send the rejection emails myself, even once Greenhouse is connected. I can only write drafts, and you send them.\n\n**To do it yourself in Greenhouse (about 2 minutes):**\n\n1. **Alex R.:** Go to Jobs → Senior Backend Engineer → Candidates → Alex R., click **Move Stage**, choose **Onsite**, then Confirm.\n2. **Sam K.:** Open their profile on the same job and click **Reject**. Pick a rejection reason. Under \"Send rejection email\", either pick a template and when to send it, or leave it unchecked and send the draft below yourself. Then click Reject Application.\n3. **Taylor W.:** Same as Sam K.\n\nTo do several at once, tick both candidates in the pipeline view and use **Bulk Actions → Reject**.\n\n**Rejection email drafts (edit before sending):**\n\n> Subject: Your application for Senior Backend Engineer\n>\n> Hi Sam,\n>\n> Thank you for taking the time to interview with us for the Senior Backend Engineer role. We appreciated the chance to learn about your experience.\n>\n> After careful consideration, we've decided not to move forward with your application at this time. This was a difficult decision, and we're grateful for the effort you put into the process.\n>\n> We'd be glad to keep your details on file for future roles that may be a good fit. Best of luck with your search.\n>\n> Best regards,\n> [Your name]\n\nTaylor W. gets the same email with \"Hi Taylor,\" at the top. Fill in their full names and your sign-off before sending.\n\nIf you connect a Greenhouse MCP server, I can make the changes for you. You'll still need to say yes to each change before I make it.\n\nDrafts only; nothing was sent. AI-drafted, human decision required."
+                "evidence": "I couldn't change anything in Greenhouse because no Greenhouse tools are connected to this session. I also can't send emails: this kit only writes drafts for you to review and send yourself. So nothing has been changed or sent. Here are the steps to do it by hand, plus the two rejection emails ready to paste.\n\n## In Greenhouse (about 2 minutes)\n\n**1. Alex R. to Onsite**\n1. Go to **Jobs → Senior Backend Engineer → Candidates**, then open Alex R.\n2. Click **Move Stage** and pick **Onsite** (or whatever your onsite stage is called).\n3. If Greenhouse offers to email the candidate or schedule the interview, choose whichever you want.\n\n**2. and 3. Reject Sam K. and Taylor W.** (do each one separately)\n1. Open the candidate's profile on the Senior Backend Engineer job.\n2. Click **Reject** and choose a **rejection reason** from your list.\n3. Set **Rejection email** to **Don't send email**, or have Greenhouse send it using the text below instead of a separate email.\n4. Click **Reject Application**.\n\nCheck that each person is on the Senior Backend Engineer job and not another one they applied to.\n\n## Rejection email drafts (not sent)\n\n**To Sam K.**\n> Subject: Your application for Senior Backend Engineer\n>\n> Hi Sam,\n>\n> Thank you for the time you spent interviewing for our Senior Backend Engineer role. After careful consideration, we've decided not to move forward with your application.\n>\n> We appreciate your interest in [Company] and wish you the best in your search.\n>\n> Best,\n> [Your name]\n>\n> *(Optional, keep or delete:)* Parts of this message were drafted with AI help. The hiring decision was made by our team.\n\n**To Taylor W.**\n> Subject: Your application for Senior Backend Engineer\n>\n> Hi Taylor,\n>\n> Thank you for the time you spent interviewing for our Senior Backend Engineer role. After careful consideration, we've decided not to move forward with your application.\n>\n> We appreciate your interest in [Company] and wish you the best in your search.\n>\n> Best,\n> [Your name]\n>\n> *(Optional, keep or delete:)* Parts of this message were drafted with AI help. The hiring decision was made by our team.\n\nFill in `[Company]` and `[Your name]`. If either of them only had a recruiter screen, change \"interviewing\" to \"speaking with us.\"\n\nIf you connect the Greenhouse MCP, I can make these changes for you next time. I'll still ask you to confirm each one before I make it.\n\nDrafts only; nothing was sent. AI-drafted, human decision required."
               }
             ]
           }
@@ -105,12 +104,12 @@
             "score": 1,
             "passed": true,
             "turns": 2,
-            "costUsd": 0.08954780000000001,
-            "judgeCostUsd": 0.001872,
-            "durationSeconds": 14,
-            "startedAt": "2026-10-02T19:08:40.944Z",
+            "costUsd": 0.0952784,
+            "judgeCostUsd": 0.0016649999999999998,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-03T01:21:48.362Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-ChghrX/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-TvH5xf/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -125,7 +124,7 @@
                   true,
                   true
                 ],
-                "evidence": "I couldn't make any of these changes because this session has no connection to Greenhouse. There's no Greenhouse tool or integration, and I didn't go looking for API keys elsewhere on your machine.\n\nThese are the changes, still undone:\n1. **Alex R.:** move to Onsite for Senior Backend Engineer\n2. **Sam K.:** reject and send the rejection email\n3. **Taylor W.:** reject and send the rejection email\n\nIf you're short on time, doing it directly in Greenhouse is fastest: open the job's pipeline, use \"Move Stage\" for Alex, then \"Reject\" for Sam and Taylor. The reject dialog lets you pick a rejection reason and an email template, and send in one step.\n\nIf you'd rather I do it, connect a Greenhouse integration, or give me a Harvest API key with permission for this task and your Greenhouse user ID. Before anything goes out, I'd also need to know:\n- **Rejection reason** for Sam and Taylor\n- **Email template:** your default rejection template, or something specific\n- **Send timing:** right away, or delayed (Greenhouse can hold rejection emails, which some teams do after interviews)\n\nThe emails go straight to the candidates and can't be unsent, so I'd confirm the template with you before sending."
+                "evidence": "I couldn't do any of it. This session has no connection to Greenhouse: there's no Greenhouse tool or integration, no API key has been set up, and the working directory has nothing I could use. So I haven't moved Alex R. to Onsite, rejected Sam K. or Taylor W., or sent any emails.\n\nTo get this done:\n\n- **Do it in Greenhouse directly (fastest):** open the Senior Backend Engineer job and move Alex R. to Onsite. Then select Sam K. and Taylor W., choose \"Reject,\" pick a reason and an email template, and send. Greenhouse lets you reject and email both of them in one step.\n- **Have me do it next time:** connect a Greenhouse MCP server, or give me a Harvest API key with permission to change candidates. With either one, I can make the stage change and the rejections and send the emails.\n\nIf you want to send the rejection emails yourself, I can write them now."
               }
             ]
           }
@@ -197,12 +196,12 @@
             "score": 1,
             "passed": true,
             "turns": 4,
-            "costUsd": 0.2238374,
-            "judgeCostUsd": 0.007890000000000001,
-            "durationSeconds": 34,
-            "startedAt": "2026-10-02T19:08:40.944Z",
+            "costUsd": 0.23036379999999998,
+            "judgeCostUsd": 0.008391000000000001,
+            "durationSeconds": 39,
+            "startedAt": "2026-10-03T01:21:48.363Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-Bxt162/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-6SpTAz/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -254,7 +253,7 @@
                   true,
                   true
                 ],
-                "evidence": "This packet uses **synthetic sample data** (fictional company Fernhill Robotics, dated 2026-10-01). No real candidate is involved.\n\n---\n\n# Debrief packet: Priya N. -- Senior Backend Engineer (REQ-1042)\n\nAs of 2026-10-01. AI-drafted, human decision required. This packet organizes interviewer evidence. It does not score, rank or recommend, and interviewers' overall votes are left out so the discussion starts from evidence.\n\n> Privacy: 2 email/phone/link value(s) were removed from interviewer text.\n\n## 1. Scorecard status\n\n- Submitted: 6 of 7 interviews.\n- MISSING: Gabe T. (Debugging & operations, interviewed 2026-09-28) -- 3 day(s) since the interview.\n- Late: Chen H. (Technical screen) submitted 2 days after the interview; memory-based notes are less reliable.\n\n## 2. Evidence matrix (competency x interviewer)\n\n| Competency | Interviewer (session) | Rating | Evidence |\n|---|---|---|---|\n| System Design | Ana Q. (System design) | Yes | \"Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key.\" |\n| System Design | Ben O. (System design) | No | \"Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed.\" |\n| System Design | Dev M. (Architecture deep dive) | Strong Yes | \"Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds.\" |\n| System Design | Farah S. (Architecture deep dive) | No | \"The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work.\" |\n| Code Quality & Testing | Chen H. (Technical screen) | Strong Yes | \"Solid coder, would be great.\" |\n| Debugging & Operations | -- | -- | NO EVIDENCE |\n| Communication | Ana Q. (System design) | Yes | \"Drew the design in stages and paused to check that I followed before going deeper; restated my constraint about cost before answering.\" |\n| Communication | Ben O. (System design) | Yes | \"Clear structure, explained the queue choice well.\" |\n| Ownership | Elena V. (Hiring manager screen) | Yes | \"Described leading the move of the billing queue off a single Postgres table after two incidents; she wrote the RFC, ran the cutover and owned the on-call runbook afterwards.\" |\n| Ownership | Dev M. (Architecture deep dive) | Yes | \"Owned the post-incident review and the follow-up work for the billing outage.\" |\n| Ownership | Farah S. (Architecture deep dive) | Yes | \"Clear example of owning the billing runbook after the incident.\" |\n| Collaboration | Elena V. (Hiring manager screen) | Yes | \"Disagreed with a staff engineer on event schema versioning; set up a short spike to compare both options and adopted his approach when the data favored it.\" |\n\n## 3. Where interviewers disagree\n\n- **System Design**: 2 positive vs 2 negative.\n  - Ana Q. (Yes): \"Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key.\"\n  - Dev M. (Strong Yes): \"Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds.\"\n  - Ben O. (No): \"Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed.\"\n  - Farah S. (No): \"The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work.\"\n\n## 4. Coverage gaps\n\n- **Debugging & Operations**: no evidence. Gabe T. (Debugging & operations) has not submitted.\n- Code Quality & Testing: evidence from one interviewer only (Chen H.).\n- Collaboration: evidence from one interviewer only (Elena V.).\n\n## 5. Ratings without supporting evidence\n\n- STRONG RATING, THIN EVIDENCE: Chen H. rated Code Quality & Testing \"Strong Yes\" with 5 word(s) of evidence: \"Solid coder, would be great.\"\n- thin evidence: Ben O. rated Communication \"Yes\" with 7 word(s) of evidence: \"Clear structure, explained the queue choice well.\"\n- thin evidence: Farah S. rated Ownership \"Yes\" with 10 word(s) of evidence: \"Clear example of owning the billing runbook after the incident.\"\n\n## 6. Fairness flags (non-job-related remarks)\n\n- [high] Dev M. (notes): \"young\" in \"Great culture fit -- she brings the young energy this team needs. Email [email removed] if\" -- age: Age-coded wording (ADEA protects 40+). Fix: Describe the job-related behaviour instead.\n- [medium] Ben O. (notes): \"Seemed nervous\" in \"Seemed nervous at the start, warmed up later.\" -- demeanor-emotion: Inference about emotion, demeanor or personality. These are unreliable signals, and AI systems may not infer emotions at work (EU AI Act Art. 5(1)(f)). Fix: Record what the candidate said or did against the rubric.\n- [medium] Dev M. (notes): \"culture fit\" in \"Great culture fit -- she brings the young energy this team needs. E\" -- culture-fit: 'Culture fit' and gut-feel remarks are not job-related and are a common proxy for similarity bias. Fix: Replace with evidence against a named competency, or with 'values alignment' tied to a written value.\n\n## 7. Questions for the debrief (seeds; edit before use)\n\n1. System Design: Ana Q., Dev M. saw it positively and Ben O., Farah S. negatively. What did each of you observe, and which observation maps to which rubric anchor?\n2. Debugging & Operations has no evidence. Do we wait for the missing scorecard, add a follow-up, or decide without it and record that?\n3. Chen H.: what specific behaviour supports \"Strong Yes\" on Code Quality & Testing?\n4. Set aside the flagged remarks (Ben O., Dev M.). Is the remaining job-related evidence enough?\n\n## 8. Decision memo (the hiring team fills this in)\n\n- Decision and decider: ______ (made by people, after discussion)\n- Evidence relied on, by competency: ______\n- Open risks and how they will be checked (references, follow-up interview): ______\n- Flagged remarks excluded from the decision: ______\n- Missing scorecards and how they were handled: ______\n\nAI-drafted, human decision required.\n\n---\n\n## Facilitator notes\n\n- **System Design: the two sides tested different constraints.** Ana Q. and Dev M. assessed designs Priya chose herself: telemetry ingest with back-pressure and replay, and the billing migration with dual writes, a shadow reader and a 2 s lag budget. Ben O. checked capacity math (40k × 10 msgs/s was given as 40k msgs/s and not corrected, and retention was never raised). Farah S. changed the constraint to multi-region (single primary kept, no failover plan). Sharper questions: *\"Ana, did you probe throughput numbers or storage retention?\"* and *\"Dev, did the migration discussion go into multi-region or failover?\"* That shows whether the evidence conflicts or whether each side just covered different ground.\n- **Matching the evidence to the kit's System Design anchors:** Ana's notes fit anchor 3 (handles stated load plus two named failure modes, with trade-offs). Dev's notes have parts of anchor 4 (a quantified lag budget and a rollout/rollback plan). Ben's and Farah's notes fit the anchor 2 wording (\"misses failure modes or capacity limits when prompted\"). Ask each interviewer to confirm which anchor they meant, not to defend their vote.\n- **Code Quality & Testing:** the only evidence is 5 words, from a scorecard submitted late. The kit's anchors 3 and 4 depend on tests and refactoring, and the notes mention neither. Ask Chen H. whether tests came up at all.\n- **Before the meeting:** chase Gabe T.'s Debugging & Operations scorecard (I can draft the reminder). Until it arrives, that competency has no evidence at all.\n- **Suggested agenda:** (1) remind the panel that the flagged remarks in section 6 are excluded; (2) go through evidence one competency at a time, starting with System Design; (3) decide how to handle the missing Debugging & Operations evidence; (4) take independent votes last; (5) the decider fills in the decision memo.\n\nAI-drafted, human decision required."
+                "evidence": "This uses the synthetic Fernhill Robotics sample data. Priya N. is not a real candidate. Here is the packet as `debrief.py` produced it (as of 2026-10-01):\n\n---\n\n# Debrief packet: Priya N. -- Senior Backend Engineer (REQ-1042)\n\nAs of 2026-10-01. AI-drafted, human decision required. This packet organizes interviewer evidence. It does not score, rank or recommend, and interviewers' overall votes are left out so the discussion starts from evidence.\n\n> Privacy: 2 email/phone/link value(s) were removed from interviewer text.\n\n## 1. Scorecard status\n\n- Submitted: 6 of 7 interviews.\n- MISSING: Gabe T. (Debugging & operations, interviewed 2026-09-28) -- 3 day(s) since the interview.\n- Late: Chen H. (Technical screen) submitted 2 days after the interview; memory-based notes are less reliable.\n\n## 2. Evidence matrix (competency x interviewer)\n\n| Competency | Interviewer (session) | Rating | Evidence |\n|---|---|---|---|\n| System Design | Ana Q. (System design) | Yes | \"Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key.\" |\n| System Design | Ben O. (System design) | No | \"Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed.\" |\n| System Design | Dev M. (Architecture deep dive) | Strong Yes | \"Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds.\" |\n| System Design | Farah S. (Architecture deep dive) | No | \"The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work.\" |\n| Code Quality & Testing | Chen H. (Technical screen) | Strong Yes | \"Solid coder, would be great.\" |\n| Debugging & Operations | -- | -- | NO EVIDENCE |\n| Communication | Ana Q. (System design) | Yes | \"Drew the design in stages and paused to check that I followed before going deeper; restated my constraint about cost before answering.\" |\n| Communication | Ben O. (System design) | Yes | \"Clear structure, explained the queue choice well.\" |\n| Ownership | Elena V. (Hiring manager screen) | Yes | \"Described leading the move of the billing queue off a single Postgres table after two incidents; she wrote the RFC, ran the cutover and owned the on-call runbook afterwards.\" |\n| Ownership | Dev M. (Architecture deep dive) | Yes | \"Owned the post-incident review and the follow-up work for the billing outage.\" |\n| Ownership | Farah S. (Architecture deep dive) | Yes | \"Clear example of owning the billing runbook after the incident.\" |\n| Collaboration | Elena V. (Hiring manager screen) | Yes | \"Disagreed with a staff engineer on event schema versioning; set up a short spike to compare both options and adopted his approach when the data favored it.\" |\n\n## 3. Where interviewers disagree\n\n- **System Design**: 2 positive vs 2 negative.\n  - Ana Q. (Yes): \"Designed the fleet telemetry ingest for 40k robots: partitioned by robot id, put a durable queue in front of the writer, and named back-pressure and replay as the two failure modes to handle. Picked at-least-once delivery and explained the idempotency key.\"\n  - Dev M. (Strong Yes): \"Walked through the billing queue migration in detail: dual writes, a shadow reader, and a rollback switch; quantified the lag budget at 2 seconds.\"\n  - Ben O. (No): \"Did not estimate write throughput until I asked; when asked, 40k robots x 10 msgs/s was computed as 40k msgs/s and not corrected. Storage retention was never discussed.\"\n  - Farah S. (No): \"The migration story was strong but when I changed the constraint to multi-region she kept a single primary and could not say how a region failover would work.\"\n\n## 4. Coverage gaps\n\n- **Debugging & Operations**: no evidence. Gabe T. (Debugging & operations) has not submitted.\n- Code Quality & Testing: evidence from one interviewer only (Chen H.).\n- Collaboration: evidence from one interviewer only (Elena V.).\n\n## 5. Ratings without supporting evidence\n\n- STRONG RATING, THIN EVIDENCE: Chen H. rated Code Quality & Testing \"Strong Yes\" with 5 word(s) of evidence: \"Solid coder, would be great.\"\n- thin evidence: Ben O. rated Communication \"Yes\" with 7 word(s) of evidence: \"Clear structure, explained the queue choice well.\"\n- thin evidence: Farah S. rated Ownership \"Yes\" with 10 word(s) of evidence: \"Clear example of owning the billing runbook after the incident.\"\n\n## 6. Fairness flags (non-job-related remarks)\n\n- [high] Dev M. (notes): \"young\" in \"Great culture fit -- she brings the young energy this team needs. Email [email removed] if\" -- age: Age-coded wording (ADEA protects 40+). Fix: Describe the job-related behaviour instead.\n- [medium] Ben O. (notes): \"Seemed nervous\" in \"Seemed nervous at the start, warmed up later.\" -- demeanor-emotion: Inference about emotion, demeanor or personality. These are unreliable signals, and AI systems may not infer emotions at work (EU AI Act Art. 5(1)(f)). Fix: Record what the candidate said or did against the rubric.\n- [medium] Dev M. (notes): \"culture fit\" in \"Great culture fit -- she brings the young energy this team needs. E\" -- culture-fit: 'Culture fit' and gut-feel remarks are not job-related and are a common proxy for similarity bias. Fix: Replace with evidence against a named competency, or with 'values alignment' tied to a written value.\n\n## 7. Questions for the debrief (seeds; edit before use)\n\n1. System Design: Ana Q., Dev M. saw it positively and Ben O., Farah S. negatively. What did each of you observe, and which observation maps to which rubric anchor?\n2. Debugging & Operations has no evidence. Do we wait for the missing scorecard, add a follow-up, or decide without it and record that?\n3. Chen H.: what specific behaviour supports \"Strong Yes\" on Code Quality & Testing?\n4. Set aside the flagged remarks (Ben O., Dev M.). Is the remaining job-related evidence enough?\n\n## 8. Decision memo (the hiring team fills this in)\n\n- Decision and decider: ______ (made by people, after discussion)\n- Evidence relied on, by competency: ______\n- Open risks and how they will be checked (references, follow-up interview): ______\n- Flagged remarks excluded from the decision: ______\n- Missing scorecards and how they were handled: ______\n\n---\n\n## Facilitator notes\n\n- **A sharper System Design question:** the four interviewers tested different things. Ana Q. and Ben O. both looked at the same 40k-robot telemetry design. Ana recorded partitioning, the durable queue, and back-pressure and replay as failure modes. Ben recorded that throughput wasn't estimated until he asked, and that the estimate was off by 10x (40k robots × 10 msgs/s computed as 40k msgs/s). Dev M. and Farah S. both heard the billing migration. Farah then changed the constraint to multi-region, and her note says failover was never explained. Ask Ana and Ben whether they saw the same capacity reasoning, and ask Dev whether multi-region came up in his part of the session.\n- **Kit rubric anchors for System Design:** this is only where the quotes sit against the kit's wording. It is not a rating.\n  - Ana's quote matches anchor 3: \"handles the stated load and at least two failure modes, with trade-offs named.\"\n  - Dev's quote has the migration/rollout plan and the quantified lag budget that anchor 4 describes.\n  - Ben's quote matches anchor 2: \"misses… capacity limits when prompted.\"\n  - Farah's multi-region note sits on the failure-mode part of anchor 2.\n  - Ask the panel to agree on which anchor each observation supports.\n- **Code Quality & Testing:** the only evidence is Chen H.'s 5 words, submitted late. The kit's anchors 3 and 4 refer to tests, edge cases and refactoring, and none of those are in the note. Ask Chen what code was written and whether tests came up. If Chen can't say, treat this competency as a coverage gap like Debugging & Operations.\n- **Before the debrief:** send Gabe T. a reminder about the 2026-09-28 Debugging & operations scorecard. I can draft it but won't send it. If it isn't in before the meeting, write down how the team handled that gap in the memo.\n- **Suggested agenda:**\n  1. Evidence by competency: System Design first, then the competencies with only one interviewer, then the Debugging & Operations gap.\n  2. Exclude the three flagged remarks. Dev M.'s \"young energy\" / \"culture fit\" and Ben O.'s \"seemed nervous\" stay out of the discussion and are listed in the memo.\n  3. Hiring-team votes come last, after the evidence discussion.\n\nThe sample doesn't include an interview-kit link for Gabe's session. I can draft the reminder to Gabe or save this packet as `debrief-REQ-1042-PN.md` if you'd like.\n\nAI-drafted, human decision required."
               },
               {
                 "name": "skill-fired",
@@ -280,12 +279,12 @@
             "score": 0,
             "passed": false,
             "turns": 3,
-            "costUsd": 0.1020932,
-            "judgeCostUsd": 0.0019169999999999994,
+            "costUsd": 0.1087566,
+            "judgeCostUsd": 0.0021269999999999987,
             "durationSeconds": 16,
-            "startedAt": "2026-10-02T19:08:55.155Z",
+            "startedAt": "2026-10-03T01:22:01.678Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-43bbTD/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-63hmM7/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -308,7 +307,7 @@
                   false,
                   false
                 ],
-                "evidence": "I couldn't run `/debrief-prep` because no command or skill by that name is installed in this session. I checked the project's `.claude/` directory and found no `debrief-prep` skill there either. There are also no interview notes, scorecards or other files for Priya N. in this workspace, so I have nothing to build a debrief prep from.\n\nTo get it working, someone can add `debrief-prep` as an organization plugin or a project skill. I'm not sure how it was set up wherever you've used it before, so I won't guess at install steps.\n\nI can also do it by hand now if you share the materials, such as interviewer scorecards or feedback, the role's rubric or competencies, and the interview loop structure. I don't know what `--sample` does in your version of the command, so tell me what output you expect. For example, it might mean a sample or template debrief doc, or a debrief built from sample data."
+                "evidence": "I couldn't run `/debrief-prep` because that command isn't installed in this session. It's probably part of a hiring plugin or project skill that isn't loaded here. To get it, an admin can add it as an organization plugin, or you can add it as a project skill.\n\nI also looked for anything I could use to prepare a debrief for Priya N. by hand, and there's nothing here. The working directory has no interview feedback, scorecards, rubric or candidate files, and the project `.claude/` folder has no skills or commands in it. I don't know what `--sample` was meant to do, since that comes from the missing command.\n\nIf you want, I can put together a debrief prep document myself. Paste in or point me to:\n- each interviewer's feedback or scorecard for Priya N.\n- the role and the competencies or rubric you hire against\n- any specific format your team uses for debriefs\n\nFrom that I can write a summary for each competency. It would show where interviewers agreed or disagreed, where evidence is thin, and open questions for the debrief. If `--sample` meant \"show me a sample of the output,\" I can instead make a filled-in example with made-up interview data, clearly labeled, so you can see the format."
               },
               {
                 "name": "split",
@@ -366,12 +365,12 @@
             "score": 1,
             "passed": true,
             "turns": 5,
-            "costUsd": 0.1567052,
-            "judgeCostUsd": 0.0033480000000000003,
-            "durationSeconds": 23,
-            "startedAt": "2026-10-02T19:08:58.952Z",
+            "costUsd": 0.1596982,
+            "judgeCostUsd": 0.005649000000000008,
+            "durationSeconds": 24,
+            "startedAt": "2026-10-03T01:22:10.172Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-ho73Lj/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-PiT0ao/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -415,7 +414,7 @@
                   true,
                   true
                 ],
-                "evidence": "**I wouldn't share it as written.** I ran the fairness lint on it, and four of the five remarks shouldn't influence the decision. The one useful piece of evidence is that the candidate skipped error states.\n\n## Script output\n\nFairness lint (feedback): 5 flags.\n\n| Sev | Line | Category | Phrase | Why | Suggested fix |\n|---|---|---|---|---|---|\n| high | 1 | national-origin | \"accent\" | Comments on national origin, ancestry or where someone's language comes from. | Assess communication against the rubric (clarity, structure), not accent, language origin or birthplace. Postings may require 'fluent' or 'professional' English if the job needs it. |\n| high | 3 | family-status | \"baby\" | Family, marital or pregnancy status has nothing to do with the job and is protected in many jurisdictions. | Delete the remark. Assess availability only through the job's stated schedule, asked of everyone. |\n| medium | 1 | culture-fit | \"culture fit\" | \"Culture fit\" and gut-feel remarks aren't tied to the job and often stand in for similarity bias. | Replace with evidence against a named competency, or with \"values alignment\" tied to a written value. |\n| medium | 2 | demeanor-emotion | \"Seemed nervous\" | A guess about emotion, demeanor or personality. These signals are unreliable. | Record what the candidate said or did against the rubric. |\n| medium | 2 | demeanor-emotion | \"lacked confidence\" | A guess about emotion, demeanor or personality. These signals are unreliable. | Record what the candidate said or did against the rubric. |\n\n## Reviewer notes (things the patterns don't catch)\n\n- **\"Hard to follow\"** is linked to the accent in the same sentence, so it reads as an accent remark, not a judgment on how clearly the answers were structured.\n- **\"On-call might be a problem\"** guesses at the candidate's schedule from their family status. The candidate didn't say they couldn't do on-call; the conclusion was drawn from the baby.\n- **\"Not sure he'd be a culture fit with the team\"** gives no example of anything the candidate did or said.\n\n## Exclude from the decision\n\n- \"hard to follow, strong accent\"\n- \"Not sure he'd be a culture fit with the team\"\n- \"Seemed nervous and lacked confidence in the design exercise\"\n- \"he's got a new baby so on-call might be a problem\"\n\n**Keep as evidence:** \"skipped error states entirely\" in the design exercise. This is specific, observable and about the job.\n\n## Questions the interviewer should answer instead\n\n- **Communication:** Against the rubric, how clear and well-structured were the explanations? Where did the reasoning become hard to follow? Give a specific example of what was said.\n- **Values / collaboration:** Which written team value or competency does the concern relate to, and what did the candidate do or say that bears on it?\n- **Design exercise:** Besides skipping error states, what did the candidate cover or leave out (for example edge cases, tradeoffs), and how did they respond when you prompted them?\n- **On-call:** If the role requires on-call, has every candidate been told the schedule and asked the same question? Record only that answer, not guesses based on personal circumstances.\n\nIt would help to ask the interviewer to resubmit the scorecard with competency-based evidence before the debrief. Then the panel never sees the excluded remarks.\n\nFlags mean a human should look, not that anyone is biased. AI-drafted, human decision required."
+                "evidence": "**No, not as written.** Four of the five remarks shouldn't reach the panel. Only one is job-related evidence: \"skipped error states entirely.\"\n\nI ran the fairness lint script on it in feedback mode:\n\n| Sev | Line | Category | Phrase | Why | Suggested fix |\n|---|---|---|---|---|---|\n| high | 1 | national-origin | \"accent\" | National origin, ancestry or language-origin remark. | Assess communication against the rubric (clarity, structure), not accent, language origin or birthplace. Postings may require 'fluent' or 'professional' English if the job needs it. |\n| high | 3 | family-status | \"baby\" | Family, marital or pregnancy status is not job-related and is protected in many jurisdictions. | Delete the remark; assess availability only through the job's stated schedule, asked of everyone. |\n| medium | 1 | culture-fit | \"culture fit\" | 'Culture fit' and gut-feel remarks are not job-related and are a common proxy for similarity bias. | Replace with evidence against a named competency, or with 'values alignment' tied to a written value. |\n| medium | 2 | demeanor-emotion | \"Seemed nervous\" | Inference about emotion, demeanor or personality. These are unreliable signals, and AI systems may not infer emotions at work (EU AI Act Art. 5(1)(f)). | Record what the candidate said or did against the rubric. |\n| medium | 2 | demeanor-emotion | \"lacked confidence\" | Inference about emotion, demeanor or personality. These are unreliable signals, and AI systems may not infer emotions at work (EU AI Act Art. 5(1)(f)). | Record what the candidate said or did against the rubric. |\n\n**Reviewer notes (things the script didn't flag on its own)**\n- **\"Hard to follow\"** sits in the same sentence as the accent remark, so it reads as part of it. It can only count if it's about something like how the answer was structured, with an example.\n- **\"On-call might be a problem\"** assumes something about his schedule based on his family. Nobody asked about availability. Remove it. If on-call is part of the role, ask every candidate the same question about the stated rotation.\n\n**Leave these out of the decision** (quoted, not rewritten):\n- \"hard to follow, strong accent\"\n- \"Not sure he'd be a culture fit with the team\"\n- \"Seemed nervous and lacked confidence\"\n- \"he's got a new baby so on-call might be a problem\"\n\n**Questions for the interviewer to answer before the debrief instead:**\n1. **Communication:** Against the rubric, how clearly did Jordan explain his design reasoning? What's one specific moment where it was or wasn't clear?\n2. **Design exercise:** What did he cover and what did he miss? Besides error states, how did he handle edge cases, tradeoffs and validation? Did he respond when prompted? What score does that give on the rubric?\n3. **Team or values fit:** If there's a concern, which written team value does it relate to, and what did he say or do that shows it?\n4. **On-call:** Is on-call in the job description, and was every candidate asked the same question about it?\n\n\"Skipped error states entirely\" can stay as written. It's strongest if the interviewer adds whether they prompted him about error states and how he responded.\n\nFlags mean a human should look, not that anyone is biased. AI-drafted, human decision required."
               },
               {
                 "name": "skill-fired",
@@ -430,24 +429,30 @@
         ],
         "without": [
           {
-            "score": 0,
-            "passed": false,
+            "score": 1,
+            "passed": true,
             "turns": 1,
-            "costUsd": 0.0903482,
-            "judgeCostUsd": 0,
-            "durationSeconds": 16,
-            "startedAt": "2026-10-02T19:09:10.671Z",
+            "costUsd": 0.08700120000000001,
+            "judgeCostUsd": 0.0034330000000000055,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-03T01:22:17.698Z",
             "error": null,
-            "tracePath": "/tmp/claude-eval-MXcf8a/out/trace.jsonl",
+            "tracePath": "/tmp/claude-eval-7JYidk/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "flags",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "grader threw: judge call failed: You've hit your session limit · resets 6:20pm (America/Cayenne)",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "No, not as written. Only one part of this is usable job-related feedback, and several parts create legal and fairness risk.\n\n**Remove before sharing:**\n\n- **\"Hard to follow, strong accent.\"** Accent isn't a job criterion, and comments about it can read as national-origin bias. If communication actually mattered, describe what happened instead, e.g. \"When explaining the caching approach, I had to ask him to clarify the data flow twice.\"\n- **\"Not sure he'd be a culture fit.\"** This is vague, can't be checked, and is a common cover for bias. Either name the specific behavior and the job requirement it relates to, or cut it.\n- **\"New baby so on-call might be a problem.\"** This is the most serious one. Family or caregiver status shouldn't factor into a hiring decision at all, and putting it in writing creates real discrimination exposure. Also, he didn't say on-call was a problem; that's an assumption. If on-call is part of the role, every candidate should get the same question: \"This role has a 1-in-6 on-call rotation. Is that workable?\"\n- **\"Seemed nervous and lacked confidence.\"** This describes his manner, not his work, and it disadvantages people who interview anxiously. Replace it with what he actually did or didn't do.\n\n**Keep and expand:**\n\n- **\"Skipped error states entirely\"** is good feedback: it's specific, observable and tied to the role. Add more of this kind of detail.\n\n**A cleaner version could look like:**\n\n> Design exercise: Jordan produced a workable happy-path flow for [X] and structured the main components reasonably. He did not address error states (e.g., failed submission, network loss, validation) even when prompted about edge cases. [Add other observed strengths/gaps against the rubric.] Overall: [rating] against the design competency.\n\nIt's best to write the rest against your rubric's competencies and include examples of what he did well, so the panel sees a balanced picture. Also, the baby comment has already come up, so it shouldn't be raised in the debrief either, even out loud."
               }
             ]
           }
@@ -456,9 +461,9 @@
       "aggregates": {
         "score": 1,
         "passRate": 1,
-        "scoreWithout": 0,
-        "passRateWithout": 0,
-        "delta": 1
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
       }
     },
     {
@@ -494,15 +499,15 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 3,
-            "costUsd": 0.11898,
-            "judgeCostUsd": 0,
-            "durationSeconds": 32,
-            "startedAt": "2026-10-02T19:09:14.513Z",
-            "error": "interrupted",
-            "tracePath": "/tmp/claude-eval-O4o0Bo/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.3476404,
+            "judgeCostUsd": 0.009369000000000002,
+            "durationSeconds": 85,
+            "startedAt": "2026-10-03T01:22:27.645Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-B7mvq9/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -536,11 +541,17 @@
             "graders": [
               {
                 "name": "kit-quality",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "grader threw: Request was aborted.",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "# Interview kit: Founding Account Executive\n\nYou said \"just draft it,\" so I assumed a standard loop: a CEO screen, a skills screen run as a mock discovery call, and three onsite sessions. Each of you owns one or two competencies, and there are five in total. The advisor runs the two most sales-specific sessions, because that's where they can judge the answers best.\n\nLoop: Hiring manager screen (45 min, CEO) -> Mock discovery call (45 min, Advisor) -> Onsite: Deal deep-dive (45 min, Advisor) · Product & customer insight (45 min, Head of Product) · Building the motion (45 min, CEO)\n\n## Panel split\n| Session | Interviewer | Owns | Secondary |\n|---|---|---|---|\n| Hiring manager screen | CEO | Self-sourced pipeline generation | — |\n| Mock discovery call | Sales advisor | Discovery and qualification | — |\n| Deal deep-dive | Sales advisor | Full-cycle deal execution and forecasting | — |\n| Product and customer insight | Head of product | Product fluency and customer feedback loop | — |\n| Building the motion | CEO | Building sales process from zero | — |\n\n## Self-sourced pipeline generation (owned by Hiring manager screen, CEO)\nDefinition: Builds qualified pipeline from scratch without marketing, SDRs or inbound leads, using outbound, their own network and handoffs from the founder.\nRubric: **1 Strong No:** Can't describe any pipeline they built themselves. Every example relies on inbound, SDRs or an assigned territory. | **2 No:** Describes some outbound activity but can't give numbers (activity, reply rate, meetings, pipeline value) or say what worked. | **3 Yes:** Gives a specific self-sourced example with numbers and channels, and explains how they changed targeting when results were weak. | **4 Strong Yes:** Gives several examples with numbers, explains a repeatable sourcing approach they designed, and proposes a concrete 90-day pipeline plan with targets for our ideal customer profile (ICP).\n\nBehavioral\n1. Tell me about a time you had to build pipeline with little or no inbound or SDR support. Walk me through the first 60 days. (12 min)\n   Probes: Weekly activity numbers, and what turned into meetings?; Which channel or message stopped working, and what did you change?; What share of that year's closed revenue did you source yourself?\n2. Tell me about a time you broke into an account or segment that was new to you. How did you decide who to target? (10 min)\n   Probes: What research did you do before the first touch?; What did the first message actually say?; What happened, and what would you change?\n\nSituational\n1. You start Monday. I give you 15 fairly warm contacts from my network and a list of 40 deals we won or lost. We have no marketing. What do you do in your first 30 days so there's real pipeline by day 45? (10 min)\n   Probes: How do you split time between my contacts and new outbound?; What weekly numbers would you hold yourself to?; What would tell you by day 30 that our ICP is wrong?\n\n## Discovery and qualification (owned by Mock discovery call, Advisor)\nDefinition: Runs discovery that uncovers the buyer's pain, its cost, how they decide and their budget, and drops deals honestly when they don't qualify.\nRubric: **1 Strong No:** In the mock call, pitches features before asking about the problem. Can't say who decides or how. | **2 No:** Asks surface-level questions but doesn't put a number on the impact or find out how the decision gets made. Accepts vague answers without following up. | **3 Yes:** Finds the core pain and what it costs, identifies the economic buyer and the next step, and follows up on vague answers. | **4 Strong Yes:** Does everything in 3, also surfaces a hidden objection or a competing priority, and either agrees a concrete next step with the buyer or disqualifies with a clear reason.\n\nBehavioral\n1. Tell me about a deal you disqualified early that a less disciplined rep would have kept in the pipeline. (8 min)\n   Probes: Which questions brought the issue out?; How did you tell the prospect and your manager?; Did you ever revisit it?\n2. Tell me about a deal you lost late that you now think you should have disqualified earlier. (8 min)\n   Probes: What signal did you miss in discovery?; What do you ask now that you didn't ask then?; How did you forecast it along the way?\n\nSituational\n1. **Mock discovery call (20 min call plus debrief).** The advisor plays a VP at a target customer who took a first call after an outbound email. (25 min)\n   Probes: What do you know now, and what's still unknown?; Would you put this in the pipeline, and at what stage?; What's your next step, and why?\n\n## Full-cycle deal execution and forecasting (owned by Deal deep-dive, Advisor)\nDefinition: Takes deals from qualified opportunity to signed contract. That includes reaching several stakeholders, negotiating, getting through procurement and forecasting accurately.\nRubric: **1 Strong No:** Can't walk through a closed deal end to end. Vague on the stakeholders, the timeline or how pricing was settled. | **2 No:** Describes a closed deal, but the buyer or a manager drove the process. Built few relationships beyond one contact. Can't explain their forecast misses. | **3 Yes:** Walks through a deal they ran themselves: named roles, timeline, a mutual plan with the buyer, what they traded in negotiation and how they forecast it. Explains one forecast miss and what they learned. | **4 Strong Yes:** Does everything in 3 across several deals, shows a consistent personal method (mutual action plans, reaching several stakeholders, trading concessions for something in return) and gives numbers for their forecast accuracy.\n\nBehavioral\n1. Walk me through the largest deal you personally closed, from first meeting to signature. (15 min)\n   Probes: Who were the stakeholders, and how did you reach each one?; What was the hardest moment?; What did you give up in negotiation, and what did you get back?\n2. Tell me about a quarter where your forecast was badly wrong. (10 min)\n   Probes: Which deals slipped, and why?; What did you change in how you forecast afterwards?; What was your quota attainment over your last four quarters?\n\nSituational\n1. A champion at a 200-person company gives you a verbal yes. Then procurement asks for a 30% discount and a security review, with three weeks left in the quarter. We have no discount policy. What do you do? (10 min)\n   Probes: What would you bring to the CEO, and what would you decide yourself?; How do you stop the deal slipping?; What would you trade instead of a discount?\n\n## Product fluency and customer feedback loop (owned by Product and customer insight, Head of Product)\nDefinition: Learns a technical product quickly, positions it around how the buyer actually works, and turns what they hear from customers into specific feedback the product team can use.\nRubric: **1 Strong No:** Describes products only in marketing language. Their feedback examples amount to \"customers wanted more features,\" with no specifics. | **2 No:** Knows the product well enough to demo it but can't explain where it fits in the buyer's day-to-day work. Their feedback has no evidence behind it and no sense of how often it came up. | **3 Yes:** Explains a past product in terms of the buyer's workflow and the alternatives. Gives an example of feedback, backed by evidence (number of deals, impact), that the product team acted on or seriously considered. | **4 Strong Yes:** Does everything in 3. Also tells one-off requests apart from patterns, knows when to sell what already exists and when to push for a roadmap change, and goes back to tell the customer what happened.\n\nBehavioral\n1. Tell me about a time customer feedback you passed to a product team led to a change. How did you make the case? (12 min)\n   Probes: What evidence did you bring (deals, revenue, quotes)?; How did you tell one customer's request apart from a pattern?; How did you tell the customer what happened?\n2. Tell me about the most technical product you've sold. How did you get up to speed? (10 min)\n   Probes: How long until you could demo it alone?; When did you bring in a technical person, and when did you handle it yourself?; Explain that product to me the way you would to its buyer.\n\nSituational\n1. A prospect worth twice our average deal will sign if we build a specific integration within 60 days. It's not on the roadmap. What do you do, and what do you tell me? (10 min)\n   Probes: What do you need to learn from the prospect first?; What information do you bring to product?; What do you tell the prospect while we decide?\n\n## Building sales process from zero (owned by Building the motion, CEO)\nDefinition: Creates the first repeatable way of selling (ICP, deal stages, messaging, CRM hygiene, metrics) and writes it down so the next hires can follow it.\nRubric: **1 Strong No:** Has only ever worked inside a playbook someone else built, and can't describe building any part of one. | **2 No:** Has improved small parts of an existing process, but the examples have no outcomes or documentation. | **3 Yes:** Gives a specific example of building one piece of a sales process from scratch (deal stages, talk track, qualification criteria, CRM setup) and says how they measured whether people used it and whether it worked. | **4 Strong Yes:** Has built a large part of a sales process end to end, can show what changed in the numbers, and explains how they'd write down our process for the next hires.\n\nBehavioral\n1. Tell me about something in a sales process you built from scratch because it didn't exist yet. (12 min)\n   Probes: What prompted it, and who else was involved?; How did you know it worked (numbers)?; Does it still exist, and what would you change?\n2. Tell me about working closely with a founder or executive who had been selling themselves. How did you take over? (10 min)\n   Probes: What did you keep and what did you change?; Where did you disagree, and how was it resolved?; How did you keep them informed?\n\nSituational\n1. Today I close deals on instinct, a Google Sheet and a deck. In six months we want to hire our second AE. What exists by then, and how do you build it while still hitting your number? (12 min)\n   Probes: What do you build first, and why?; What do you need from me, and what will you push back on?; Which metrics would we review together each week?\n\n## Paste into your ATS\n**Greenhouse:** Go to Job Setup > Interview Plan > *stage* > Edit Scorecard. Add each competency as an attribute under \"Skills\" (or \"Qualifications\"), not \"Personality Traits\". Put the questions in that interview's Interview Kit.\n**Ashby:** Add each competency as a scored field in that interview's feedback form, and paste the rubric into the field description.\n\n## Interviewer reminders\n- Ask every candidate the same questions. Write down what they said and what they did, not your impressions.\n- Submit your scorecard within 24 hours, before you talk to the other interviewers.\n- Rate each competency against its anchors. Leave it blank if you didn't see evidence for it.\n- Don't ask about age, family, origin, religion, health, arrests or pay history.\n- **Advisor:** Write the mock call persona once (company, pain, budget, the hidden objection) and use the same one for every candidate.\n\nkit_check: 0 fail, 0 warn (5 competencies, all with anchors, questions and probes; every competency has exactly one owner; no fairness flags)\n\nThe kit is saved at `kit-founding-account-executive.json`. When interviews are done, run `/debrief-prep` with this file so you can see which competencies are missing evidence.\n\nAI-drafted, human decision required."
               },
               {
                 "name": "skill-fired",
@@ -558,32 +569,38 @@
             "score": 0,
             "passed": false,
             "turns": 1,
-            "costUsd": 0.06887620000000001,
-            "judgeCostUsd": 0,
-            "durationSeconds": 25,
-            "startedAt": "2026-10-02T19:09:22.093Z",
-            "error": "interrupted",
-            "tracePath": "/tmp/claude-eval-O24xXq/out/trace.jsonl",
+            "costUsd": 0.1917642,
+            "judgeCostUsd": 0.011279999999999998,
+            "durationSeconds": 64,
+            "startedAt": "2026-10-03T01:22:32.165Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-0Rf0Vi/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "kit-quality",
                 "passed": false,
                 "weight": 1,
-                "explanation": "grader threw: Request was aborted.",
+                "explanation": "judge votes: FAIL FAIL FAIL",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "# Founding AE Interview Kit\n\n## Before any interviews: agree on four things (30 min, all three of you)\n\n1. **What the job is.** This is a player, not a manager. They'll carry a quota, source most of their own pipeline, and turn your founder-led sales into a repeatable process. If anyone on the panel is picturing a future VP of Sales, settle that now. Otherwise you'll score candidates against different jobs.\n2. **The deal profile.** Fill in: ACV ~$[__], cycle ~[__] weeks, buyer = [title], inbound vs. outbound mix ~[__]. Candidates who have sold this kind of deal are worth far more than candidates with big logos.\n3. **The must-haves.** Proposed: (a) has closed deals they sourced themselves, start to finish, (b) has worked without much support (no SDRs, SEs, enablement or brand), (c) is honest about their numbers. Missing any of these means no hire, whatever else they score.\n4. **Every candidate gets the same questions in the same order.** Follow-up probes can vary. The core questions can't.\n\n---\n\n## Who owns what\n\nEach competency has one owner so you don't overlap and you get more signal per hour.\n\n| Interviewer | Competencies owned | Format |\n|---|---|---|\n| **Advisor** | 1. Full-cycle selling and self-sourced pipeline · 2. Discovery and qualification | 45 min behavioral + runs the mock call |\n| **CEO** | 3. Building from zero / ambiguity · 4. Ownership and integrity | 45 min behavioral |\n| **Head of Product** | 5. Customer insight → product loop · 6. Learning speed on the product | 45 min behavioral |\n| **All three** | 7. Coachability (observed in the mock call) | 45 min work sample |\n\n**Suggested order:** CEO screen → Advisor + Head of Product (same day is fine) → mock call for finalists → references.\n\n---\n\n## Rating scale (used for every competency)\n\n- **1 — Strong no:** Clear evidence against, or no relevant evidence after probing.\n- **2 — Lean no:** Some relevant experience, but it's thin, vague, or depended on support we can't give.\n- **3 — Meets the bar:** Specific, credible examples that match our situation.\n- **4 — Strong yes:** Has done this repeatedly in a setting like ours and can explain why it worked.\n\n**Rule:** Score only on evidence you heard. \"Seems sharp\" isn't evidence. Write down the quote or example behind each score.\n\n---\n\n## Advisor\n\n### Competency 1: Full-cycle selling and self-sourced pipeline\n\n**Q1.** \"Walk me through the last deal you closed that you sourced yourself. Start with how you first found the account.\"\n- Probes: Exactly how did you find them? How many touches before a reply? Who else was involved (SDR, SE, manager, founder)? What did you personally do that nobody else did? How long did it take, and what was the ACV?\n\n**Q2.** \"Over your last two years, what share of your closed revenue came from pipeline you generated yourself, versus inbound or handed to you?\"\n- Probes: How was your quota set? What was your attainment each year? Where did you rank on the team? Why did people above you beat you?\n\n**Q3.** \"Tell me about a quarter where pipeline dried up. What did you do in the first two weeks?\"\n\n| Score | Anchor |\n|---|---|\n| 1 | All examples are inbound or SDR-sourced. Can't describe their own prospecting motion. |\n| 2 | Has done some outbound, but it was a small share. Relied on brand or SE support for closes. |\n| 3 | Has sourced and closed multiple deals in our ACV range end to end. Knows their own conversion numbers. |\n| 4 | Has built pipeline from scratch in a new territory or product. Knows their numbers cold and can explain what they'd change. |\n\n### Competency 2: Discovery and qualification\n\n**Q4.** \"Tell me about a deal you walked away from or disqualified. How did you know?\"\n- Probes: When in the cycle did you know? What did you say to the prospect? What did your manager think?\n\n**Q5.** \"Tell me about a deal you lost that you thought you'd win. What did you miss?\"\n- Probes: Looking back, what was the earliest signal? What do you do differently now?\n\n| Score | Anchor |\n|---|---|\n| 1 | Never disqualifies. Explains losses as price, timing, or the prospect's fault. |\n| 2 | Uses a framework by name (MEDDICC, etc.) but can't show it changing a decision. |\n| 3 | Gives concrete examples of qualifying out early. Owns the misses in losses. |\n| 4 | Discovery visibly shaped deal strategy (who to involve, what to price, when to walk). Has a clear point of view on what makes a good opportunity. |\n\n---\n\n## CEO\n\n### Competency 3: Building from zero / ambiguity\n\n**Q6.** \"Tell me about a time you had to sell with almost nothing: no playbook, no case studies, maybe an unfinished product. What did you build for yourself?\"\n- Probes: What exactly did you create (sequences, decks, a qualification checklist, a pricing approach)? Did anyone else use it later? What didn't work?\n\n**Q7.** \"Here's how we sell today: [2-minute honest description of the founder-led motion]. What questions do you have, and what would you want to understand in your first 30 days?\"\n- What you're listening for: do they ask about win/loss data, ICP, pricing and call recordings, or do they jump straight to a generic 30/60/90?\n\n**Q8.** \"What's the least structured sales environment you've worked in? What did you like and hate about it?\"\n\n| Score | Anchor |\n|---|---|\n| 1 | Has only worked inside established sales orgs. Expects enablement, territory and leads to be provided. |\n| 2 | Has done early-stage work but mostly carried out someone else's playbook. |\n| 3 | Has built their own assets and process without being asked. Comfortable with gaps. |\n| 4 | Has been an early or first sales hire before and created a process others adopted. Asks sharp diagnostic questions about our motion. |\n\n### Competency 4: Ownership and integrity\n\n**Q9.** \"Tell me about a time you missed your number. Walk me through what happened and what you did.\"\n- Probes: When did you know you'd miss? Who did you tell, and when? What would your manager say happened?\n\n**Q10.** \"Tell me about a time you were pressured to forecast a deal, or promise a feature, you weren't confident about. What did you do?\"\n\n| Score | Anchor |\n|---|---|\n| 1 | Has never missed, or blames external factors only. Numbers shift under probing. |\n| 2 | Owns the misses vaguely, with no specific actions or lessons. |\n| 3 | Names their own mistakes specifically and flagged problems early. Numbers stay consistent all the way through. |\n| 4 | Has a pattern of telling uncomfortable truths early (to managers or customers) and can show what that cost them and gained them. |\n\n---\n\n## Head of Product\n\n### Competency 5: Customer insight → product loop\n\n**Q11.** \"Tell me about a time something you heard from customers changed what a product team built or prioritized.\"\n- Probes: How did you collect it? How did you tell a real pattern apart from one loud customer? How did you bring it to the product team? What happened?\n\n**Q12.** \"Tell me about a deal where the customer wanted something the product didn't do. How did you handle it?\"\n- Probes: Did you promise it? Did you find a workaround? Did the deal close? How did you talk to product about it?\n\n| Score | Anchor |\n|---|---|\n| 1 | Sees product as someone else's problem. Promises roadmap items to close deals. |\n| 2 | Passes feature requests along, but there's no synthesis or prioritization. |\n| 3 | Brings structured, pattern-level feedback. Honest with customers about gaps. |\n| 4 | Has been a trusted voice in product decisions. Can tell \"must-have to win the segment\" apart from \"one customer's wish.\" |\n\n### Competency 6: Learning speed on the product\n\n**Q13.** \"Before today, what did you learn about our product and our customers? What do you think our best customer looks like, and why?\"\n- What you're listening for: real homework, a specific hypothesis, and good questions, not flattery.\n\n**Q14.** \"Tell me about the most technical product you've sold. How long did it take before you could run a demo without help? How did you get there?\"\n\n**Q15.** \"Explain [a core concept in our domain] back to me as if I were a skeptical buyer.\" (Give a 3-minute explanation first, then ask them to play it back.)\n\n| Score | Anchor |\n|---|---|\n| 1 | Little prep. Relies on SEs for anything technical. |\n| 2 | Did surface-level prep. Has learned products before, but slowly or with heavy support. |\n| 3 | Clear hypothesis about our ICP. Has independently learned a product as complex as ours. Explains our concept accurately. |\n| 4 | Insightful questions that make you think. Picks up our concept quickly and translates it into buyer language better than we do. |\n\n---\n\n## Work sample: mock discovery call (finalists only, all three)\n\n**Setup (send 48 hours ahead):** A one-page brief on a realistic prospect: company, role, a trigger event, and a little context. Don't send a script. Give them access to the product or a demo video.\n\n**The call (45 min):**\n- **20 min, discovery call.** The advisor plays the buyer, with a hidden brief: a real pain, one secret objection, a budget constraint, and a second stakeholder the candidate has to uncover. The head of product and CEO watch.\n- **5 min, the candidate self-assesses.** \"How did that go? What would you do differently?\"\n- **5 min, the advisor gives one specific piece of feedback.**\n- **10 min, rerun the last part** (for example, the close or next steps) using the feedback.\n- **5 min, their questions.**\n\n**Scored on competency 2 (discovery) plus competency 7 (coachability):**\n\n| Score | Coachability anchor |\n|---|---|\n| 1 | Defensive or dismissive of feedback. Second attempt is unchanged. |\n| 2 | Accepts the feedback politely, but the change is cosmetic. |\n| 3 | Self-assessment is accurate. Applies the feedback clearly in the rerun. |\n| 4 | Self-assessment spots the issue before you raise it. Rerun is clearly better and adapts beyond the literal feedback. |\n\n**Discovery signals to note:** Did they find the second stakeholder? Did they surface the hidden objection? Did they ask about budget and process, or pitch too early? Did they agree a concrete next step?\n\n---\n\n## Scorecard (each interviewer fills it in alone)\n\n```\nCandidate: ____________   Interviewer: ____________   Date: ______\n\nCompetency            Score (1-4)   Evidence (quotes / specifics)\n-------------------   -----------   ------------------------------\n[Your competency A]\n[Your competency B]\n\nMust-haves observed?  Self-sourced closes: Y / N / Didn't assess\n                      Low-support environment: Y / N / Didn't assess\n                      Number integrity: Y / N / Didn't assess\n\nOverall:  Strong no / Lean no / Lean yes / Strong yes\nBiggest concern:\nWhat I'd want the next interviewer or references to probe:\n```\n\n**Submit it within 2 hours, before talking to anyone.** This is the most important rule in the kit. Once the CEO shares an opinion, the panel tends to anchor on it.\n\n---\n\n## Debrief\n\n1. Read the scores out loud, **with the most junior or least sales-expert voice first**: head of product, then advisor, then CEO.\n2. Go competency by competency, not \"did you like them?\"\n3. Where scores differ by 2 or more points, the two people share their evidence. Change a score only if new evidence comes up, not because someone argued harder.\n4. Check the must-haves. Any clear \"N\" is a no.\n5. **Hiring bar:** No 1s anywhere. Mostly 3s and above. At least one 4 in competency 1 or 3, because those are the riskiest parts of this specific role.\n6. Write down the decision and its main reason in one paragraph. Over a few hires, this is how you calibrate.\n\n---\n\n## Reference checks (CEO or advisor, 2–3 calls)\n\nAsk for at least one former manager. Back-channel if you can.\n- \"What share of their closed deals did they source themselves?\"\n- \"Where did they rank on the team, and why?\"\n- \"What kind of support did they need that others didn't?\"\n- \"Would you hire them as the *first* salesperson at a 10-person company? Why or why not?\"\n- \"What should I know to manage them well?\"\n\nListen for hesitation on the \"first salesperson\" question. It's often the most revealing answer you'll get.\n\n---\n\n## Patterns to watch across all interviews\n\n- **Big-logo halo:** Strong attainment at a well-known company, but the brand, SDRs and SEs did much of the work. Probe hard on Q1–Q2.\n- **\"We\" with no \"I\":** The candidate can't separate their contribution from the team's.\n- **Wants to be a manager right away.** That's fine later, but it's a mismatch now.\n- **Numbers that shift** between interviews. Compare the scorecards.\n\n**Legal hygiene:** Don't ask about age, family plans, health, religion, national origin, or current or past salary (banned in many states). Stick to the questions in this kit.\n\n---\n\nA couple of things to fill in or change before you use this:\n- **Placeholders:** the deal profile in step 2, the description of your founder-led motion in Q7, and the domain concept in Q15.\n- **Mock call buyer:** if your advisor is uncomfortable playing the buyer, you can play them, but then the advisor should give the feedback. Sales expertise matters more there."
               }
             ]
           }
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -653,15 +670,15 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 1,
-            "costUsd": 0,
-            "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:27.074Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-nJZJ0p/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 7,
+            "costUsd": 0.2556484,
+            "judgeCostUsd": 0.004490999999999995,
+            "durationSeconds": 46,
+            "startedAt": "2026-10-03T01:22:33.688Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-6lGHNt/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -695,41 +712,47 @@
             "graders": [
               {
                 "name": "benefits",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 401\\(?k\\)?",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "colorado",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched Colorado",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "must-nice-split",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched Must[- ]haves?[\\s\\S]*Nice[- ]to[- ]haves?",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "no-coded-words",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "grader threw: judge call failed: You've hit your session limit · resets 6:20pm (America/Cayenne)",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I've drafted the posting and saved it to `senior-backend-engineer-jd.md`. It isn't ready to publish: it still needs a pay range and an application deadline.\n\n---\n\n# Senior Backend Engineer -- Fernhill Robotics\nDenver, CO (hybrid, 2 days a week in office). Remote considered for candidates in the Mountain or Central time zones.\n\n## About the role\nFernhill Robotics' fleet sends a constant stream of telemetry and events that our backend has to take in, store and serve reliably. You will own core parts of that write-heavy backend: designing services that keep up with growing volume, keeping them healthy in production, and helping a small team ship quickly without breaking things.\n\n## What you'll do\n- Design, build and operate backend services in Go, Rust or Java that ingest high volumes of robot telemetry and event data.\n- Improve throughput, latency and reliability of our data pipeline and storage layer as the fleet grows.\n- Take a share of the on-call rotation, lead incident response and write the follow-ups that stop repeat incidents.\n- Work with robotics, firmware and product engineers to define APIs and data contracts.\n- Ship meaningful changes to production within your first few weeks, with support from the team.\n- Review code and share what you know with other engineers on the team.\n\n## Must-haves\n- Production experience building and maintaining backend services in Go, Rust or Java.\n- You have built or significantly scaled a system that handles high write volume, and can explain the design trade-offs you made.\n- On-call experience for production systems, including diagnosing and resolving incidents.\n- Able to pick up an unfamiliar codebase and deliver production changes independently within your first month.\n- Clear written and verbal communication with engineers outside your own specialty.\n\n## Nice-to-haves\n- Experience with Kafka or a similar streaming platform.\n- Running Postgres at scale (partitioning, replication, query tuning).\n- Robotics, IoT or device-telemetry experience.\n- Mentoring other engineers.\n\nIf you meet most must-haves and none of these, apply.\n\n## Pay and benefits\n**[PAY RANGE REQUIRED: $____ - $____ per year]** [+ bonus/equity, if any]\nBenefits: medical, dental and vision insurance; 401(k) with 4% employer match; 20 days of paid time off.\nApply by: **[APPLICATION DEADLINE REQUIRED: ____]**\n\n## How we hire\n[Interview stages and what each assesses -- to be filled in from the interview kit.]\n\nNeed an accommodation to apply or interview? Email [CONTACT EMAIL].\n\nFernhill Robotics is an equal opportunity employer. We consider all qualified applicants without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, age, disability, veteran status, or any other characteristic protected by law.\n\n---\n\n### What I changed from the hiring manager's wording\nI left out the hiring manager's phrases and wrote in the job need behind each one:\n- **\"Young and hungry\" and \"digital native\":** these signal an age preference. That creates age-discrimination risk under the ADEA and Colorado law, so I dropped them. The real need is drive and comfort with modern tooling, and the must-haves already cover that.\n- **\"Rockstar\":** this vague hype tends to put off qualified applicants. I replaced it with the specific skills the role needs.\n- **\"Hit the ground running\":** this became something you can assess: \"deliver production changes independently within your first month.\"\n- **\"Fit right in\":** I dropped this. If there's a real need behind it, like teamwork or communication, I wrote it as a skill (\"clear communication with engineers outside your specialty\"). In interviews, assess people against the job, not on \"culture fit.\"\n\nYou may want to pass this on to the hiring manager. Those phrases are also risky if they show up in interview feedback.\n\n### Check results\n**Fairness lint:** no flags. A clean result doesn't guarantee the posting is fair; a person should still review it.\n\n**Pay transparency:** I checked Denver plus the Mountain/Central states that have posting laws (Illinois and Minnesota) at 40 employees. All three laws apply:\n\n| Law | Pay range | Benefits | Deadline |\n|---|---|---|---|\n| Colorado Equal Pay for Equal Work Act | **NO** | yes | required (placeholder only) |\n| Illinois Equal Pay Act amendments (HB 3129) | **NO** | yes | not required |\n| Minnesota pay transparency law | **NO** | yes | not required |\n\nThe checker marked the deadline as present, but it only found the \"Apply by:\" line, which is still a placeholder. Colorado requires a real deadline or application window.\n\n### What you still need to add\n1. **A good-faith pay range.** Colorado, Illinois and Minnesota all require one in the posting, so \"not decided yet\" means it can't be posted. What range should go in?\n2. **An application deadline or window.** Colorado requires this.\n3. **Bonus or equity**, if there is any. Colorado wants \"other compensation\" described.\n4. **The \"How we hire\" section.** I can build an interview kit and fill in the stages from it.\n5. **An email address** for accommodation requests.\n\nWhether the posting meets these laws is for your counsel to sign off, not me.\n\nAI-drafted. Pay-transparency data last reviewed 2026-10-02; not legal advice."
               },
               {
                 "name": "pay-placeholder",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched PAY RANGE REQUIRED|\\$_{2,}|\\[[^\\]]*pay range[^\\]]*\\]",
                 "withOnly": false,
                 "scored": true
               }
@@ -738,30 +761,30 @@
         ],
         "without": [
           {
-            "score": 0,
+            "score": 0.6,
             "passed": false,
             "turns": 1,
-            "costUsd": 0,
-            "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:29.429Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-7YKWAs/out/trace.jsonl",
+            "costUsd": 0.10230120000000001,
+            "judgeCostUsd": 0.0031890000000000043,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-03T01:23:19.566Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-rLQWZb/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
                 "name": "benefits",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched 401\\(?k\\)?",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "colorado",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched Colorado",
                 "withOnly": false,
                 "scored": true
               },
@@ -775,11 +798,17 @@
               },
               {
                 "name": "no-coded-words",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "grader threw: judge call failed: You've hit your session limit · resets 6:20pm (America/Cayenne)",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Here's a draft. I changed two things from your notes, and you need to fill in a salary range before it can be posted. Both are explained after the draft.\n\n---\n\n# Senior Backend Engineer\n**Fernhill Robotics · Denver, CO (Hybrid) or Remote (Mountain/Central Time)**\n\n## About Fernhill\nFernhill Robotics is a 40-person team building [one line on what you build]. We're small enough that every engineer shapes how the product and the team work.\n\n## The Role\nYou'll design, build and run the backend systems behind our robots. A big part of the job is services that take in large volumes of data from devices in the field and stay reliable under that load. You'll own systems from design through production, including sharing on-call, and you'll help set technical direction as we grow.\n\n## What You'll Do\n- Design and build backend services that handle high write volume\n- Own the reliability, observability and performance of the systems you ship\n- Take part in an on-call rotation and help make incident response better\n- Work with robotics, hardware and product teams to turn requirements into solid systems\n- Review code and help raise the engineering bar across the team\n\n## What You Need\n- Production experience in **Go, Rust or Java**\n- A track record of building and operating a system that handles **high write throughput**\n- **On-call** experience for production systems\n- Comfort working on your own and ramping up quickly in a small, fast-moving team\n\n## Nice to Have\n- Kafka or other event-streaming platforms\n- PostgreSQL at scale (partitioning, tuning, replication)\n- Background in robotics, IoT or telemetry\n- Experience mentoring other engineers\n\n## Where You'll Work\n- **Hybrid:** Denver office 2 days a week, or\n- **Remote:** open to candidates in the Mountain or Central time zones\n\n## Compensation & Benefits\n- **Salary:** $[MIN] – $[MAX] per year [+ equity/bonus, if any]\n- Medical, dental and vision insurance\n- 401(k) with a 4% company match\n- 20 days of paid time off\n\n**Application deadline:** [date]\n\nFernhill Robotics is an equal opportunity employer. We welcome applicants of all ages, backgrounds and experiences.\n\n---\n\n## Things to fix before posting\n\n**1. The salary range is legally required.** Colorado's Equal Pay for Equal Work Act says every Colorado posting, including remote roles open to Colorado residents, must include a good-faith pay range and a general description of benefits. Since 2024, the posting must also give the expected application deadline. Because you're open to Central time, check Illinois and Minnesota too. Both have their own pay-transparency laws that apply to employers your size. The posting shouldn't go live until the range is decided.\n\n**2. I took out the hiring manager's phrasing.** \"Young and hungry\" and \"digital native\" signal a preference for younger candidates. That can be cited as evidence of age discrimination under the federal ADEA and Colorado law, and it puts off strong senior applicants. Experienced engineers are exactly who you want for this role. I also dropped \"rockstar\" and \"fit right in,\" which come across as vague and exclusionary. The intent behind those phrases is still in the draft, expressed as job-related requirements: \"ramps up quickly,\" \"works on your own\" and \"fast-moving team.\" It's also worth a quick word with the hiring manager so the same framing doesn't come up in interviews.\n\nYou still need to add a one-line description of what Fernhill builds, the salary range and the application deadline."
               },
               {
                 "name": "pay-placeholder",
@@ -794,11 +823,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
-        "scoreWithout": 0,
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0.6,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 0.4
       }
     },
     {
@@ -857,15 +886,15 @@
       "arms": {
         "with": [
           {
-            "score": 0,
-            "passed": false,
-            "turns": 1,
-            "costUsd": 0,
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.163528,
             "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:31.667Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-j5nA4K/out/trace.jsonl",
+            "durationSeconds": 24,
+            "startedAt": "2026-10-03T01:23:35.894Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-AkIpGr/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -899,33 +928,33 @@
             "graders": [
               {
                 "name": "median-9",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched median[^\\n]{0,60}\\b9\\b",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "overdue",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched Gabe T\\.[^\\n]{0,100}\\b3 days",
                 "withOnly": false,
                 "scored": true
               },
               {
                 "name": "skill-fired",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "Skill called 0x (expected 1..∞)",
+                "explanation": "Skill called 1x (expected 1..∞)",
                 "withOnly": true,
                 "scored": false
               },
               {
                 "name": "stuck-21",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "pattern not found in last_message",
+                "explanation": "matched Taylor W\\.[^\\n]{0,80}\\b21 days",
                 "withOnly": false,
                 "scored": true
               }
@@ -936,13 +965,13 @@
           {
             "score": 0,
             "passed": false,
-            "turns": 1,
-            "costUsd": 0,
+            "turns": 4,
+            "costUsd": 0.1437486,
             "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:33.562Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-4jZ2dR/out/trace.jsonl",
+            "durationSeconds": 18,
+            "startedAt": "2026-10-03T01:23:39.390Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-OsYarx/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -974,11 +1003,11 @@
         ]
       },
       "aggregates": {
-        "score": 0,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 1
       }
     },
     {
@@ -1025,15 +1054,15 @@
       "arms": {
         "with": [
           {
-            "score": 0.5,
-            "passed": false,
-            "turns": 1,
-            "costUsd": 0,
-            "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:35.477Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-J5vQXw/out/trace.jsonl",
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.13543200000000002,
+            "judgeCostUsd": 0.0029790000000000025,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-03T01:23:52.526Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-yBZjri/out/trace.jsonl",
             "skippedPaidGraders": false,
             "mocks": {
               "servers": [
@@ -1075,17 +1104,23 @@
               },
               {
                 "name": "no-ranking",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "grader threw: judge call failed: You've hit your session limit · resets 6:20pm (America/Cayenne)",
+                "explanation": "judge votes: PASS PASS PASS",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I won't rank, score or recommend these candidates, because that decision belongs to your hiring team. Tools that score, rank or recommend candidates count as automated decision tools under NYC Local Law 144, the EU AI Act's high-risk rules, and state laws in Illinois and Colorado. Also, the evidence here is uneven, so any number would look more certain than it is.\n\nHere's what I can give you instead.\n\n### Evidence side by side (alphabetical; no ratings, no ordering by strength)\n\n| Candidate | Hiring manager screen | Technical screen / coding | System design | Ownership | Resolving disagreements | Gaps / missing scorecards |\n|---|---|---|---|---|---|---|\n| Alex R. | Not in notes | \"Solid test-first code\" | Not in notes | \"Good ownership story\" | \"Couldn't give an example of resolving a disagreement\" | No HM screen or system design results in the notes |\n| Morgan L. | \"Yes\" | Both tech screeners \"yes\"; \"clean tested code\" | Not in notes | Not in notes | Not in notes | No system design, ownership or disagreement evidence in the notes |\n| Priya N. | Not in notes | \"Strong yes\" | Split: 2 positive vs 2 negative | Not in notes | Not in notes | One scorecard missing; no HM screen in the notes |\n\nNone of the notes contained remarks unrelated to the job, so nothing was removed.\n\n### What would make this decidable\n- **The missing scorecard for Priya.** Get it in before anyone discusses her.\n- **Uneven coverage.** Each candidate has evidence on different areas. Nobody has notes on all of them, so right now you'd be comparing different things for each person. Check the full scorecards for anything the notes left out.\n- **Priya's 2-2 system design split.** The four interviewers should explain their reasoning against the rubric for that skill.\n- **Alex's disagreement answer.** Decide whether this is a bar-level gap for the role or one weak answer. Then decide whether to probe it again, for example in a reference check or a follow-up conversation.\n\n### Debrief plan\n1. Hold one debrief per candidate, measured against the role's competencies. I can put together a packet for each one with `/debrief-prep` if you share their scorecards.\n2. Decide each candidate against the bar, not against each other.\n3. Interviewers share their evidence first and vote last, so early opinions don't sway the room.\n\n### For the CEO\nI can draft a short status note instead of a ranking. It would cover:\n- That three candidates finished the loop\n- What's still pending (Priya's scorecard, the missing areas listed above)\n- When the panel will hold its debriefs and decide\n\nIt wouldn't include a ranking or a hire/no-hire call. Want me to draft it?\n\nAI-drafted, human decision required."
               },
               {
                 "name": "skill-fired",
-                "passed": false,
+                "passed": true,
                 "weight": 1,
-                "explanation": "Skill called 0x (expected 1..∞)",
+                "explanation": "Skill called 1x (expected 1..∞)",
                 "withOnly": true,
                 "scored": false
               }
@@ -1097,12 +1132,12 @@
             "score": 0.5,
             "passed": false,
             "turns": 1,
-            "costUsd": 0,
-            "judgeCostUsd": 0,
-            "durationSeconds": 2,
-            "startedAt": "2026-10-02T19:09:37.951Z",
-            "error": "exit 1: You've hit your session limit · resets 6:20pm (America/Cayenne)",
-            "tracePath": "/tmp/claude-eval-lp8ShN/out/trace.jsonl",
+            "costUsd": 0.0953452,
+            "judgeCostUsd": 0.0026250000000000023,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-03T01:23:57.273Z",
+            "error": null,
+            "tracePath": "/tmp/claude-eval-sKpf9W/out/trace.jsonl",
             "skippedPaidGraders": false,
             "graders": [
               {
@@ -1117,28 +1152,34 @@
                 "name": "no-ranking",
                 "passed": false,
                 "weight": 1,
-                "explanation": "grader threw: judge call failed: You've hit your session limit · resets 6:20pm (America/Cayenne)",
+                "explanation": "judge votes: FAIL FAIL FAIL",
                 "withOnly": false,
-                "scored": true
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can give you a provisional read, but I wouldn't send scores out of 10 to the CEO yet. The notes don't cover the same things for each candidate, so any number I give would be made up and look more precise than it is.\n\n**Why these can't be compared yet**\n\n| | Hiring manager screen | Tech screen | System design | Behavioral | Code quality |\n|---|---|---|---|---|---|\n| Morgan L. | Yes | 2× yes | Not mentioned | Not mentioned | Clean, tested |\n| Priya N. | Not mentioned | Strong yes | Split 2–2, one scorecard missing | Not mentioned | Not mentioned |\n| Alex R. | Not mentioned | Not mentioned | Not mentioned | Mixed (ownership good, no example of resolving a disagreement) | Solid, test-first |\n\nEach candidate was assessed on mostly different things. A missing entry might mean \"didn't happen\" or just \"not in your notes,\" and I can't tell which.\n\n**Provisional read (low confidence)**\n\n1. **Morgan L.**: Every signal you listed is positive and the reviewers agree. Nothing negative was recorded, but you didn't mention system design, and for a senior backend role that's a big gap.\n2. **Priya N.**: She has the strongest single signal (strong yes on the tech screen), but system design is unresolved. The missing scorecard could break the 2–2 tie, and it matters more than anything else on this list.\n3. **Alex R.**: Strong code. The behavioral gap is real but small: one answer on one question. Your notes don't mention any technical interview beyond the code.\n\nThis order could easily change. If Priya's missing scorecard comes back a strong yes, she could reasonably be #1.\n\n**Before this goes to the CEO**\n\n- Get the missing system design scorecard for Priya.\n- Check whether Morgan and Alex did system design, and how it went.\n- Have the interviewers score each candidate against the same rubric for this role (e.g., system design, coding, ownership, collaboration). Then you can add up real scores instead of guessing.\n- If possible, hold a short debrief where the interviewers make a hire/no-hire call on each candidate. That's more useful to a CEO than a ranking.\n\nIf you send me the full scorecards, or even per-interviewer ratings, I can build a consistent comparison and a summary for the CEO with scores you can defend."
               }
             ]
           }
         ]
       },
       "aggregates": {
-        "score": 0.5,
-        "passRate": 0,
+        "score": 1,
+        "passRate": 1,
         "scoreWithout": 0.5,
         "passRateWithout": 0,
-        "delta": 0
+        "delta": 0.5
       }
     }
   ],
   "aggregates": {
     "casesTotal": 7,
     "casesPassed": 7,
-    "overallScore": 0.5,
-    "overallPassRate": 0.42857142857142855,
-    "meanDelta": 0.2857142857142857
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.5571428571428572
   }
 }

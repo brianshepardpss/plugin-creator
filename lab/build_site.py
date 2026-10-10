@@ -63,7 +63,8 @@ def page(title, desc, body, name="index"):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">
 <style>{CSS}</style>{posthog(name)}</head><body><div class="wrap">{body}
-<footer>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
+<footer><a href="https://brianshepardpss.github.io/plugin-creator/privacy.html">Privacy</a> ·
+<a href="https://brianshepardpss.github.io/plugin-creator/terms.html">Terms</a><br>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
 Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>
 </div></body></html>
 """
@@ -162,6 +163,55 @@ Ideas or problems? Open an issue there, or ask the plugin's request skill to dra
     return page(m["displayName"], m["description"], body, name=slug)
 
 
+def privacy():
+    body = """<p><a href="index.html">All plugins</a></p><h1>Privacy</h1>
+<p class="lead">Applies to every plugin published by Press Start Studios in the plugin-creator
+marketplace, and to this website. Last updated 2026-10-10.</p>
+<h2>The plugins</h2>
+<ul>
+<li>The plugins have no telemetry and no servers of their own. They collect nothing about you.</li>
+<li>Your files and data stay where you keep them: on your machine, in your Claude conversation, and in
+any service you connect yourself (for example your own CRM, ATS, help desk or GitLab), under your
+permissions there.</li>
+<li>A few plugins call public APIs, and only with the inputs named in their README: Grant Desk (ProPublica
+Nonprofit Explorer, the GivingTuesday 990 data lake, Grants.gov: EINs, keywords and state codes only),
+Plugin Creator and Plugin Studio (GitHub, Hacker News, Smithery and npm search: search terms and your own
+repository names only). Each plugin's README lists exactly what it sends.</li>
+<li>Your conversations with Claude are governed by Anthropic's terms and privacy policy, not this one.</li>
+<li>The request skill only drafts feedback text. Nothing is sent unless you choose to open the GitHub
+issue link or send the email yourself.</li>
+</ul>
+<h2>This website</h2>
+<ul>
+<li>We use PostHog for anonymous, cookieless analytics: page views and clicks on download, install and
+source links. No cookies or local storage are set and no personal profile is built.</li>
+<li>If you join the built-for-you waitlist, we store the email, role and task you type, only to contact
+you about that service. Ask us to delete it at any time.</li>
+</ul>
+<h2>Contact</h2><p>brian@press-start-studios.com</p>"""
+    return page("Privacy", "Privacy for Press Start Studios Claude plugins and this site.", body, name="privacy")
+
+
+def terms():
+    body = """<p><a href="index.html">All plugins</a></p><h1>Terms</h1>
+<p class="lead">Applies to every plugin published by Press Start Studios in the plugin-creator
+marketplace. Last updated 2026-10-10.</p>
+<ul>
+<li>The plugins are free and open source under the MIT license, provided "as is", without warranty of any
+kind, as the license in each repository states.</li>
+<li>Plugins produce drafts and calculations to help you work. You remain responsible for what you send,
+publish, sign, price or decide. They are not legal, appraisal, employment, food-safety, financial,
+engineering or tax advice; check contracts, laws and figures yourself or with a professional.</li>
+<li>Plugins never act on outside systems without your confirmation. Review every proposed change before
+approving it.</li>
+<li>Vendor and product names are used only to describe compatibility. We are not affiliated with or
+endorsed by any vendor named, or by Anthropic.</li>
+<li>Your use of Claude is governed by Anthropic's own terms.</li>
+</ul>
+<h2>Contact</h2><p>brian@press-start-studios.com</p>"""
+    return page("Terms", "Terms for Press Start Studios Claude plugins.", body, name="terms")
+
+
 def cards(entries):
     out = []
     for e in entries:
@@ -242,6 +292,8 @@ if __name__ == "__main__":
     site.mkdir(exist_ok=True)
     (site / "index.html").write_text(index())
     (site / "built-for-you.html").write_text(built_for_you())
+    (site / "privacy.html").write_text(privacy())
+    (site / "terms.html").write_text(terms())
     (site / "p").mkdir(exist_ok=True)
     for e in REG["plugins"]:
         if (ROOT / "plugins" / e["slug"] / ".claude-plugin" / "plugin.json").exists():

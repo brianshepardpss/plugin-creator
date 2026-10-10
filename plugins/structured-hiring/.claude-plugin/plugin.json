@@ -1,7 +1,7 @@
 {
   "name": "structured-hiring",
   "displayName": "Structured Hiring Kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Structured hiring for founders, hiring managers and recruiters: debrief packets from scorecards, interview kits, pay-transparent job descriptions, pipeline updates and outreach drafts, from your ATS or a paste. It never scores or ranks candidates.",
   "author": {
     "name": "Press Start Studios",
@@ -25,5 +25,9 @@
     "./skills/"
   ],
   "homepage": "https://github.com/brianshepardpss/structured-hiring",
-  "repository": "https://github.com/brianshepardpss/structured-hiring"
+  "repository": "https://github.com/brianshepardpss/structured-hiring",
+  "documentationUrl": "https://brianshepardpss.github.io/plugin-creator/p/structured-hiring.html",
+  "supportUrl": "https://github.com/brianshepardpss/structured-hiring/issues",
+  "privacyPolicyUrl": "https://brianshepardpss.github.io/plugin-creator/privacy.html",
+  "termsOfServiceUrl": "https://brianshepardpss.github.io/plugin-creator/terms.html"
 }

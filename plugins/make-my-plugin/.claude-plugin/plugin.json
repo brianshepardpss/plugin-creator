@@ -1,7 +1,7 @@
 {
   "name": "make-my-plugin",
   "displayName": "Make My Plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn the way you already do a recurring task into your own Claude plugin, no coding. Claude interviews you, learns from two or three past examples of your work, and hands you a ready-to-install plugin that does it your way every time.",
   "author": {
     "name": "Press Start Studios",
@@ -21,5 +21,9 @@
   ],
   "skills": [
     "./skills/"
-  ]
+  ],
+  "documentationUrl": "https://brianshepardpss.github.io/plugin-creator/p/make-my-plugin.html",
+  "supportUrl": "https://github.com/brianshepardpss/make-my-plugin/issues",
+  "privacyPolicyUrl": "https://brianshepardpss.github.io/plugin-creator/privacy.html",
+  "termsOfServiceUrl": "https://brianshepardpss.github.io/plugin-creator/terms.html"
 }

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Built For You</title><meta name="description" content="Turn your own examples into a one-click Claude assistant.">
+<title>Terms</title><meta name="description" content="Terms for Press Start Studios Claude plugins.">
 <style>
 :root{--bg:#fbfaf8;--fg:#1b1a19;--mute:#6b6862;--line:#e6e2dc;--card:#fff;--accent:#c2410c;--chip:#f3efe9}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#151413;--fg:#efece7;--mute:#a19c94;--line:#2c2a27;--card:#1c1b19;--accent:#fb923c;--chip:#262421}}
@@ -24,39 +24,27 @@ table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;p
 </style><script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset identify get_distinct_id".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
 posthog.init("phc_BzXqugUAET4AdrQFPQxXX6Yk5P9jqHSqKcqY4uutaLed", {api_host: "https://us.i.posthog.com", person_profiles: "never", persistence: "memory"});
-posthog.register({site_page: "built-for-you"});
+posthog.register({site_page: "terms"});
 document.addEventListener("click", function (e) {
   var el = e.target.closest("[data-track]");
   if (el) posthog.capture(el.getAttribute("data-track"), {plugin: el.getAttribute("data-plugin") || null, href: el.getAttribute("href") || null});
 });
-</script></head><body><div class="wrap"><h1>Your way of doing it, as a one-click Claude assistant</h1>
-<p class="lead">Send us two or three past examples of something you write or prepare over and over:
-deposit letters, client recaps, quotes, lesson plans, inspection reports. We turn them into a tested
-Claude plugin that does it your way, then hand you the file. No coding, and your examples stay private.</p>
-<h2>How it works</h2>
-<div class="grid">
-<div class="card"><h3>1. Send examples</h3><p>Two or three finished examples, with anything private removed.</p></div>
-<div class="card"><h3>2. We build and test</h3><p>We build the plugin and test it against your own examples until it matches.</p></div>
-<div class="card"><h3>3. Install in one click</h3><p>You get a .plugin file for Claude Cowork or claude.ai. Ask for changes any time.</p></div>
-</div>
-<h2>Join the waitlist</h2><form id="wl"><input name="email" type="email" required placeholder="you@business.com" aria-label="Email">
-<input name="role" placeholder="What you do (e.g. property manager)" aria-label="Role">
-<textarea name="task" rows="3" placeholder="The task you repeat every week" aria-label="Task"></textarea>
-<button class="btn" type="submit">Join the waitlist</button>
-<p style="font-size:13px;color:var(--mute);margin:0">We store what you type here to contact you about this service, nothing else.</p></form>
-<p class="thanks" id="wl-thanks">Thanks, you're on the list. We'll email you before anything is built.</p>
-<script>
-document.getElementById("wl").addEventListener("submit", function (e) {
-  e.preventDefault();
-  var f = new FormData(e.target);
-  posthog.capture("waitlist_signup", {list: "built-for-you", email: f.get("email"), role: f.get("role"), task: f.get("task")});
-  e.target.style.display = "none";
-  document.getElementById("wl-thanks").style.display = "block";
-});
-</script>
-<p class="lead" style="margin-top:20px">Prefer to do it yourself? The free
-<a href="https://github.com/brianshepardpss/make-my-plugin?utm_source=site&utm_campaign=built-for-you">Make My Plugin</a>
-does the same interview inside Claude.</p>
+</script></head><body><div class="wrap"><p><a href="index.html">All plugins</a></p><h1>Terms</h1>
+<p class="lead">Applies to every plugin published by Press Start Studios in the plugin-creator
+marketplace. Last updated 2026-10-10.</p>
+<ul>
+<li>The plugins are free and open source under the MIT license, provided "as is", without warranty of any
+kind, as the license in each repository states.</li>
+<li>Plugins produce drafts and calculations to help you work. You remain responsible for what you send,
+publish, sign, price or decide. They are not legal, appraisal, employment, food-safety, financial,
+engineering or tax advice; check contracts, laws and figures yourself or with a professional.</li>
+<li>Plugins never act on outside systems without your confirmation. Review every proposed change before
+approving it.</li>
+<li>Vendor and product names are used only to describe compatibility. We are not affiliated with or
+endorsed by any vendor named, or by Anthropic.</li>
+<li>Your use of Claude is governed by Anthropic's own terms.</li>
+</ul>
+<h2>Contact</h2><p>brian@press-start-studios.com</p>
 <footer><a href="https://brianshepardpss.github.io/plugin-creator/privacy.html">Privacy</a> ·
 <a href="https://brianshepardpss.github.io/plugin-creator/terms.html">Terms</a><br>Made by Press Start Studios. Independent project; not affiliated with or endorsed by Anthropic.
 Plugins are MIT licensed. Contact: <a href="mailto:brian@press-start-studios.com">brian@press-start-studios.com</a></footer>

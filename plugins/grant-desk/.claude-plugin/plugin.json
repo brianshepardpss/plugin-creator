@@ -1,7 +1,7 @@
 {
   "name": "grant-desk",
   "displayName": "Grant Desk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Grant writing desk for small nonprofits: free funder research from public 990-PF grantee lists and Grants.gov, source-tagged proposal drafts that never invent a number, logic models, deadline tracking and donor thank-yous.",
   "author": {
     "name": "Press Start Studios",
@@ -23,5 +23,9 @@
     "./skills/"
   ],
   "homepage": "https://github.com/brianshepardpss/grant-desk",
-  "repository": "https://github.com/brianshepardpss/grant-desk"
+  "repository": "https://github.com/brianshepardpss/grant-desk",
+  "documentationUrl": "https://brianshepardpss.github.io/plugin-creator/p/grant-desk.html",
+  "supportUrl": "https://github.com/brianshepardpss/grant-desk/issues",
+  "privacyPolicyUrl": "https://brianshepardpss.github.io/plugin-creator/privacy.html",
+  "termsOfServiceUrl": "https://brianshepardpss.github.io/plugin-creator/terms.html"
 }
